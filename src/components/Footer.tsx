@@ -1,17 +1,13 @@
-
 import React from "react";
 import { ChevronRight, ArrowUp } from "lucide-react";
-
 const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
-
-  return (
-    <footer className="bg-gizelo-800 text-white pt-16 pb-8">
+  return <footer className="bg-gizelo-800 text-white pt-16 pb-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div className="lg:col-span-1">
@@ -21,59 +17,22 @@ const Footer: React.FC = () => {
             <p className="text-gizelo-300 mb-6 max-w-xs">
               Crafting exceptional digital experiences through innovative web development solutions.
             </p>
-            <button
-              onClick={scrollToTop}
-              className="inline-flex items-center text-sm font-medium text-white hover:text-gizelo-200 transition-colors"
-            >
+            <button onClick={scrollToTop} className="inline-flex items-center text-sm font-medium text-white hover:text-gizelo-200 transition-colors">
               Back to Top <ArrowUp className="ml-1 h-4 w-4" />
             </button>
           </div>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-3">
-              {[
-                "Web Development",
-                "Backend Development",
-                "Responsive Design",
-                "UI/UX Design",
-                "SEO Optimization",
-                "Digital Strategy",
-              ].map((service) => (
-                <li key={service}>
-                  <a
-                    href="#services"
-                    className="text-gizelo-300 hover:text-white transition-colors inline-flex items-center"
-                  >
-                    <ChevronRight className="h-3 w-3 mr-1" />
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
-              {[
-                "About Us",
-                "Our Team",
-                "Careers",
-                "Blog",
-                "Case Studies",
-                "Contact",
-              ].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="text-gizelo-300 hover:text-white transition-colors inline-flex items-center"
-                  >
+              {["About Us", "Our Team", "Careers", "Blog", "Case Studies", "Contact"].map(item => <li key={item}>
+                  <a href="#" className="text-gizelo-300 hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight className="h-3 w-3 mr-1" />
                     {item}
                   </a>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -83,11 +42,7 @@ const Footer: React.FC = () => {
               Subscribe to our newsletter for the latest updates and insights.
             </p>
             <div className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="bg-gizelo-700 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-gizelo-500 flex-grow"
-              />
+              <input type="email" placeholder="Your email" className="bg-gizelo-700 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-gizelo-500 flex-grow" />
               <button className="bg-white text-gizelo-800 px-4 py-2 rounded-r-lg font-medium hover:bg-gizelo-100 transition-colors">
                 Subscribe
               </button>
@@ -112,8 +67,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
