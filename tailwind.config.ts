@@ -58,17 +58,17 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				gizelo: {
-					DEFAULT: '#232323',
-					50: '#f8f8f8',
-					100: '#e9e9e9',
-					200: '#d4d4d4',
-					300: '#b0b0b0',
-					400: '#7d7d7d',
-					500: '#525252',
-					600: '#3d3d3d',
-					700: '#323232',
-					800: '#232323',
-					900: '#171717',
+					DEFAULT: '#0a0a0a',
+					50: '#f0f0f0',
+					100: '#e0e0e0',
+					200: '#c2c2c2',
+					300: '#a3a3a3',
+					400: '#858585',
+					500: '#666666',
+					600: '#525252',
+					700: '#333333',
+					800: '#1a1a1a',
+					900: '#0a0a0a',
 				}
 			},
 			borderRadius: {
@@ -78,7 +78,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				display: ['Playfair Display', 'serif']
+				display: ['Space Grotesk', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {

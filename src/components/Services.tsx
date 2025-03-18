@@ -14,11 +14,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
   return (
     <FadeIn delay={delay} className="h-full">
       <div className="glass-card flex flex-col h-full">
-        <div className="bg-gizelo-100 rounded-xl p-3 w-fit mb-5">
-          <Icon className="h-6 w-6 text-gizelo-800" strokeWidth={1.5} />
+        <div className="bg-white/10 rounded-xl p-3 w-fit mb-5">
+          <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
         </div>
-        <h3 className="text-xl font-semibold mb-3 text-gizelo-800">{title}</h3>
-        <p className="text-gizelo-600 flex-grow">{description}</p>
+        <h3 className="text-xl font-semibold mb-3 text-white">{title}</h3>
+        <p className="text-slate-400 flex-grow">{description}</p>
       </div>
     </FadeIn>
   );
@@ -59,19 +59,19 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-white">
+    <section id="services" className="py-16 md:py-24 bg-black">
       <div className="container">
         <div className="text-center mb-16">
           <FadeIn>
-            <p className="text-gizelo-600 text-sm font-medium uppercase tracking-wider mb-3">Our Services</p>
+            <p className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-3">Our Services</p>
           </FadeIn>
           <FadeIn delay={200}>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gizelo-900">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gradient">
               What We Offer
             </h2>
           </FadeIn>
           <FadeIn delay={400}>
-            <p className="text-gizelo-600 max-w-2xl mx-auto">
+            <p className="text-slate-400 max-w-2xl mx-auto">
               We provide comprehensive web development services to help you build and grow your online presence.
             </p>
           </FadeIn>

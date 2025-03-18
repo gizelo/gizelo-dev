@@ -59,34 +59,34 @@ const Projects: React.FC = () => {
     : projectsData.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-white">
+    <section id="projects" className="py-16 md:py-24 bg-black">
       <div className="container">
         <div className="text-center mb-16">
           <FadeIn>
-            <p className="text-gizelo-600 text-sm font-medium uppercase tracking-wider mb-3">Our Portfolio</p>
+            <p className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-3">Our Portfolio</p>
           </FadeIn>
           <FadeIn delay={200}>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gizelo-900">
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gradient">
               Recent Projects
             </h2>
           </FadeIn>
           <FadeIn delay={400}>
-            <p className="text-gizelo-600 max-w-2xl mx-auto">
+            <p className="text-slate-400 max-w-2xl mx-auto">
               Explore our latest work showcasing our expertise in creating stunning, functional websites.
             </p>
           </FadeIn>
         </div>
         
         <div className="flex justify-center mb-10 overflow-x-auto">
-          <div className="flex space-x-2 p-1 bg-gizelo-100 rounded-lg">
+          <div className="flex space-x-2 p-1 bg-white/5 rounded-lg">
             {projectCategories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-md transition-all text-sm font-medium ${
                   activeCategory === category
-                    ? "bg-white shadow-sm text-gizelo-800"
-                    : "text-gizelo-600 hover:text-gizelo-800"
+                    ? "bg-white text-black shadow-sm"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
                 {category}
@@ -98,9 +98,9 @@ const Projects: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <FadeIn key={project.id} delay={200 + index * 100}>
-              <div className="group rounded-xl overflow-hidden bg-white border border-gizelo-200 shadow-sm transition-all duration-300 hover:shadow-md">
+              <div className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 transition-all duration-300 hover:border-white/20">
                 <div className="aspect-video relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gizelo-800/10 group-hover:bg-gizelo-800/20 transition-all z-10"></div>
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all z-10"></div>
                   <img
                     src={project.imageUrl}
                     alt={project.title}
@@ -109,15 +109,15 @@ const Projects: React.FC = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-semibold text-gizelo-800">{project.title}</h3>
-                    <span className="text-xs bg-gizelo-100 text-gizelo-600 px-2 py-1 rounded-full">
+                    <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+                    <span className="text-xs bg-white/10 text-slate-300 px-2 py-1 rounded-full">
                       {project.category}
                     </span>
                   </div>
-                  <p className="text-gizelo-600 text-sm mb-4">{project.description}</p>
+                  <p className="text-slate-400 text-sm mb-4">{project.description}</p>
                   <a
                     href="#"
-                    className="inline-flex items-center text-sm font-medium text-gizelo-800 hover:text-gizelo-900"
+                    className="inline-flex items-center text-sm font-medium text-white hover:text-slate-300"
                   >
                     View Project
                     <ArrowRight className="ml-1 h-4 w-4" />

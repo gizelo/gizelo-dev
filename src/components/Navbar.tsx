@@ -33,13 +33,13 @@ export const Navbar: React.FC = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
         scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          ? "bg-black/80 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
       )}
     >
       <div className="container flex items-center justify-between">
         <a href="#home" className="relative z-50">
-          <span className="font-display text-2xl font-bold tracking-tight text-gizelo-800">
+          <span className="font-display text-2xl font-bold tracking-tight text-white">
             gizelo
           </span>
         </a>
@@ -49,13 +49,13 @@ export const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-gizelo-700 font-medium text-sm tracking-wide hover:text-gizelo-900 transition-colors link-underline"
+              className="text-slate-300 font-medium text-sm tracking-wide hover:text-white transition-colors link-underline"
             >
               {link.name}
             </a>
           ))}
           <Button
-            className="bg-gizelo-800 hover:bg-gizelo-900 text-white rounded-lg px-5"
+            className="bg-white hover:bg-slate-200 text-black rounded-lg px-5"
             onClick={() => window.location.href = "#contact"}
           >
             Get in Touch
@@ -65,7 +65,7 @@ export const Navbar: React.FC = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="md:hidden text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -79,7 +79,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile menu */}
         <div
           className={cn(
-            "fixed inset-0 bg-white z-40 flex flex-col justify-center items-center gap-8 transition-transform duration-300 ease-in-out",
+            "fixed inset-0 bg-black z-40 flex flex-col justify-center items-center gap-8 transition-transform duration-300 ease-in-out",
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           )}
         >
@@ -87,14 +87,14 @@ export const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-gizelo-800 font-medium text-xl"
+              className="text-white font-medium text-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}
             </a>
           ))}
           <Button
-            className="mt-4 bg-gizelo-800 hover:bg-gizelo-900 text-white rounded-lg"
+            className="mt-4 bg-white hover:bg-slate-200 text-black rounded-lg"
             onClick={() => {
               setMobileMenuOpen(false);
               window.location.href = "#contact";
