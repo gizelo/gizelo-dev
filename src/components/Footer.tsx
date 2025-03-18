@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   };
   return <footer className="bg-gizelo-800 text-white pt-16 pb-8">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+        <div className="flex grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div className="lg:col-span-1">
             <h3 className="font-display text-2xl font-bold tracking-tight mb-4">
               gizelo
