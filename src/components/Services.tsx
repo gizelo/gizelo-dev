@@ -1,6 +1,12 @@
-
 import React from "react";
-import { Code, Palette, Smartphone, Lightbulb, LineChart, Database } from "lucide-react";
+import {
+  Code,
+  Palette,
+  Smartphone,
+  Lightbulb,
+  LineChart,
+  Database,
+} from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 
 interface ServiceCardProps {
@@ -10,7 +16,12 @@ interface ServiceCardProps {
   delay: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Icon, delay }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  title,
+  description,
+  icon: Icon,
+  delay,
+}) => {
   return (
     <FadeIn delay={delay} className="h-full">
       <div className="glass-card flex flex-col h-full">
@@ -29,32 +40,38 @@ const Services: React.FC = () => {
     {
       icon: Code,
       title: "Web Development",
-      description: "Custom websites and web applications built with modern technologies and best practices.",
+      description:
+        "Custom websites and web applications built with modern technologies and best practices.",
     },
     {
       icon: Database,
       title: "Backend Development",
-      description: "Robust and scalable backend systems with secure API integrations and database architecture.",
+      description:
+        "Robust and scalable backend systems with secure API integrations and database architecture.",
     },
     {
       icon: Smartphone,
       title: "Responsive Design",
-      description: "Beautiful interfaces that work flawlessly across all devices and screen sizes.",
+      description:
+        "Beautiful interfaces that work flawlessly across all devices and screen sizes.",
     },
     {
       icon: Palette,
       title: "UI/UX Design",
-      description: "Intuitive user experiences and stunning visual designs that engage and convert visitors.",
+      description:
+        "Intuitive user experiences and stunning visual designs that engage and convert visitors.",
     },
     {
       icon: LineChart,
       title: "SEO Optimization",
-      description: "Strategic optimization to increase visibility and drive organic traffic to your website.",
+      description:
+        "Strategic optimization to increase visibility and drive organic traffic to your website.",
     },
     {
       icon: Lightbulb,
       title: "Digital Strategy",
-      description: "Comprehensive digital strategies tailored to achieve your business goals and objectives.",
+      description:
+        "Comprehensive digital strategies tailored to achieve your business goals and objectives.",
     },
   ];
 
@@ -63,16 +80,19 @@ const Services: React.FC = () => {
       <div className="container">
         <div className="text-center mb-16">
           <FadeIn>
-            <p className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-3">Our Services</p>
+            <p className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-3">
+              Our Services
+            </p>
           </FadeIn>
           <FadeIn delay={200}>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gradient">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
               What We Offer
             </h2>
           </FadeIn>
           <FadeIn delay={400}>
             <p className="text-slate-400 max-w-2xl mx-auto">
-              We provide comprehensive web development services to help you build and grow your online presence.
+              We provide comprehensive web development services to help you
+              build and grow your online presence.
             </p>
           </FadeIn>
         </div>

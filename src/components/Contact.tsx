@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,7 +27,7 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -37,7 +36,7 @@ const Contact: React.FC = () => {
         title: "Message sent!",
         description: "We'll get back to you as soon as possible.",
       });
-      
+
       // Reset form after a delay
       setTimeout(() => {
         setFormState({
@@ -52,7 +51,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-black relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-16 md:py-24 bg-black relative overflow-hidden"
+    >
       <div className="container">
         <div className="text-center mb-16">
           <FadeIn>
@@ -61,13 +63,14 @@ const Contact: React.FC = () => {
             </p>
           </FadeIn>
           <FadeIn delay={200}>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-gradient">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
               Contact Us
             </h2>
           </FadeIn>
           <FadeIn delay={400}>
             <p className="text-slate-400 max-w-2xl mx-auto">
-              Have a project in mind? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+              Have a project in mind? We'd love to hear from you. Fill out the
+              form below and we'll get back to you as soon as possible.
             </p>
           </FadeIn>
         </div>
@@ -78,7 +81,7 @@ const Contact: React.FC = () => {
               <h3 className="text-xl font-semibold mb-6 text-white">
                 Send Us a Message
               </h3>
-              
+
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-8">
                   <CheckCircle2 className="h-16 w-16 text-green-500 mb-4" />
@@ -151,7 +154,7 @@ const Contact: React.FC = () => {
               <h3 className="text-xl font-semibold mb-6 text-white">
                 Contact Information
               </h3>
-              
+
               <div className="space-y-8">
                 <div className="flex items-start">
                   <div className="bg-white/10 p-3 rounded-lg mr-4">
@@ -165,7 +168,7 @@ const Contact: React.FC = () => {
                     <p className="text-slate-400">support@gizelo.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="bg-white/10 p-3 rounded-lg mr-4">
                     <Phone className="h-5 w-5 text-white" />
@@ -178,7 +181,7 @@ const Contact: React.FC = () => {
                     <p className="text-slate-400">+1 (555) 987-6543</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="bg-white/10 p-3 rounded-lg mr-4">
                     <MapPin className="h-5 w-5 text-white" />
@@ -188,26 +191,36 @@ const Contact: React.FC = () => {
                       Visit Us
                     </h4>
                     <p className="text-slate-400">
-                      123 Innovation Street<br />
-                      San Francisco, CA 94103<br />
+                      123 Innovation Street
+                      <br />
+                      San Francisco, CA 94103
+                      <br />
                       United States
                     </p>
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-10">
                 <h4 className="text-base font-medium text-white mb-4">
                   Follow Us
                 </h4>
                 <div className="flex space-x-4">
-                  {["twitter", "facebook", "instagram", "linkedin", "github"].map((social) => (
+                  {[
+                    "twitter",
+                    "facebook",
+                    "instagram",
+                    "linkedin",
+                    "github",
+                  ].map((social) => (
                     <a
                       key={social}
                       href="#"
                       className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-white/20"
                     >
-                      <span className="text-white capitalize text-sm">{social.charAt(0).toUpperCase()}</span>
+                      <span className="text-white capitalize text-sm">
+                        {social.charAt(0).toUpperCase()}
+                      </span>
                     </a>
                   ))}
                 </div>

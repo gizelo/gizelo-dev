@@ -1,11 +1,9 @@
-
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
   { name: "Process", href: "#process" },
   { name: "Projects", href: "#projects" },
@@ -39,8 +37,8 @@ export const Navbar: React.FC = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#home" className="relative z-50">
-          <span className="font-display text-2xl font-bold tracking-tight text-white">
-            gizelo
+          <span className="text-2xl font-bold tracking-tight text-white">
+            gizelo.
           </span>
         </a>
 
@@ -56,7 +54,7 @@ export const Navbar: React.FC = () => {
           ))}
           <Button
             className="bg-white hover:bg-slate-200 text-black rounded-lg px-5"
-            onClick={() => window.location.href = "#contact"}
+            onClick={() => (window.location.href = "#contact")}
           >
             Get in Touch
           </Button>
