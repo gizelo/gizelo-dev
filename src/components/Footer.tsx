@@ -1,7 +1,5 @@
-
 import React from "react";
 import { ChevronRight, ArrowUp } from "lucide-react";
-
 const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
@@ -9,9 +7,7 @@ const Footer: React.FC = () => {
       behavior: "smooth"
     });
   };
-  
-  return (
-    <footer className="bg-gizelo-800 text-white pt-16 pb-8">
+  return <footer className="bg-gizelo-800 text-white pt-16 pb-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
           <div className="lg:col-span-1">
@@ -26,19 +22,7 @@ const Footer: React.FC = () => {
             </button>
           </div>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {["About Us", "Our Team", "Careers", "Blog", "Case Studies", "Contact"].map(item => (
-                <li key={item}>
-                  <a href="#" className="text-gizelo-300 hover:text-white transition-colors inline-flex items-center">
-                    <ChevronRight className="h-3 w-3 mr-1" />
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
@@ -71,8 +55,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
