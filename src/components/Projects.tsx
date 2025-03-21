@@ -77,7 +77,7 @@ const Projects: React.FC = () => {
       : projectsData.filter((project) => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-16 md:py-24 bg-black">
+    <section id="projects" className="py-28 bg-black">
       <div className="container">
         <div className="text-center mb-16">
           <FadeIn>

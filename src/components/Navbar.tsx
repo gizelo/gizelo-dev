@@ -37,9 +37,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#home" className="relative z-50">
-          <span className="text-2xl font-bold tracking-tight text-white">
-            gizelo.
-          </span>
+          <img src="/gizelo-logo-full.svg" alt="Logo" className="h-8 md:h-12" />
         </a>
 
         <nav className="hidden md:flex items-center space-x-8">

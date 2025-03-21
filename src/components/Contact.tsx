@@ -51,10 +51,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-16 md:py-24 bg-black relative overflow-hidden"
-    >
+    <section id="contact" className="py-28 bg-black relative overflow-hidden">
       <div className="container">
         <div className="text-center mb-16">
           <FadeIn>

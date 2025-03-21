@@ -42,7 +42,7 @@ const Process: React.FC = () => {
   ];
 
   return (
-    <section id="process" className="py-16 md:py-24 bg-black/50">
+    <section id="process" className="py-28 bg-black/50">
       <div className="container">
         <div className="text-center mb-16">
           <FadeIn>

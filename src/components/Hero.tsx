@@ -15,33 +15,14 @@ const Hero: React.FC = () => {
 
       <div className="container relative z-10 flex-1 flex items-center">
         <div className="max-w-4xl mx-auto text-center">
-          {/* <FadeIn delay={200}>
-            <p className="inline-block mb-3 px-3 py-1 rounded-full bg-white/10 text-slate-300 text-sm font-medium">
-              Web Development Studio
-            </p>
-          </FadeIn> */}
-
           <FadeIn delay={200}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-gradient">
-              F*ck code
-            </h1>
-          </FadeIn>
-          <FadeIn delay={1000}>
-            <h1 className="text-6xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-gradient">
-              We build products.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gradient">
+              Build Your Web Solution.
             </h1>
           </FadeIn>
 
-          {/* <FadeIn delay={600}>
-            <p className="text-slate-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-              We design and develop exceptional web solutions that help
-              businesses stand out in the digital landscape. Clean code,
-              beautiful design, amazing results.
-            </p>
-          </FadeIn> */}
-
-          <FadeIn delay={1000}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <FadeIn delay={800}>
               <Button
                 className="bg-white hover:bg-slate-200 text-black rounded-lg px-6 py-6 text-base"
                 onClick={() => (window.location.href = "#projects")}
@@ -49,6 +30,8 @@ const Hero: React.FC = () => {
                 View Cases
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+            </FadeIn>
+            <FadeIn delay={1000}>
               <Button
                 variant="outline"
                 className="border-white/20 hover:bg-white/10 text-white rounded-lg px-6 py-6 text-base"
@@ -56,8 +39,8 @@ const Hero: React.FC = () => {
               >
                 Write Us
               </Button>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
         </div>
       </div>
 

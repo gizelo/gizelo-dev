@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  Code,
-  Palette,
-  Smartphone,
-  Lightbulb,
-  LineChart,
-  Database,
+  Briefcase,
+  ShoppingCart,
+  MonitorSmartphone,
+  LayoutDashboard,
+  Paintbrush,
+  MessagesSquare,
 } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 
@@ -38,73 +38,59 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 const Services: React.FC = () => {
   const services = [
     {
-      icon: Code,
-      title: "Web Development",
+      icon: Briefcase,
+      title: "Business Website",
       description:
-        "Custom websites and web applications built with modern technologies and best practices.",
+        "Professional and scalable business websites designed to establish your online presence and attract customers.",
     },
     {
-      icon: Database,
-      title: "Backend Development",
+      icon: ShoppingCart,
+      title: "E-Commerce Store",
       description:
-        "Robust and scalable backend systems with secure API integrations and database architecture.",
+        "Custom-built online stores with secure payment gateways, inventory management, and a seamless shopping experience.",
     },
     {
-      icon: Smartphone,
-      title: "Responsive Design",
+      icon: MonitorSmartphone,
+      title: "Landing Page",
       description:
-        "Beautiful interfaces that work flawlessly across all devices and screen sizes.",
+        "High-converting landing pages tailored to your marketing goals, optimized for engagement and lead generation.",
     },
     {
-      icon: Palette,
+      icon: LayoutDashboard,
+      title: "Web Application",
+      description:
+        "Advanced web applications with modern technologies, delivering interactive and dynamic user experiences.",
+    },
+    {
+      icon: Paintbrush,
       title: "UI/UX Design",
       description:
-        "Intuitive user experiences and stunning visual designs that engage and convert visitors.",
+        "User-centric design solutions that enhance usability, improve engagement, and create visually stunning interfaces.",
     },
     {
-      icon: LineChart,
-      title: "SEO Optimization",
+      icon: MessagesSquare,
+      title: "...or consult you for FREE",
       description:
-        "Strategic optimization to increase visibility and drive organic traffic to your website.",
-    },
-    {
-      icon: Lightbulb,
-      title: "Digital Strategy",
-      description:
-        "Comprehensive digital strategies tailored to achieve your business goals and objectives.",
+        "Get expert advice and insights on your project, technology stack, or digital strategy at no cost.",
     },
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-black">
+    <section id="services" className="py-28 bg-black">
       <div className="container">
-        <div className="text-center mb-16">
-          <FadeIn>
-            <p className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-3">
-              Our Services
-            </p>
-          </FadeIn>
-          <FadeIn delay={200}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-              What We Offer
-            </h2>
-          </FadeIn>
-          <FadeIn delay={400}>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              We provide comprehensive web development services to help you
-              build and grow your online presence.
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <FadeIn delay={200}>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gradient">
+            We can build you a...
+          </h2>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
           {services.map((service, index) => (
             <ServiceCard
               key={service.title}
               title={service.title}
               description={service.description}
               icon={service.icon}
-              delay={200 + index * 100}
+              delay={200 + index * 200}
             />
           ))}
         </div>
