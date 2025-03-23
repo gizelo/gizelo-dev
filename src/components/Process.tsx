@@ -49,7 +49,7 @@ const Process: React.FC = () => {
             How It Will Be Done
           </h2>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 mt-20">
           {steps.map((step, index) => (
             <FadeIn key={step.number} delay={200 + index * 100}>
               <div className="relative">
