@@ -79,7 +79,7 @@ const Services: React.FC = () => {
     <section id="services" className="py-28 bg-black">
       <div className="container">
         <FadeIn delay={200}>
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gradient">
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">
             We can build you a...
           </h2>
         </FadeIn>

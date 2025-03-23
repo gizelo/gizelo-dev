@@ -44,26 +44,12 @@ const Process: React.FC = () => {
   return (
     <section id="process" className="py-28 bg-black/50">
       <div className="container">
-        <div className="text-center mb-16">
-          <FadeIn>
-            <p className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-3">
-              Our Process
-            </p>
-          </FadeIn>
-          <FadeIn delay={200}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-              How We Work
-            </h2>
-          </FadeIn>
-          <FadeIn delay={400}>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              Our proven methodology ensures a smooth, transparent development
-              process from start to finish.
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <FadeIn delay={200}>
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">
+            How It Will Be Done
+          </h2>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
           {steps.map((step, index) => (
             <FadeIn key={step.number} delay={200 + index * 100}>
               <div className="relative">
