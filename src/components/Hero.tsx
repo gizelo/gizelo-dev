@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(35,35,35,0.8)_0%,rgba(10,10,10,1)_100%)]" />
       </div>
 
-      <div className="container relative z-10 flex-1 flex items-center">
+      <div className="container relative flex-1 flex items-center">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn delay={200}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gradient">

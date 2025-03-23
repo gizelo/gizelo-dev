@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="flex justify-between items-start flex-wrap gap-8 mb-16">
           <div>
-            <a href="#home" className="relative z-50">
+            <a href="#home" className="relative">
               <img
                 src="/gizelo-logo-full.svg"
                 alt="Logo"

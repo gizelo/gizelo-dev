@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { CheckCircle2 } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 
 const Contact: React.FC = () => {
-  const { toast } = useToast();
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -32,10 +30,6 @@ const Contact: React.FC = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
-      });
 
       // Reset form after a delay
       setTimeout(() => {
@@ -95,7 +89,6 @@ const Contact: React.FC = () => {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className="border-white/10 bg-white/5 focus:border-white/30 text-white"
                     />
                   </div>
                   <div>
@@ -106,7 +99,6 @@ const Contact: React.FC = () => {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className="border-white/10 bg-white/5 focus:border-white/30 text-white"
                     />
                   </div>
                   <div>
@@ -117,7 +109,6 @@ const Contact: React.FC = () => {
                       value={formState.subject}
                       onChange={handleChange}
                       required
-                      className="border-white/10 bg-white/5 focus:border-white/30 text-white"
                     />
                   </div>
                   <div>
@@ -127,7 +118,6 @@ const Contact: React.FC = () => {
                       value={formState.message}
                       onChange={handleChange}
                       required
-                      className="min-h-32 border-white/10 bg-white/5 focus:border-white/30 text-white"
                     />
                   </div>
                   <Button

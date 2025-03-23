@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ const navLinks = [
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,17 +26,27 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        scrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 transition-all duration-300 py-4 bg-black z-50",
+        scrolled ? "border-b border-white/10" : ""
       )}
     >
       <div className="container flex items-center justify-between">
-        <a href="#home" className="relative z-50">
+        <a href="#home" className="relative">
           <img src="/gizelo-logo-full.svg" alt="Logo" className="h-8 md:h-12" />
         </a>
 
@@ -62,42 +72,67 @@ export const Navbar: React.FC = () => {
           variant="ghost"
           size="icon"
           className="md:hidden text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {mobileMenuOpen ? (
+          {isMobileMenuOpen ? (
             <X className="h-6 w-6" />
           ) : (
             <Menu className="h-6 w-6" />
           )}
         </Button>
+      </div>
 
-        {/* Mobile menu */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-black z-40 flex flex-col justify-center items-center gap-8 transition-transform duration-300 ease-in-out",
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          )}
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-white font-medium text-xl"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
+      {/* Mobile Menu */}
+      <div
+        className={cn(
+          "fixed inset-0 bg-black transition-transform duration-300 ease-in-out md:hidden",
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="container h-full flex flex-col">
+          {/* Header with logo and close button */}
+          <div className="flex items-center justify-between py-4">
+            <a href="#home" className="relative">
+              <img
+                src="/gizelo-logo-full.svg"
+                alt="Logo"
+                className="h-8 md:h-12"
+              />
             </a>
-          ))}
-          <Button
-            className="mt-4 bg-white hover:bg-slate-200 text-black rounded-lg"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              window.location.href = "#contact";
-            }}
-          >
-            Get in Touch
-          </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white"
+              aria-label="Close menu"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <X className="h-6 w-6" />
+            </Button>
+          </div>
+
+          {/* Navigation links */}
+          <nav className="flex-1 flex flex-col pt-10 space-y-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-slate-300 font-medium text-2xl tracking-wide hover:text-white transition-colors text-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <Button
+              className="bg-white hover:bg-slate-200 text-black rounded-lg px-8 py-6 text-lg mx-auto"
+              onClick={() => {
+                window.location.href = "#contact";
+                setIsMobileMenuOpen(false);
+              }}
+            >
+              Get in Touch
+            </Button>
+          </nav>
         </div>
       </div>
     </header>

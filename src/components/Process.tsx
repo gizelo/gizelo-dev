@@ -56,7 +56,7 @@ const Process: React.FC = () => {
                 <span className="text-8xl font-bold text-white/5 absolute -top-10 -left-3 select-none">
                   {step.number}
                 </span>
-                <div className="relative z-10 pt-8">
+                <div className="relative pt-8">
                   <h3 className="text-xl font-semibold mb-3 text-white">
                     {step.title}
                   </h3>
