@@ -2,42 +2,38 @@ import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 
-const projectCategories = [
-  "All",
-  "E-commerce",
-  "Corporate",
-  "Portfolio",
-  "Web App",
-];
-
 const projectsData = [
   {
     id: 1,
-    title: "Modern E-commerce Platform",
+    title: "Chocolatin Labs",
     category: "E-commerce",
     description:
-      "A full-featured online store with customer accounts, product management, and secure checkout.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=2664&auto=format&fit=crop",
+      "A website for a labrador kennel in Europe with catalogue of dogs to request through the form and connected CMS for managing all the content on the website.",
+    imageUrl: "/cases/chocolatin-labs.jpeg",
+    link: "https://chocolatin-labs.vercel.app/",
   },
   {
     id: 2,
-    title: "Corporate Website Redesign",
+    title: "Gimecs",
     category: "Corporate",
     description:
-      "Complete redesign of a financial services company website with improved user experience.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+      "A website for a German IT company which specializes on indastrial IoT solutions.",
+    imageUrl: "/cases/gimecs.jpeg",
+    link: "https://gimecs.vercel.app/",
   },
   {
     id: 3,
-    title: "Photography Portfolio",
-    category: "Portfolio",
+    title: "Web3 Invest Dashboard",
+    category: "Web3",
     description:
-      "Minimalist portfolio website for a professional photographer with gallery and booking system.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2674&auto=format&fit=crop",
+      "A web application for investing crypto through smart contracts.",
+    imageUrl: "/cases/web3-invest.jpeg",
   },
+];
+
+const projectCategories = [
+  "All",
+  ...new Set(projectsData.map((project) => project.category)),
 ];
 
 const Projects: React.FC = () => {
@@ -78,32 +74,41 @@ const Projects: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {filteredProjects.map((project, index) => (
             <FadeIn key={project.id} delay={200 + index * 100}>
-              <div className="group rounded-xl overflow-hidden bg-white/5 transition-all duration-300 cursor-pointer">
-                <div className="aspect-video relative overflow-hidden">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-semibold text-white">
-                      {project.title}
-                    </h3>
-                    <span className="text-xs bg-white/10 text-slate-300 px-2 py-1 rounded-full">
-                      {project.category}
+              <div className="h-full group rounded-xl overflow-hidden bg-white/5 transition-all duration-300 cursor-pointer">
+                <a
+                  href={project.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-full flex flex-col"
+                >
+                  <div className="aspect-video relative overflow-hidden min-h-56">
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-500 z-10"></div>
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-4 h-full p-6">
+                    <div className="flex flex-col flex-grow gap-4">
+                      <div className="flex justify-between items-start gap-2">
+                        <h3 className="text-lg font-semibold text-white">
+                          {project.title}
+                        </h3>
+                        <span className="text-xs bg-white/10 text-slate-300 px-2 py-1 rounded-full">
+                          {project.category}
+                        </span>
+                      </div>
+                      <p className="text-slate-400 text-sm">
+                        {project.description}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center w-fit text-sm font-medium text-white bg-transparent px-3 py-2 rounded-lg group-hover:bg-accent group-hover:text-black transition-all duration-500">
+                      View Project
+                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 group-hover:text-black transition-all duration-500" />
                     </span>
                   </div>
-                  <p className="text-slate-400 text-sm mb-4">
-                    {project.description}
-                  </p>
-                  <span className="inline-flex items-center text-sm font-medium text-white bg-transparent px-3 py-2 rounded-lg group-hover:bg-accent group-hover:text-black transition-all duration-500">
-                    View Project
-                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 group-hover:text-black transition-all duration-500" />
-                  </span>
-                </div>
+                </a>
               </div>
             </FadeIn>
           ))}
