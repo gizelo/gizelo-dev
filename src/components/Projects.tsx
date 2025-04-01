@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
-import { Button } from "@/components/ui/button";
 
 const projectCategories = [
   "All",
@@ -66,7 +65,7 @@ const Projects: React.FC = () => {
                   onClick={() => setActiveCategory(category)}
                   className={`px-4 py-2 rounded-md transition-all text-sm font-medium ${
                     activeCategory === category
-                      ? "bg-white text-black shadow-sm"
+                      ? "bg-accent text-black shadow-sm"
                       : "text-slate-400 hover:text-white"
                   }`}
                 >
@@ -79,13 +78,13 @@ const Projects: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {filteredProjects.map((project, index) => (
             <FadeIn key={project.id} delay={200 + index * 100}>
-              <div className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 transition-all duration-300 hover:border-white/20">
+              <div className="group rounded-xl overflow-hidden bg-white/5 transition-all duration-300 cursor-pointer">
                 <div className="aspect-video relative overflow-hidden">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all z-10"></div>
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
@@ -100,13 +99,10 @@ const Projects: React.FC = () => {
                   <p className="text-slate-400 text-sm mb-4">
                     {project.description}
                   </p>
-                  <a
-                    href="#"
-                    className="inline-flex items-center text-sm font-medium text-white hover:text-slate-300"
-                  >
+                  <span className="inline-flex items-center text-sm font-medium text-white bg-transparent px-3 py-2 rounded-lg group-hover:bg-accent group-hover:text-black transition-all duration-500">
                     View Project
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 group-hover:text-black transition-all duration-500" />
+                  </span>
                 </div>
               </div>
             </FadeIn>

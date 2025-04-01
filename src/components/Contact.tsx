@@ -4,8 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2 } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
+import useMousePosition from "@/hooks/useMousePosition";
 
 const Contact: React.FC = () => {
+  const mousePosition = useMousePosition();
+
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -46,6 +49,35 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-28 bg-black relative overflow-hidden">
+      <FadeIn direction="none" delay={1000} duration={2000}>
+        <div
+          className="absolute w-32 h-32 transition-transform duration-700 ease-out"
+          style={{
+            right: "10%",
+            top: "20%",
+            transform: `translate(${
+              (mousePosition.x - window.innerWidth / 2) * 0.04
+            }px, ${(mousePosition.y - window.innerHeight / 2) * 0.04}px)`,
+          }}
+        >
+          <img src="/asterisk-color.svg" className="w-full h-full" />
+        </div>
+      </FadeIn>
+      <FadeIn direction="none" delay={800} duration={1000}>
+        <div
+          className="absolute w-32 h-32 transition-transform duration-700 ease-out"
+          style={{
+            left: "10%",
+            bottom: "30%",
+            transform: `translate(${
+              (mousePosition.x - window.innerWidth / 2) * 0.01
+            }px, ${(mousePosition.y - window.innerHeight / 2) * 0.01}px)`,
+          }}
+        >
+          <img src="/asterisk-color.svg" className="w-full h-full" />
+        </div>
+      </FadeIn>
+
       <div className="container">
         <FadeIn delay={200}>
           <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">

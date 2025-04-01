@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FadeIn from "./animations/FadeIn";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -41,47 +42,53 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 transition-all duration-300 py-4 bg-black z-50",
+        "fixed top-0 left-0 right-0 transition-all duration-300 py-3 bg-black z-50",
         scrolled ? "border-b border-white/10" : ""
       )}
     >
-      <div className="container flex items-center justify-between">
-        <a href="#home" className="relative">
-          <img src="/gizelo-logo-full.svg" alt="Logo" className="h-8 md:h-12" />
-        </a>
+      <FadeIn direction="down" delay={800}>
+        <div className="container flex items-center justify-between">
+          <a href="#home" className="relative">
+            <img
+              src="/gizelo-logo-full.svg"
+              alt="Logo"
+              className="h-8 md:h-12"
+            />
+          </a>
 
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-slate-300 font-medium text-sm tracking-wide hover:text-white transition-colors link-underline"
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-slate-300 font-medium text-sm tracking-wide hover:text-white transition-colors link-underline"
+              >
+                {link.name}
+              </a>
+            ))}
+            <Button
+              className="bg-white hover:bg-slate-200 text-black rounded-lg px-5"
+              onClick={() => (window.location.href = "#contact")}
             >
-              {link.name}
-            </a>
-          ))}
-          <Button
-            className="bg-white hover:bg-slate-200 text-black rounded-lg px-5"
-            onClick={() => (window.location.href = "#contact")}
-          >
-            Get in Touch
-          </Button>
-        </nav>
+              Get in Touch
+            </Button>
+          </nav>
 
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-white"
-          aria-label="Toggle menu"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </Button>
-      </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden text-white"
+            aria-label="Toggle menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </Button>
+        </div>
+      </FadeIn>
 
       {/* Mobile Menu */}
       <div

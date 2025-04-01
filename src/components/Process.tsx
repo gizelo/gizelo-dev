@@ -1,48 +1,68 @@
 import React from "react";
 import FadeIn from "./animations/FadeIn";
+import useMousePosition from "@/hooks/useMousePosition";
+
+const steps = [
+  {
+    number: "01",
+    title: "Discovery",
+    description:
+      "We start by understanding your business, goals, target audience, and requirements through in-depth consultation.",
+  },
+  {
+    number: "02",
+    title: "Planning",
+    description:
+      "Based on the discovery, we create a strategic roadmap outlining the project scope, timeline, and deliverables.",
+  },
+  {
+    number: "03",
+    title: "Design",
+    description:
+      "Our designers create wireframes and visual mockups that align with your brand identity and user experience goals.",
+  },
+  {
+    number: "04",
+    title: "Development",
+    description:
+      "Our developers build your website using clean, efficient code and modern development practices.",
+  },
+  {
+    number: "05",
+    title: "Testing",
+    description:
+      "Rigorous testing ensures your website works flawlessly across all devices, browsers, and user scenarios.",
+  },
+  {
+    number: "06",
+    title: "Launch",
+    description:
+      "Once approved, we deploy your website and provide training on content management and maintenance.",
+  },
+];
 
 const Process: React.FC = () => {
-  const steps = [
-    {
-      number: "01",
-      title: "Discovery",
-      description:
-        "We start by understanding your business, goals, target audience, and requirements through in-depth consultation.",
-    },
-    {
-      number: "02",
-      title: "Planning",
-      description:
-        "Based on the discovery, we create a strategic roadmap outlining the project scope, timeline, and deliverables.",
-    },
-    {
-      number: "03",
-      title: "Design",
-      description:
-        "Our designers create wireframes and visual mockups that align with your brand identity and user experience goals.",
-    },
-    {
-      number: "04",
-      title: "Development",
-      description:
-        "Our developers build your website using clean, efficient code and modern development practices.",
-    },
-    {
-      number: "05",
-      title: "Testing",
-      description:
-        "Rigorous testing ensures your website works flawlessly across all devices, browsers, and user scenarios.",
-    },
-    {
-      number: "06",
-      title: "Launch",
-      description:
-        "Once approved, we deploy your website and provide training on content management and maintenance.",
-    },
-  ];
+  const mousePosition = useMousePosition();
 
   return (
-    <section id="process" className="py-28 bg-black/50">
+    <section
+      id="process"
+      className="py-28 bg-black/50 relative overflow-hidden"
+    >
+      <FadeIn direction="none" delay={1000} duration={1000}>
+        <div
+          className="absolute w-32 h-32 transition-transform duration-700 ease-out"
+          style={{
+            right: "-2%",
+            top: "4%",
+            transform: `translate(${
+              (mousePosition.x - window.innerWidth / 2) * 0.03
+            }px, ${(mousePosition.y - window.innerHeight / 2) * 0.03}px)`,
+          }}
+        >
+          <img src="/asterisk-color.svg" className="w-full h-full" />
+        </div>
+      </FadeIn>
       <div className="container">
         <FadeIn delay={200}>
           <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">
@@ -53,9 +73,11 @@ const Process: React.FC = () => {
           {steps.map((step, index) => (
             <FadeIn key={step.number} delay={200 + index * 100}>
               <div className="relative">
-                <span className="text-8xl font-bold text-white/5 absolute -top-10 -left-3 select-none">
-                  {step.number}
-                </span>
+                <FadeIn delay={200 + index * 150}>
+                  <span className="text-8xl font-bold text-white/5 absolute -top-10 -left-3 select-none">
+                    {step.number}
+                  </span>
+                </FadeIn>
                 <div className="relative pt-8">
                   <h3 className="text-xl font-semibold mb-3 text-white">
                     {step.title}

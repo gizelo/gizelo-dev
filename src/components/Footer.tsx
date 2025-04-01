@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
           <p className="text-slate-500 text-sm">
             &copy; {new Date().getFullYear()} Gizelo. All rights reserved.
           </p>
-          <div className="flex flex-col md:flex-row gap-6">
+          {/* <div className="flex flex-col md:flex-row gap-6">
             <a
               href="#"
               className="text-slate-500 hover:text-white transition-colors"
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             >
               Cookie Policy
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

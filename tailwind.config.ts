@@ -21,19 +21,7 @@ export default {
     },
     extend: {
       colors: {
-        gizelo: {
-          DEFAULT: "#0a0a0a",
-          50: "#f0f0f0",
-          100: "#e0e0e0",
-          200: "#c2c2c2",
-          300: "#a3a3a3",
-          400: "#858585",
-          500: "#666666",
-          600: "#525252",
-          700: "#333333",
-          800: "#1a1a1a",
-          900: "#0a0a0a",
-        },
+        accent: "#B3F753",
       },
       fontFamily: {
         sans: ["Space Grotesk", "sans-serif"],
