@@ -1,7 +1,7 @@
-import React from "react";
-import { ArrowUp } from "lucide-react";
+import { FC } from "react";
+import { ArrowUp, Linkedin, Send } from "lucide-react";
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -33,30 +33,28 @@ const Footer: React.FC = () => {
           </button>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between gap-8">
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row-reverse justify-between gap-8">
+          <div className="flex gap-4">
+            <a
+              href="https://t.me/gizelo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-accent transition-all"
+            >
+              <Send className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/gizelo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-accent transition-all"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+          </div>
           <p className="text-slate-500 text-sm">
             &copy; {new Date().getFullYear()} Gizelo. All rights reserved.
           </p>
-          {/* <div className="flex flex-col md:flex-row gap-6">
-            <a
-              href="#"
-              className="text-slate-500 hover:text-white transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-slate-500 hover:text-white transition-colors"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="#"
-              className="text-slate-500 hover:text-white transition-colors"
-            >
-              Cookie Policy
-            </a>
-          </div> */}
         </div>
       </div>
     </footer>

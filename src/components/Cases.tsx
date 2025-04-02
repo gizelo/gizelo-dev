@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { FC, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 
@@ -9,6 +9,12 @@ const projectsData = [
     category: "E-commerce",
     description:
       "A website for a labrador kennel in Europe with catalogue of dogs to request through the form and connected CMS for managing all the content on the website.",
+    features: [
+      "Custom CMS",
+      "Email notifications",
+      "Translations",
+      "Mobile friendly",
+    ],
     imageUrl: "/cases/chocolatin-labs.jpeg",
     link: "https://chocolatin-labs.vercel.app/",
   },
@@ -18,6 +24,7 @@ const projectsData = [
     category: "Corporate",
     description:
       "A website for a German IT company which specializes on indastrial IoT solutions.",
+    features: ["Custom CMS", "Translations", "Mobile friendly", "SEO"],
     imageUrl: "/cases/gimecs.jpeg",
     link: "https://gimecs.vercel.app/",
   },
@@ -27,6 +34,11 @@ const projectsData = [
     category: "Web3",
     description:
       "A web application for investing crypto through smart contracts.",
+    features: [
+      "Web3 Staking",
+      "Wallet Authentication",
+      "Smart Contract Interaction",
+    ],
     imageUrl: "/cases/web3-invest.jpeg",
   },
 ];
@@ -36,7 +48,7 @@ const projectCategories = [
   ...new Set(projectsData.map((project) => project.category)),
 ];
 
-const Projects: React.FC = () => {
+const Cases: FC = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredProjects =
@@ -45,7 +57,7 @@ const Projects: React.FC = () => {
       : projectsData.filter((project) => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-28 bg-black">
+    <section id="cases" className="py-28 bg-black">
       <div className="container">
         <FadeIn delay={200}>
           <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">
@@ -76,8 +88,8 @@ const Projects: React.FC = () => {
             <FadeIn key={project.id} delay={200 + index * 100}>
               <div className="h-full group rounded-xl overflow-hidden bg-white/5 transition-all duration-300 cursor-pointer">
                 <a
-                  href={project.link || "#"}
-                  target="_blank"
+                  href={project.link || "#cases"}
+                  target={project.link ? "_blank" : "_self"}
                   rel="noopener noreferrer"
                   className="h-full flex flex-col"
                 >
@@ -102,6 +114,11 @@ const Projects: React.FC = () => {
                       <p className="text-slate-400 text-sm">
                         {project.description}
                       </p>
+                      <ul className="list-disc list-inside">
+                        {project.features.map((feature) => (
+                          <li key={feature}>{feature}</li>
+                        ))}
+                      </ul>
                     </div>
                     <span className="inline-flex items-center w-fit text-sm font-medium text-white bg-transparent px-3 py-2 rounded-lg group-hover:bg-accent group-hover:text-black transition-all duration-500">
                       View Project
@@ -113,9 +130,14 @@ const Projects: React.FC = () => {
             </FadeIn>
           ))}
         </div>
+        <FadeIn delay={500}>
+          <p className="text-center text-slate-400 mt-14">
+            and the story continues...
+          </p>
+        </FadeIn>
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default Cases;

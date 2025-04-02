@@ -1,4 +1,4 @@
-import React from "react";
+import { ElementType, FC } from "react";
 import {
   Briefcase,
   ShoppingCart,
@@ -51,11 +51,11 @@ const services = [
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: React.ElementType;
+  icon: ElementType;
   delay: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({
+const ServiceCard: FC<ServiceCardProps> = ({
   title,
   description,
   icon: Icon,
@@ -76,7 +76,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   );
 };
 
-const Services: React.FC = () => {
+const Services: FC = () => {
   return (
     <section id="services" className="py-28 bg-black">
       <div className="container">

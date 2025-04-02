@@ -1,63 +1,59 @@
-import { useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2 } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 import useMousePosition from "@/hooks/useMousePosition";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-const Contact: React.FC = () => {
+const Contact: FC = () => {
+  const isMobile = useIsMobile();
   const mousePosition = useMousePosition();
 
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormState((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const formObject = Object.fromEntries(formData.entries());
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-
-      // Reset form after a delay
-      setTimeout(() => {
-        setFormState({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-        setIsSubmitted(false);
-      }, 3000);
-    }, 1500);
+    fetch("https://formsubmit.co/ajax/98d2f895f6f6c89691d966be40efe297", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formObject),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      });
   };
 
   return (
     <section id="contact" className="py-28 bg-black relative overflow-hidden">
       <FadeIn direction="none" delay={1000} duration={2000}>
         <div
-          className="absolute w-32 h-32 transition-transform duration-700 ease-out"
+          className="absolute w-32 h-32 transition-transform duration-700 ease-out -z-5"
           style={{
-            right: "10%",
-            top: "20%",
-            transform: `translate(${
-              (mousePosition.x - window.innerWidth / 2) * 0.04
-            }px, ${(mousePosition.y - window.innerHeight / 2) * 0.04}px)`,
+            right: isMobile ? "-60px" : "10%",
+            top: isMobile ? "30%" : "20%",
+            transform: isMobile
+              ? "none"
+              : `translate(${
+                  (mousePosition.x - window.innerWidth / 2) * 0.04
+                }px, ${(mousePosition.y - window.innerHeight / 2) * 0.04}px)`,
           }}
         >
           <img src="/asterisk-color.svg" className="w-full h-full" />
@@ -65,13 +61,15 @@ const Contact: React.FC = () => {
       </FadeIn>
       <FadeIn direction="none" delay={800} duration={1000}>
         <div
-          className="absolute w-32 h-32 transition-transform duration-700 ease-out"
+          className="absolute w-32 h-32 transition-transform duration-700 ease-out -z-5"
           style={{
-            left: "10%",
-            bottom: "30%",
-            transform: `translate(${
-              (mousePosition.x - window.innerWidth / 2) * 0.01
-            }px, ${(mousePosition.y - window.innerHeight / 2) * 0.01}px)`,
+            left: isMobile ? "-60px" : "10%",
+            bottom: isMobile ? "10%" : "30%",
+            transform: isMobile
+              ? "none"
+              : `translate(${
+                  (mousePosition.x - window.innerWidth / 2) * 0.01
+                }px, ${(mousePosition.y - window.innerHeight / 2) * 0.01}px)`,
           }}
         >
           <img src="/asterisk-color.svg" className="w-full h-full" />
@@ -118,8 +116,6 @@ const Contact: React.FC = () => {
                       type="text"
                       name="name"
                       placeholder="Your Name"
-                      value={formState.name}
-                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -128,8 +124,6 @@ const Contact: React.FC = () => {
                       type="email"
                       name="email"
                       placeholder="Your Email"
-                      value={formState.email}
-                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -138,8 +132,6 @@ const Contact: React.FC = () => {
                       type="text"
                       name="subject"
                       placeholder="Subject"
-                      value={formState.subject}
-                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -147,11 +139,10 @@ const Contact: React.FC = () => {
                     <Textarea
                       name="message"
                       placeholder="Your Message"
-                      value={formState.message}
-                      onChange={handleChange}
                       required
                     />
                   </div>
+                  <input type="hidden" name="_template" value="box" />
                   <Button
                     type="submit"
                     className="w-full bg-white hover:bg-slate-200 text-black"
@@ -163,85 +154,6 @@ const Contact: React.FC = () => {
               )}
             </div>
           </FadeIn>
-
-          {/* <FadeIn delay={500} direction="right">
-            <div className="lg:pl-10">
-              <h3 className="text-xl font-semibold mb-6 text-white">
-                Contact Information
-              </h3>
-
-              <div className="space-y-8">
-                <div className="flex items-start">
-                  <div className="bg-white/10 p-3 rounded-lg mr-4">
-                    <Mail className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-medium text-white mb-1">
-                      Email Us
-                    </h4>
-                    <p className="text-slate-400">hello@gizelo.com</p>
-                    <p className="text-slate-400">support@gizelo.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-white/10 p-3 rounded-lg mr-4">
-                    <Phone className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-medium text-white mb-1">
-                      Call Us
-                    </h4>
-                    <p className="text-slate-400">+1 (555) 123-4567</p>
-                    <p className="text-slate-400">+1 (555) 987-6543</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-white/10 p-3 rounded-lg mr-4">
-                    <MapPin className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-medium text-white mb-1">
-                      Visit Us
-                    </h4>
-                    <p className="text-slate-400">
-                      123 Innovation Street
-                      <br />
-                      San Francisco, CA 94103
-                      <br />
-                      United States
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-10">
-                <h4 className="text-base font-medium text-white mb-4">
-                  Follow Us
-                </h4>
-                <div className="flex space-x-4">
-                  {[
-                    "twitter",
-                    "facebook",
-                    "instagram",
-                    "linkedin",
-                    "github",
-                  ].map((social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-white/20"
-                    >
-                      <span className="text-white capitalize text-sm">
-                        {social.charAt(0).toUpperCase()}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </FadeIn> */}
         </div>
       </div>
     </section>

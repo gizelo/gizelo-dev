@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,11 +7,10 @@ import FadeIn from "./animations/FadeIn";
 const navLinks = [
   { name: "Services", href: "#services" },
   { name: "Process", href: "#process" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Cases", href: "#cases" },
 ];
 
-export const Navbar: React.FC = () => {
+export const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -52,7 +51,7 @@ export const Navbar: React.FC = () => {
             <img
               src="/gizelo-logo-full.svg"
               alt="Logo"
-              className="h-8 md:h-12"
+              className="h-8 md:h-10"
             />
           </a>
 

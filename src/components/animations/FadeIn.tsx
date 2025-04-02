@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface FadeInProps {
-  children: React.ReactNode;
+  children: ReactNode;
   delay?: number;
   duration?: number;
   className?: string;
@@ -11,7 +11,7 @@ interface FadeInProps {
   once?: boolean;
 }
 
-export const FadeIn: React.FC<FadeInProps> = ({
+export const FadeIn: FC<FadeInProps> = ({
   children,
   delay = 0,
   duration = 400,

@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import FadeIn from "./animations/FadeIn";
 import useMousePosition from "@/hooks/useMousePosition";
 
@@ -37,11 +37,11 @@ const steps = [
     number: "06",
     title: "Launch",
     description:
-      "Once approved, we deploy your website and provide training on content management and maintenance.",
+      "Once approved, we deploy your product and provide training on content management and maintenance.",
   },
 ];
 
-const Process: React.FC = () => {
+const Process: FC = () => {
   const mousePosition = useMousePosition();
 
   return (
@@ -53,7 +53,7 @@ const Process: React.FC = () => {
         <div
           className="absolute w-32 h-32 transition-transform duration-700 ease-out"
           style={{
-            right: "-2%",
+            right: "-70px",
             top: "4%",
             transform: `translate(${
               (mousePosition.x - window.innerWidth / 2) * 0.03
@@ -74,7 +74,7 @@ const Process: React.FC = () => {
             <FadeIn key={step.number} delay={200 + index * 100}>
               <div className="relative">
                 <FadeIn delay={200 + index * 150}>
-                  <span className="text-8xl font-bold text-white/5 absolute -top-10 -left-3 select-none">
+                  <span className="text-8xl font-bold text-white/10 absolute -top-10 -left-3 select-none">
                     {step.number}
                   </span>
                 </FadeIn>

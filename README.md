@@ -1,69 +1,90 @@
-# Welcome to your Lovable project
+# Gizelo Web Development Studio
 
-## Project info
+A modern web development studio website built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/388cc3df-0847-418a-a90d-f713cfc1138c
+## 🚀 Features
 
-## How can I edit this code?
+- Modern React with TypeScript
+- Vite for fast development and building
+- Tailwind CSS for styling
+- Responsive design
+- SEO optimized
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Framework:** React 18
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Package Manager:** pnpm
+- **Code Quality:** ESLint
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/388cc3df-0847-418a-a90d-f713cfc1138c) and start prompting.
+## 📦 Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js (v18 or higher)
+- pnpm (recommended) or npm
 
-**Use your preferred IDE**
+## 🚀 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Clone the repository:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+git clone https://github.com/gizelo/gizelo-dev.git
+cd gizelo-dev
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+pnpm install
+```
 
-**Use GitHub Codespaces**
+3. Start the development server:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+pnpm dev
+```
 
-## What technologies are used for this project?
+4. Build for production:
 
-This project is built with .
+```bash
+pnpm build
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📝 Available Scripts
 
-## How can I deploy this project?
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm build:dev` - Build for development
+- `pnpm preview` - Preview production build
+- `pnpm lint` - Run ESLint
 
-Simply open [Lovable](https://lovable.dev/projects/388cc3df-0847-418a-a90d-f713cfc1138c) and click on Share -> Publish.
+## 🏗️ Project Structure
 
-## I want to use a custom domain - is that possible?
+```
+gizelo-dev/
+├── src/           # Source files
+├── public/        # Static assets
+├── components/    # React components
+├── styles/        # Global styles
+└── ...
+```
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## 🔧 Configuration
+
+- `vite.config.ts` - Vite configuration
+- `tailwind.config.ts` - Tailwind CSS configuration
+- `tsconfig.json` - TypeScript configuration
+- `eslint.config.js` - ESLint configuration
+
+## 📄 License
+
+This project is private and proprietary.
+
+## 👥 Author
+
+Gizelo Studio
+
+---
+
+Built with ❤️ by Gizelo Studio

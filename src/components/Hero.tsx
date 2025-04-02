@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { FC } from "react";
 import { ArrowRight } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 import { Button } from "@/components/ui/button";
 import useMousePosition from "@/hooks/useMousePosition";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-const Hero: React.FC = () => {
+const Hero: FC = () => {
+  const isMobile = useIsMobile();
   const mousePosition = useMousePosition();
 
   return (
@@ -16,11 +18,13 @@ const Hero: React.FC = () => {
         <div
           className="absolute w-32 h-32 transition-transform duration-700 ease-out"
           style={{
-            right: "10%",
+            right: isMobile ? "-60px" : "10%",
             top: "20%",
-            transform: `translate(${
-              (mousePosition.x - window.innerWidth / 2) * 0.1
-            }px, ${(mousePosition.y - window.innerHeight / 2) * 0.1}px)`,
+            transform: isMobile
+              ? "none"
+              : `translate(${
+                  (mousePosition.x - window.innerWidth / 2) * 0.1
+                }px, ${(mousePosition.y - window.innerHeight / 2) * 0.1}px)`,
           }}
         >
           <img src="/asterisk-color.svg" className="w-full h-full" />
@@ -30,11 +34,13 @@ const Hero: React.FC = () => {
         <div
           className="absolute w-32 h-32 transition-transform duration-700 ease-out"
           style={{
-            left: "18%",
+            left: isMobile ? "-60px" : "18%",
             bottom: "20%",
-            transform: `translate(${
-              (mousePosition.x - window.innerWidth / 2) * 0.04
-            }px, ${(mousePosition.y - window.innerHeight / 2) * 0.04}px)`,
+            transform: isMobile
+              ? "none"
+              : `translate(${
+                  (mousePosition.x - window.innerWidth / 2) * 0.04
+                }px, ${(mousePosition.y - window.innerHeight / 2) * 0.04}px)`,
           }}
         >
           <img src="/asterisk-color.svg" className="w-full h-full" />
@@ -53,7 +59,7 @@ const Hero: React.FC = () => {
             <FadeIn delay={800}>
               <Button
                 className="group bg-white hover:bg-slate-200 text-black rounded-lg px-6 py-6 text-base"
-                onClick={() => (window.location.href = "#projects")}
+                onClick={() => (window.location.href = "#cases")}
               >
                 View Cases
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-all duration-500" />
