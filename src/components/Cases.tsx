@@ -1,60 +1,30 @@
 import { FC, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
-
-const projectsData = [
-  {
-    id: 1,
-    title: "Chocolatin Labs",
-    category: "E-commerce",
-    description:
-      "A website for a labrador kennel in Europe with catalogue of dogs to request through the form and connected CMS for managing all the content on the website.",
-    features: [
-      "Custom CMS",
-      "Email notifications",
-      "Translations",
-      "Mobile friendly",
-    ],
-    imageUrl: "/cases/chocolatin-labs.jpeg",
-    link: "https://chocolatin-labs.vercel.app/",
-  },
-  {
-    id: 2,
-    title: "Gimecs",
-    category: "Corporate",
-    description:
-      "A website for a German IT company which specializes on indastrial IoT solutions.",
-    features: ["Custom CMS", "Translations", "Mobile friendly", "SEO"],
-    imageUrl: "/cases/gimecs.jpeg",
-    link: "https://gimecs.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Web3 Invest Dashboard",
-    category: "Web3",
-    description:
-      "A web application for investing crypto through smart contracts.",
-    features: [
-      "Web3 Staking",
-      "Wallet Authentication",
-      "Smart Contract Interaction",
-    ],
-    imageUrl: "/cases/web3-invest.jpeg",
-  },
-];
-
-const projectCategories = [
-  "All",
-  ...new Set(projectsData.map((project) => project.category)),
-];
+import ProjectModal from "./ui/ProjectModal";
+import { ProjectDetails } from "@/types";
+import { projectsData, projectCategories } from "@/constants";
 
 const Cases: FC = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(
+    null
+  );
 
   const filteredProjects =
     activeCategory === "All"
       ? projectsData
       : projectsData.filter((project) => project.category === activeCategory);
+
+  const openProjectModal = (project: ProjectDetails) => {
+    setSelectedProject(project);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeProjectModal = () => {
+    setSelectedProject(null);
+    document.body.style.overflow = "";
+  };
 
   return (
     <section id="cases" className="py-28 bg-black">
@@ -86,17 +56,15 @@ const Cases: FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {filteredProjects.map((project, index) => (
             <FadeIn key={project.id} delay={200 + index * 100}>
-              <div className="h-full group rounded-xl overflow-hidden bg-white/5 transition-all duration-300 cursor-pointer">
-                <a
-                  href={project.link || "#cases"}
-                  target={project.link ? "_blank" : "_self"}
-                  rel="noopener noreferrer"
-                  className="h-full flex flex-col"
-                >
+              <div
+                className="h-full group rounded-xl overflow-hidden bg-white/5 transition-all duration-300 cursor-pointer"
+                onClick={() => openProjectModal(project)}
+              >
+                <div className="h-full flex flex-col">
                   <div className="aspect-video relative overflow-hidden min-h-56">
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-500 z-10"></div>
                     <img
-                      src={project.imageUrl}
+                      src={project.images[0]}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
@@ -125,7 +93,7 @@ const Cases: FC = () => {
                       <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 group-hover:text-black transition-all duration-500" />
                     </span>
                   </div>
-                </a>
+                </div>
               </div>
             </FadeIn>
           ))}
@@ -136,6 +104,11 @@ const Cases: FC = () => {
           </p>
         </FadeIn>
       </div>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal project={selectedProject} onClose={closeProjectModal} />
+      )}
     </section>
   );
 };

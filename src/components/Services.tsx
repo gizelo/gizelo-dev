@@ -1,52 +1,6 @@
 import { ElementType, FC } from "react";
-import {
-  Briefcase,
-  ShoppingCart,
-  MonitorSmartphone,
-  LayoutDashboard,
-  Paintbrush,
-  MessagesSquare,
-} from "lucide-react";
 import FadeIn from "./animations/FadeIn";
-
-const services = [
-  {
-    icon: Briefcase,
-    title: "Business Website",
-    description:
-      "Professional and scalable business websites designed to establish your online presence and attract customers.",
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce Store",
-    description:
-      "Custom-built online stores with secure payment gateways, inventory management, and a seamless shopping experience.",
-  },
-  {
-    icon: MonitorSmartphone,
-    title: "Landing Page",
-    description:
-      "High-converting landing pages tailored to your marketing goals, optimized for engagement and lead generation.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Web Application",
-    description:
-      "Advanced web applications with modern technologies, delivering interactive and dynamic user experiences.",
-  },
-  {
-    icon: Paintbrush,
-    title: "UI/UX Design",
-    description:
-      "User-centric design solutions that enhance usability, improve engagement, and create visually stunning interfaces.",
-  },
-  {
-    icon: MessagesSquare,
-    title: "...or consult you for FREE",
-    description:
-      "Get expert advice and insights on your project, technology stack, or digital strategy at no cost.",
-  },
-];
+import { services } from "@/constants";
 
 interface ServiceCardProps {
   title: string;

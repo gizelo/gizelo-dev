@@ -1,45 +1,7 @@
 import { FC } from "react";
 import FadeIn from "./animations/FadeIn";
 import useMousePosition from "@/hooks/useMousePosition";
-
-const steps = [
-  {
-    number: "01",
-    title: "Discovery",
-    description:
-      "We start by understanding your business, goals, target audience, and requirements through in-depth consultation.",
-  },
-  {
-    number: "02",
-    title: "Planning",
-    description:
-      "Based on the discovery, we create a strategic roadmap outlining the project scope, timeline, and deliverables.",
-  },
-  {
-    number: "03",
-    title: "Design",
-    description:
-      "Our designers create wireframes and visual mockups that align with your brand identity and user experience goals.",
-  },
-  {
-    number: "04",
-    title: "Development",
-    description:
-      "Our developers build your website using clean, efficient code and modern development practices.",
-  },
-  {
-    number: "05",
-    title: "Testing",
-    description:
-      "Rigorous testing ensures your website works flawlessly across all devices, browsers, and user scenarios.",
-  },
-  {
-    number: "06",
-    title: "Launch",
-    description:
-      "Once approved, we deploy your product and provide training on content management and maintenance.",
-  },
-];
+import { steps } from "@/constants";
 
 const Process: FC = () => {
   const mousePosition = useMousePosition();

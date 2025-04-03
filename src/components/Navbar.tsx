@@ -3,12 +3,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeIn from "./animations/FadeIn";
-
-const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Process", href: "#process" },
-  { name: "Cases", href: "#cases" },
-];
+import { navLinks } from "@/constants";
 
 export const Navbar: FC = () => {
   const [scrolled, setScrolled] = useState(false);

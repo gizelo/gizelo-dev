@@ -22,6 +22,7 @@ export default {
     extend: {
       colors: {
         accent: "#B3F753",
+        darkGray: "#0c0c0c",
       },
       fontFamily: {
         sans: ["Space Grotesk", "sans-serif"],
