@@ -2,7 +2,7 @@ import { FC, FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Linkedin, Send } from "lucide-react";
 import FadeIn from "./animations/FadeIn";
 import useMousePosition from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -92,7 +92,28 @@ const Contact: FC = () => {
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 gap-12 mt-16 mx-auto max-w-2xl">
+        <FadeIn delay={600}>
+          <div className="flex gap-4 justify-center mt-8">
+            <a
+              href="https://t.me/gizelo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-accent transition-all"
+            >
+              <Send className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/gizelo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 hover:text-accent transition-all"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 gap-12 mt-8 mx-auto max-w-2xl">
           <FadeIn delay={300} direction="up">
             <div className="blur-backdrop rounded-2xl p-8">
               <h3 className="text-xl font-semibold mb-6 text-white">
@@ -101,7 +122,7 @@ const Contact: FC = () => {
 
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-8">
-                  <CheckCircle2 className="h-16 w-16 text-green-500 mb-4" />
+                  <CheckCircle2 className="h-16 w-16 text-accent mb-4" />
                   <h4 className="text-xl font-medium text-white mb-2">
                     Message Sent!
                   </h4>
