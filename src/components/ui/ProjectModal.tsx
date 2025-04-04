@@ -61,7 +61,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
       <FadeIn>
         <div
           ref={modalRef}
-          className="bg-darkGray border border-white/10 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-darkGray border border-white/10 rounded-2xl max-w-5xl w-full max-h-[80vh] overflow-y-auto"
         >
           <div className="p-6">
             {/* Close button */}
@@ -112,8 +112,10 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
               )}
             </div>
 
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold text-white">{project.title}</h2>
+            <div className="flex justify-between items-center mb-8 flex-wrap gap-4 gap-y-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
+                {project.title}
+              </h2>
               <span className="text-sm bg-white/10 text-slate-300 px-3 py-1 rounded-full">
                 {project.category}
               </span>

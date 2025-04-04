@@ -35,8 +35,8 @@ const Cases: FC = () => {
           </h2>
         </FadeIn>
         <FadeIn delay={600}>
-          <div className="flex justify-center mt-8 overflow-x-auto">
-            <div className="flex space-x-2 p-1 bg-white/5 rounded-lg">
+          <div className="flex justify-center mt-8 overflow-x-auto whitespace-nowrap">
+            <div className="flex space-x-2 p-1 bg-white/5 rounded-lg max-w-full overflow-auto">
               {projectCategories.map((category) => (
                 <button
                   key={category}
