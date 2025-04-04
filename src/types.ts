@@ -14,6 +14,8 @@ export interface ProjectDetails {
   title: string;
   category: string;
   description: string;
+  challenge: string;
+  solution: string;
   features: string[];
   images: string[];
   technologies: Technology[];

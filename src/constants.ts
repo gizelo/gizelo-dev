@@ -99,29 +99,36 @@ export const projectsData: ProjectDetails[] = [
     category: "E-commerce",
     description:
       "A website for a labrador kennel in Europe with catalogue of dogs to request through the form and connected CMS for managing all the content on the website.",
+    challenge:
+      "Client needed a website to showcase their dogs with ability to request a dog through the form and a blog page to share news and updates.",
+    solution:
+      "We built a custom CMS with a simple interface for managing the content on the website. We also implemented email notification service to notify the client when a new request is made.",
     features: [
       "Custom CMS",
       "Email notifications",
       "Translations",
       "Mobile friendly",
+      "SEO",
     ],
     images: [
       "/cases/chocolatin-labs/photo1.jpeg",
       "/cases/chocolatin-labs/photo2.jpeg",
       "/cases/chocolatin-labs/photo3.jpeg",
+      "/cases/chocolatin-labs/photo4.jpeg",
+      "/cases/chocolatin-labs/photo5.jpeg",
     ],
     technologies: [
-      { name: "Next.js", icon: "/icons/nextjs.png" },
+      { name: "Next.js", icon: "/icons/next-js.svg" },
       { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Payload", icon: "/icons/payload.png" },
+      { name: "Payload CMS", icon: "/icons/payload.svg" },
+      { name: "MongoDB", icon: "/icons/mongodb.svg" },
       { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
     ],
     client: {
       name: "Chocolatin Labs",
       description: "Premium Labrador Kennel",
-      country: "Germany",
+      country: "Italy",
     },
-    link: "https://chocolatin-labs.vercel.app/",
   },
   {
     id: 2,
@@ -129,24 +136,34 @@ export const projectsData: ProjectDetails[] = [
     category: "Corporate",
     description:
       "A website for a German IT company which specializes on indastrial IoT solutions.",
-    features: ["Custom CMS", "Translations", "Mobile friendly", "SEO"],
+    challenge:
+      "Client needed a website to showcase present their company, their services and case studies.",
+    solution:
+      "We built a custom CMS with a simple interface for managing almost all the content on the website. We also added a contact form with sending emails to the client.",
+    features: [
+      "Custom CMS",
+      "Translations",
+      "Contact form",
+      "Mobile friendly",
+      "SEO",
+    ],
     images: [
       "/cases/gimecs/photo1.jpeg",
       "/cases/gimecs/photo2.jpeg",
       "/cases/gimecs/photo3.jpeg",
     ],
     technologies: [
-      { name: "React", icon: "/icons/react.svg" },
-      { name: "Next.js", icon: "/icons/nextjs.png" },
+      { name: "Next.js", icon: "/icons/next-js.svg" },
       { name: "TypeScript", icon: "/icons/typescript.svg" },
+      { name: "Payload CMS", icon: "/icons/payload.svg" },
+      { name: "MongoDB", icon: "/icons/mongodb.svg" },
       { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
     ],
     client: {
       name: "Gimecs",
-      description: "Industrial IoT Solutions Provider",
+      description: "Industrial IoT Solutions",
       country: "Germany",
     },
-    link: "https://gimecs.vercel.app/",
   },
   {
     id: 3,
@@ -154,26 +171,33 @@ export const projectsData: ProjectDetails[] = [
     category: "Web3",
     description:
       "A web application for investing crypto through smart contracts.",
+    challenge:
+      "Client needed a web application for internal usage for investing crypto through smart contracts.",
+    solution:
+      "We built a web application with a login by phone number and wallet authentication, dashboard for revieving and managing investments and other pages for signing new contracts and managing your profile. Also we add small admin panel for reviewing contracts of all users.",
     features: [
       "Web3 Staking",
       "Wallet Authentication",
       "Smart Contract Interaction",
+      "Admin Panel",
+      "Translations",
     ],
     images: [
       "/cases/web3-invest/photo1.jpeg",
       "/cases/web3-invest/photo2.jpeg",
-      "/cases/web3-invest/photo3.jpeg",
+      "/cases/web3-invest/photo3.jpg",
     ],
     technologies: [
-      { name: "React", icon: "/icons/react.svg" },
+      { name: "Next.js", icon: "/icons/next-js.svg" },
       { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Ethers.js", icon: "/icons/ethers.svg" },
-      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
+      { name: "Wagmi", icon: "/icons/wagmi.svg" },
+      { name: "WalletConnect", icon: "/icons/wallet-connect.svg" },
+      { name: "Material UI", icon: "/icons/mui.svg" },
     ],
     client: {
-      name: "Confidential",
-      description: "Blockchain Investment Platform",
-      country: "Switzerland",
+      name: "NDA",
+      description: "International FinTech company",
+      country: "Ukraine",
     },
   },
 ];

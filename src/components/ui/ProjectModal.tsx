@@ -37,6 +37,13 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
     };
   }, [onClose]);
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   if (!project) return null;
 
   const nextImage = () => {
@@ -115,11 +122,19 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             {/* Project info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <div className="mb-8">
+                <div className="mb-6">
                   <h3 className="text-xl font-medium text-white mb-2">
                     Overview
                   </h3>
                   <p className="text-slate-400">{project.description}</p>
+                </div>
+                <div className="mb-6">
+                  <h3 className="text-white mb-1">- Business Challenge</h3>
+                  <p className="text-slate-400">{project.challenge}</p>
+                </div>
+                <div className="mb-8">
+                  <h3 className="text-white mb-1">- Solution</h3>
+                  <p className="text-slate-400">{project.solution}</p>
                 </div>
 
                 {project.client && (
@@ -164,7 +179,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                     {project.technologies.map((tech) => (
                       <div
                         key={tech.name}
-                        className="relative w-10 h-10 flex items-center justify-center bg-white/5 p-2 rounded-lg hover:bg-white/10 transition-all cursor-pointer"
+                        className="relative w-10 h-10 flex items-center justify-center bg-white/5 p-2 rounded-lg hover:bg-white/10 transition-all"
                         onMouseEnter={(e) => {
                           const rect = e.currentTarget.getBoundingClientRect();
                           setTooltipTech({
