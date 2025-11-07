@@ -11,10 +11,12 @@ const Cases: FC = () => {
     null
   );
 
+  const sortedProjects = [...projectsData].sort((a, b) => b.id - a.id);
+
   const filteredProjects =
     activeCategory === "All"
-      ? projectsData
-      : projectsData.filter((project) => project.category === activeCategory);
+      ? sortedProjects
+      : sortedProjects.filter((project) => project.category === activeCategory);
 
   const openProjectModal = (project: ProjectDetails) => {
     setSelectedProject(project);

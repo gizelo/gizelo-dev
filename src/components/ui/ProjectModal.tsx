@@ -1,5 +1,5 @@
 import { FC, useRef, useEffect, useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import FadeIn from "../animations/FadeIn";
 import { ProjectDetails } from "@/types";
 
@@ -113,9 +113,22 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
 
             <div className="flex justify-between items-center mb-8 flex-wrap gap-4 gap-y-2">
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                {project.title}
-              </h2>
+              <div className="flex items-center gap-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-white">
+                  {project.title}
+                </h2>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/60 hover:text-white transition-colors"
+                    aria-label={`Open ${project.title} live website`}
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                )}
+              </div>
               <span className="text-sm bg-white/10 text-slate-300 px-3 py-1 rounded-full">
                 {project.category}
               </span>

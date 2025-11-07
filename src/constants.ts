@@ -95,78 +95,6 @@ export const steps = [
 export const projectsData: ProjectDetails[] = [
   {
     id: 1,
-    title: "Chocolatin Labs",
-    category: "E-commerce",
-    description:
-      "A website for a labrador kennel in Europe with catalogue of dogs to request through the form and connected CMS for managing all the content on the website.",
-    challenge:
-      "Client needed a website to showcase their dogs with ability to request a dog through the form and a blog page to share news and updates.",
-    solution:
-      "We built a custom CMS with a simple interface for managing the content on the website. We also implemented email notification service to notify the client when a new request is made.",
-    features: [
-      "Custom CMS",
-      "Email notifications",
-      "Translations",
-      "Mobile friendly",
-      "SEO",
-    ],
-    images: [
-      "/cases/chocolatin-labs/photo1.jpeg",
-      "/cases/chocolatin-labs/photo2.jpeg",
-      "/cases/chocolatin-labs/photo3.jpeg",
-      "/cases/chocolatin-labs/photo4.jpeg",
-      "/cases/chocolatin-labs/photo5.jpeg",
-    ],
-    technologies: [
-      { name: "Next.js", icon: "/icons/next-js.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Payload CMS", icon: "/icons/payload.svg" },
-      { name: "MongoDB", icon: "/icons/mongodb.svg" },
-      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
-    ],
-    client: {
-      name: "Chocolatin Labs",
-      description: "Premium Labrador Kennel",
-      country: "Italy",
-    },
-  },
-  {
-    id: 2,
-    title: "Gimecs",
-    category: "Corporate",
-    description:
-      "A website for a German IT company which specializes on indastrial IoT solutions.",
-    challenge:
-      "Client needed a website to showcase present their company, their services and case studies.",
-    solution:
-      "We built a custom CMS with a simple interface for managing almost all the content on the website. We also added a contact form with sending emails to the client.",
-    features: [
-      "Custom CMS",
-      "Translations",
-      "Contact form",
-      "Mobile friendly",
-      "SEO",
-    ],
-    images: [
-      "/cases/gimecs/photo1.jpeg",
-      "/cases/gimecs/photo2.jpeg",
-      "/cases/gimecs/photo3.jpeg",
-    ],
-    technologies: [
-      { name: "Next.js", icon: "/icons/next-js.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Payload CMS", icon: "/icons/payload.svg" },
-      { name: "MongoDB", icon: "/icons/mongodb.svg" },
-      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
-    ],
-    client: {
-      name: "Gimecs",
-      description: "Industrial IoT Solutions",
-      country: "Germany",
-    },
-  },
-  {
-    id: 3,
     title: "Web3 Invest Dashboard",
     category: "Web3",
     description:
@@ -200,9 +128,121 @@ export const projectsData: ProjectDetails[] = [
       country: "Ukraine",
     },
   },
+  {
+    id: 2,
+    title: "Gimecs",
+    category: "Corporate",
+    link: "https://gimecs.com/",
+    description:
+      "A website for a German IT company which specializes on indastrial IoT solutions.",
+    challenge:
+      "Client needed a website to showcase present their company, their services and case studies.",
+    solution:
+      "We built a custom CMS with a simple interface for managing almost all the content on the website. We also added a contact form with sending emails to the client.",
+    features: [
+      "Custom CMS",
+      "Translations",
+      "Contact form",
+      "Mobile friendly",
+      "SEO",
+    ],
+    images: [
+      "/cases/gimecs/photo1.webp",
+      "/cases/gimecs/photo2.webp",
+      "/cases/gimecs/photo3.webp",
+    ],
+    technologies: [
+      { name: "Next.js", icon: "/icons/next-js.svg" },
+      { name: "TypeScript", icon: "/icons/typescript.svg" },
+      { name: "Payload CMS", icon: "/icons/payload.svg" },
+      { name: "MongoDB", icon: "/icons/mongodb.svg" },
+      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
+    ],
+    client: {
+      name: "Gimecs",
+      description: "Industrial IoT Solutions",
+      country: "Germany",
+    },
+  },
+  {
+    id: 3,
+    title: "Chocolatin Labs",
+    category: "E-commerce",
+    link: "https://www.chocolatinlabs.com/",
+    description:
+      "A modern website for a Labrador kennel — built to showcase dogs, receive requests, and manage all content easily through a simple, custom CMS.",
+    challenge:
+      "The client needed a professional website to present their dogs, handle adoption requests, and share updates — all without relying on developers for every edit.",
+    solution:
+      "We created a custom CMS-powered website with automated request handling, multilingual support, and responsive design — giving the client full control and a smooth user experience for visitors.",
+    features: [
+      "Custom CMS",
+      "Email notifications",
+      "Translations",
+      "Mobile friendly",
+      "SEO",
+    ],
+    images: [
+      "/cases/chocolatin-labs/photo1.webp",
+      "/cases/chocolatin-labs/photo2.webp",
+      "/cases/chocolatin-labs/photo3.webp",
+      "/cases/chocolatin-labs/photo4.webp",
+      "/cases/chocolatin-labs/photo5.webp",
+    ],
+    technologies: [
+      { name: "Next.js", icon: "/icons/next-js.svg" },
+      { name: "TypeScript", icon: "/icons/typescript.svg" },
+      { name: "Payload CMS", icon: "/icons/payload.svg" },
+      { name: "MongoDB", icon: "/icons/mongodb.svg" },
+      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
+    ],
+    client: {
+      name: "Chocolatin Labs",
+      description: "Premium Labrador Kennel",
+      country: "Italy",
+    },
+  },
+  {
+    id: 4,
+    title: "Thermalink",
+    category: "E-commerce",
+    link: "https://www.thermalink.pl/",
+    description:
+      "A website for a Warsaw-based client selling stylish home radiators and towel warmers, featuring a multi-page layout with catalogue, product pages, and online checkout.",
+    challenge:
+      "Client needed a website to sell premium home heating products online, showcase the catalogue with filtering options, and allow customers to place orders and pay directly on the site, all with a clean, minimalistic premium design.",
+    solution:
+      "We built a multi-page Wix website with a main landing page, “About Us” section, payment and delivery info pages, and a fully functional product catalogue. Customers can filter products, view product details, add items to the cart, and complete checkout. The website also includes contact forms for inquiries.",
+    features: [
+      "Product catalogue with filters",
+      "Online cart and checkout",
+      "Contact forms",
+      "Mobile friendly",
+      "SEO",
+    ],
+    images: [
+      "/cases/thermalink/photo1.webp",
+      "/cases/thermalink/photo2.webp",
+      "/cases/thermalink/photo3.webp",
+    ],
+    technologies: [
+      { name: "Wix", icon: "/icons/wix.svg" },
+    ],
+    client: {
+      name: "Thermalink",
+      description: "Stylish Home Heating Products",
+      country: "Poland",
+    },
+  },
 ];
 
-export const projectCategories = [
-  "All",
-  ...new Set(projectsData.map((project) => project.category)),
-];
+const projectCategoriesOrdered = [...projectsData]
+  .sort((a, b) => b.id - a.id)
+  .reduce<string[]>((categories, project) => {
+    if (!categories.includes(project.category)) {
+      categories.push(project.category);
+    }
+    return categories;
+  }, []);
+
+export const projectCategories = ["All", ...projectCategoriesOrdered];
