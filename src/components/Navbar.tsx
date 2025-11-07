@@ -37,17 +37,13 @@ export const Navbar: FC = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 transition-all duration-300 py-3 bg-black z-50",
-        scrolled ? "border-b border-white/10" : ""
+        scrolled ? "border-b border-white/10" : "",
       )}
     >
       <FadeIn direction="down" delay={800}>
         <div className="container flex items-center justify-between">
           <a href="#home" className="relative">
-            <img
-              src="/gizelo-logo-full.svg"
-              alt="Logo"
-              className="h-8 md:h-10"
-            />
+            <img src="/gizelo-logo-full.svg" alt="Logo" className="h-8 md:h-10" />
           </a>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -75,11 +71,7 @@ export const Navbar: FC = () => {
             aria-label="Toggle menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
       </FadeIn>
@@ -88,18 +80,14 @@ export const Navbar: FC = () => {
       <div
         className={cn(
           "fixed inset-0 bg-black transition-transform duration-300 ease-in-out md:hidden",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="container h-full flex flex-col">
           {/* Header with logo and close button */}
           <div className="flex items-center justify-between py-4">
             <a href="#home" className="relative">
-              <img
-                src="/gizelo-logo-full.svg"
-                alt="Logo"
-                className="h-8 md:h-12"
-              />
+              <img src="/gizelo-logo-full.svg" alt="Logo" className="h-8 md:h-12" />
             </a>
             <Button
               variant="ghost"

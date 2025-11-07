@@ -78,17 +78,14 @@ const Contact: FC = () => {
 
       <div className="container">
         <FadeIn delay={200}>
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">
-            Let's chat!
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">Let's chat!</h2>
         </FadeIn>
         <FadeIn delay={400}>
           <p className="text-center text-slate-400 max-w-2xl mx-auto mt-4">
             Got an idea in mind? Maybe you need one for your business?
           </p>
           <p className="text-center text-slate-400 max-w-2xl mx-auto">
-            Just fill out the form and we'll jump on a call as soon as possible.
-            It's free :)
+            Just fill out the form and we'll jump on a call as soon as possible. It's free :)
           </p>
         </FadeIn>
 
@@ -116,16 +113,12 @@ const Contact: FC = () => {
         <div className="grid grid-cols-1 gap-12 mt-8 mx-auto max-w-2xl">
           <FadeIn delay={300} direction="up">
             <div className="blur-backdrop rounded-2xl p-8">
-              <h3 className="text-xl font-semibold mb-6 text-white">
-                Send Us a Message
-              </h3>
+              <h3 className="text-xl font-semibold mb-6 text-white">Send Us a Message</h3>
 
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-8">
                   <CheckCircle2 className="h-16 w-16 text-accent mb-4" />
-                  <h4 className="text-xl font-medium text-white mb-2">
-                    Message Sent!
-                  </h4>
+                  <h4 className="text-xl font-medium text-white mb-2">Message Sent!</h4>
                   <p className="text-slate-400 text-center">
                     Thank you for reaching out. We'll get back to you shortly.
                   </p>
@@ -133,35 +126,16 @@ const Contact: FC = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <Input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      required
-                    />
+                    <Input type="text" name="name" placeholder="Your Name" required />
                   </div>
                   <div>
-                    <Input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      required
-                    />
+                    <Input type="email" name="email" placeholder="Your Email" required />
                   </div>
                   <div>
-                    <Input
-                      type="text"
-                      name="subject"
-                      placeholder="Subject"
-                      required
-                    />
+                    <Input type="text" name="subject" placeholder="Subject" required />
                   </div>
                   <div>
-                    <Textarea
-                      name="message"
-                      placeholder="Your Message"
-                      required
-                    />
+                    <Textarea name="message" placeholder="Your Message" required />
                   </div>
                   <input type="hidden" name="_template" value="box" />
                   <Button

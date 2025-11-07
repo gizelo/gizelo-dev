@@ -97,8 +97,7 @@ export const projectsData: ProjectDetails[] = [
     id: 1,
     title: "Web3 Invest Dashboard",
     category: "Web3",
-    description:
-      "A web application for investing crypto through smart contracts.",
+    description: "A web application for investing crypto through smart contracts.",
     challenge:
       "Client needed a web application for internal usage for investing crypto through smart contracts.",
     solution:
@@ -133,24 +132,13 @@ export const projectsData: ProjectDetails[] = [
     title: "Gimecs",
     category: "Corporate",
     link: "https://gimecs.com/",
-    description:
-      "A website for a German IT company which specializes on indastrial IoT solutions.",
+    description: "A website for a German IT company which specializes on indastrial IoT solutions.",
     challenge:
       "Client needed a website to showcase present their company, their services and case studies.",
     solution:
       "We built a custom CMS with a simple interface for managing almost all the content on the website. We also added a contact form with sending emails to the client.",
-    features: [
-      "Custom CMS",
-      "Translations",
-      "Contact form",
-      "Mobile friendly",
-      "SEO",
-    ],
-    images: [
-      "/cases/gimecs/photo1.webp",
-      "/cases/gimecs/photo2.webp",
-      "/cases/gimecs/photo3.webp",
-    ],
+    features: ["Custom CMS", "Translations", "Contact form", "Mobile friendly", "SEO"],
+    images: ["/cases/gimecs/photo1.webp", "/cases/gimecs/photo2.webp", "/cases/gimecs/photo3.webp"],
     technologies: [
       { name: "Next.js", icon: "/icons/next-js.svg" },
       { name: "TypeScript", icon: "/icons/typescript.svg" },
@@ -175,13 +163,7 @@ export const projectsData: ProjectDetails[] = [
       "The client needed a professional website to present their dogs, handle adoption requests, and share updates — all without relying on developers for every edit.",
     solution:
       "We created a custom CMS-powered website with automated request handling, multilingual support, and responsive design — giving the client full control and a smooth user experience for visitors.",
-    features: [
-      "Custom CMS",
-      "Email notifications",
-      "Translations",
-      "Mobile friendly",
-      "SEO",
-    ],
+    features: ["Custom CMS", "Email notifications", "Translations", "Mobile friendly", "SEO"],
     images: [
       "/cases/chocolatin-labs/photo1.webp",
       "/cases/chocolatin-labs/photo2.webp",
@@ -225,9 +207,7 @@ export const projectsData: ProjectDetails[] = [
       "/cases/thermalink/photo2.webp",
       "/cases/thermalink/photo3.webp",
     ],
-    technologies: [
-      { name: "Wix", icon: "/icons/wix.svg" },
-    ],
+    technologies: [{ name: "Wix", icon: "/icons/wix.svg" }],
     client: {
       name: "Thermalink",
       description: "Stylish Home Heating Products",

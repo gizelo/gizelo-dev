@@ -51,9 +51,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
   };
 
   const prevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + project.images.length) % project.images.length
-    );
+    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
   };
 
   return (
@@ -114,9 +112,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
             <div className="flex justify-between items-center mb-8 flex-wrap gap-4 gap-y-2">
               <div className="flex items-center gap-3">
-                <h2 className="text-2xl md:text-3xl font-bold text-white">
-                  {project.title}
-                </h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h2>
                 {project.link && (
                   <a
                     href={project.link}
@@ -138,9 +134,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <div className="mb-6">
-                  <h3 className="text-xl font-medium text-white mb-2">
-                    Overview
-                  </h3>
+                  <h3 className="text-xl font-medium text-white mb-2">Overview</h3>
                   <p className="text-slate-400">{project.description}</p>
                 </div>
                 <div className="mb-6">
@@ -154,17 +148,11 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
                 {project.client && (
                   <div className="mb-8">
-                    <h3 className="text-xl font-medium text-white mb-2">
-                      Client
-                    </h3>
+                    <h3 className="text-xl font-medium text-white mb-2">Client</h3>
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="text-white font-medium">
-                          {project.client.name}
-                        </p>
-                        <p className="text-slate-400 text-sm">
-                          {project.client.description}
-                        </p>
+                        <p className="text-white font-medium">{project.client.name}</p>
+                        <p className="text-slate-400 text-sm">{project.client.description}</p>
                       </div>
                       <div className="bg-white/5 px-3 py-1 rounded-full text-sm">
                         {project.client.country}
@@ -176,9 +164,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
               <div>
                 <div className="mb-8">
-                  <h3 className="text-xl font-medium text-white mb-2">
-                    Features
-                  </h3>
+                  <h3 className="text-xl font-medium text-white mb-2">Features</h3>
                   <ul className="list-disc list-inside text-slate-400">
                     {project.features.map((feature) => (
                       <li key={feature}>{feature}</li>
@@ -187,9 +173,7 @@ const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-medium text-white mb-2">
-                    Technologies
-                  </h3>
+                  <h3 className="text-xl font-medium text-white mb-2">Technologies</h3>
                   <div className="flex flex-wrap gap-4 relative">
                     {project.technologies.map((tech) => (
                       <div

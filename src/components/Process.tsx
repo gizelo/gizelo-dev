@@ -7,10 +7,7 @@ const Process: FC = () => {
   const mousePosition = useMousePosition();
 
   return (
-    <section
-      id="process"
-      className="py-28 bg-black/50 relative overflow-hidden"
-    >
+    <section id="process" className="py-28 bg-black/50 relative overflow-hidden">
       <FadeIn direction="none" delay={1000} duration={1000}>
         <div
           className="absolute w-32 h-32 transition-transform duration-700 ease-out"
@@ -41,9 +38,7 @@ const Process: FC = () => {
                   </span>
                 </FadeIn>
                 <div className="relative pt-8">
-                  <h3 className="text-xl font-semibold mb-3 text-white">
-                    {step.title}
-                  </h3>
+                  <h3 className="text-xl font-semibold mb-3 text-white">{step.title}</h3>
                   <p className="text-slate-400">{step.description}</p>
                 </div>
               </div>

@@ -7,9 +7,7 @@ import { projectsData, projectCategories } from "@/constants";
 
 const Cases: FC = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(
-    null
-  );
+  const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(null);
 
   const sortedProjects = [...projectsData].sort((a, b) => b.id - a.id);
 
@@ -32,9 +30,7 @@ const Cases: FC = () => {
     <section id="cases" className="py-28 bg-black">
       <div className="container">
         <FadeIn delay={200}>
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">
-            Our Cases
-          </h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">Our Cases</h2>
         </FadeIn>
         <FadeIn delay={600}>
           <div className="flex justify-center mt-8 overflow-x-auto whitespace-nowrap">
@@ -74,16 +70,12 @@ const Cases: FC = () => {
                   <div className="flex flex-col gap-4 h-full p-6">
                     <div className="flex flex-col flex-grow gap-4">
                       <div className="flex justify-between items-start gap-2">
-                        <h3 className="text-lg font-semibold text-white">
-                          {project.title}
-                        </h3>
+                        <h3 className="text-lg font-semibold text-white">{project.title}</h3>
                         <span className="text-xs bg-white/10 text-slate-300 px-2 py-1 rounded-full">
                           {project.category}
                         </span>
                       </div>
-                      <p className="text-slate-400 text-sm">
-                        {project.description}
-                      </p>
+                      <p className="text-slate-400 text-sm">{project.description}</p>
                       <ul className="list-disc list-inside">
                         {project.features.map((feature) => (
                           <li key={feature}>{feature}</li>
@@ -101,16 +93,12 @@ const Cases: FC = () => {
           ))}
         </div>
         <FadeIn delay={500}>
-          <p className="text-center text-slate-400 mt-14">
-            and the story continues...
-          </p>
+          <p className="text-center text-slate-400 mt-14">and the story continues...</p>
         </FadeIn>
       </div>
 
       {/* Project Modal */}
-      {selectedProject && (
-        <ProjectModal project={selectedProject} onClose={closeProjectModal} />
-      )}
+      {selectedProject && <ProjectModal project={selectedProject} onClose={closeProjectModal} />}
     </section>
   );
 };

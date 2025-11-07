@@ -38,7 +38,7 @@ export const FadeIn: FC<FadeInProps> = ({
       {
         threshold,
         rootMargin: "0px",
-      }
+      },
     );
 
     const currentRef = ref.current;
@@ -66,7 +66,7 @@ export const FadeIn: FC<FadeInProps> = ({
     "transition-all",
     directionClasses[direction],
     isVisible ? "opacity-100 transform-none" : "opacity-0",
-    className
+    className,
   );
 
   return (

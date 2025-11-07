@@ -15,15 +15,9 @@ const Footer: FC = () => {
         <div className="flex justify-between items-start flex-wrap gap-8 mb-16">
           <div>
             <a href="#home" className="relative">
-              <img
-                src="/gizelo-logo-full.svg"
-                alt="Logo"
-                className="h-8 md:h-12"
-              />
+              <img src="/gizelo-logo-full.svg" alt="Logo" className="h-8 md:h-12" />
             </a>
-            <p className="text-slate-400 max-w-xs mt-2">
-              Build Your Web Solution.
-            </p>
+            <p className="text-slate-400 max-w-xs mt-2">Build Your Web Solution.</p>
           </div>
           <button
             onClick={scrollToTop}

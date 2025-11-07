@@ -9,12 +9,7 @@ interface ServiceCardProps {
   delay: number;
 }
 
-const ServiceCard: FC<ServiceCardProps> = ({
-  title,
-  description,
-  icon: Icon,
-  delay,
-}) => {
+const ServiceCard: FC<ServiceCardProps> = ({ title, description, icon: Icon, delay }) => {
   return (
     <FadeIn delay={delay} className="h-full">
       <div className="group glass-card flex flex-col h-full">
