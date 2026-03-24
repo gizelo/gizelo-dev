@@ -30,7 +30,7 @@ const Cases: FC = () => {
     <section id="cases" className="py-28 bg-black">
       <div className="container">
         <FadeIn delay={200}>
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">Our Cases</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-gradient">My Projects</h2>
         </FadeIn>
         <FadeIn delay={600}>
           <div className="flex justify-center mt-8 overflow-x-auto whitespace-nowrap">

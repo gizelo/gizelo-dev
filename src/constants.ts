@@ -9,9 +9,9 @@ import {
 import { ProjectDetails } from "./types";
 
 export const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Process", href: "#process" },
-  { name: "Cases", href: "#cases" },
+  { name: "About", href: "#about" },
+  { name: "Expertise", href: "#expertise" },
+  { name: "Projects", href: "#cases" },
 ];
 
 export const services = [
@@ -47,7 +47,7 @@ export const services = [
   },
   {
     icon: MessagesSquare,
-    title: "...or consult you for FREE",
+    title: "Free Consultation",
     description:
       "Get expert advice and insights on your project, technology stack, or digital strategy at no cost.",
   },
@@ -58,41 +58,70 @@ export const steps = [
     number: "01",
     title: "Discovery",
     description:
-      "We start by understanding your business, goals, target audience, and requirements through in-depth consultation.",
+      "I start by understanding your business, goals, target audience, and requirements through in-depth consultation.",
   },
   {
     number: "02",
     title: "Planning",
     description:
-      "Based on the discovery, we create a strategic roadmap outlining the project scope, timeline, and deliverables.",
+      "Based on the discovery, I create a strategic roadmap outlining the project scope, timeline, and deliverables.",
   },
   {
     number: "03",
     title: "Design",
     description:
-      "Our designers create wireframes and visual mockups that align with your brand identity and user experience goals.",
+      "I create wireframes and visual mockups that align with your brand identity and user experience goals.",
   },
   {
     number: "04",
     title: "Development",
     description:
-      "Our developers build your website using clean, efficient code and modern development practices.",
+      "I build your product using clean, efficient code and modern development practices.",
   },
   {
     number: "05",
     title: "Testing",
     description:
-      "Rigorous testing ensures your website works flawlessly across all devices, browsers, and user scenarios.",
+      "Rigorous testing ensures your product works flawlessly across all devices, browsers, and user scenarios.",
   },
   {
     number: "06",
     title: "Launch",
     description:
-      "Once approved, we deploy your product and provide training on content management and maintenance.",
+      "Once approved, I deploy your product and provide guidance on content management and maintenance.",
   },
 ];
 
 export const projectsData: ProjectDetails[] = [
+  {
+    id: 5,
+    title: "Girex — P2P Crypto Exchange",
+    category: "Fintech",
+    link: "https://girex.io/",
+    description:
+      "A full-featured P2P cryptocurrency exchange platform — trade crypto and cash peer-to-peer, manage multi-chain wallets, and communicate with counterparties in real time.",
+    challenge:
+      "Build a secure, scalable P2P exchange from scratch: user auth with 2FA, multi-blockchain wallets (ETH, BSC, Solana, BTC), order matching, real-time trading chat, an admin analytics dashboard, and a companion React Native mobile app.",
+    solution:
+      "I led full product delivery as project lead and frontend architect. Architected the React/TypeScript frontend using FSD, implemented real-time order chat via WebSockets (Socket.io), built multi-chain wallet flows, and shipped a React Native mobile client in parallel. Managed the backend developer and designer throughout.",
+    features: [
+      "P2P order book & matching",
+      "Real-time chat via WebSockets",
+      "Multi-chain wallets (ETH, BSC, Solana, BTC)",
+      "Cash & crypto trading flows",
+      "Admin dashboard with analytics",
+      "React Native mobile app (in progress)",
+      "Two-factor authentication & Google OAuth",
+    ],
+    images: ["/cases/girex/photo1.webp"],
+    technologies: [
+      { name: "React", icon: "/icons/react.svg" },
+      { name: "TypeScript", icon: "/icons/typescript.svg" },
+      { name: "Redux Toolkit", icon: "/icons/redux.svg" },
+      { name: "NestJS", icon: "/icons/nestjs.svg" },
+      { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
+    ],
+  },
   {
     id: 1,
     title: "Web3 Invest Dashboard",
@@ -101,7 +130,7 @@ export const projectsData: ProjectDetails[] = [
     challenge:
       "Client needed a web application for internal usage for investing crypto through smart contracts.",
     solution:
-      "We built a web application with a login by phone number and wallet authentication, dashboard for revieving and managing investments and other pages for signing new contracts and managing your profile. Also we add small admin panel for reviewing contracts of all users.",
+      "I built a web application with a login by phone number and wallet authentication, dashboard for reviewing and managing investments and other pages for signing new contracts and managing your profile. I also added a small admin panel for reviewing contracts of all users.",
     features: [
       "Web3 Staking",
       "Wallet Authentication",
@@ -132,11 +161,11 @@ export const projectsData: ProjectDetails[] = [
     title: "Gimecs",
     category: "Corporate",
     link: "https://gimecs.com/",
-    description: "A website for a German IT company which specializes on indastrial IoT solutions.",
+    description: "A website for a German IT company which specializes on industrial IoT solutions.",
     challenge:
-      "Client needed a website to showcase present their company, their services and case studies.",
+      "Client needed a website to showcase and present their company, their services and case studies.",
     solution:
-      "We built a custom CMS with a simple interface for managing almost all the content on the website. We also added a contact form with sending emails to the client.",
+      "I built a custom CMS with a simple interface for managing almost all the content on the website. I also added a contact form with email notifications to the client.",
     features: ["Custom CMS", "Translations", "Contact form", "Mobile friendly", "SEO"],
     images: ["/cases/gimecs/photo1.webp", "/cases/gimecs/photo2.webp", "/cases/gimecs/photo3.webp"],
     technologies: [
@@ -162,7 +191,7 @@ export const projectsData: ProjectDetails[] = [
     challenge:
       "The client needed a professional website to present their dogs, handle adoption requests, and share updates — all without relying on developers for every edit.",
     solution:
-      "We created a custom CMS-powered website with automated request handling, multilingual support, and responsive design — giving the client full control and a smooth user experience for visitors.",
+      "I created a custom CMS-powered website with automated request handling, multilingual support, and responsive design — giving the client full control and a smooth user experience for visitors.",
     features: ["Custom CMS", "Email notifications", "Translations", "Mobile friendly", "SEO"],
     images: [
       "/cases/chocolatin-labs/photo1.webp",
@@ -194,7 +223,7 @@ export const projectsData: ProjectDetails[] = [
     challenge:
       "Client needed a website to sell premium home heating products online, showcase the catalogue with filtering options, and allow customers to place orders and pay directly on the site, all with a clean, minimalistic premium design.",
     solution:
-      "We built a multi-page Wix website with a main landing page, “About Us” section, payment and delivery info pages, and a fully functional product catalogue. Customers can filter products, view product details, add items to the cart, and complete checkout. The website also includes contact forms for inquiries.",
+      "I built a multi-page Wix website with a main landing page, 'About Us' section, payment and delivery info pages, and a fully functional product catalogue. Customers can filter products, view product details, add items to the cart, and complete checkout. The website also includes contact forms for inquiries.",
     features: [
       "Product catalogue with filters",
       "Online cart and checkout",

@@ -17,7 +17,7 @@ const Footer: FC = () => {
             <a href="#home" className="relative">
               <img src="/gizelo-logo-full.svg" alt="Logo" className="h-8 md:h-12" />
             </a>
-            <p className="text-slate-400 max-w-xs mt-2">Build Your Web Solution.</p>
+            <p className="text-slate-400 max-w-xs mt-2">Building web products end-to-end.</p>
           </div>
           <button
             onClick={scrollToTop}
@@ -47,7 +47,7 @@ const Footer: FC = () => {
             </a>
           </div>
           <p className="text-slate-500 text-sm">
-            &copy; {new Date().getFullYear()} Gizelo. All rights reserved.
+            &copy; {new Date().getFullYear()} Robert Gizelo. All rights reserved.
           </p>
         </div>
       </div>
