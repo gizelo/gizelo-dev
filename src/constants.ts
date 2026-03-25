@@ -113,7 +113,17 @@ export const projectsData: ProjectDetails[] = [
       "React Native mobile app (in progress)",
       "Two-factor authentication & Google OAuth",
     ],
-    images: ["/cases/girex/photo1.webp"],
+    images: [
+      "/cases/girex/girex.webp",
+      "/cases/girex/girex1.webp",
+      "/cases/girex/girex3.webp",
+      "/cases/girex/girex2.webp",
+      "/cases/girex/girex8.webp",
+      "/cases/girex/girex4.webp",
+      "/cases/girex/girex5.webp",
+      "/cases/girex/girex7.webp",
+      "/cases/girex/girex6.webp",
+    ],
     technologies: [
       { name: "React", icon: "/icons/react.svg" },
       { name: "TypeScript", icon: "/icons/typescript.svg" },
