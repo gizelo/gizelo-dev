@@ -1,24 +1,40 @@
-interface Technology {
-  name: string;
-  icon: string;
-}
+export type ProjectSlug = "girex" | "house-of-smile" | "chocolatin-labs";
 
-interface Client {
-  name: string;
-  description: string;
-  country: string;
-}
+export type ProjectImage = {
+  src: string;
+  srcSmall?: string;
+  alt: string;
+  caption?: string;
+  portrait?: boolean;
+};
 
-export interface ProjectDetails {
-  id: number;
+export type ProjectDecision = {
   title: string;
+  body: string;
+};
+
+export type CaseStudy = {
+  slug: ProjectSlug;
+  name: string;
   category: string;
+  summary: string;
+  role: string;
+  scope: string;
+  stage: string;
+  timeline: string;
+  website?: string;
+  ownershipLabel: string;
+  context: string[];
+  owned: string[];
+  decisions: ProjectDecision[];
+  delivered: string[];
+  outcome: string;
+  reflection?: string;
+  cover: ProjectImage;
+  gallery: ProjectImage[];
+};
+
+export type Contribution = {
+  name: string;
   description: string;
-  challenge: string;
-  solution: string;
-  features: string[];
-  images: string[];
-  technologies: Technology[];
-  client?: Client;
-  link?: string;
-}
+};

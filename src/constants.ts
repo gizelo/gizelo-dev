@@ -1,267 +1,267 @@
-import {
-  Briefcase,
-  ShoppingCart,
-  MonitorSmartphone,
-  LayoutDashboard,
-  Paintbrush,
-  MessagesSquare,
-} from "lucide-react";
-import { ProjectDetails } from "./types";
+import { CaseStudy, Contribution } from "@/types";
 
 export const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Expertise", href: "#expertise" },
-  { name: "Projects", href: "#cases" },
+  { name: "Work", href: "/#work" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Contact", href: "/#contact" },
 ];
 
-export const services = [
+export const contributions: Contribution[] = [
   {
-    icon: Briefcase,
-    title: "Business Website",
-    description:
-      "Professional and scalable business websites designed to establish your online presence and attract customers.",
+    name: "Pactos",
+    description: "Full-stack product engineering for a German contingent workforce platform.",
   },
   {
-    icon: ShoppingCart,
-    title: "E-Commerce Store",
-    description:
-      "Custom-built online stores with secure payment gateways, inventory management, and a seamless shopping experience.",
+    name: "SmartTeach",
+    description: "Accessible design-system and product UI work for an early-learning platform.",
   },
   {
-    icon: MonitorSmartphone,
-    title: "Landing Page",
-    description:
-      "High-converting landing pages tailored to your marketing goals, optimized for engagement and lead generation.",
+    name: "Zelus Wallet",
+    description: "Web and mobile product engineering across wallet and NFT experiences.",
   },
   {
-    icon: LayoutDashboard,
-    title: "Web Application",
-    description:
-      "Advanced web applications with modern technologies, delivering interactive and dynamic user experiences.",
-  },
-  {
-    icon: Paintbrush,
-    title: "UI/UX Design",
-    description:
-      "User-centric design solutions that enhance usability, improve engagement, and create visually stunning interfaces.",
-  },
-  {
-    icon: MessagesSquare,
-    title: "Free Consultation",
-    description:
-      "Get expert advice and insights on your project, technology stack, or digital strategy at no cost.",
+    name: "Web3 Invest Dashboard",
+    description: "Frontend delivery for an investment product under NDA.",
   },
 ];
 
-export const steps = [
+export const caseStudies: CaseStudy[] = [
   {
-    number: "01",
-    title: "Discovery",
-    description:
-      "I start by understanding your business, goals, target audience, and requirements through in-depth consultation.",
+    slug: "girex",
+    name: "Girex",
+    category: "Crypto exchange platform",
+    summary:
+      "Turning a founder's high-level exchange concept into a coherent web and mobile product for people who need a simpler way to move between crypto and fiat.",
+    role: "Technical Product Manager & Product Engineer",
+    scope: "Product definition · Web · Mobile",
+    stage: "Release-candidate beta",
+    timeline: "Jun 2025 — Jul 2026",
+    website: "https://girex.io/",
+    ownershipLabel: "Led product definition and delivery · Built the web frontend and mobile app",
+    context: [
+      "The founder brought the original idea, market knowledge and major capabilities. I turned that direction into product flows, requirements, delivery stages and a working product the team could build and prepare for release.",
+      "The first goal was deliberately narrow: prove that a user could register, find an offer and complete a basic P2P exchange flow on test networks. After the alpha and a pause, development continued with the backend/DevOps engineer and me working part-time toward a production-oriented beta.",
+    ],
+    owned: [
+      "Translated business requests into user flows, requirements, stages and delivery scope.",
+      "Assembled and coordinated the initial backend, frontend and design team.",
+      "Ran planning calls and maintained working documentation and the delivery backlog.",
+      "Challenged requirements through user scenarios, edge cases, business logic and UX reasoning.",
+      "Rebuilt and owned the production-oriented frontend architecture and design system.",
+      "Defined, designed and built the React Native application.",
+    ],
+    decisions: [
+      {
+        title: "Protect the P2P core",
+        body: "I recommended postponing merchant and offline functionality in the first phase and defining the alpha around one complete P2P journey. That gave the part-time team a concrete proof-of-concept target delivered in roughly three months.",
+      },
+      {
+        title: "Model offline exchange around locations",
+        body: "I identified that a physical exchange point was not another advert and reframed the location as the primary entity, with rates, liquidity, opening hours and supported assets attached to it—creating a clearer foundation for discovery and merchant operations.",
+      },
+      {
+        title: "Build mobile capability in-house",
+        body: "After reviewing an external Flutter proposal, the existing React product and long-term maintenance, I recommended React Native and internal delivery. I defined the mobile scope, navigation and interaction patterns, then built the application myself.",
+      },
+    ],
+    delivered: [
+      "Customer web and React Native applications.",
+      "Online P2P offers, deals, chat, appeals and support flows.",
+      "Wallets, transaction history, profiles, verification and reputation.",
+      "Offline exchange-point discovery, rates, liquidity and orders.",
+      "Merchant tools for exchange points, orders, wallets and analytics.",
+      "Admin tools for users, offers, appeals, KYC and platform operations.",
+    ],
+    outcome:
+      "Girex moved from a name, brand color and broad concept to a working internal beta spanning customer, merchant, admin, web and mobile experiences. It is undergoing final checks, security hardening and release preparation; external merchant and user feedback is the next stage.",
+    reflection:
+      "The biggest lesson was to protect shorter release-and-feedback cycles more firmly. I would now define success criteria and event tracking earlier, test the smallest reliable version with external users sooner, and hold the agreed scope more tightly.",
+    cover: {
+      src: "/work/girex/p2p-market.webp",
+      srcSmall: "/work/girex/p2p-market-960.webp",
+      alt: "Girex P2P marketplace showing exchange offers and payment methods",
+    },
+    gallery: [
+      {
+        src: "/work/girex/deal-chat.webp",
+        srcSmall: "/work/girex/deal-chat-960.webp",
+        alt: "Girex P2P deal flow with payment details and real-time chat",
+        caption: "A complete P2P deal flow with clear states and counterparty communication.",
+      },
+      {
+        src: "/work/girex/offline-map.webp",
+        srcSmall: "/work/girex/offline-map-960.webp",
+        alt: "Girex offline exchange discovery map with exchange-point rates",
+        caption: "Exchange points became the core entity for offline discovery and operations.",
+      },
+      {
+        src: "/work/girex/profile.webp",
+        srcSmall: "/work/girex/profile-960.webp",
+        alt: "Girex customer profile with balances, wallets and verification status",
+      },
+      {
+        src: "/work/girex/mobile-market.webp",
+        alt: "Girex native mobile P2P marketplace",
+        portrait: true,
+      },
+      {
+        src: "/work/girex/mobile-map.webp",
+        alt: "Girex native mobile exchange-point map",
+        portrait: true,
+      },
+      {
+        src: "/work/girex/mobile-chat.webp",
+        alt: "Girex native mobile deal and chat flow",
+        portrait: true,
+      },
+      {
+        src: "/work/girex/merchant-dashboard.webp",
+        srcSmall: "/work/girex/merchant-dashboard-960.webp",
+        alt: "Girex merchant operations dashboard",
+      },
+      {
+        src: "/work/girex/admin-overview.webp",
+        srcSmall: "/work/girex/admin-overview-960.webp",
+        alt: "Girex administration overview for platform operations",
+      },
+    ],
   },
   {
-    number: "02",
-    title: "Planning",
-    description:
-      "Based on the discovery, I create a strategic roadmap outlining the project scope, timeline, and deliverables.",
+    slug: "house-of-smile",
+    name: "House of Smile",
+    category: "Dental clinic website",
+    summary:
+      "A self-initiated redesign that turned an outdated clinic website into a clear, credible and booking-focused digital presence for a German dental practice.",
+    role: "Independent Product Builder",
+    scope: "Strategy · UX · Design · Copy · Engineering",
+    stage: "Live",
+    timeline: "Launched Jul 2026",
+    website: "https://www.houseofsmile.de/",
+    ownershipLabel: "Self-initiated and delivered end-to-end",
+    context: [
+      "I approached the clinic after noticing that its old website made it unnecessarily difficult for prospective patients to understand the practice or book an appointment. The information was outdated, the clinic was presented weakly and the site did not meet modern technical, SEO or usability expectations.",
+      "I proposed a concrete redesign plan and built a quick visual demo. Once the client approved the direction, I shaped the complete product: information architecture, pages, positioning, copy, imagery, calls to action, responsive behavior, accessibility, legal content, engineering and launch.",
+    ],
+    owned: [
+      "Identified the opportunity and sold the redesign through a concrete product argument.",
+      "Defined the site structure, user journeys and booking-focused information hierarchy.",
+      "Researched and wrote the service presentation and supporting copy in three languages.",
+      "Designed every screen and created or sourced the visual material.",
+      "Implemented responsive, accessible and SEO-ready pages.",
+      "Handled German legal requirements, GDPR consent behavior and production launch.",
+    ],
+    decisions: [
+      {
+        title: "Make booking the primary path",
+        body: "The old site did not give prospective patients an obvious next step. The new experience keeps appointment booking visible across the core journey while preserving direct access to services, the team and practical information.",
+      },
+      {
+        title: "Build trust through specific information",
+        body: "Instead of generic marketing language, the site explains the clinic's actual services, qualifications, team, languages and patient process. That makes the practice easier to evaluate before a first visit.",
+      },
+      {
+        title: "Treat compliance as product quality",
+        body: "The launch included multilingual legal pages, consent-gated third-party content, accessible interaction states, security headers and a static deployment compatible with the client's existing IONOS hosting.",
+      },
+    ],
+    delivered: [
+      "A complete responsive website across 21 production routes.",
+      "German, English and Russian content with localized metadata.",
+      "Clear Doctolib booking paths and clinic contact information.",
+      "Service, team, gallery, contact, FAQ and legal experiences.",
+      "GDPR-aware maps and consent management.",
+      "Static deployment, redirects, security headers and launch verification.",
+    ],
+    outcome:
+      "The new website launched on the clinic's existing domain in July 2026. It now gives prospective patients a current, credible view of the practice and a clear path to booking, while the clinic retains a straightforward rollback path to the previous site.",
+    cover: {
+      src: "/work/house-of-smile/home.webp",
+      srcSmall: "/work/house-of-smile/home-960.webp",
+      alt: "House of Smile dental clinic homepage with team portrait and booking call to action",
+    },
+    gallery: [
+      {
+        src: "/work/house-of-smile/services.webp",
+        srcSmall: "/work/house-of-smile/services-960.webp",
+        alt: "House of Smile services page presenting dental treatment categories",
+        caption: "Detailed service information replaces the outdated and incomplete presentation.",
+      },
+      {
+        src: "/work/house-of-smile/about.webp",
+        srcSmall: "/work/house-of-smile/about-960.webp",
+        alt: "House of Smile about page presenting the clinic team and practice",
+        caption: "The team and practice are presented as concrete trust signals.",
+      },
+    ],
   },
   {
-    number: "03",
-    title: "Design",
-    description:
-      "I create wireframes and visual mockups that align with your brand identity and user experience goals.",
-  },
-  {
-    number: "04",
-    title: "Development",
-    description:
-      "I build your product using clean, efficient code and modern development practices.",
-  },
-  {
-    number: "05",
-    title: "Testing",
-    description:
-      "Rigorous testing ensures your product works flawlessly across all devices, browsers, and user scenarios.",
-  },
-  {
-    number: "06",
-    title: "Launch",
-    description:
-      "Once approved, I deploy your product and provide guidance on content management and maintenance.",
+    slug: "chocolatin-labs",
+    name: "Chocolatin Labs",
+    category: "Breeder website & CMS",
+    summary:
+      "A multilingual product website and content system that gives a Labrador breeder full control over dogs, litters, puppies, articles and incoming enquiries.",
+    role: "Product Engineer",
+    scope: "Architecture · CMS · Frontend · Mobile UX",
+    stage: "Live",
+    timeline: "Client project",
+    website: "https://www.chocolatinlabs.com/",
+    ownershipLabel: "Built collaboratively with a designer",
+    context: [
+      "The client arrived with a clear need for a website centered on a dog catalogue and an initial idea of the structure. A designer shaped the overall visual direction and desktop layouts; I took ownership of the technical product architecture and delivery.",
+      "The goal was not just to publish a polished website. It was to give the client a maintainable system that could run independently, without returning to a development team whenever a dog, litter, translation, article or image changed.",
+    ],
+    owned: [
+      "Designed the content model and relationships between dogs, parents, litters and puppies.",
+      "Built a Payload CMS where the client can create, edit, translate, sort and link content.",
+      "Translated the desktop design into responsive behavior and created the mobile layouts.",
+      "Implemented filters, dog and puppy detail journeys, multilingual content and the blog.",
+      "Added general and puppy-specific enquiry flows with email notifications.",
+      "Created client-owned infrastructure and deployed the system on sustainable free tiers.",
+    ],
+    decisions: [
+      {
+        title: "Model relationships, not flat pages",
+        body: "Dogs, parents, litters and puppies are connected entities. I designed the underlying content structure so those relationships can be managed once and reused consistently across the public website.",
+      },
+      {
+        title: "Put ongoing control with the client",
+        body: "All core text, images, translations, dogs, puppies and articles can be managed inside one approachable CMS. This reduced future maintenance dependency and made the website practical as a long-lived business tool.",
+      },
+      {
+        title: "Keep operations simple and sustainable",
+        body: "I chose infrastructure that fits the actual traffic and workflow: client-owned accounts, free hosting and database tiers, and a free email-notification service. The only recurring cost is the domain.",
+      },
+    ],
+    delivered: [
+      "Responsive multilingual marketing and catalogue website.",
+      "Editable dogs, pedigrees, litters, puppies and availability states.",
+      "Blog and fully managed translated content.",
+      "Filtering and content relationships across the catalogue.",
+      "General and puppy-specific enquiry forms with email notifications.",
+      "Client-owned deployment and content infrastructure.",
+    ],
+    outcome:
+      "The site is live and operates without ongoing development work or monthly infrastructure fees beyond the domain. The client manages content independently, is happy with the result and has already received enquiries through the website.",
+    cover: {
+      src: "/work/chocolatin-labs/home.webp",
+      srcSmall: "/work/chocolatin-labs/home-960.webp",
+      alt: "Chocolatin Labs homepage featuring the breeder and a Labrador puppy",
+    },
+    gallery: [
+      {
+        src: "/work/chocolatin-labs/dogs.webp",
+        srcSmall: "/work/chocolatin-labs/dogs-960.webp",
+        alt: "Chocolatin Labs dog catalogue with filters and availability states",
+        caption: "Structured catalogue content is managed through the connected CMS.",
+      },
+      {
+        src: "/work/chocolatin-labs/puppies.webp",
+        srcSmall: "/work/chocolatin-labs/puppies-960.webp",
+        alt: "Chocolatin Labs puppy and litter content",
+      },
+    ],
   },
 ];
 
-export const projectsData: ProjectDetails[] = [
-  {
-    id: 5,
-    title: "Girex — P2P Crypto Exchange",
-    category: "Fintech",
-    link: "https://girex.io/",
-    description:
-      "A full-featured P2P cryptocurrency exchange platform — trade crypto and cash peer-to-peer, manage multi-chain wallets, and communicate with counterparties in real time.",
-    challenge:
-      "Build a secure, scalable P2P exchange from scratch: user auth with 2FA, multi-blockchain wallets (ETH, BSC, Solana, BTC), order matching, real-time trading chat, an admin analytics dashboard, and a companion React Native mobile app.",
-    solution:
-      "I led full product delivery as project lead and frontend architect. Architected the React/TypeScript frontend using FSD, implemented real-time order chat via WebSockets (Socket.io), built multi-chain wallet flows, and shipped a React Native mobile client in parallel. Managed the backend developer and designer throughout.",
-    features: [
-      "P2P order book & matching",
-      "Real-time chat via WebSockets",
-      "Multi-chain wallets (ETH, BSC, Solana, BTC)",
-      "Cash & crypto trading flows",
-      "Admin dashboard with analytics",
-      "React Native mobile app (in progress)",
-      "Two-factor authentication & Google OAuth",
-    ],
-    images: [
-      "/cases/girex/girex.webp",
-      "/cases/girex/girex1.webp",
-      "/cases/girex/girex3.webp",
-      "/cases/girex/girex2.webp",
-      "/cases/girex/girex8.webp",
-      "/cases/girex/girex4.webp",
-      "/cases/girex/girex5.webp",
-      "/cases/girex/girex7.webp",
-      "/cases/girex/girex6.webp",
-    ],
-    technologies: [
-      { name: "React", icon: "/icons/react.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Redux Toolkit", icon: "/icons/redux.svg" },
-      { name: "NestJS", icon: "/icons/nestjs.svg" },
-      { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
-    ],
-  },
-  {
-    id: 1,
-    title: "Web3 Invest Dashboard",
-    category: "Web3",
-    description: "A web application for investing crypto through smart contracts.",
-    challenge:
-      "Client needed a web application for internal usage for investing crypto through smart contracts.",
-    solution:
-      "I built a web application with a login by phone number and wallet authentication, dashboard for reviewing and managing investments and other pages for signing new contracts and managing your profile. I also added a small admin panel for reviewing contracts of all users.",
-    features: [
-      "Web3 Staking",
-      "Wallet Authentication",
-      "Smart Contract Interaction",
-      "Admin Panel",
-      "Translations",
-    ],
-    images: [
-      "/cases/web3-invest/photo1.jpeg",
-      "/cases/web3-invest/photo2.jpeg",
-      "/cases/web3-invest/photo3.jpg",
-    ],
-    technologies: [
-      { name: "Next.js", icon: "/icons/next-js.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Wagmi", icon: "/icons/wagmi.svg" },
-      { name: "WalletConnect", icon: "/icons/wallet-connect.svg" },
-      { name: "Material UI", icon: "/icons/mui.svg" },
-    ],
-    client: {
-      name: "NDA",
-      description: "International FinTech company",
-      country: "Ukraine",
-    },
-  },
-  {
-    id: 2,
-    title: "Gimecs",
-    category: "Corporate",
-    link: "https://gimecs.com/",
-    description: "A website for a German IT company which specializes on industrial IoT solutions.",
-    challenge:
-      "Client needed a website to showcase and present their company, their services and case studies.",
-    solution:
-      "I built a custom CMS with a simple interface for managing almost all the content on the website. I also added a contact form with email notifications to the client.",
-    features: ["Custom CMS", "Translations", "Contact form", "Mobile friendly", "SEO"],
-    images: ["/cases/gimecs/photo1.webp", "/cases/gimecs/photo2.webp", "/cases/gimecs/photo3.webp"],
-    technologies: [
-      { name: "Next.js", icon: "/icons/next-js.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Payload CMS", icon: "/icons/payload.svg" },
-      { name: "MongoDB", icon: "/icons/mongodb.svg" },
-      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
-    ],
-    client: {
-      name: "Gimecs",
-      description: "Industrial IoT Solutions",
-      country: "Germany",
-    },
-  },
-  {
-    id: 3,
-    title: "Chocolatin Labs",
-    category: "E-commerce",
-    link: "https://www.chocolatinlabs.com/",
-    description:
-      "A modern website for a Labrador kennel — built to showcase dogs, receive requests, and manage all content easily through a simple, custom CMS.",
-    challenge:
-      "The client needed a professional website to present their dogs, handle adoption requests, and share updates — all without relying on developers for every edit.",
-    solution:
-      "I created a custom CMS-powered website with automated request handling, multilingual support, and responsive design — giving the client full control and a smooth user experience for visitors.",
-    features: ["Custom CMS", "Email notifications", "Translations", "Mobile friendly", "SEO"],
-    images: [
-      "/cases/chocolatin-labs/photo1.webp",
-      "/cases/chocolatin-labs/photo2.webp",
-      "/cases/chocolatin-labs/photo3.webp",
-      "/cases/chocolatin-labs/photo4.webp",
-      "/cases/chocolatin-labs/photo5.webp",
-    ],
-    technologies: [
-      { name: "Next.js", icon: "/icons/next-js.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Payload CMS", icon: "/icons/payload.svg" },
-      { name: "MongoDB", icon: "/icons/mongodb.svg" },
-      { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
-    ],
-    client: {
-      name: "Chocolatin Labs",
-      description: "Premium Labrador Kennel",
-      country: "Italy",
-    },
-  },
-  {
-    id: 4,
-    title: "Thermalink",
-    category: "E-commerce",
-    link: "https://www.thermalink.pl/",
-    description:
-      "A website for a Warsaw-based client selling stylish home radiators and towel warmers, featuring a multi-page layout with catalogue, product pages, and online checkout.",
-    challenge:
-      "Client needed a website to sell premium home heating products online, showcase the catalogue with filtering options, and allow customers to place orders and pay directly on the site, all with a clean, minimalistic premium design.",
-    solution:
-      "I built a multi-page Wix website with a main landing page, 'About Us' section, payment and delivery info pages, and a fully functional product catalogue. Customers can filter products, view product details, add items to the cart, and complete checkout. The website also includes contact forms for inquiries.",
-    features: [
-      "Product catalogue with filters",
-      "Online cart and checkout",
-      "Contact forms",
-      "Mobile friendly",
-      "SEO",
-    ],
-    images: [
-      "/cases/thermalink/photo1.webp",
-      "/cases/thermalink/photo2.webp",
-      "/cases/thermalink/photo3.webp",
-    ],
-    technologies: [{ name: "Wix", icon: "/icons/wix.svg" }],
-    client: {
-      name: "Thermalink",
-      description: "Stylish Home Heating Products",
-      country: "Poland",
-    },
-  },
-];
-
-const projectCategoriesOrdered = [...projectsData]
-  .sort((a, b) => b.id - a.id)
-  .reduce<string[]>((categories, project) => {
-    if (!categories.includes(project.category)) {
-      categories.push(project.category);
-    }
-    return categories;
-  }, []);
-
-export const projectCategories = ["All", ...projectCategoriesOrdered];
+export const getCaseStudy = (slug: string) => caseStudies.find((project) => project.slug === slug);

@@ -1,39 +1,83 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-white/10;
+  :root {
+    color: #141613;
+    background: #f4f2eb;
+    font-family: "Inter", sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
   }
 
-  body {
-    @apply bg-black text-white antialiased;
+  * {
+    box-sizing: border-box;
   }
 
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: #f4f2eb;
+    color: #141613;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: #b3f753;
+    color: #141613;
   }
 }
 
 @layer components {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-200 to-slate-400;
+  .site-container {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10;
   }
 
-  .blur-backdrop {
-    @apply bg-black/60 backdrop-blur-md backdrop-saturate-150 border border-white/10;
+  .section-space {
+    @apply py-20 sm:py-24 lg:py-32;
   }
 
-  .glass-card {
-    @apply rounded-xl blur-backdrop p-6 transition duration-300 hover:shadow-lg border border-white/10;
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-electric;
   }
 
-  .link-underline {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[1.5px] 
-         after:w-full after:origin-left after:scale-x-0 after:bg-current 
-         after:transition-transform after:duration-300 hover:after:scale-x-100;
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-offset-4 focus-visible:ring-offset-paper;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
