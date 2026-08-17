@@ -71,7 +71,7 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
         />
       </a>
       <div className="flex flex-1 flex-col p-6 sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-electric">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-forest">
           {project.ownershipLabel}
         </p>
         <h3 className="mt-5 text-3xl font-bold tracking-[-0.035em] text-ink">{project.name}</h3>

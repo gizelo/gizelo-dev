@@ -37,4 +37,7 @@ export type CaseStudy = {
 export type Contribution = {
   name: string;
   description: string;
+  image: ProjectImage;
+  website?: string;
+  nda?: boolean;
 };

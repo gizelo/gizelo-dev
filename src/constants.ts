@@ -11,18 +11,38 @@ export const contributions: Contribution[] = [
   {
     name: "Pactos",
     description: "Full-stack product engineering for a German contingent workforce platform.",
+    website: "https://www.pactos.ai/en",
+    image: {
+      src: "/work/contributions/pactos.webp",
+      alt: "Pactos contingent workforce management platform homepage",
+    },
   },
   {
     name: "SmartTeach",
     description: "Accessible design-system and product UI work for an early-learning platform.",
+    website: "https://teachingstrategies.com/platform/",
+    image: {
+      src: "/work/contributions/smartteach.webp",
+      alt: "SmartTeach connected early-learning platform homepage",
+    },
   },
   {
     name: "Zelus Wallet",
     description: "Web and mobile product engineering across wallet and NFT experiences.",
+    website: "https://www.zelus.io/solutions/zelus-wallet",
+    image: {
+      src: "/work/contributions/zelus-wallet.webp",
+      alt: "Zelus Wallet product homepage",
+    },
   },
   {
     name: "Web3 Invest Dashboard",
     description: "Frontend delivery for an investment product under NDA.",
+    nda: true,
+    image: {
+      src: "/work/contributions/web3-invest.webp",
+      alt: "Web3 investment dashboard interface",
+    },
   },
 ];
 

@@ -1,17 +1,36 @@
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Boxes, Rocket, ScanSearch } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "@/components/ContactForm";
 import ProjectCard from "@/components/ProjectCard";
+import ResponsiveImage from "@/components/ResponsiveImage";
 import { caseStudies, contributions } from "@/constants";
 import { handleInternalLink } from "@/lib/navigation";
 import { usePageMeta } from "@/hooks/use-page-meta";
+
+const workModes = [
+  {
+    icon: ScanSearch,
+    title: "Define",
+    body: "Turn rough ideas into clear scope, flows and trade-offs.",
+  },
+  {
+    icon: Boxes,
+    title: "Build",
+    body: "Design and engineer web and mobile products end-to-end.",
+  },
+  {
+    icon: Rocket,
+    title: "Ship",
+    body: "Coordinate delivery, remove blockers and prepare the release.",
+  },
+];
 
 const HomePage = () => {
   usePageMeta({
     title: "Robert Gizelo — Product Builder",
     description:
-      "I build digital products from early ideas to working software across web, mobile, SaaS, fintech and crypto.",
+      "From idea to prod. Product design, engineering and delivery across web, mobile, SaaS, fintech and crypto.",
   });
 
   return (
@@ -21,32 +40,18 @@ const HomePage = () => {
         <section className="site-container grid items-center gap-12 py-14 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:py-14">
           <div className="relative z-10">
             <p className="eyebrow">Robert Gizelo · Product Builder</p>
-            <h1 className="mt-6 max-w-4xl text-[clamp(2.9rem,7vw,7rem)] font-bold leading-[0.91] tracking-[-0.06em] text-ink">
-              I build digital products from early ideas to working software.
+            <h1 className="mt-6 max-w-4xl text-[clamp(3.8rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
+              From idea to prod.
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/65 sm:text-xl">
-              Product thinking, UX and engineering for web, mobile and complex systems.
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/#work"
-                onClick={(event) => handleInternalLink(event, "/#work")}
-                className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark"
-              >
-                View my work
-                <ArrowDown className="h-4 w-4" aria-hidden="true" />
-              </a>
-              <a
-                href="/#contact"
-                onClick={(event) => handleInternalLink(event, "/#contact")}
-                className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 border border-ink/25 px-6 py-3 font-semibold text-ink transition-colors hover:border-ink"
-              >
-                Let&apos;s talk
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
-            <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium text-ink/65">
-              <img src="/asterisk-color.svg" alt="" className="h-5 w-5" aria-hidden="true" />
+            <div className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-medium text-ink/70 sm:gap-x-3 sm:text-lg">
+              <span className="inline-flex h-7 w-7 items-center justify-center bg-forest p-1.5">
+                <img
+                  src="/asterisk-color.svg"
+                  alt=""
+                  className="h-full w-full"
+                  aria-hidden="true"
+                />
+              </span>
               <span>6+ years</span>
               <span aria-hidden="true">·</span>
               <span>SaaS</span>
@@ -55,14 +60,32 @@ const HomePage = () => {
               <span aria-hidden="true">·</span>
               <span>Crypto</span>
             </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/#work"
+                onClick={(event) => handleInternalLink(event, "/#work")}
+                className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark"
+              >
+                My work
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="/#contact"
+                onClick={(event) => handleInternalLink(event, "/#contact")}
+                className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 border border-ink/25 px-6 py-3 font-semibold text-ink transition-colors hover:border-ink"
+              >
+                Reach me
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
           <div className="relative mx-auto w-full max-w-[560px] self-end lg:self-center">
-            <div className="relative overflow-hidden border-[10px] border-electric bg-[#ede9e3] sm:border-[14px]">
+            <div className="relative border-[10px] border-electric bg-[#ede9e3] sm:border-[14px]">
               <img
                 src="/me1.jpeg"
                 alt="Robert Gizelo"
-                className="aspect-[5/4] w-full object-cover object-[15%_42%] sm:aspect-[16/10] lg:aspect-[4/5]"
+                className="block h-auto w-full"
                 loading="eager"
                 fetchPriority="high"
               />
@@ -71,24 +94,16 @@ const HomePage = () => {
               src="/asterisk-color.svg"
               alt=""
               aria-hidden="true"
-              className="absolute -left-5 -top-7 h-16 w-16 sm:-left-8 sm:-top-10 sm:h-24 sm:w-24"
+              className="absolute -left-5 -top-7 h-16 w-16 bg-forest p-2 sm:-left-8 sm:-top-10 sm:h-24 sm:w-24 sm:p-3"
             />
           </div>
         </section>
 
         <section id="work" className="section-space border-t border-ink/10 bg-white">
           <div className="site-container">
-            <div className="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="eyebrow">Selected work</p>
-                <h2 className="mt-5 text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
-                  Products I shaped and built.
-                </h2>
-              </div>
-              <p className="max-w-md text-lg leading-relaxed text-ink/60">
-                Selected products across crypto, healthcare and consumer services.
-              </p>
-            </div>
+            <h2 className="mb-12 text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
+              Selected work.
+            </h2>
 
             <ProjectCard project={caseStudies[0]} featured />
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
@@ -101,24 +116,47 @@ const HomePage = () => {
 
         <section id="experience" className="section-space border-t border-ink/10 bg-paper">
           <div className="site-container">
-            <p className="eyebrow">Selected product teams I contributed to</p>
-            <div className="mt-10 grid border-l border-t border-ink/15 sm:grid-cols-2 lg:grid-cols-4">
+            <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
+              Products I contributed to.
+            </h2>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {contributions.map((contribution) => (
                 <article
                   key={contribution.name}
-                  className="border-b border-r border-ink/15 bg-white p-6 sm:min-h-52 sm:p-8"
+                  className="group flex min-h-full flex-col overflow-hidden border border-ink/15 bg-white"
                 >
-                  <h3 className="text-xl font-bold tracking-[-0.025em] text-ink">
-                    {contribution.name}
-                    {contribution.name.includes("Web3") && (
-                      <span className="ml-2 text-xs font-semibold uppercase tracking-wide text-ink/65">
-                        NDA
-                      </span>
+                  <div className="aspect-[16/9] overflow-hidden border-b border-ink/10 bg-ink">
+                    <ResponsiveImage
+                      {...contribution.image}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-xl font-bold tracking-[-0.025em] text-ink">
+                        {contribution.name}
+                      </h3>
+                      {contribution.nda && (
+                        <span className="shrink-0 bg-forest px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-lime">
+                          NDA
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-4 flex-1 text-sm leading-relaxed text-ink/65">
+                      {contribution.description}
+                    </p>
+                    {contribution.website && (
+                      <a
+                        href={contribution.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="focus-ring mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-electric"
+                      >
+                        Visit product
+                        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                      </a>
                     )}
-                  </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-ink/60">
-                    {contribution.description}
-                  </p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -126,36 +164,35 @@ const HomePage = () => {
         </section>
 
         <section id="about" className="section-space border-t border-ink/10 bg-forest text-white">
-          <div className="site-container grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div className="site-container grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime">
-                About Robert
+              <div className="inline-flex h-12 w-12 items-center justify-center bg-lime p-2.5">
+                <img
+                  src="/asterisk-color.svg"
+                  alt=""
+                  className="h-full w-full brightness-0"
+                  aria-hidden="true"
+                />
+              </div>
+              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
+                How I work
               </p>
               <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-tight tracking-[-0.045em] sm:text-6xl">
-                I bring product thinking, clear UX and solid engineering together.
+                I turn ambiguity into something people can use.
               </h2>
             </div>
-            <div className="space-y-6 text-lg leading-relaxed text-white/72">
-              <p>
-                I enjoy turning complex, loosely defined problems into useful products. I can work
-                with a founder on the shape of an idea, with a product team on delivery, or own the
-                full path from definition to launch.
+            <div>
+              <p className="max-w-3xl text-xl leading-relaxed text-white/78">
+                I&apos;ve spent 6+ years building SaaS, fintech and crypto products—as an engineer,
+                a Technical PM and an independent builder. I work across the parts that usually get
+                separated: shaping the product, designing the flow and building the software.
               </p>
-              <p>
-                My engineering background lets me reason about feasibility and risk without losing
-                the user or business problem. The result is less handoff, clearer decisions and
-                products that are built to last.
-              </p>
-              <div className="grid gap-5 pt-4 sm:grid-cols-2">
-                {[
-                  ["Independent & hands-on", "I work directly with founders, clients and teams."],
-                  ["End-to-end ownership", "From ambiguity and scope to working software."],
-                  ["Clarity over complexity", "I cut through noise and make trade-offs explicit."],
-                  ["Long-term thinking", "I care about usability, maintenance and real value."],
-                ].map(([title, body]) => (
-                  <div key={title} className="border-t border-white/20 pt-4">
-                    <h3 className="font-semibold text-white">{title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/70">{body}</p>
+              <div className="mt-10 grid gap-5 sm:grid-cols-3">
+                {workModes.map(({ icon: Icon, title, body }) => (
+                  <div key={title} className="border-t border-white/25 pt-5">
+                    <Icon className="h-6 w-6 text-lime" aria-hidden="true" />
+                    <h3 className="mt-5 text-lg font-semibold text-white">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/72">{body}</p>
                   </div>
                 ))}
               </div>

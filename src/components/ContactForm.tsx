@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { ArrowRight, Linkedin, Send } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -40,11 +40,10 @@ const ContactForm = () => {
         <div>
           <p className="eyebrow">Get in touch</p>
           <h2 className="mt-5 max-w-lg text-4xl font-bold leading-tight tracking-[-0.04em] text-ink sm:text-5xl">
-            Building something interesting? Let&apos;s talk.
+            Have a product in mind?
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/65">
-            Whether you&apos;re building a product, hiring for a product role or looking for a
-            technical partner, tell me what you&apos;re working on.
+            Tell me how I can help with your product.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -53,7 +52,7 @@ const ContactForm = () => {
               rel="noreferrer"
               className="focus-ring inline-flex min-h-11 items-center gap-2 border border-ink/20 px-4 py-3 text-sm font-semibold text-ink hover:border-ink"
             >
-              <Linkedin className="h-4 w-4" aria-hidden="true" />
+              <img src="/brand/linkedin.svg" alt="" className="h-5 w-5" aria-hidden="true" />
               LinkedIn
             </a>
             <a
@@ -62,7 +61,7 @@ const ContactForm = () => {
               rel="noreferrer"
               className="focus-ring inline-flex min-h-11 items-center gap-2 border border-ink/20 px-4 py-3 text-sm font-semibold text-ink hover:border-ink"
             >
-              <Send className="h-4 w-4" aria-hidden="true" />
+              <img src="/brand/telegram.svg" alt="" className="h-5 w-5" aria-hidden="true" />
               Telegram
             </a>
           </div>
@@ -91,15 +90,6 @@ const ContactForm = () => {
               />
             </label>
           </div>
-          <label className="grid gap-2 text-sm font-semibold text-ink">
-            What are you working on?
-            <input
-              type="text"
-              name="subject"
-              required
-              className="focus-ring min-h-12 border border-ink/20 bg-paper px-4 text-base font-normal outline-none transition-colors hover:border-ink/50"
-            />
-          </label>
           <label className="grid gap-2 text-sm font-semibold text-ink">
             Message
             <textarea

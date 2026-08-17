@@ -20,10 +20,15 @@ const SiteHeader = () => {
         <a
           href="/"
           onClick={(event) => handleInternalLink(event, "/")}
-          className="focus-ring text-lg font-bold tracking-tight text-ink"
+          className="focus-ring inline-flex items-center"
           aria-label="Robert Gizelo, home"
         >
-          Robert Gizelo
+          <img
+            src="/gizelo-logo-full.svg"
+            alt=""
+            className="h-9 w-auto brightness-0"
+            aria-hidden="true"
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
@@ -42,7 +47,7 @@ const SiteHeader = () => {
             onClick={(event) => handleInternalLink(event, "/#contact")}
             className="focus-ring inline-flex min-h-11 items-center gap-2 bg-electric px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-electric-dark"
           >
-            Let&apos;s talk
+            Reach me
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </nav>
