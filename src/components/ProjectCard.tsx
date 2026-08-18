@@ -37,7 +37,7 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
     <Link
       href={href}
       className={`focus-ring group/preview grid overflow-hidden ${
-        featured ? "gap-2 bg-black p-2" : "gap-1.5 border-b border-ink/10 bg-paper p-1.5"
+        featured ? "gap-2 bg-black p-2" : "gap-1.5 border-b border-ink/10 bg-white p-1.5"
       }`}
       aria-label={`View ${project.name} case study`}
     >

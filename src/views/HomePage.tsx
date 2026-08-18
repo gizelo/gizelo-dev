@@ -28,7 +28,7 @@ const workModes = [
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen overflow-x-clip bg-paper text-ink">
+    <div className="min-h-screen overflow-x-clip bg-white text-ink">
       <SiteHeader />
       <main id="main-content">
         <section className="site-container grid items-center gap-12 py-14 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:py-14">
@@ -64,7 +64,7 @@ const HomePage = () => {
           </div>
 
           <div className="relative mx-auto w-full max-w-[560px] self-end lg:self-center">
-            <div className="relative border-[10px] border-electric bg-[#ede9e3] sm:border-[14px]">
+            <div className="relative border-[10px] border-electric bg-white sm:border-[14px]">
               <Image
                 src="/me1.jpeg"
                 alt="Robert Gizelo"
@@ -102,9 +102,12 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section id="experience" className="section-space border-t border-ink/10 bg-paper">
+        <section
+          id="experience"
+          className="section-space border-t border-white/10 bg-ink text-white"
+        >
           <div className="site-container">
-            <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
+            <h2 className="text-4xl font-bold tracking-[-0.045em] text-white sm:text-6xl">
               Products I contributed to.
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

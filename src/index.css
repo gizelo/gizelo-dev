@@ -5,7 +5,7 @@
 @layer base {
   :root {
     color: #141613;
-    background: #f4f2eb;
+    background: #ffffff;
     font-family: var(--font-inter), sans-serif;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -22,7 +22,7 @@
   body {
     min-width: 320px;
     margin: 0;
-    background: #f4f2eb;
+    background: #ffffff;
     color: #141613;
     -webkit-font-smoothing: antialiased;
   }
@@ -60,7 +60,7 @@
   }
 
   .focus-ring {
-    @apply outline-none focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-offset-4 focus-visible:ring-offset-paper;
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-offset-4 focus-visible:ring-offset-white;
   }
 }
 

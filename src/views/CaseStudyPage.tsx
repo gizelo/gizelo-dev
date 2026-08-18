@@ -23,7 +23,7 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
   const mobileImages = (project.gallery ?? []).filter((image) => image.portrait);
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-white text-ink">
       <SiteHeader />
       <main id="main-content">
         <article>
@@ -108,22 +108,24 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
             </div>
           </section>
 
-          <section className="section-space border-t border-ink/10 bg-paper">
+          <section className="section-space border-t border-white/10 bg-ink text-white">
             <div className="site-container">
-              <p className="eyebrow">What I owned</p>
-              <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lime">
+                What I owned
+              </p>
+              <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.045em] text-white sm:text-6xl">
                 My contribution to the product.
               </h2>
-              <div className="mt-12 grid border-l border-t border-ink/15 md:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-12 grid border-l border-t border-white/15 md:grid-cols-2 lg:grid-cols-3">
                 {project.owned.map((item, index) => (
                   <div
                     key={item}
-                    className="min-h-48 border-b border-r border-ink/15 bg-white p-6 sm:p-8"
+                    className="min-h-48 border-b border-r border-white/15 bg-ink p-6 sm:p-8"
                   >
-                    <span className="text-xs font-semibold text-electric">
+                    <span className="text-xs font-semibold text-lime">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <p className="mt-8 leading-relaxed text-ink/72">{item}</p>
+                    <p className="mt-8 leading-relaxed text-white/72">{item}</p>
                   </div>
                 ))}
               </div>
@@ -226,7 +228,7 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
             </section>
           )}
 
-          <section className="section-space border-t border-ink/10 bg-paper">
+          <section className="section-space border-t border-ink/10 bg-white">
             <div className="site-container grid gap-12 lg:grid-cols-2">
               <div>
                 <p className="eyebrow">Product delivered</p>

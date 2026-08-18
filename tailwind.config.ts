@@ -21,7 +21,6 @@ export default {
     },
     extend: {
       colors: {
-        paper: "#F4F2EB",
         ink: "#141613",
         electric: "#123CFF",
         "electric-dark": "#0A2ED4",

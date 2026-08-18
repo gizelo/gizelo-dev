@@ -85,6 +85,87 @@
 
 final result: passed
 
+# White / Ink palette pass
+
+## Evidence
+
+- Source visual truth: the approved pre-change preview captured before removing the beige surface.
+  - `/private/tmp/gizelo-palette-source-home-1440.jpg`
+  - `/private/tmp/gizelo-palette-source-experience.jpg`
+  - `/private/tmp/gizelo-palette-source-contact.jpg`
+  - `/private/tmp/gizelo-palette-source-girex-1440.jpg`
+- Browser-rendered implementation:
+  - `/private/tmp/gizelo-palette-impl-home-hero.jpg`
+  - `/private/tmp/gizelo-palette-impl-experience.jpg`
+  - `/private/tmp/gizelo-palette-impl-contact.jpg`
+  - `/private/tmp/gizelo-palette-impl-girex-hero.jpg`
+  - `/private/tmp/gizelo-palette-impl-girex-owned.jpg`
+  - `/private/tmp/gizelo-palette-impl-house-owned.jpg`
+  - `/private/tmp/gizelo-palette-impl-experience-375.jpg`
+  - `/private/tmp/gizelo-palette-impl-contact-375.jpg`
+- Combined comparison evidence:
+  - `/private/tmp/gizelo-palette-comparison-home.jpg`
+  - `/private/tmp/gizelo-palette-comparison-experience.jpg`
+  - `/private/tmp/gizelo-palette-comparison-contact.jpg`
+  - `/private/tmp/gizelo-palette-comparison-girex.jpg`
+- Desktop source captures are 1280 x 720 px and implementation captures are 1440 x 900 px at device pixel ratio 1. The comparisons align the corresponding content regions rather than claiming pixel-perfect fidelity across unequal viewports.
+- Responsive implementation captures use 375 x 812 and 320 x 700 CSS px at device pixel ratio 1. A 768 px tablet pass was also checked in the browser.
+- State: local production build with real project imagery loaded.
+
+## Full-view comparison
+
+- The beige base was removed from the page, metadata theme color, photo fallback surface and all shared page templates. White is now the default canvas.
+- The homepage rhythm is White hero, White work, Ink experience, White about, Ink contact and White footer. The two dark sections are separated by substantial white content, so the contrast feels deliberate rather than striped.
+- Girex uses White for editorial content and Ink for `What I did` and product media. House of Smile and Chocolatin Labs inherit the same White / Ink structural palette while retaining their real light product screenshots.
+- Electric remains the only action, link, focus and structural accent. Lime remains limited to the logo asterisk, decorative stars and small non-essential details.
+
+## Focused comparison
+
+- Experience: the previous beige surface and white cards were replaced by an Ink section with white cards. Product artwork and links remain readable and the section now creates a clear visual break without introducing another hue.
+- Contact: the previous beige form surface became Ink. Fields remain white, labels and social controls use white, the primary action remains Electric and the decorative asterisk remains Lime.
+- Case ownership: the generic case layout and Girex evidence section use the same Ink treatment, white copy and restrained internal rules. No essential information relies on Lime contrast.
+- Focused regions were sufficient because layout, content, typography, imagery and component geometry were intentionally retained; the change under review is the global color system and surface rhythm.
+
+## Fidelity surfaces
+
+- Fonts and typography: Inter and Space Grotesk, weights, line heights, wrapping and hierarchy are unchanged. Dark surfaces retain the existing optical hierarchy with white primary text and reduced-opacity white secondary text.
+- Spacing and layout rhythm: section padding, grids and card geometry are unchanged. White and Ink surfaces now provide the hierarchy previously split between White, beige and Ink.
+- Colors and visual tokens: the active palette is Ink `#141613`, White `#FFFFFF`, Electric `#123CFF`, Electric Dark `#0A2ED4` and Lime `#B3F753`. The `paper`, `forest` and duplicate accent concepts are absent from the implementation.
+- Image quality and asset fidelity: all existing logo, portrait and product assets are unchanged. The portrait fallback surface is now White, matching the page without changing crop or aspect ratio.
+- Copy and content: no product facts, ownership claims, outcomes or CTA copy changed in this pass.
+
+## Findings
+
+- No actionable P0, P1 or P2 issue remains.
+- The White / Ink alternation is visually stronger and more consistent with the requested palette than the previous White / beige rhythm.
+
+## Interaction and accessibility verification
+
+- At 1440, 768, 375 and 320 px, the document width equals the viewport width; no horizontal overflow occurs.
+- White on Ink, Electric on White and White on Electric retain strong contrast. Lime is not used for essential text on White.
+- The mobile menu remains a focus-contained dialog with Escape handling. Contact validation remains native and the form was not sent to the external endpoint during QA.
+- Homepage, Girex, House of Smile and Chocolatin Labs render without beige computed surfaces. Shared navigation, links and route behavior remain unchanged.
+- Browser console checks found no application errors.
+
+## Comparison history
+
+1. The source preview used beige as the site canvas and again behind Experience and Contact, weakening the requested four-color identity.
+2. The first palette implementation removed the beige token and changed the canvas to White, then used Ink for Experience, Contact and case evidence sections.
+3. Focused desktop and mobile captures confirmed that the new dark sections preserved typography, controls and imagery without overflow or essential Lime-on-White content.
+4. Post-fix comparison boards show a consistent White / Ink rhythm with Electric actions and Lime decoration; no further P0/P1/P2 correction was identified.
+
+## Implementation checklist
+
+- [x] Remove the beige color token and hard-coded beige fallbacks.
+- [x] Use White as the global canvas and metadata theme color.
+- [x] Use Ink for intentional alternating sections and Girex media.
+- [x] Preserve Electric for actions and Lime for decorative brand marks.
+- [x] Verify homepage and case templates on desktop, tablet and mobile.
+- [x] Verify contrast, overflow, menu behavior and form validation.
+- [x] Run TypeScript, ESLint, Prettier and the production build.
+
+final result: passed
+
 ---
 
 # Girex Case Media Follow-up Design QA

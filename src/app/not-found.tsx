@@ -4,7 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col bg-paper text-ink">
+    <div className="flex min-h-screen flex-col bg-white text-ink">
       <SiteHeader />
       <main id="main-content" className="site-container flex flex-1 items-center py-24">
         <div>

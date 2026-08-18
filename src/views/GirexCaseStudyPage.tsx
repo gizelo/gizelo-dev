@@ -86,7 +86,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
   const lastDesktopRowStart = project.owned.length - (project.owned.length % 2 || 2);
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-white text-ink">
       <SiteHeader />
       <main id="main-content">
         <article>
@@ -173,7 +173,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             </div>
           </section>
 
-          <section className="border-t border-ink/10 bg-paper py-16 sm:py-20 lg:py-24">
+          <section className="border-t border-white/10 bg-ink py-16 text-white sm:py-20 lg:py-24">
             <div className="site-container">
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">What I did.</h2>
               <ul className="mt-10 grid md:grid-cols-2">
@@ -181,10 +181,10 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                   <li
                     key={item}
                     className={clsx(
-                      "py-6 text-lg leading-relaxed text-ink/72",
-                      index < project.owned.length - 1 && "border-b border-ink/15",
+                      "py-6 text-lg leading-relaxed text-white/72",
+                      index < project.owned.length - 1 && "border-b border-white/15",
                       index >= lastDesktopRowStart && "md:border-b-0",
-                      index % 2 === 0 ? "md:border-r md:border-ink/15 md:pr-10" : "md:pl-10",
+                      index % 2 === 0 ? "md:border-r md:border-white/15 md:pr-10" : "md:pl-10",
                     )}
                   >
                     {item}
@@ -254,7 +254,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             </section>
           )}
 
-          <section className="border-t border-ink/10 bg-paper py-16 sm:py-20 lg:py-24">
+          <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
             <div className="site-container">
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Outcome.</h2>
               <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
