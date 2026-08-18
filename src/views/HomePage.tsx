@@ -157,7 +157,7 @@ const HomePage = () => {
             <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
               How I work.
             </h2>
-            <div className="mt-12 grid gap-12 lg:grid-cols-[2fr_1fr] lg:items-start">
+            <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-start">
               <p className="max-w-3xl text-xl leading-relaxed text-ink/70">
                 I&apos;ve spent 6+ years building SaaS, fintech and crypto products as an engineer,
                 Technical Product Manager and independent builder. My work spans product definition,
