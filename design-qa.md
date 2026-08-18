@@ -85,6 +85,58 @@
 
 final result: passed
 
+# Girex hero hierarchy pass
+
+## Evidence
+
+- Source visual truth: `/private/tmp/girex-followup-deployed-hero.jpg` — the prior deployed Girex hero at 1440 x 900 px.
+- Browser-rendered implementation:
+  - `/private/tmp/girex-hero-compact-1440.png` — 1440 x 900 px desktop.
+  - `/private/tmp/girex-hero-compact-768.png` — 768 x 900 px tablet.
+- Combined same-viewport comparison: `/private/tmp/girex-hero-compact-comparison.jpg` — prior hero on the left, revised hero on the right.
+- CSS viewport and screenshot pixels match at device pixel ratio 1 for the desktop and tablet captures; no density normalization was required.
+- State: local production build of `/work/girex`, top of page, real content and project imagery loaded.
+
+## Findings and fixes
+
+- [P2 resolved] The prior blue uppercase category and fact labels introduced a repetitive portfolio-template treatment. The category is now a quiet sentence-case descriptor and fact terms use neutral Ink typography.
+- [P2 resolved] The 104 px maximum project title dominated the product summary and evidence. The maximum is now 80 px with a slightly calmer tracking and line-height treatment.
+- [P2 resolved] Large top padding and gaps delayed the product proof. Header padding, the back-link-to-content gap and internal content spacing were reduced; the screenshot collage now enters the initial desktop viewport.
+- No actionable P0, P1 or P2 issue remains in the revised desktop or tablet captures.
+
+## Fidelity surfaces
+
+- Fonts and typography: Space Grotesk remains the display face and Inter remains the text face. The revised H1 preserves a clear project hierarchy without competing with the homepage hero. Sentence-case labels improve reading speed and remove unnecessary letter spacing.
+- Spacing and layout rhythm: desktop header padding changed from 80 px to 48 px maximum; the content grid begins 20 px below the back link. The two-column composition remains aligned and collapses cleanly at tablet width.
+- Colors and visual tokens: the section uses White and Ink for content, Electric only for the product action and no Lime. Removing Electric from metadata restores its semantic role as an action color.
+- Image quality and asset fidelity: the real Girex collage is unchanged. Bringing it higher in the page improves evidence visibility without changing crop, source or aspect ratio.
+- Copy and content: all category, role, scope, stage, timeline and summary text is unchanged.
+
+## Interaction and accessibility verification
+
+- The back link and product link remain keyboard-focusable with unchanged destinations and visible focus treatment.
+- Heading order remains one H1 followed by the existing section H2s; the facts remain a semantic description list.
+- The 768 px capture shows the intended single-column reflow, full text wrapping and no horizontal overflow.
+- The static production build passes TypeScript and reports the Girex route as SSG.
+- Browser console showed no application errors in the local production preview.
+
+## Comparison history
+
+1. The source capture showed oversized title hierarchy, blue uppercase metadata and excessive whitespace above the first product image.
+2. The first implementation removed the uppercase accent treatment, reduced the H1 and tightened the vertical rhythm.
+3. The 1440 x 900 side-by-side comparison and 768 x 900 focused capture show the product collage sooner, calmer metadata and no new layout issue.
+
+## Implementation checklist
+
+- [x] Remove blue uppercase treatment from category and facts.
+- [x] Reduce the Girex H1 maximum from 104 px to 80 px.
+- [x] Reduce header padding and internal gaps.
+- [x] Preserve the factual copy, semantic facts list and product link.
+- [x] Verify the rendered result at desktop and tablet widths.
+- [x] Run Prettier, ESLint, TypeScript and production build.
+
+final result: passed
+
 # White / Ink palette pass
 
 ## Evidence

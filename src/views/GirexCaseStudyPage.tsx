@@ -90,7 +90,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
       <SiteHeader />
       <main id="main-content">
         <article>
-          <header className="site-container py-12 sm:py-16 lg:py-20">
+          <header className="site-container py-8 sm:py-10 lg:py-12">
             <Link
               href="/#work"
               className="focus-ring inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink/60 hover:text-ink"
@@ -99,13 +99,13 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
               Back to selected work
             </Link>
 
-            <div className="mt-8 grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            <div className="mt-5 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-16">
               <div>
-                <p className="eyebrow">{project.category}</p>
-                <h1 className="mt-5 text-[clamp(3.5rem,8vw,6.5rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
+                <p className="text-base font-medium text-ink/55">{project.category}</p>
+                <h1 className="mt-2 text-[clamp(3.25rem,6vw,5rem)] font-bold leading-[0.95] tracking-[-0.055em] text-ink">
                   {project.name}
                 </h1>
-                <p className="mt-7 max-w-3xl text-xl leading-relaxed text-ink/65 sm:text-2xl">
+                <p className="mt-5 max-w-3xl text-xl leading-relaxed text-ink/65 sm:text-[1.375rem]">
                   {project.summary}
                 </p>
                 {project.website && (
@@ -113,7 +113,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                     href={project.website}
                     target="_blank"
                     rel="noreferrer"
-                    className="focus-ring mt-7 inline-flex min-h-11 items-center gap-2 font-semibold text-electric"
+                    className="focus-ring mt-5 inline-flex min-h-11 items-center gap-2 font-semibold text-electric"
                   >
                     Visit product
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -131,13 +131,11 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                   <div
                     key={term}
                     className={clsx(
-                      "grid grid-cols-[6.25rem_1fr] gap-5 py-4 sm:grid-cols-[7.5rem_1fr]",
+                      "grid grid-cols-[5.5rem_1fr] gap-5 py-4 sm:grid-cols-[6.5rem_1fr]",
                       index < 3 && "border-b border-ink/15",
                     )}
                   >
-                    <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-electric">
-                      {term}
-                    </dt>
+                    <dt className="text-sm font-medium text-ink/55">{term}</dt>
                     <dd className="text-sm font-medium leading-relaxed text-ink">{description}</dd>
                   </div>
                 ))}
