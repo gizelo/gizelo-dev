@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     title: "Robert Gizelo — Product Builder",
     description: "Turning ideas into working products across SaaS, fintech and crypto.",
     url: "/",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Robert Gizelo" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Robert Gizelo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Robert Gizelo — Product Builder",
     description: "Turning ideas into working products across SaaS, fintech and crypto.",
-    images: ["/og-image.webp"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "/asterisk-color.svg",

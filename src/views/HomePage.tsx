@@ -82,7 +82,8 @@ const HomePage = () => {
                 height={640}
                 className="block h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 44vw"
-                priority
+                preload
+                fetchPriority="high"
               />
             </div>
             <Image
