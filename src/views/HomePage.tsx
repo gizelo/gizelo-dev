@@ -157,21 +157,18 @@ const HomePage = () => {
             <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
               How I work.
             </h2>
-            <div className="mt-12 grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-              <p className="max-w-2xl text-xl leading-relaxed text-ink/70">
+            <div className="mt-12 grid gap-12 lg:grid-cols-[2fr_1fr] lg:items-start">
+              <p className="max-w-3xl text-xl leading-relaxed text-ink/70">
                 I&apos;ve spent 6+ years building SaaS, fintech and crypto products as an engineer,
                 Technical Product Manager and independent builder. My work spans product definition,
                 web and mobile UX, engineering, team coordination and release preparation.
               </p>
-              <ol className="border-t border-ink/20">
-                {workModes.map(({ icon: Icon, title, body }, index) => (
+              <ul>
+                {workModes.map(({ icon: Icon, title, body }) => (
                   <li
                     key={title}
-                    className="grid grid-cols-[2.25rem_2.25rem_1fr] items-start gap-3 border-b border-ink/20 py-6 sm:grid-cols-[3rem_3rem_1fr] sm:gap-6"
+                    className="grid grid-cols-[2.25rem_1fr] items-start gap-3 border-b border-ink/20 py-6 first:pt-0 last:border-b-0 last:pb-0 sm:grid-cols-[3rem_1fr] sm:gap-6"
                   >
-                    <span className="text-sm font-semibold text-electric">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
                     <Icon className="h-7 w-7 text-electric" strokeWidth={2.25} aria-hidden="true" />
                     <div>
                       <h3 className="text-lg font-semibold text-ink">{title}</h3>
@@ -179,7 +176,7 @@ const HomePage = () => {
                     </div>
                   </li>
                 ))}
-              </ol>
+              </ul>
             </div>
           </div>
         </section>
