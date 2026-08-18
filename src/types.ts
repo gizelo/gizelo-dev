@@ -8,6 +8,13 @@ export type ProjectImage = {
   portrait?: boolean;
 };
 
+export type ProjectMedia = {
+  theme: "dark" | "light";
+  lead?: ProjectImage;
+  grid: ProjectImage[];
+  mobile?: ProjectImage[];
+};
+
 export type ProjectDecision = {
   title: string;
   body: string;
@@ -31,7 +38,8 @@ export type CaseStudy = {
   outcome: string;
   reflection?: string;
   cover: ProjectImage;
-  gallery: ProjectImage[];
+  gallery?: ProjectImage[];
+  media?: ProjectMedia;
 };
 
 export type Contribution = {

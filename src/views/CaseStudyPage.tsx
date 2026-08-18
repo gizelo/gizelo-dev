@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import GirexCaseStudyPage from "@/views/GirexCaseStudyPage";
 import { CaseStudy } from "@/types";
 import { caseStudies } from "@/constants";
 
@@ -11,11 +12,15 @@ type CaseStudyPageProps = {
 };
 
 const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
+  if (project.slug === "girex") {
+    return <GirexCaseStudyPage project={project} />;
+  }
+
   const currentIndex = caseStudies.findIndex((item) => item.slug === project.slug);
   const nextProject = caseStudies[(currentIndex + 1) % caseStudies.length];
 
-  const standardImages = project.gallery.filter((image) => !image.portrait);
-  const mobileImages = project.gallery.filter((image) => image.portrait);
+  const standardImages = (project.gallery ?? []).filter((image) => !image.portrait);
+  const mobileImages = (project.gallery ?? []).filter((image) => image.portrait);
 
   return (
     <div className="min-h-screen bg-paper text-ink">

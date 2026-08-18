@@ -10,10 +10,12 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
   const href = `/work/${project.slug}`;
-  const previewImages = [
-    project.cover,
-    ...project.gallery.filter((image) => !image.portrait),
-  ].slice(0, 3);
+  const supportingImages = project.media
+    ? [project.media.lead, ...project.media.grid].filter(
+        (image): image is NonNullable<typeof image> => Boolean(image),
+      )
+    : (project.gallery ?? []).filter((image) => !image.portrait);
+  const previewImages = [project.cover, ...supportingImages].slice(0, 3);
 
   const liveProductLink = project.website ? (
     <a

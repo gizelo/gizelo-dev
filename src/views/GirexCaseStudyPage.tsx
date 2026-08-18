@@ -1,0 +1,303 @@
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import clsx from "clsx";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import ResponsiveImage from "@/components/ResponsiveImage";
+import { CaseStudy, ProjectImage } from "@/types";
+import { caseStudies } from "@/constants";
+
+type GirexCaseStudyPageProps = {
+  project: CaseStudy;
+};
+
+type ProductFigureProps = {
+  image: ProjectImage;
+  compact?: boolean;
+};
+
+const ProductFigure = ({ image, compact = false }: ProductFigureProps) => (
+  <figure>
+    <a
+      href={image.src}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Open full-size image: ${image.alt}`}
+      className="block overflow-hidden border border-white/15 bg-black outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
+    >
+      <ResponsiveImage
+        {...image}
+        className="h-auto w-full"
+        sizes={compact ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 1320px) 100vw, 1320px"}
+      />
+    </a>
+    <figcaption className="mt-4 flex items-start justify-between gap-4 text-sm leading-relaxed text-white/68">
+      <span>{image.caption ?? image.alt}</span>
+      <a
+        href={image.src}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex min-h-11 shrink-0 items-center font-semibold text-white underline decoration-white/35 underline-offset-4 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
+      >
+        Open full size
+      </a>
+    </figcaption>
+  </figure>
+);
+
+const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
+  const currentIndex = caseStudies.findIndex((item) => item.slug === project.slug);
+  const nextProject = caseStudies[(currentIndex + 1) % caseStudies.length];
+  const media = project.media;
+
+  if (!media) {
+    return null;
+  }
+
+  const lastDesktopRowStart = project.owned.length - (project.owned.length % 2 || 2);
+
+  return (
+    <div className="min-h-screen bg-paper text-ink">
+      <SiteHeader />
+      <main id="main-content">
+        <article>
+          <header className="site-container py-12 sm:py-16 lg:py-20">
+            <Link
+              href="/#work"
+              className="focus-ring inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink/60 hover:text-ink"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              Back to selected work
+            </Link>
+
+            <div className="mt-8 grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+              <div>
+                <p className="eyebrow">{project.category}</p>
+                <h1 className="mt-5 text-[clamp(3.5rem,8vw,6.5rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
+                  {project.name}
+                </h1>
+                <p className="mt-7 max-w-3xl text-xl leading-relaxed text-ink/65 sm:text-2xl">
+                  {project.summary}
+                </p>
+                {project.website && (
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="focus-ring mt-7 inline-flex min-h-11 items-center gap-2 font-semibold text-electric"
+                  >
+                    Visit product
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+
+              <dl className="border-y border-ink/15">
+                {[
+                  ["Role", project.role],
+                  ["Scope", project.scope],
+                  ["Stage", project.stage],
+                  ["Timeline", project.timeline],
+                ].map(([term, description], index) => (
+                  <div
+                    key={term}
+                    className={clsx(
+                      "grid grid-cols-[6.25rem_1fr] gap-5 py-4 sm:grid-cols-[7.5rem_1fr]",
+                      index < 3 && "border-b border-ink/15",
+                    )}
+                  >
+                    <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-electric">
+                      {term}
+                    </dt>
+                    <dd className="text-sm font-medium leading-relaxed text-ink">{description}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </header>
+
+          <div className="site-container pb-16 sm:pb-20">
+            <div className="overflow-hidden border border-ink/15 bg-ink">
+              <ResponsiveImage
+                {...project.cover}
+                className="h-auto w-full"
+                sizes="(max-width: 1320px) 100vw, 1320px"
+                eager
+              />
+            </div>
+          </div>
+
+          <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
+            <div className="site-container">
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Context.</h2>
+              <div className="mt-10 grid gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:gap-16">
+                <p className="max-w-sm text-base font-semibold leading-relaxed text-ink/62">
+                  {project.ownershipLabel}
+                </p>
+                <div className="space-y-5">
+                  {project.context.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="max-w-4xl text-xl leading-relaxed tracking-[-0.015em] text-ink/76"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-t border-ink/10 bg-paper py-16 sm:py-20 lg:py-24">
+            <div className="site-container">
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">What I did.</h2>
+              <ul className="mt-10 grid md:grid-cols-2">
+                {project.owned.map((item, index) => (
+                  <li
+                    key={item}
+                    className={clsx(
+                      "py-6 text-lg leading-relaxed text-ink/72",
+                      index < project.owned.length - 1 && "border-b border-ink/15",
+                      index >= lastDesktopRowStart && "md:border-b-0",
+                      index % 2 === 0 ? "md:border-r md:border-ink/15 md:pr-10" : "md:pl-10",
+                    )}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
+            <div className="site-container grid gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Key decisions.</h2>
+              <div className="border-t border-ink/15">
+                {project.decisions.map((decision, index) => (
+                  <article
+                    key={decision.title}
+                    className="grid gap-4 border-b border-ink/15 py-8 sm:grid-cols-[3.5rem_1fr]"
+                  >
+                    <span className="text-sm font-semibold text-electric" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-2xl font-bold tracking-[-0.03em] text-ink">
+                        {decision.title}
+                      </h3>
+                      <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink/67">
+                        {decision.body}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="border-t border-ink/10 bg-ink py-16 text-white sm:py-20 lg:py-24">
+            <div className="site-container">
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Product.</h2>
+              {media.lead && (
+                <div className="mt-10">
+                  <ProductFigure image={media.lead} />
+                </div>
+              )}
+              <div className="mt-10 grid gap-x-6 gap-y-10 md:grid-cols-2">
+                {media.grid.map((image) => (
+                  <ProductFigure key={image.src} image={image} compact />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {media.mobile && media.mobile.length > 0 && (
+            <section className="border-t border-white/12 bg-ink py-16 text-white sm:py-20 lg:py-24">
+              <div className="site-container">
+                <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Mobile app.</h2>
+                <ul className="-mx-5 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
+                  {media.mobile.map((image) => (
+                    <li
+                      key={image.src}
+                      className="w-[82vw] max-w-[330px] shrink-0 snap-start sm:w-auto sm:max-w-none"
+                    >
+                      <ProductFigure image={image} compact />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          )}
+
+          <section className="border-t border-ink/10 bg-paper py-16 sm:py-20 lg:py-24">
+            <div className="site-container">
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Outcome.</h2>
+              <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
+                <div>
+                  <h3 className="text-2xl font-bold tracking-[-0.03em]">Delivered</h3>
+                  <ul className="mt-7 space-y-4">
+                    {project.delivered.map((item) => (
+                      <li key={item} className="flex gap-3 text-lg leading-relaxed text-ink/72">
+                        <Check className="mt-1 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="border-t border-ink/15 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+                  <h3 className="text-2xl font-bold tracking-[-0.03em]">Current state</h3>
+                  <p className="mt-6 text-xl leading-relaxed tracking-[-0.015em] text-ink/76">
+                    {project.outcome}
+                  </p>
+                  {project.reflection && (
+                    <div className="mt-10 border-l-4 border-lime bg-white p-6">
+                      <h3 className="text-lg font-bold tracking-[-0.02em]">What I learned</h3>
+                      <p className="mt-3 leading-relaxed text-ink/68">{project.reflection}</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-t border-ink/10 bg-electric py-14 text-white sm:py-16">
+            <div className="site-container flex flex-col gap-9 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/68">
+                  Next case
+                </p>
+                <h2 className="mt-4 text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
+                  {nextProject.name}
+                </h2>
+              </div>
+              <div className="flex flex-wrap items-center gap-5">
+                <Link
+                  href="/#work"
+                  className="focus-ring inline-flex min-h-11 items-center font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
+                >
+                  All work
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="focus-ring inline-flex min-h-11 items-center font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
+                >
+                  Reach me
+                </Link>
+                <Link
+                  href={`/work/${nextProject.slug}`}
+                  className="focus-ring inline-flex min-h-12 items-center gap-3 border border-white/45 px-6 py-3 font-semibold text-white hover:border-white"
+                >
+                  View next case
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        </article>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+};
+
+export default GirexCaseStudyPage;

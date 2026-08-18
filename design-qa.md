@@ -84,3 +84,100 @@
 - [x] TypeScript, ESLint, Prettier and production build.
 
 final result: passed
+
+---
+
+# Girex Case Page Design QA
+
+## Comparison target
+
+- Source visual truth: the previous Girex case at `https://gizelo-9hic1k5m1-gizelos-projects.vercel.app/work/girex` and the approved editorial redesign specification.
+- Source captures:
+  - `/private/tmp/girex-redesign-source-desktop.png`
+  - `/private/tmp/girex-redesign-source-mobile.png`
+  - `/private/tmp/girex-audit-1.png` through `/private/tmp/girex-audit-5.png`
+- Final local implementation captures:
+  - `/private/tmp/girex-redesign-hero-desktop.jpg`
+  - `/private/tmp/girex-redesign-hero-tablet-768.jpg`
+  - `/private/tmp/girex-redesign-hero-mobile-375.jpg`
+  - `/private/tmp/girex-redesign-hero-mobile-320.jpg`
+  - `/private/tmp/girex-redesign-what-i-did-desktop.jpg`
+  - `/private/tmp/girex-redesign-decisions-desktop.jpg`
+  - `/private/tmp/girex-redesign-product-loaded-desktop.jpg`
+  - `/private/tmp/girex-redesign-grid-desktop.jpg`
+  - `/private/tmp/girex-redesign-mobile-desktop.jpg`
+  - `/private/tmp/girex-redesign-outcome-desktop.jpg`
+  - `/private/tmp/girex-redesign-product-mobile-375.jpg`
+  - `/private/tmp/girex-redesign-mobile-mobile-375.jpg`
+  - `/private/tmp/girex-redesign-outcome-mobile-375.jpg`
+- Combined comparisons:
+  - `/private/tmp/girex-redesign-comparison-desktop.jpg`
+  - `/private/tmp/girex-redesign-comparison-hero-mobile.jpg`
+  - `/private/tmp/girex-redesign-comparison-what.jpg`
+  - `/private/tmp/girex-redesign-comparison-decisions.jpg`
+  - `/private/tmp/girex-redesign-comparison-product.jpg`
+  - `/private/tmp/girex-redesign-comparison-mobile-app.jpg`
+  - `/private/tmp/girex-redesign-comparison-outcome.jpg`
+- Viewports: 1440 x 900, 768 x 900, 375 x 812 and 320 x 812 CSS px; screenshots use the same pixel dimensions at device pixel ratio 1.
+- State: statically rendered Girex case from a local production build, with below-fold images fully loaded before capture.
+
+## Full-view comparison
+
+- The approved palette, typefaces, square geometry and single left reading axis remain consistent with the homepage.
+- The hero now presents the category, restrained 104 px maximum title, factual summary, product link and calm vertical facts rail without dashboard cards.
+- The P2P marketplace appears immediately after the hero. The desktop page height fell from about 11,335 px to 8,064 px, a 29% reduction. At 375 px it fell from about 11,484 px to 9,274 px, a 19% reduction.
+- The section rhythm is now editorial: White Context, Paper What I did, White Key decisions, Ink Product and Mobile app, Paper Outcome and the existing Electric next-case band.
+
+## Focused comparison
+
+- What I did: the prior 3 x 2 numbered card grid was replaced by a compact unnumbered two-column evidence list with internal rules only. The same facts remain visible with substantially less vertical space.
+- Key decisions: the three stories remain the only numbered content. Removing the eyebrow and marketing headline makes the actual decisions the primary hierarchy.
+- Product: the generic screenshot dump is now a lead deal-and-chat image followed by a 2 x 2 grid. Captions and 44 px full-size links provide context and access to interface detail.
+- Mobile app: the same three real mobile screens remain. Desktop uses three columns; mobile uses a native `scroll-snap` rail with `clientWidth: 320`, `scrollWidth: 867` and no JavaScript carousel.
+- Outcome: delivery evidence, current state and the factual learning callout now share one compact section. The stage language is updated to final internal testing before public launch.
+
+## Fidelity surfaces
+
+- Fonts and typography: Inter and Space Grotesk remain unchanged. H1 is capped at 104 px desktop and 56 px mobile; H2 hierarchy is consistent and the document has one H1 followed by ordered H2/H3 content.
+- Spacing and layout rhythm: desktop sections use 96 px maximum vertical padding and mobile sections use 64 px. The page is materially shorter without crowding the reading column.
+- Colors and visual tokens: only Ink, Paper, White, Electric and Lime are used. Girex remains the sole dark media surface; Lime is limited to the learning rule and focus treatment.
+- Image quality and assets: all imagery is the supplied real Girex interface material. `next/image` dimensions and responsive sizes are retained; only the cover is eager. Below-fold images were confirmed complete with non-zero natural widths before final captures.
+- Copy and content: ownership boundaries and decision facts are unchanged. Stage, timeline and outcome reflect the confirmed current state; no metrics, testimonials or launch claims were added.
+
+## Findings
+
+- No actionable P0, P1 or P2 visual differences remain.
+- No P3 follow-up is required before the Girex direction review.
+
+## Interaction and accessibility verification
+
+- The route is present in static HTML and the production build reports all three case routes as SSG.
+- At 1440, 768, 375 and 320 px, document width equals viewport width; no horizontal page overflow occurs.
+- Every media item has descriptive alt text, a caption and a keyboard-focusable full-size link. Full-size text links measure 44 px high on mobile.
+- The native mobile rail has mandatory x-axis scroll snapping and exposes the next screen at the edge without trapping vertical page scrolling.
+- The header switches to the mobile dialog navigation below `lg`; its background uses `inert`, native dialog focus containment and Escape cancellation from the previously verified shared header component.
+- From the bottom of Girex, `View next case` opened House of Smile at `scrollY=0`. Browser Back restored Girex to the exact previous position (`scrollY=8850.5`).
+- `Visit product`, `All work`, `Reach me` and `View next case` have the expected destinations. The browser console is clean.
+
+## Comparison history
+
+1. The source page repeated eyebrow and marketing-heading pairs, used a six-card ownership grid and stacked full-width screenshots, producing an approximately 11.3k px desktop page.
+2. The first redesign introduced the compact facts rail, evidence list, structured product media, native mobile rail and consolidated outcome section.
+3. Browser QA found the inline `Open full size` action below the 44 px touch target. It was changed to a 44 px minimum-height inline flex action.
+4. Post-fix captures at all four required widths show no overflow or actionable visual issue. Static HTML, routing, image loading, link destinations and route scroll restoration all pass.
+
+## Implementation checklist
+
+- [x] Compact editorial hero and updated facts.
+- [x] P2P cover immediately after hero.
+- [x] Plain section headings and reduced spacing.
+- [x] Compact unnumbered evidence list.
+- [x] Three numbered decision stories only.
+- [x] Lead plus 2 x 2 product gallery.
+- [x] Three-column / scroll-snap mobile gallery.
+- [x] Consolidated outcome and factual learning callout.
+- [x] All work, Reach me and next-case navigation.
+- [x] Static rendering, responsive, keyboard, link and console checks.
+- [x] TypeScript, ESLint, Prettier and production build.
+
+final result: passed

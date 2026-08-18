@@ -55,8 +55,8 @@ export const caseStudies: CaseStudy[] = [
       "Turning a founder's high-level exchange concept into a coherent web and mobile product for people who need a simpler way to move between crypto and fiat.",
     role: "Technical Product Manager & Product Engineer",
     scope: "Product definition · Web · Mobile",
-    stage: "Release-candidate beta",
-    timeline: "Jun 2025 — Jul 2026",
+    stage: "Final internal testing",
+    timeline: "Jun 2025 — Present",
     website: "https://girex.io/",
     ownershipLabel: "Led product definition and delivery · Built the web frontend and mobile app",
     context: [
@@ -94,7 +94,7 @@ export const caseStudies: CaseStudy[] = [
       "Admin tools for users, offers, appeals, KYC and platform operations.",
     ],
     outcome:
-      "Girex moved from a name, brand color and broad concept to a working internal beta spanning customer, merchant, admin, web and mobile experiences. It is undergoing final checks, security hardening and release preparation; external merchant and user feedback is the next stage.",
+      "Girex moved from a name, brand color and broad concept to a working product spanning customer, merchant, admin, web and mobile experiences. The platform is now undergoing final internal testing, security hardening and release preparation before its public launch.",
     reflection:
       "The biggest lesson was to protect shorter release-and-feedback cycles more firmly. I would now define success criteria and event tracking earlier, test the smallest reliable version with external users sooner, and hold the agreed scope more tightly.",
     cover: {
@@ -102,50 +102,59 @@ export const caseStudies: CaseStudy[] = [
       srcSmall: "/work/girex/p2p-market-960.webp",
       alt: "Girex P2P marketplace showing exchange offers and payment methods",
     },
-    gallery: [
-      {
+    media: {
+      theme: "dark",
+      lead: {
         src: "/work/girex/deal-chat.webp",
         srcSmall: "/work/girex/deal-chat-960.webp",
         alt: "Girex P2P deal flow with payment details and real-time chat",
         caption: "A complete P2P deal flow with clear states and counterparty communication.",
       },
-      {
-        src: "/work/girex/offline-map.webp",
-        srcSmall: "/work/girex/offline-map-960.webp",
-        alt: "Girex offline exchange discovery map with exchange-point rates",
-        caption: "Exchange points became the core entity for offline discovery and operations.",
-      },
-      {
-        src: "/work/girex/profile.webp",
-        srcSmall: "/work/girex/profile-960.webp",
-        alt: "Girex customer profile with balances, wallets and verification status",
-      },
-      {
-        src: "/work/girex/mobile-market.webp",
-        alt: "Girex native mobile P2P marketplace",
-        portrait: true,
-      },
-      {
-        src: "/work/girex/mobile-map.webp",
-        alt: "Girex native mobile exchange-point map",
-        portrait: true,
-      },
-      {
-        src: "/work/girex/mobile-chat.webp",
-        alt: "Girex native mobile deal and chat flow",
-        portrait: true,
-      },
-      {
-        src: "/work/girex/merchant-dashboard.webp",
-        srcSmall: "/work/girex/merchant-dashboard-960.webp",
-        alt: "Girex merchant operations dashboard",
-      },
-      {
-        src: "/work/girex/admin-overview.webp",
-        srcSmall: "/work/girex/admin-overview-960.webp",
-        alt: "Girex administration overview for platform operations",
-      },
-    ],
+      grid: [
+        {
+          src: "/work/girex/offline-map.webp",
+          srcSmall: "/work/girex/offline-map-960.webp",
+          alt: "Girex offline exchange discovery map with exchange-point rates",
+          caption: "Exchange points became the core entity for offline discovery and operations.",
+        },
+        {
+          src: "/work/girex/profile.webp",
+          srcSmall: "/work/girex/profile-960.webp",
+          alt: "Girex customer profile with balances, wallets and verification status",
+          caption: "Balances, wallets, verification and reputation meet in one customer view.",
+        },
+        {
+          src: "/work/girex/merchant-dashboard.webp",
+          srcSmall: "/work/girex/merchant-dashboard-960.webp",
+          alt: "Girex merchant operations dashboard",
+          caption: "Merchant tools support exchange points, orders, wallets and operating data.",
+        },
+        {
+          src: "/work/girex/admin-overview.webp",
+          srcSmall: "/work/girex/admin-overview-960.webp",
+          alt: "Girex administration overview for platform operations",
+          caption:
+            "Operational tooling covers users, merchants, KYC, appeals and platform activity.",
+        },
+      ],
+      mobile: [
+        {
+          src: "/work/girex/mobile-market.webp",
+          alt: "Girex native mobile P2P marketplace",
+          portrait: true,
+        },
+        {
+          src: "/work/girex/mobile-map.webp",
+          alt: "Girex native mobile exchange-point map",
+          portrait: true,
+        },
+        {
+          src: "/work/girex/mobile-chat.webp",
+          alt: "Girex native mobile deal and chat flow",
+          portrait: true,
+        },
+      ],
+    },
   },
   {
     slug: "house-of-smile",
