@@ -2,72 +2,79 @@
 
 ## Comparison target
 
-- Source visual truth:
-  - `/private/tmp/gizelo-homepage-audit/01-hero-desktop.png`
-  - `/private/tmp/gizelo-homepage-audit/05-contact-desktop.png`
-- Final implementation:
-  - `/private/tmp/gizelo-homepage-final-hero-1440.png`
-  - `/private/tmp/gizelo-homepage-final-contact-1440.png`
+- Source visual truth: the approved Vercel preview at `https://gizelo-afdxxpgmk-gizelos-projects.vercel.app/` plus Robert's browser annotations for the hero, project cards and How I work section.
+- Source captures:
+  - `/private/tmp/gizelo-source-hero.png`
+  - `/private/tmp/gizelo-source-work.png`
+  - `/private/tmp/gizelo-source-about.png`
+- Final local implementation captures:
+  - `/private/tmp/gizelo-final-hero.png`
+  - `/private/tmp/gizelo-final-work.png`
+  - `/private/tmp/gizelo-final-work-mosaic.png`
+  - `/private/tmp/gizelo-final-support-cases.png`
+  - `/private/tmp/gizelo-final-about.png`
 - Combined comparisons:
-  - `/private/tmp/gizelo-homepage-comparison-hero.png`
-  - `/private/tmp/gizelo-homepage-comparison-contact.png`
-- Desktop viewport and captures: 1440 × 1000 CSS px and image px, device pixel ratio 1.
-- Additional implementation captures:
-  - `/private/tmp/gizelo-homepage-final-tablet-768.png` at 768 × 900.
-  - `/private/tmp/gizelo-homepage-final-mobile-375.png` at 375 × 812.
-  - `/private/tmp/gizelo-homepage-final-mobile-320.png` at a 320 px-wide viewport.
-- State: homepage hero and contact anchor, production build served locally.
+  - `/private/tmp/gizelo-comparison-hero.png`
+  - `/private/tmp/gizelo-comparison-work.png`
+  - `/private/tmp/gizelo-comparison-about.png`
+- Viewport: 1280 × 720 CSS px and image px, device pixel ratio 1.
+- State: homepage hero, Selected work and How I work; production build served locally.
 
 ## Full-view comparison
 
-- The existing typography, grid, photo proportions and project-card language remain intact.
-- The hero now has one deliberate asterisk treatment: the photo mark moves left and up on tablet/desktop while retaining its safe mobile position. The redundant metadata asterisk is removed.
-- The section rhythm is now paper → white → paper → white → paper → white. Contact reads as a separate closing section rather than a continuation of About.
-- Navigation order matches the document order. The established blue remains the functional color; lime is limited to the brand marks and a small dark-card detail.
-- The browser host's floating annotation control is visible in comparison captures and is not part of the website.
+- The existing editorial grid, typography, light section rhythm, electric-blue accents and real project imagery remain intact.
+- The hero asterisk is now geometrically centered on the photo frame's top-left corner. The header logo is slightly larger while the 80 px header height remains unchanged.
+- Each project preview now uses one dominant real screenshot and two supporting screens. Girex remains the only dark card; the two supporting cases retain the existing light treatment.
+- The new external-project controls are visually secondary to the case title and use the existing square, border-only control language.
+- How I work now reads as an ordered vertical sequence rather than three unrelated capabilities.
 
 ## Focused comparison
 
-- Hero: source and implementation were compared side by side at identical dimensions. Headline wrapping, photo crop, typography and CTA geometry are unchanged; only the approved star placement, metadata treatment and navigation order differ.
-- Contact: source and implementation were compared side by side at identical dimensions. The paper surface, white fields and standalone asterisk create the approved closing signature without changing the form layout.
-- Mobile and tablet focused captures confirm that the asterisk does not cause horizontal overflow and the 320 px layout remains usable.
+- Hero: the source and implementation are paired at the same viewport. Headline, photo, CTAs and grid are unchanged; the final star center differs from the frame corner by exactly 0 px on both axes. The logo height is 40 px without changing the header height.
+- Selected work: the source and implementation retain the original text column and card hierarchy. The final image area adds the requested three-screen product overview and live-product icon link without introducing nested interactive elements.
+- How I work: the source's three-column skills layout is replaced by a semantic ordered list with `01`, `02`, `03`, consistent dividers and one vertical reading path.
+- Supporting cards: a focused capture confirms the same one-large/two-small image system works for House of Smile and Chocolatin Labs without changing their copy or light surfaces.
 
 ## Fidelity surfaces
 
-- Fonts and typography: Inter and Space Grotesk, weights, line height, tracking and hierarchy remain consistent with the selected design.
-- Spacing and layout rhythm: section spacing and grids are preserved; the new Contact surface creates a clear boundary from About.
-- Colors and tokens: Ink, Paper, White, Electric, Electric Dark and Lime are the only retained palette tokens. Secondary text is normalized to the agreed opacity levels.
-- Image quality and assets: the original photograph, product screenshots, logos and asterisk asset remain unchanged and use their intended proportions.
-- Copy and content: approved homepage copy is unchanged.
+- Fonts and typography: Inter and Space Grotesk, weights, sizes, tracking and hierarchy remain consistent. Section headings stay left aligned to preserve one editorial reading axis.
+- Spacing and layout rhythm: established site containers and section spacing remain unchanged. The image mosaics use consistent 16:9 frames and narrow gutters.
+- Colors and tokens: Ink, Paper, White, Electric, Electric Dark and Lime remain the only palette roles. No new colors were introduced.
+- Image quality and assets: only existing real product screenshots are used. Images keep explicit dimensions, responsive `sizes`, lazy loading below the fold and top-aligned crops.
+- Copy and content: all approved copy is unchanged. The only new text is accessible labeling for direct product links and ordered sequence numbers.
 
 ## Findings
 
 - No actionable P0, P1 or P2 visual differences remain.
-- No P3 follow-up is required for this homepage pass.
+- No P3 follow-up is required for this annotation pass.
 
 ## Interaction and accessibility verification
 
-- Mobile navigation uses a modal dialog. Opening it focuses Close, locks page scrolling and explicitly marks the page background inert. Closing restores focus to the Open navigation control.
-- Route changes render at scroll position 0 with no animated carry-over. Browser Back restores the previous case-page position.
-- Same-page links retain smooth scrolling and respect reduced-motion preferences.
-- Required form validation focuses Name and identifies Name, Email and Message as invalid without sending a request.
-- No console warnings or errors were present in the final in-app-browser pass.
-- Lighthouse mobile: Performance 96, Accessibility 100, Best Practices 100, SEO 100; LCP 2.7 s, CLS 0 and TBT 10 ms.
+- The three direct product links have distinct accessible labels, valid external URLs, `target="_blank"` and `rel="noreferrer"`.
+- Project mosaics remain a single case-study link, avoiding nested links and repeated tab stops.
+- The How I work sequence is a semantic `ol` with three items and retains a correct heading hierarchy.
+- A homepage-to-case transition from `scrollY=1240` opened `/work/girex` at `scrollY=0`; browser Back restored the prior homepage region.
+- The Girex case page retains its live-product link near the top.
+- The final desktop layout has no horizontal overflow, the star center is exactly aligned to the frame corner and the browser console is clean.
+- The mobile rules keep three preview images in a two-row grid, keep each ordered step on one compact row and clip decorative overflow without creating horizontal scrolling. The earlier 375 px and 320 px homepage checks remain applicable to all unchanged regions.
 
 ## Comparison history
 
-1. Initial audit found inconsistent palette roles, redundant hero decoration, weak About/Contact separation, route-scroll animation and a mobile-menu focus escape.
-2. The palette was normalized, the hero and Contact marks were refined, section surfaces and navigation order were corrected, route scrolling was separated from anchor scrolling, and the menu was replaced with a modal pattern.
-3. Browser comparison at desktop, tablet and mobile found no remaining P0/P1/P2 issue. Lighthouse exposed a local-only Vercel Analytics 404; Analytics is now rendered only on Vercel deployments, raising Best Practices from 96 to 100 locally.
+1. The prior approved homepage used one screenshot per case and presented Define, Build and Ship as three independent columns.
+2. The first implementation added real three-screen mosaics, direct project links, exact hero-star alignment, a larger logo and a numbered vertical work sequence.
+3. Visual comparison showed the mobile sequence would read more clearly if each step retained a compact number/icon/content row. The grid was adjusted for the smallest breakpoint.
+4. The final same-viewport comparison found no remaining P0/P1/P2 issue. TypeScript, ESLint, Prettier and the static production build all pass.
 
 ## Implementation checklist
 
-- [x] Desktop, tablet, 375 px and 320 px visual checks.
-- [x] Hero and Contact side-by-side comparisons.
-- [x] Mobile menu focus, inert background, close and focus return.
-- [x] Same-page, route, case-to-case and Back scroll behavior.
-- [x] Required form validation and browser console.
+- [x] Exact hero-star geometry and larger header logo.
+- [x] Three-image Girex and supporting-case previews.
+- [x] Direct live-product links on all homepage case cards.
+- [x] Existing live-product links verified on case pages.
+- [x] Numbered vertical Define → Build → Ship sequence.
+- [x] Route-top and Back navigation behavior.
+- [x] Semantic structure, accessible labels and console check.
+- [x] Side-by-side visual comparisons.
 - [x] TypeScript, ESLint, Prettier and production build.
-- [x] Lighthouse mobile audit.
 
 final result: passed

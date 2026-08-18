@@ -60,7 +60,7 @@ const SiteHeader = () => {
             alt=""
             width={112}
             height={36}
-            className="h-9 w-auto brightness-0"
+            className="h-10 w-auto brightness-0"
             aria-hidden="true"
           />
         </Link>
@@ -108,7 +108,7 @@ const SiteHeader = () => {
             alt=""
             width={112}
             height={36}
-            className="h-9 w-auto brightness-0"
+            className="h-10 w-auto brightness-0"
             aria-hidden="true"
           />
           <button

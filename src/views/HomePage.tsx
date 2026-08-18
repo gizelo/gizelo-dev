@@ -28,7 +28,7 @@ const workModes = [
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <SiteHeader />
       <main id="main-content">
         <section className="site-container grid items-center gap-12 py-14 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:py-14">
@@ -82,7 +82,7 @@ const HomePage = () => {
               width={96}
               height={96}
               aria-hidden="true"
-              className="absolute -left-5 -top-7 h-16 w-16 sm:-left-12 sm:-top-[3.25rem] sm:h-24 sm:w-24"
+              className="absolute -left-8 -top-8 h-16 w-16 sm:-left-12 sm:-top-12 sm:h-24 sm:w-24"
             />
           </div>
         </section>
@@ -163,15 +163,23 @@ const HomePage = () => {
                 Technical Product Manager and independent builder. My work spans product definition,
                 web and mobile UX, engineering, team coordination and release preparation.
               </p>
-              <div className="grid gap-6 sm:grid-cols-3">
-                {workModes.map(({ icon: Icon, title, body }) => (
-                  <div key={title} className="border-t border-ink/20 pt-6">
+              <ol className="border-t border-ink/20">
+                {workModes.map(({ icon: Icon, title, body }, index) => (
+                  <li
+                    key={title}
+                    className="grid grid-cols-[2.25rem_2.25rem_1fr] items-start gap-3 border-b border-ink/20 py-6 sm:grid-cols-[3rem_3rem_1fr] sm:gap-6"
+                  >
+                    <span className="text-sm font-semibold text-electric">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     <Icon className="h-7 w-7 text-electric" strokeWidth={2.25} aria-hidden="true" />
-                    <h3 className="mt-5 text-lg font-semibold text-ink">{title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/70">{body}</p>
-                  </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-ink">{title}</h3>
+                      <p className="mt-2 leading-relaxed text-ink/70">{body}</p>
+                    </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
           </div>
         </section>
