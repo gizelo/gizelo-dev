@@ -1,44 +1,73 @@
-# Design QA — Next.js Product Builder Portfolio
+# Homepage Design QA
 
-## Target
+## Comparison target
 
-- Light editorial personal portfolio with black typography, electric-blue actions and restrained lime details.
-- Product Builder positioning without agency, SaaS-landing or conventional résumé signals.
-- Real project interfaces and confirmed facts only.
+- Source visual truth:
+  - `/private/tmp/gizelo-homepage-audit/01-hero-desktop.png`
+  - `/private/tmp/gizelo-homepage-audit/05-contact-desktop.png`
+- Final implementation:
+  - `/private/tmp/gizelo-homepage-final-hero-1440.png`
+  - `/private/tmp/gizelo-homepage-final-contact-1440.png`
+- Combined comparisons:
+  - `/private/tmp/gizelo-homepage-comparison-hero.png`
+  - `/private/tmp/gizelo-homepage-comparison-contact.png`
+- Desktop viewport and captures: 1440 × 1000 CSS px and image px, device pixel ratio 1.
+- Additional implementation captures:
+  - `/private/tmp/gizelo-homepage-final-tablet-768.png` at 768 × 900.
+  - `/private/tmp/gizelo-homepage-final-mobile-375.png` at 375 × 812.
+  - `/private/tmp/gizelo-homepage-final-mobile-320.png` at a 320 px-wide viewport.
+- State: homepage hero and contact anchor, production build served locally.
 
-## Visual comparison
+## Full-view comparison
 
-- Compared the selected reference direction and the Next.js implementation at the same 864 × 1821 viewport in `/private/tmp/gizelo-next-design-comparison.png`.
-- Checked the homepage at 1440 × 1000, 768 × 1024 and 375 × 812.
-- Checked the Girex case page at 1440 × 1000 and verified the remaining case routes directly.
-- Preserved the portrait's intrinsic square ratio at every breakpoint.
+- The existing typography, grid, photo proportions and project-card language remain intact.
+- The hero now has one deliberate asterisk treatment: the photo mark moves left and up on tablet/desktop while retaining its safe mobile position. The redundant metadata asterisk is removed.
+- The section rhythm is now paper → white → paper → white → paper → white. Contact reads as a separate closing section rather than a continuation of About.
+- Navigation order matches the document order. The established blue remains the functional color; lime is limited to the brand marks and a small dark-card detail.
+- The browser host's floating annotation control is visible in comparison captures and is not part of the website.
 
-## Interaction and route checks
+## Focused comparison
 
-- Verified homepage anchor navigation, case links and direct case-route loading.
-- Verified `/work/girex`, `/work/house-of-smile` and `/work/chocolatin-labs`.
-- Verified an unknown case slug renders the native static 404.
-- Verified the mobile menu opens, closes and responds to Escape.
-- Verified empty form submission is blocked by native required-field validation and focuses Name.
-- Reviewed loading, success and failure branches without sending a real FormSubmit request.
-- Browser console: no warnings or errors on the deployed preview.
-- Horizontal overflow: none at the checked responsive widths.
+- Hero: source and implementation were compared side by side at identical dimensions. Headline wrapping, photo crop, typography and CTA geometry are unchanged; only the approved star placement, metadata treatment and navigation order differ.
+- Contact: source and implementation were compared side by side at identical dimensions. The paper surface, white fields and standalone asterisk create the approved closing signature without changing the form layout.
+- Mobile and tablet focused captures confirm that the asterisk does not cause horizontal overflow and the 320 px layout remains usable.
 
-## Static and quality checks
+## Fidelity surfaces
 
-- `next build --webpack`: passed; homepage and metadata routes are static, case routes are SSG.
-- TypeScript, ESLint and Prettier: passed.
-- Lighthouse mobile, local production build: Performance 95, Accessibility 100, SEO 100, CLS 0.
-- Lighthouse deployed preview: Accessibility 100 and Best Practices 100. Preview SEO is intentionally reduced by Vercel deployment protection; the local production build scores 100.
-- The local Best Practices score is 96 only because the Vercel Analytics endpoint is unavailable outside Vercel; the deployed preview scores 100.
-- Open Graph image: updated from the final 1200 × 630 hero capture.
+- Fonts and typography: Inter and Space Grotesk, weights, line height, tracking and hierarchy remain consistent with the selected design.
+- Spacing and layout rhythm: section spacing and grids are preserved; the new Contact surface creates a clear boundary from About.
+- Colors and tokens: Ink, Paper, White, Electric, Electric Dark and Lime are the only retained palette tokens. Secondary text is normalized to the agreed opacity levels.
+- Image quality and assets: the original photograph, product screenshots, logos and asterisk asset remain unchanged and use their intended proportions.
+- Copy and content: approved homepage copy is unchanged.
 
-## Final review
+## Findings
 
-- Hierarchy, copy density and section structure: passed.
-- Typography, spacing, contrast and color logic: passed.
-- Real product imagery and portrait proportions: passed.
-- Keyboard navigation, semantic landmarks, focus states and reduced motion: passed.
-- Personal, non-agency positioning: passed.
+- No actionable P0, P1 or P2 visual differences remain.
+- No P3 follow-up is required for this homepage pass.
+
+## Interaction and accessibility verification
+
+- Mobile navigation uses a modal dialog. Opening it focuses Close, locks page scrolling and explicitly marks the page background inert. Closing restores focus to the Open navigation control.
+- Route changes render at scroll position 0 with no animated carry-over. Browser Back restores the previous case-page position.
+- Same-page links retain smooth scrolling and respect reduced-motion preferences.
+- Required form validation focuses Name and identifies Name, Email and Message as invalid without sending a request.
+- No console warnings or errors were present in the final in-app-browser pass.
+- Lighthouse mobile: Performance 96, Accessibility 100, Best Practices 100, SEO 100; LCP 2.7 s, CLS 0 and TBT 10 ms.
+
+## Comparison history
+
+1. Initial audit found inconsistent palette roles, redundant hero decoration, weak About/Contact separation, route-scroll animation and a mobile-menu focus escape.
+2. The palette was normalized, the hero and Contact marks were refined, section surfaces and navigation order were corrected, route scrolling was separated from anchor scrolling, and the menu was replaced with a modal pattern.
+3. Browser comparison at desktop, tablet and mobile found no remaining P0/P1/P2 issue. Lighthouse exposed a local-only Vercel Analytics 404; Analytics is now rendered only on Vercel deployments, raising Best Practices from 96 to 100 locally.
+
+## Implementation checklist
+
+- [x] Desktop, tablet, 375 px and 320 px visual checks.
+- [x] Hero and Contact side-by-side comparisons.
+- [x] Mobile menu focus, inert background, close and focus return.
+- [x] Same-page, route, case-to-case and Back scroll behavior.
+- [x] Required form validation and browser console.
+- [x] TypeScript, ESLint, Prettier and production build.
+- [x] Lighthouse mobile audit.
 
 final result: passed

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const SiteFooter = () => (
-  <footer className="border-t border-ink/10 bg-paper py-8">
+  <footer className="border-t border-ink/10 bg-white py-8">
     <div className="site-container flex flex-col gap-4 text-sm text-ink/60 sm:flex-row sm:items-center sm:justify-between">
       <p>© {new Date().getFullYear()} Robert Gizelo</p>
       <div className="flex gap-5">

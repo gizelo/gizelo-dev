@@ -1,11 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Boxes, Rocket, ScanSearch } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "@/components/ContactForm";
 import ProjectCard from "@/components/ProjectCard";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import SectionLink from "@/components/SectionLink";
 import { caseStudies, contributions } from "@/constants";
 
 const workModes = [
@@ -38,16 +38,6 @@ const HomePage = () => {
               Turning ideas into working products.
             </h1>
             <div className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-medium text-ink/70 sm:gap-x-3 sm:text-lg">
-              <span className="inline-flex h-7 w-7 items-center justify-center">
-                <Image
-                  src="/asterisk-color.svg"
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="h-full w-full"
-                  aria-hidden="true"
-                />
-              </span>
               <span>6+ years</span>
               <span aria-hidden="true">·</span>
               <span>SaaS</span>
@@ -57,19 +47,19 @@ const HomePage = () => {
               <span>Crypto</span>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <SectionLink
                 href="/#work"
                 className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark"
               >
                 My work
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <Link
+              </SectionLink>
+              <SectionLink
                 href="/#contact"
                 className="focus-ring inline-flex min-h-12 items-center justify-center border border-ink/25 px-6 py-3 font-semibold text-ink transition-colors hover:border-ink"
               >
                 Reach me
-              </Link>
+              </SectionLink>
             </div>
           </div>
 
@@ -92,7 +82,7 @@ const HomePage = () => {
               width={96}
               height={96}
               aria-hidden="true"
-              className="absolute -left-5 -top-7 h-16 w-16 sm:-left-8 sm:-top-10 sm:h-24 sm:w-24"
+              className="absolute -left-5 -top-7 h-16 w-16 sm:-left-12 sm:-top-[3.25rem] sm:h-24 sm:w-24"
             />
           </div>
         </section>
@@ -141,7 +131,7 @@ const HomePage = () => {
                         </span>
                       )}
                     </div>
-                    <p className="mt-4 flex-1 text-sm leading-relaxed text-ink/65">
+                    <p className="mt-4 flex-1 text-sm leading-relaxed text-ink/70">
                       {contribution.description}
                     </p>
                     {contribution.website && (
@@ -168,7 +158,7 @@ const HomePage = () => {
               How I work.
             </h2>
             <div className="mt-12 grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-              <p className="max-w-2xl text-xl leading-relaxed text-ink/72">
+              <p className="max-w-2xl text-xl leading-relaxed text-ink/70">
                 I&apos;ve spent 6+ years building SaaS, fintech and crypto products as an engineer,
                 Technical Product Manager and independent builder. My work spans product definition,
                 web and mobile UX, engineering, team coordination and release preparation.
@@ -176,9 +166,9 @@ const HomePage = () => {
               <div className="grid gap-6 sm:grid-cols-3">
                 {workModes.map(({ icon: Icon, title, body }) => (
                   <div key={title} className="border-t border-ink/20 pt-6">
-                    <Icon className="h-6 w-6 text-lime" aria-hidden="true" />
+                    <Icon className="h-7 w-7 text-electric" strokeWidth={2.25} aria-hidden="true" />
                     <h3 className="mt-5 text-lg font-semibold text-ink">{title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/65">{body}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/70">{body}</p>
                   </div>
                 ))}
               </div>

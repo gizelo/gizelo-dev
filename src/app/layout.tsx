@@ -15,6 +15,8 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const isVercelDeployment = process.env.VERCEL === "1";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://gizelo.dev"),
   title: {
@@ -65,7 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         {children}
-        <Analytics />
+        {isVercelDeployment && <Analytics />}
       </body>
     </html>
   );

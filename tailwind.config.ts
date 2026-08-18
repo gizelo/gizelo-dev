@@ -21,14 +21,11 @@ export default {
     },
     extend: {
       colors: {
-        accent: "#B3F753",
-        darkGray: "#0c0c0c",
         paper: "#F4F2EB",
         ink: "#141613",
         electric: "#123CFF",
         "electric-dark": "#0A2ED4",
         lime: "#B3F753",
-        forest: "#1D3328",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],

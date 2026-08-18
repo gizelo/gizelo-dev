@@ -1,32 +1,55 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/constants";
-import { cn } from "@/lib/utils";
+import SectionLink from "@/components/SectionLink";
 
 const SiteHeader = () => {
   const [open, setOpen] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const headerBarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("keydown", closeOnEscape);
-    return () => {
+    const dialog = dialogRef.current;
+
+    if (!dialog) {
+      return;
+    }
+
+    const backgroundElements = [
+      headerBarRef.current,
+      document.querySelector<HTMLElement>("main"),
+      document.querySelector<HTMLElement>("footer"),
+    ].filter((element): element is HTMLElement => element !== null);
+
+    if (open && !dialog.open) {
+      backgroundElements.forEach((element) => {
+        element.inert = true;
+      });
+      dialog.showModal();
+      document.body.style.overflow = "hidden";
+    } else if (!open && dialog.open) {
+      backgroundElements.forEach((element) => {
+        element.inert = false;
+      });
+      dialog.close();
       document.body.style.overflow = "";
-      document.removeEventListener("keydown", closeOnEscape);
+    }
+
+    return () => {
+      backgroundElements.forEach((element) => {
+        element.inert = false;
+      });
+      document.body.style.overflow = "";
     };
   }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur">
-      <div className="site-container flex h-20 items-center justify-between">
+      <div ref={headerBarRef} className="site-container flex h-20 items-center justify-between">
         <Link
           href="/"
           className="focus-ring inline-flex items-center"
@@ -42,56 +65,74 @@ const SiteHeader = () => {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
           {navLinks.map((link) => (
-            <Link
+            <SectionLink
               key={link.name}
               href={link.href}
               className="focus-ring text-sm font-medium text-ink/70 transition-colors hover:text-ink"
             >
               {link.name}
-            </Link>
+            </SectionLink>
           ))}
-          <Link
+          <SectionLink
             href="/#contact"
             className="focus-ring inline-flex min-h-11 items-center bg-electric px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-electric-dark"
           >
             Reach me
-          </Link>
+          </SectionLink>
         </nav>
 
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="focus-ring inline-flex h-11 w-11 items-center justify-center text-ink md:hidden"
+          className="focus-ring inline-flex h-11 w-11 items-center justify-center text-ink lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-navigation"
           aria-label={open ? "Close navigation" : "Open navigation"}
         >
-          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          <Menu aria-hidden="true" />
         </button>
       </div>
 
-      <div
+      <dialog
+        ref={dialogRef}
         id="mobile-navigation"
-        className={cn(
-          "fixed inset-x-0 top-20 z-40 min-h-[calc(100vh-5rem)] border-t border-ink/10 bg-paper px-8 py-10 md:hidden",
-          open ? "block" : "hidden",
-        )}
+        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-paper p-0 text-ink backdrop:bg-transparent lg:hidden"
+        onCancel={() => setOpen(false)}
+        onClose={() => setOpen(false)}
       >
-        <nav className="flex flex-col" aria-label="Mobile navigation">
+        <div className="site-container flex h-20 items-center justify-between border-b border-ink/10">
+          <Image
+            src="/gizelo-logo-full.svg"
+            alt=""
+            width={112}
+            height={36}
+            className="h-9 w-auto brightness-0"
+            aria-hidden="true"
+          />
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="focus-ring inline-flex h-11 w-11 items-center justify-center text-ink"
+            aria-label="Close navigation"
+          >
+            <X aria-hidden="true" />
+          </button>
+        </div>
+        <nav className="site-container flex flex-col py-10" aria-label="Mobile navigation">
           {navLinks.map((link) => (
-            <Link
+            <SectionLink
               key={link.name}
               href={link.href}
               onClick={() => setOpen(false)}
               className="focus-ring border-b border-ink/10 py-5 text-3xl font-semibold text-ink"
             >
               {link.name}
-            </Link>
+            </SectionLink>
           ))}
         </nav>
-      </div>
+      </dialog>
     </header>
   );
 };

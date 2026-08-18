@@ -8,6 +8,7 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const ContactForm = () => {
   const [status, setStatus] = useState<FormStatus>("idle");
+  const isSubmitting = status === "submitting";
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,14 +39,21 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="section-space border-t border-ink/10 bg-white">
+    <section id="contact" className="section-space border-t border-ink/10 bg-paper">
       <div className="site-container grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
         <div>
-          <p className="eyebrow">Contact</p>
+          <Image
+            src="/asterisk-color.svg"
+            alt=""
+            width={64}
+            height={64}
+            className="h-12 w-12 sm:h-16 sm:w-16"
+            aria-hidden="true"
+          />
           <h2 className="mt-5 max-w-lg text-4xl font-bold leading-tight tracking-[-0.04em] text-ink sm:text-5xl">
             How can I help?
           </h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/65">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/70">
             Share what you&apos;re building and let&apos;s move it forward.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -84,7 +92,12 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="grid gap-5" aria-label="Send Robert a message">
+        <form
+          onSubmit={handleSubmit}
+          className="grid gap-5"
+          aria-label="Send Robert a message"
+          aria-busy={isSubmitting}
+        >
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-semibold text-ink">
               Name
@@ -93,7 +106,7 @@ const ContactForm = () => {
                 name="name"
                 required
                 autoComplete="name"
-                className="focus-ring min-h-12 border border-ink/20 bg-paper px-4 text-base font-normal outline-none transition-colors hover:border-ink/50"
+                className="focus-ring min-h-12 border border-ink/20 bg-white px-4 text-base font-normal outline-none transition-colors hover:border-ink/50"
               />
             </label>
             <label className="grid gap-2 text-sm font-semibold text-ink">
@@ -103,7 +116,7 @@ const ContactForm = () => {
                 name="email"
                 required
                 autoComplete="email"
-                className="focus-ring min-h-12 border border-ink/20 bg-paper px-4 text-base font-normal outline-none transition-colors hover:border-ink/50"
+                className="focus-ring min-h-12 border border-ink/20 bg-white px-4 text-base font-normal outline-none transition-colors hover:border-ink/50"
               />
             </label>
           </div>
@@ -113,19 +126,21 @@ const ContactForm = () => {
               name="message"
               rows={6}
               required
-              className="focus-ring resize-y border border-ink/20 bg-paper px-4 py-3 text-base font-normal outline-none transition-colors hover:border-ink/50"
+              className="focus-ring resize-y border border-ink/20 bg-white px-4 py-3 text-base font-normal outline-none transition-colors hover:border-ink/50"
             />
           </label>
           <input type="hidden" name="_template" value="box" />
           <button
             type="submit"
-            disabled={status === "submitting"}
+            disabled={isSubmitting}
+            aria-busy={isSubmitting}
             className="focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark disabled:cursor-wait disabled:opacity-60 sm:w-fit"
           >
-            {status === "submitting" ? "Sending…" : "Send message"}
+            {isSubmitting ? "Sending…" : "Send message"}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
           <div aria-live="polite" className="min-h-6 text-sm">
+            {isSubmitting && <p className="font-medium text-ink/60">Sending…</p>}
             {status === "success" && (
               <p className="font-medium text-electric">
                 Message sent. I&apos;ll get back to you soon.

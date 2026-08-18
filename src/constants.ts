@@ -2,8 +2,8 @@ import { CaseStudy, Contribution } from "@/types";
 
 export const navLinks = [
   { name: "Work", href: "/#work" },
-  { name: "About", href: "/#about" },
   { name: "Experience", href: "/#experience" },
+  { name: "About", href: "/#about" },
   { name: "Contact", href: "/#contact" },
 ];
 

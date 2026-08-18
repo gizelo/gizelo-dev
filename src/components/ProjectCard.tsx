@@ -19,17 +19,17 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
             <div>
               <h3 className="text-5xl font-bold tracking-[-0.05em] sm:text-6xl">{project.name}</h3>
               <p className="mt-3 text-lg text-white/60">{project.category}</p>
-              <p className="mt-7 max-w-md text-lg leading-relaxed text-white/78">
+              <p className="mt-7 max-w-md text-lg leading-relaxed text-white/80">
                 {project.summary}
               </p>
             </div>
             <div>
               <Link
                 href={href}
-                className="focus-ring inline-flex min-h-11 items-center gap-2 font-semibold text-lime"
+                className="focus-ring inline-flex min-h-11 items-center gap-2 font-semibold text-white"
               >
                 View case
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <ArrowRight className="h-4 w-4 text-lime" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -65,8 +65,8 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
       </Link>
       <div className="flex flex-1 flex-col p-6 sm:p-8">
         <h3 className="text-3xl font-bold tracking-[-0.035em] text-ink">{project.name}</h3>
-        <p className="mt-2 text-ink/65">{project.category}</p>
-        <p className="mt-5 flex-1 leading-relaxed text-ink/68">{project.summary}</p>
+        <p className="mt-2 text-ink/60">{project.category}</p>
+        <p className="mt-5 flex-1 leading-relaxed text-ink/70">{project.summary}</p>
         <Link
           href={href}
           className="focus-ring mt-7 inline-flex min-h-11 w-fit items-center gap-2 font-semibold text-electric"
