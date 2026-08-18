@@ -87,6 +87,58 @@ final result: passed
 
 ---
 
+# Girex Case Media Follow-up Design QA
+
+## Comparison target
+
+- Source visual truth: Robert's annotations on the deployed Girex case requesting a multi-screen opening collage and genuine native-app screenshots.
+- Source captures:
+  - `/private/tmp/girex-followup-source-hero.jpg`
+  - `/private/tmp/girex-followup-source-mobile.jpg`
+- Final implementation captures:
+  - `/private/tmp/girex-followup-implementation-hero.jpg`
+  - `/private/tmp/girex-followup-implementation-collage-1440.jpg`
+  - `/private/tmp/girex-followup-implementation-collage-375.jpg`
+  - `/private/tmp/girex-followup-implementation-mobile.jpg`
+  - `/private/tmp/girex-followup-implementation-mobile-375.jpg`
+- Combined comparison evidence:
+  - `/private/tmp/girex-followup-comparison-hero.jpg`
+  - `/private/tmp/girex-followup-comparison-mobile.jpg`
+- Viewports: 1440 x 900, 1280 x 720, 768 x 900, 375 x 812 and 320 x 700 CSS px at device pixel ratio 1.
+- State: statically rendered Girex case from the local production build with all inspected images loaded.
+
+## Findings and fixes
+
+- [P1 fixed] The opening media was one oversized P2P screenshot. It is now a three-screen editorial collage: P2P remains dominant, with deal/chat and offline discovery as supporting views.
+- [P1 fixed] The former `Mobile app` images were responsive web captures, despite their inaccurate native-app alt text. They were replaced with supplied React Native captures showing the native dashboard, P2P marketplace and offline map, including the persistent bottom navigation.
+- [P2 fixed] The opening proof was too vertically expensive on mobile. The collage now becomes one lead image with two compact supporting images underneath, keeping all three visible without horizontal overflow.
+
+## Fidelity surfaces
+
+- Fonts and typography: unchanged from the approved case system; no headings or reading widths moved.
+- Spacing and layout rhythm: the collage uses the existing 12/16 px media gaps and aligns to the shared site container. Its desktop tracks preserve one clear dominant image and two supporting images.
+- Colors and visual tokens: unchanged; Ink frames the Girex product imagery and no new visual token was introduced.
+- Image quality and assets: all five newly composed views use real supplied Girex screenshots. The three native captures were converted to WebP at their original 1206 x 2622 aspect ratio and registered with explicit dimensions.
+- Copy and content: the mobile alt text now describes the actual native screens and their bottom navigation. No product claim, metric or outcome changed.
+
+## Interaction, responsive and build verification
+
+- Document width equals viewport width at 1440, 768, 375 and 320 px.
+- The native screenshot rail retains keyboard-accessible 44 px full-size links and CSS scroll snapping on small screens.
+- Browser console errors: none.
+- TypeScript, ESLint and Prettier pass.
+- Next.js webpack production build passes and reports the homepage and all three case pages as static/SSG.
+
+## Comparison history
+
+1. Source evidence showed a single opening cover and three responsive-web mobile captures.
+2. First implementation replaced both regions without changing the surrounding case structure.
+3. Same-viewport combined comparisons confirmed clearer product breadth in the opening collage and unmistakable native-app chrome in the mobile section. No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+---
+
 # Girex Case Page Design QA
 
 ## Comparison target
@@ -133,7 +185,7 @@ final result: passed
 - What I did: the prior 3 x 2 numbered card grid was replaced by a compact unnumbered two-column evidence list with internal rules only. The same facts remain visible with substantially less vertical space.
 - Key decisions: the three stories remain the only numbered content. Removing the eyebrow and marketing headline makes the actual decisions the primary hierarchy.
 - Product: the generic screenshot dump is now a lead deal-and-chat image followed by a 2 x 2 grid. Captions and 44 px full-size links provide context and access to interface detail.
-- Mobile app: the same three real mobile screens remain. Desktop uses three columns; mobile uses a native `scroll-snap` rail with `clientWidth: 320`, `scrollWidth: 867` and no JavaScript carousel.
+- Mobile app: desktop uses three columns; mobile uses a CSS `scroll-snap` rail with `clientWidth: 320`, `scrollWidth: 867` and no JavaScript carousel. The later media follow-up records the correction from responsive-web captures to genuine native-app screenshots.
 - Outcome: delivery evidence, current state and the factual learning callout now share one compact section. The stage language is updated to final internal testing before public launch.
 
 ## Fidelity surfaces

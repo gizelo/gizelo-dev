@@ -139,18 +139,18 @@ export const caseStudies: CaseStudy[] = [
       ],
       mobile: [
         {
-          src: "/work/girex/mobile-market.webp",
-          alt: "Girex native mobile P2P marketplace",
+          src: "/work/girex/native-dashboard.webp",
+          alt: "Girex native mobile dashboard with wallets and bottom navigation",
           portrait: true,
         },
         {
-          src: "/work/girex/mobile-map.webp",
-          alt: "Girex native mobile exchange-point map",
+          src: "/work/girex/native-market.webp",
+          alt: "Girex native mobile P2P marketplace with bottom navigation",
           portrait: true,
         },
         {
-          src: "/work/girex/mobile-chat.webp",
-          alt: "Girex native mobile deal and chat flow",
+          src: "/work/girex/native-offline.webp",
+          alt: "Girex native mobile exchange-point map with bottom navigation",
           portrait: true,
         },
       ],

@@ -16,6 +16,35 @@ type ProductFigureProps = {
   compact?: boolean;
 };
 
+type HeroCollageProps = {
+  cover: ProjectImage;
+  supporting: [ProjectImage, ProjectImage];
+};
+
+const HeroCollage = ({ cover, supporting }: HeroCollageProps) => (
+  <div className="grid gap-3 lg:grid-cols-[2.05fr_1fr] lg:gap-4">
+    <div className="overflow-hidden border border-ink/15 bg-ink">
+      <ResponsiveImage
+        {...cover}
+        className="aspect-[1.44/1] h-auto w-full object-cover"
+        sizes="(max-width: 1024px) 100vw, 68vw"
+        eager
+      />
+    </div>
+    <div className="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:gap-4">
+      {supporting.map((image) => (
+        <div key={image.src} className="overflow-hidden border border-ink/15 bg-ink">
+          <ResponsiveImage
+            {...image}
+            className="aspect-[1.44/1] h-auto w-full object-cover"
+            sizes="(max-width: 1024px) 50vw, 32vw"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const ProductFigure = ({ image, compact = false }: ProductFigureProps) => (
   <figure>
     <a
@@ -117,14 +146,10 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
           </header>
 
           <div className="site-container pb-16 sm:pb-20">
-            <div className="overflow-hidden border border-ink/15 bg-ink">
-              <ResponsiveImage
-                {...project.cover}
-                className="h-auto w-full"
-                sizes="(max-width: 1320px) 100vw, 1320px"
-                eager
-              />
-            </div>
+            <HeroCollage
+              cover={project.cover}
+              supporting={[media.lead ?? media.grid[0], media.grid[0]]}
+            />
           </div>
 
           <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
