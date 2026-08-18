@@ -1,4 +1,7 @@
+"use client";
+
 import { FormEvent, useState } from "react";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -38,12 +41,12 @@ const ContactForm = () => {
     <section id="contact" className="section-space border-t border-ink/10 bg-white">
       <div className="site-container grid gap-14 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
         <div>
-          <p className="eyebrow">Get in touch</p>
+          <p className="eyebrow">Contact</p>
           <h2 className="mt-5 max-w-lg text-4xl font-bold leading-tight tracking-[-0.04em] text-ink sm:text-5xl">
-            Have a product in mind?
+            How can I help?
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/65">
-            Tell me how I can help with your product.
+            Share what you&apos;re building and let&apos;s move it forward.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -52,7 +55,14 @@ const ContactForm = () => {
               rel="noreferrer"
               className="focus-ring inline-flex min-h-11 items-center gap-2 border border-ink/20 px-4 py-3 text-sm font-semibold text-ink hover:border-ink"
             >
-              <img src="/brand/linkedin.svg" alt="" className="h-5 w-5" aria-hidden="true" />
+              <Image
+                src="/brand/linkedin.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="h-5 w-5"
+                aria-hidden="true"
+              />
               LinkedIn
             </a>
             <a
@@ -61,7 +71,14 @@ const ContactForm = () => {
               rel="noreferrer"
               className="focus-ring inline-flex min-h-11 items-center gap-2 border border-ink/20 px-4 py-3 text-sm font-semibold text-ink hover:border-ink"
             >
-              <img src="/brand/telegram.svg" alt="" className="h-5 w-5" aria-hidden="true" />
+              <Image
+                src="/brand/telegram.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="h-5 w-5"
+                aria-hidden="true"
+              />
               Telegram
             </a>
           </div>
@@ -110,7 +127,7 @@ const ContactForm = () => {
           </button>
           <div aria-live="polite" className="min-h-6 text-sm">
             {status === "success" && (
-              <p className="font-medium text-forest">
+              <p className="font-medium text-electric">
                 Message sent. I&apos;ll get back to you soon.
               </p>
             )}

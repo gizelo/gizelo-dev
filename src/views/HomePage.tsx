@@ -1,53 +1,49 @@
-import { ArrowDown, ArrowRight, ArrowUpRight, Boxes, Rocket, ScanSearch } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight, Boxes, Rocket, ScanSearch } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "@/components/ContactForm";
 import ProjectCard from "@/components/ProjectCard";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { caseStudies, contributions } from "@/constants";
-import { handleInternalLink } from "@/lib/navigation";
-import { usePageMeta } from "@/hooks/use-page-meta";
 
 const workModes = [
   {
     icon: ScanSearch,
     title: "Define",
-    body: "Turn rough ideas into clear scope, flows and trade-offs.",
+    body: "Scope, requirements, flows and trade-offs.",
   },
   {
     icon: Boxes,
     title: "Build",
-    body: "Design and engineer web and mobile products end-to-end.",
+    body: "Web and mobile UX, architecture and implementation.",
   },
   {
     icon: Rocket,
     title: "Ship",
-    body: "Coordinate delivery, remove blockers and prepare the release.",
+    body: "Coordination, release preparation and iteration.",
   },
 ];
 
 const HomePage = () => {
-  usePageMeta({
-    title: "Robert Gizelo — Product Builder",
-    description:
-      "From idea to prod. Product design, engineering and delivery across web, mobile, SaaS, fintech and crypto.",
-  });
-
   return (
     <div className="min-h-screen bg-paper text-ink">
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <section className="site-container grid items-center gap-12 py-14 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:py-14">
           <div className="relative z-10">
             <p className="eyebrow">Robert Gizelo · Product Builder</p>
             <h1 className="mt-6 max-w-4xl text-[clamp(3.8rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
-              From idea to prod.
+              Turning ideas into working products.
             </h1>
             <div className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-medium text-ink/70 sm:gap-x-3 sm:text-lg">
-              <span className="inline-flex h-7 w-7 items-center justify-center bg-forest p-1.5">
-                <img
+              <span className="inline-flex h-7 w-7 items-center justify-center">
+                <Image
                   src="/asterisk-color.svg"
                   alt=""
+                  width={28}
+                  height={28}
                   className="h-full w-full"
                   aria-hidden="true"
                 />
@@ -61,40 +57,41 @@ const HomePage = () => {
               <span>Crypto</span>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
+              <Link
                 href="/#work"
-                onClick={(event) => handleInternalLink(event, "/#work")}
                 className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark"
               >
                 My work
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
-                onClick={(event) => handleInternalLink(event, "/#contact")}
-                className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 border border-ink/25 px-6 py-3 font-semibold text-ink transition-colors hover:border-ink"
+                className="focus-ring inline-flex min-h-12 items-center justify-center border border-ink/25 px-6 py-3 font-semibold text-ink transition-colors hover:border-ink"
               >
                 Reach me
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="relative mx-auto w-full max-w-[560px] self-end lg:self-center">
             <div className="relative border-[10px] border-electric bg-[#ede9e3] sm:border-[14px]">
-              <img
+              <Image
                 src="/me1.jpeg"
                 alt="Robert Gizelo"
+                width={640}
+                height={640}
                 className="block h-auto w-full"
-                loading="eager"
-                fetchPriority="high"
+                sizes="(max-width: 1024px) 100vw, 44vw"
+                priority
               />
             </div>
-            <img
+            <Image
               src="/asterisk-color.svg"
               alt=""
+              width={96}
+              height={96}
               aria-hidden="true"
-              className="absolute -left-5 -top-7 h-16 w-16 bg-forest p-2 sm:-left-8 sm:-top-10 sm:h-24 sm:w-24 sm:p-3"
+              className="absolute -left-5 -top-7 h-16 w-16 sm:-left-8 sm:-top-10 sm:h-24 sm:w-24"
             />
           </div>
         </section>
@@ -129,6 +126,7 @@ const HomePage = () => {
                     <ResponsiveImage
                       {...contribution.image}
                       className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.015]"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
@@ -137,7 +135,7 @@ const HomePage = () => {
                         {contribution.name}
                       </h3>
                       {contribution.nda && (
-                        <span className="shrink-0 bg-forest px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-lime">
+                        <span className="shrink-0 bg-electric px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
                           NDA
                         </span>
                       )}
@@ -163,36 +161,23 @@ const HomePage = () => {
           </div>
         </section>
 
-        <section id="about" className="section-space border-t border-ink/10 bg-forest text-white">
-          <div className="site-container grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-            <div>
-              <div className="inline-flex h-12 w-12 items-center justify-center bg-lime p-2.5">
-                <img
-                  src="/asterisk-color.svg"
-                  alt=""
-                  className="h-full w-full brightness-0"
-                  aria-hidden="true"
-                />
-              </div>
-              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-lime">
-                How I work
+        <section id="about" className="section-space border-t border-ink/10 bg-white">
+          <div className="site-container">
+            <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
+              How I work.
+            </h2>
+            <div className="mt-12 grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+              <p className="max-w-2xl text-xl leading-relaxed text-ink/72">
+                I&apos;ve spent 6+ years building SaaS, fintech and crypto products as an engineer,
+                Technical Product Manager and independent builder. My work spans product definition,
+                web and mobile UX, engineering, team coordination and release preparation.
               </p>
-              <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-tight tracking-[-0.045em] sm:text-6xl">
-                I turn ambiguity into something people can use.
-              </h2>
-            </div>
-            <div>
-              <p className="max-w-3xl text-xl leading-relaxed text-white/78">
-                I&apos;ve spent 6+ years building SaaS, fintech and crypto products—as an engineer,
-                a Technical PM and an independent builder. I work across the parts that usually get
-                separated: shaping the product, designing the flow and building the software.
-              </p>
-              <div className="mt-10 grid gap-5 sm:grid-cols-3">
+              <div className="grid gap-6 sm:grid-cols-3">
                 {workModes.map(({ icon: Icon, title, body }) => (
-                  <div key={title} className="border-t border-white/25 pt-5">
+                  <div key={title} className="border-t border-ink/20 pt-6">
                     <Icon className="h-6 w-6 text-lime" aria-hidden="true" />
-                    <h3 className="mt-5 text-lg font-semibold text-white">{title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/72">{body}</p>
+                    <h3 className="mt-5 text-lg font-semibold text-ink">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/65">{body}</p>
                   </div>
                 ))}
               </div>

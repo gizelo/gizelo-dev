@@ -1,11 +1,10 @@
+import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { CaseStudy } from "@/types";
 import { caseStudies } from "@/constants";
-import { handleInternalLink } from "@/lib/navigation";
-import { usePageMeta } from "@/hooks/use-page-meta";
 
 type CaseStudyPageProps = {
   project: CaseStudy;
@@ -15,28 +14,22 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
   const currentIndex = caseStudies.findIndex((item) => item.slug === project.slug);
   const nextProject = caseStudies[(currentIndex + 1) % caseStudies.length];
 
-  usePageMeta({
-    title: `${project.name} — Robert Gizelo`,
-    description: project.summary,
-  });
-
   const standardImages = project.gallery.filter((image) => !image.portrait);
   const mobileImages = project.gallery.filter((image) => image.portrait);
 
   return (
     <div className="min-h-screen bg-paper text-ink">
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <article>
           <header className="site-container py-14 sm:py-20 lg:py-24">
-            <a
+            <Link
               href="/#work"
-              onClick={(event) => handleInternalLink(event, "/#work")}
               className="focus-ring inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink/60 hover:text-ink"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               Back to selected work
-            </a>
+            </Link>
             <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
               <div>
                 <p className="eyebrow">{project.category}</p>
@@ -83,6 +76,7 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
               <ResponsiveImage
                 {...project.cover}
                 className="aspect-[16/10] w-full object-cover object-top sm:aspect-[16/9]"
+                sizes="(max-width: 1320px) 100vw, 1320px"
                 eager
               />
             </div>
@@ -183,7 +177,11 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
                 {standardImages.map((image) => (
                   <figure key={image.src}>
                     <div className="overflow-hidden border border-white/15 bg-black">
-                      <ResponsiveImage {...image} className="h-auto w-full" />
+                      <ResponsiveImage
+                        {...image}
+                        className="h-auto w-full"
+                        sizes="(max-width: 1320px) 100vw, 1320px"
+                      />
                     </div>
                     {image.caption && (
                       <figcaption className="mt-3 max-w-2xl text-sm leading-relaxed text-white/70">
@@ -211,7 +209,11 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
                       key={image.src}
                       className="mx-auto w-full max-w-[390px] overflow-hidden border border-white/15 bg-black"
                     >
-                      <ResponsiveImage {...image} className="h-auto w-full" />
+                      <ResponsiveImage
+                        {...image}
+                        className="h-auto w-full"
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                      />
                     </div>
                   ))}
                 </div>
@@ -259,14 +261,13 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
                   {nextProject.name}
                 </h2>
               </div>
-              <a
+              <Link
                 href={`/work/${nextProject.slug}`}
-                onClick={(event) => handleInternalLink(event, `/work/${nextProject.slug}`)}
                 className="focus-ring inline-flex min-h-12 w-fit items-center gap-3 border border-white/40 px-6 py-3 font-semibold text-white hover:border-white"
               >
                 View next case
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </section>
         </article>

@@ -1,90 +1,41 @@
-# Gizelo Web Development Studio
+# gizelo.dev
 
-A modern web development studio website built with React, TypeScript, and Tailwind CSS.
+Robert Gizelo's personal product-builder portfolio. The site presents selected case studies and
+product experience across SaaS, fintech and crypto.
 
-## 🚀 Features
+## Stack
 
-- Modern React with TypeScript
-- Vite for fast development and building
-- Tailwind CSS for styling
-- Responsive design
-- SEO optimized
+- Next.js App Router
+- React and TypeScript
+- Tailwind CSS
+- Vercel Analytics
 
-## 🛠️ Tech Stack
+All public pages are statically prerendered. Client-side JavaScript is limited to navigation,
+analytics and the contact form.
 
-- **Framework:** React 18
-- **Language:** TypeScript
-- **Build Tool:** Vite
-- **Styling:** Tailwind CSS
-- **Package Manager:** pnpm
-- **Code Quality:** ESLint
-
-## 📦 Prerequisites
-
-- Node.js (v18 or higher)
-- pnpm (recommended) or npm
-
-## 🚀 Getting Started
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/gizelo/gizelo-dev.git
-cd gizelo-dev
-```
-
-2. Install dependencies:
+## Development
 
 ```bash
 pnpm install
-```
-
-3. Start the development server:
-
-```bash
 pnpm dev
 ```
 
-4. Build for production:
+The development server runs at `http://localhost:3000` by default.
+
+## Verification
 
 ```bash
+pnpm format:check
+pnpm lint
+pnpm typecheck
 pnpm build
 ```
 
-## 📝 Available Scripts
+## Routes
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm build:dev` - Build for development
-- `pnpm preview` - Preview production build
-- `pnpm lint` - Run ESLint
+- `/`
+- `/work/girex`
+- `/work/house-of-smile`
+- `/work/chocolatin-labs`
 
-## 🏗️ Project Structure
-
-```
-gizelo-dev/
-├── src/           # Source files
-├── public/        # Static assets
-├── components/    # React components
-├── styles/        # Global styles
-└── ...
-```
-
-## 🔧 Configuration
-
-- `vite.config.ts` - Vite configuration
-- `tailwind.config.ts` - Tailwind CSS configuration
-- `tsconfig.json` - TypeScript configuration
-- `eslint.config.js` - ESLint configuration
-
-## 📄 License
-
-This project is private and proprietary.
-
-## 👥 Author
-
-Gizelo Studio
-
----
-
-Built with ❤️ by Gizelo Studio
+The project deploys to Vercel. Production is released only from `main`.

@@ -1,55 +1,63 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
 import { navLinks } from "@/constants";
 import { cn } from "@/lib/utils";
-import { handleInternalLink } from "@/lib/navigation";
 
 const SiteHeader = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("keydown", closeOnEscape);
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener("keydown", closeOnEscape);
     };
   }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur">
       <div className="site-container flex h-20 items-center justify-between">
-        <a
+        <Link
           href="/"
-          onClick={(event) => handleInternalLink(event, "/")}
           className="focus-ring inline-flex items-center"
           aria-label="Robert Gizelo, home"
         >
-          <img
+          <Image
             src="/gizelo-logo-full.svg"
             alt=""
+            width={112}
+            height={36}
             className="h-9 w-auto brightness-0"
             aria-hidden="true"
           />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              onClick={(event) => handleInternalLink(event, link.href)}
               className="focus-ring text-sm font-medium text-ink/70 transition-colors hover:text-ink"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a
+          <Link
             href="/#contact"
-            onClick={(event) => handleInternalLink(event, "/#contact")}
-            className="focus-ring inline-flex min-h-11 items-center gap-2 bg-electric px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-electric-dark"
+            className="focus-ring inline-flex min-h-11 items-center bg-electric px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-electric-dark"
           >
             Reach me
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -73,17 +81,14 @@ const SiteHeader = () => {
       >
         <nav className="flex flex-col" aria-label="Mobile navigation">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              onClick={(event) => {
-                handleInternalLink(event, link.href);
-                setOpen(false);
-              }}
+              onClick={() => setOpen(false)}
               className="focus-ring border-b border-ink/10 py-5 text-3xl font-semibold text-ink"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

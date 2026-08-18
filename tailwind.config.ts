@@ -31,8 +31,8 @@ export default {
         forest: "#1D3328",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        display: ["Space Grotesk", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
       },
       keyframes: {
         "fade-in": {
