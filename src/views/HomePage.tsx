@@ -31,7 +31,7 @@ const HomePage = () => {
     <div className="min-h-screen overflow-x-clip bg-white text-ink">
       <SiteHeader />
       <main id="main-content">
-        <section className="site-container grid items-center gap-12 py-14 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:py-14">
+        <section className="site-container grid items-center gap-12 py-14 sm:gap-20 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-14">
           <div className="relative z-10">
             <p className="eyebrow">Robert Gizelo · Product Builder</p>
             <h1 className="mt-6 max-w-4xl text-[clamp(3.8rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
