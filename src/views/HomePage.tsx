@@ -170,7 +170,7 @@ const HomePage = () => {
                 {workModes.map(({ icon: Icon, title, body }) => (
                   <li
                     key={title}
-                    className="grid grid-cols-[2.25rem_1fr] items-start gap-3 border-b border-ink/20 py-6 first:pt-0 last:border-b-0 last:pb-0 sm:grid-cols-[3rem_1fr] sm:gap-6"
+                    className="grid grid-cols-[2.25rem_1fr] items-start gap-3 border-b border-ink/20 py-6 first:pt-0 last:border-b-0 last:pb-0 sm:gap-4"
                   >
                     <Icon className="h-7 w-7 text-electric" strokeWidth={2.25} aria-hidden="true" />
                     <div>
