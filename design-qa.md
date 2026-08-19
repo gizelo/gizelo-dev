@@ -85,6 +85,62 @@
 
 final result: passed
 
+---
+
+# Girex annotation refinement QA — 2026-08-19
+
+## Evidence
+
+- Source visual truth: the annotated Girex preview captured before this refinement, represented by `/private/tmp/girex-followup-deployed-hero.jpg`, `/private/tmp/girex-redesign-context-desktop.jpg`, `/private/tmp/girex-redesign-what-i-did-desktop.jpg` and `/private/tmp/girex-redesign-decisions-desktop.jpg`.
+- Rendered implementation: `/private/tmp/girex-refine-full-1440.png` and `/private/tmp/girex-refine-full-768.png` from the local production build at `/work/girex`.
+- Full and focused comparison evidence: `/private/tmp/girex-annotation-comparison.jpg` and `/private/tmp/girex-context-comparison.jpg` place the previous and revised states in the same images.
+- Desktop viewport: 1440 px CSS width at device scale factor 1; implementation capture is 1440 x 8000 px. Source focused captures are 1440 x 900 px at density 1.
+- Tablet viewport: 768 px CSS width at device scale factor 1; implementation capture is 768 x 5000 px.
+- State: static Girex case route, no authentication, default interaction state.
+
+## Findings and fixes
+
+- [Resolved P2] Hero facts had enclosing top and bottom rules. The facts now use separators only between adjacent rows.
+- [Resolved P2] The hero columns did not share a clear baseline. The project narrative and facts list are now bottom-aligned at desktop widths while retaining a natural stacked flow below `lg`.
+- [Resolved P2] The two Context columns were not optically aligned. The heading/ownership block and narrative now begin at the same top edge.
+- [Resolved P2] The What I did list lacked the requested brand detail. Each evidence item now uses the existing Lime asterisk asset, with the item text remaining the primary information.
+- [Resolved P2] Decision markers were too small to establish hierarchy. `01`, `02` and `03` are now large Electric editorial markers, with rules only between decision rows.
+
+No actionable P0, P1 or P2 differences remain in the requested regions.
+
+## Fidelity surfaces
+
+- Fonts and typography: Inter and Space Grotesk are unchanged. Decision numbers use the established display weight and Electric token without changing the content hierarchy.
+- Spacing and layout rhythm: hero content shares a bottom alignment, Context shares a top alignment, and all list dividers appear only between items. Mobile/tablet stacking remains readable without overlap.
+- Colors and visual tokens: White, Ink, Electric and Lime remain the only visible tokens in these regions. Lime is limited to the decorative asterisk asset; Electric remains the structural accent.
+- Image quality and assets: the real `/asterisk-color.svg` asset is used through `next/image`; no CSS or inline-SVG approximation was introduced. Existing Girex screenshots are unchanged.
+- Copy and content: no product claims, ownership language, stage data or decision wording changed.
+
+## Accessibility and behavior
+
+- The list remains semantic `ul`/`li`; asterisks have empty alt text and are hidden from assistive technology.
+- The facts remain semantic `dl` content, and decisions retain ordered visual markers while the headings carry the meaningful labels.
+- The 768 px capture has no horizontal overflow, clipping or collisions in the modified regions.
+- Existing focus styles, product links and case navigation are unchanged.
+
+## Comparison history
+
+1. The annotated source showed outer list borders, inconsistent column alignment, unbranded evidence items and undersized decision numbers.
+2. The implementation removed outer rules, applied the intended top/bottom alignments, used the existing Lime asterisk asset and enlarged the Electric decision markers.
+3. Post-fix combined comparisons confirm the requested hierarchy and divider logic without introducing responsive or content regressions.
+
+## Implementation checklist
+
+- [x] Inner-only separators for hero facts and decision stories.
+- [x] Bottom-aligned desktop hero columns.
+- [x] Top-aligned Context columns.
+- [x] Lime signature asterisks in What I did.
+- [x] Large Electric decision numbers.
+- [x] Desktop and tablet visual comparison.
+- [x] Semantic and decorative-image review.
+
+final result: passed
+
 # Girex hero hierarchy pass
 
 ## Evidence

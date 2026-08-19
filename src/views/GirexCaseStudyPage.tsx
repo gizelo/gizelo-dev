@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import clsx from "clsx";
 import SiteHeader from "@/components/SiteHeader";
@@ -99,7 +100,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
               Back to selected work
             </Link>
 
-            <div className="mt-5 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-16">
+            <div className="mt-5 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-16">
               <div>
                 <p className="text-base font-medium text-ink/55">{project.category}</p>
                 <h1 className="mt-2 text-[clamp(3.25rem,6vw,5rem)] font-bold leading-[0.95] tracking-[-0.055em] text-ink">
@@ -121,7 +122,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                 )}
               </div>
 
-              <dl className="border-y border-ink/15">
+              <dl>
                 {[
                   ["Role", project.role],
                   ["Scope", project.scope],
@@ -150,28 +151,31 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             />
           </div>
 
-          <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
-            <div className="site-container">
-              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Context.</h2>
-              <div className="mt-10 grid gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:gap-16">
-                <p className="max-w-sm text-base font-semibold leading-relaxed text-ink/62">
+          <section id="context" className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
+            <div className="site-container grid items-start gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
+              <div>
+                <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Context.</h2>
+                <p className="mt-8 max-w-sm text-base font-semibold leading-relaxed text-ink/62">
                   {project.ownershipLabel}
                 </p>
-                <div className="space-y-5">
-                  {project.context.map((paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="max-w-4xl text-xl leading-relaxed tracking-[-0.015em] text-ink/76"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+              </div>
+              <div className="space-y-5">
+                {project.context.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="max-w-4xl text-xl leading-relaxed tracking-[-0.015em] text-ink/76"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </div>
           </section>
 
-          <section className="border-t border-white/10 bg-ink py-16 text-white sm:py-20 lg:py-24">
+          <section
+            id="what-i-did"
+            className="border-t border-white/10 bg-ink py-16 text-white sm:py-20 lg:py-24"
+          >
             <div className="site-container">
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">What I did.</h2>
               <ul className="mt-10 grid md:grid-cols-2">
@@ -179,29 +183,46 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                   <li
                     key={item}
                     className={clsx(
-                      "py-6 text-lg leading-relaxed text-white/72",
+                      "grid grid-cols-[1.5rem_1fr] items-start gap-4 py-6 text-lg leading-relaxed text-white/72",
                       index < project.owned.length - 1 && "border-b border-white/15",
                       index >= lastDesktopRowStart && "md:border-b-0",
                       index % 2 === 0 ? "md:border-r md:border-white/15 md:pr-10" : "md:pl-10",
                     )}
                   >
-                    {item}
+                    <Image
+                      src="/asterisk-color.svg"
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="mt-1 h-5 w-5"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </section>
 
-          <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
+          <section
+            id="key-decisions"
+            className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24"
+          >
             <div className="site-container grid gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Key decisions.</h2>
-              <div className="border-t border-ink/15">
+              <div>
                 {project.decisions.map((decision, index) => (
                   <article
                     key={decision.title}
-                    className="grid gap-4 border-b border-ink/15 py-8 sm:grid-cols-[3.5rem_1fr]"
+                    className={clsx(
+                      "grid gap-4 py-8 first:pt-0 last:pb-0 sm:grid-cols-[5.5rem_1fr] sm:gap-6",
+                      index > 0 && "border-t border-ink/15",
+                    )}
                   >
-                    <span className="text-sm font-semibold text-electric" aria-hidden="true">
+                    <span
+                      className="text-4xl font-bold leading-none tracking-[-0.05em] text-electric sm:text-5xl"
+                      aria-hidden="true"
+                    >
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>
