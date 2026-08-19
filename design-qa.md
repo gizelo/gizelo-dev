@@ -85,6 +85,58 @@
 
 final result: passed
 
+# Positioning and CTA hierarchy QA — 2026-08-19
+
+## Scope and evidence
+
+- Baseline: a temporary production build from the unchanged branch `HEAD` before this pass.
+- Implementation: the local production build with the positioning and CTA changes.
+- Focused before/after screenshots:
+  - `/private/tmp/gizelo-positioning-before-home-desktop-focused.png`
+  - `/private/tmp/gizelo-positioning-after-home-desktop-focused.png`
+  - `/private/tmp/gizelo-positioning-before-home-mobile-focused.png`
+  - `/private/tmp/gizelo-positioning-after-home-mobile-focused.png`
+  - `/private/tmp/gizelo-positioning-before-girex-desktop-focused.png`
+  - `/private/tmp/gizelo-positioning-after-girex-desktop-focused.png`
+  - `/private/tmp/gizelo-positioning-before-girex-mobile-focused.png`
+  - `/private/tmp/gizelo-positioning-after-girex-mobile-focused.png`
+- Viewports: 1440 x 900, 768 x 900, 375 x 812 and 320 x 812 CSS px.
+
+## Visible result
+
+- The featured Girex card now presents a filled white `View case` action before the quieter
+  `Visit product` link. The square icon-only external link was removed.
+- House of Smile and Chocolatin Labs use a filled Electric `View case` action followed by a
+  lower-emphasis external product link.
+- At 375 px and 320 px, both actions occupy separate rows and the primary action spans the card
+  content width. At `sm` and above, they sit side by side.
+- The Girex ending now leads with the contact proposition and CTA, then separates the linked next
+  case and `All work` navigation with a light rule.
+- The revised About copy and the homepage, default, Open Graph and Twitter descriptions use the
+  approved Product Builder positioning without changing project facts.
+
+## Interaction and accessibility verification
+
+- Each project action group exposes `View case` before `Visit product` in DOM and keyboard order.
+- Primary actions measure 48 px high. External actions and `All work` measure 44 px high. The
+  Girex contact CTA measures at least 56 px high and is full-width below `lg`.
+- External product links retain `target="_blank"`, `rel="noopener noreferrer"` and an accessible
+  name that states a new tab will open. Project images still link to the internal case route.
+- The contact CTA reaches the existing `#contact` form. The next-case link opens House of Smile at
+  `scrollY=0`; Browser Back restores Girex to the exact prior position (`6900.5`).
+- At all four viewports, document width equals viewport width and no horizontal overflow occurs.
+- The browser console contains no warnings or errors.
+
+## Verification checklist
+
+- [x] Prettier check.
+- [x] ESLint.
+- [x] TypeScript `tsc --noEmit`.
+- [x] Production `next build --webpack` with all three case routes generated as SSG.
+- [x] Responsive, keyboard-order, target-size, link, navigation, scroll-restoration and console QA.
+
+final result: passed
+
 ---
 
 # Girex annotation refinement QA — 2026-08-19

@@ -162,9 +162,9 @@ const HomePage = () => {
             </h2>
             <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-start">
               <p className="max-w-3xl text-xl leading-relaxed text-ink/70">
-                I&apos;ve spent 6+ years building SaaS, fintech and crypto products as an engineer,
-                Technical Product Manager and independent builder. My work spans product definition,
-                web and mobile UX, engineering, team coordination and release preparation.
+                I work with founders and product teams to turn complex ideas into working products.
+                Depending on what the product needs, I move between definition, UX, engineering,
+                coordination and release preparation.
               </p>
               <ul>
                 {workModes.map(({ icon: Icon, title, body }) => (

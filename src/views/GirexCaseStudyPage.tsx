@@ -305,35 +305,46 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
           </section>
 
           <section className="border-t border-ink/10 bg-electric py-14 text-white sm:py-16">
-            <div className="site-container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-              <div>
+            <div className="site-container">
+              <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+                <div>
+                  <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
+                    Let&apos;s build what&apos;s next.
+                  </h2>
+                  <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/78">
+                    I work across product definition, UX and engineering to turn complex ideas into
+                    working digital products.
+                  </p>
+                </div>
+                <Link
+                  href="/#contact"
+                  className="focus-ring inline-flex min-h-14 w-full items-center justify-center gap-3 bg-white px-7 py-4 font-semibold text-electric transition-colors hover:bg-white/90 lg:w-auto"
+                >
+                  Tell me what you&apos;re building
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <div className="mt-12 border-t border-white/25 pt-8 sm:mt-14 sm:pt-10">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/68">
                   Next case
                 </p>
-                <h2 className="mt-4 text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
-                  {nextProject.name}
-                </h2>
-              </div>
-              <div className="flex flex-col gap-3 sm:items-end">
-                <Link
-                  href={`/work/${nextProject.slug}`}
-                  className="focus-ring inline-flex min-h-14 items-center justify-center gap-3 bg-white px-7 py-4 font-semibold text-electric transition-colors hover:bg-white/90"
-                >
-                  View case
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-                <div className="flex items-center justify-between gap-7 sm:justify-end">
+                <div className="mt-3 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
                   <Link
-                    href="/#work"
-                    className="focus-ring inline-flex min-h-11 items-center font-semibold text-white/78 hover:text-white"
+                    href={`/work/${nextProject.slug}`}
+                    className="focus-ring group inline-flex min-h-12 items-center gap-3 text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl"
                   >
-                    All work
+                    {nextProject.name}
+                    <ArrowRight
+                      className="h-6 w-6 transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
                   </Link>
                   <Link
-                    href="/#contact"
-                    className="focus-ring inline-flex min-h-11 items-center font-semibold text-white/78 hover:text-white"
+                    href="/#work"
+                    className="focus-ring inline-flex min-h-11 items-center font-semibold text-white/72 hover:text-white"
                   >
-                    Reach me
+                    All work
                   </Link>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import HomePage from "@/views/HomePage";
 export const metadata: Metadata = {
   title: "Robert Gizelo — Product Builder",
   description:
-    "Product builder with 6+ years across SaaS, fintech and crypto, working across product definition, UX, engineering and delivery.",
+    "Robert Gizelo is a Product Builder working across product definition, UX and engineering to turn complex ideas into working digital products.",
   alternates: { canonical: "/" },
 };
 

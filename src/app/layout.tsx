@@ -16,6 +16,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const isVercelDeployment = process.env.VERCEL === "1";
+const siteDescription =
+  "Robert Gizelo is a Product Builder working across product definition, UX and engineering to turn complex ideas into working digital products.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gizelo.dev"),
@@ -23,8 +25,7 @@ export const metadata: Metadata = {
     default: "Robert Gizelo — Product Builder",
     template: "%s — Robert Gizelo",
   },
-  description:
-    "Product builder with 6+ years across SaaS, fintech and crypto, working across product definition, UX, engineering and delivery.",
+  description: siteDescription,
   alternates: {
     canonical: "/",
   },
@@ -33,14 +34,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: "Robert Gizelo",
     title: "Robert Gizelo — Product Builder",
-    description: "Turning ideas into working products across SaaS, fintech and crypto.",
+    description: siteDescription,
     url: "/",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Robert Gizelo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Robert Gizelo — Product Builder",
-    description: "Turning ideas into working products across SaaS, fintech and crypto.",
+    description: siteDescription,
     images: ["/og-image.png"],
   },
   icons: {

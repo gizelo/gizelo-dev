@@ -17,22 +17,6 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
     : (project.gallery ?? []).filter((image) => !image.portrait);
   const previewImages = [project.cover, ...supportingImages].slice(0, 3);
 
-  const liveProductLink = project.website ? (
-    <a
-      href={project.website}
-      target="_blank"
-      rel="noreferrer"
-      className={`focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center border transition-colors ${
-        featured
-          ? "border-white/25 text-white hover:border-white"
-          : "border-ink/20 text-ink hover:border-electric hover:text-electric"
-      }`}
-      aria-label={`Visit ${project.name} website`}
-    >
-      <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
-    </a>
-  ) : null;
-
   const preview = (
     <Link
       href={href}
@@ -69,25 +53,32 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
         <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
           <div className="flex flex-col justify-between gap-12 p-7 sm:p-10 lg:p-12">
             <div>
-              <div className="flex items-center justify-between gap-5">
-                <h3 className="text-5xl font-bold tracking-[-0.05em] sm:text-6xl">
-                  {project.name}
-                </h3>
-                {liveProductLink}
-              </div>
+              <h3 className="text-5xl font-bold tracking-[-0.05em] sm:text-6xl">{project.name}</h3>
               <p className="mt-3 text-lg text-white/60">{project.category}</p>
               <p className="mt-7 max-w-md text-lg leading-relaxed text-white/80">
                 {project.summary}
               </p>
             </div>
-            <div>
+            <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-5">
               <Link
                 href={href}
-                className="focus-ring inline-flex min-h-11 items-center gap-2 font-semibold text-white"
+                className="focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 bg-white px-6 py-3 font-semibold text-ink transition-colors hover:bg-white/90 sm:w-auto"
               >
                 View case
-                <ArrowRight className="h-4 w-4 text-lime" aria-hidden="true" />
+                <ArrowRight className="h-4 w-4 text-electric" aria-hidden="true" />
               </Link>
+              {project.website && (
+                <a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 font-semibold text-white/78 transition-colors hover:text-white sm:justify-start"
+                  aria-label={`Visit ${project.name} product (opens in a new tab)`}
+                >
+                  Visit product
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              )}
             </div>
           </div>
           {preview}
@@ -100,19 +91,30 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
     <article className="group flex h-full flex-col overflow-hidden border border-ink/15 bg-white">
       {preview}
       <div className="flex flex-1 flex-col p-6 sm:p-8">
-        <div className="flex items-center justify-between gap-5">
-          <h3 className="text-3xl font-bold tracking-[-0.035em] text-ink">{project.name}</h3>
-          {liveProductLink}
-        </div>
+        <h3 className="text-3xl font-bold tracking-[-0.035em] text-ink">{project.name}</h3>
         <p className="mt-2 text-ink/60">{project.category}</p>
         <p className="mt-5 flex-1 leading-relaxed text-ink/70">{project.summary}</p>
-        <Link
-          href={href}
-          className="focus-ring mt-7 inline-flex min-h-11 w-fit items-center gap-2 font-semibold text-electric"
-        >
-          View case
-          <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </Link>
+        <div className="mt-7 flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:gap-5">
+          <Link
+            href={href}
+            className="focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark sm:w-auto"
+          >
+            View case
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+          {project.website && (
+            <a
+              href={project.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 font-semibold text-ink/62 transition-colors hover:text-electric sm:justify-start"
+              aria-label={`Visit ${project.name} product (opens in a new tab)`}
+            >
+              Visit product
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );
