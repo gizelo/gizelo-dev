@@ -100,12 +100,12 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
               Back to selected work
             </Link>
 
-            <div className="mt-5 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-16">
+            <div className="mt-7 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-16">
               <div>
-                <p className="text-base font-medium text-ink/55">{project.category}</p>
-                <h1 className="mt-2 text-[clamp(3.25rem,6vw,5rem)] font-bold leading-[0.95] tracking-[-0.055em] text-ink">
+                <h1 className="text-[clamp(3.25rem,6vw,5rem)] font-bold leading-[0.95] tracking-[-0.055em] text-ink">
                   {project.name}
                 </h1>
+                <p className="mt-3 text-base font-medium text-ink/55">{project.category}</p>
                 <p className="mt-5 max-w-3xl text-xl leading-relaxed text-ink/65 sm:text-[1.375rem]">
                   {project.summary}
                 </p>
@@ -305,7 +305,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
           </section>
 
           <section className="border-t border-ink/10 bg-electric py-14 text-white sm:py-16">
-            <div className="site-container flex flex-col gap-9 sm:flex-row sm:items-end sm:justify-between">
+            <div className="site-container grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/68">
                   Next case
@@ -314,26 +314,28 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                   {nextProject.name}
                 </h2>
               </div>
-              <div className="flex flex-wrap items-center gap-5">
-                <Link
-                  href="/#work"
-                  className="focus-ring inline-flex min-h-11 items-center font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
-                >
-                  All work
-                </Link>
-                <Link
-                  href="/#contact"
-                  className="focus-ring inline-flex min-h-11 items-center font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white"
-                >
-                  Reach me
-                </Link>
+              <div className="flex flex-col gap-3 sm:items-end">
                 <Link
                   href={`/work/${nextProject.slug}`}
-                  className="focus-ring inline-flex min-h-12 items-center gap-3 border border-white/45 px-6 py-3 font-semibold text-white hover:border-white"
+                  className="focus-ring inline-flex min-h-14 items-center justify-center gap-3 bg-white px-7 py-4 font-semibold text-electric transition-colors hover:bg-white/90"
                 >
-                  View next case
+                  View case
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
+                <div className="flex items-center justify-between gap-7 sm:justify-end">
+                  <Link
+                    href="/#work"
+                    className="focus-ring inline-flex min-h-11 items-center font-semibold text-white/78 hover:text-white"
+                  >
+                    All work
+                  </Link>
+                  <Link
+                    href="/#contact"
+                    className="focus-ring inline-flex min-h-11 items-center font-semibold text-white/78 hover:text-white"
+                  >
+                    Reach me
+                  </Link>
+                </div>
               </div>
             </div>
           </section>
