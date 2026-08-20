@@ -36,13 +36,20 @@ export const metadata: Metadata = {
     title: "Robert Gizelo — Product Builder",
     description: siteDescription,
     url: "/",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Robert Gizelo" }],
+    images: [
+      {
+        url: "/og-image-v2.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Robert Gizelo — Product Builder",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Robert Gizelo — Product Builder",
     description: siteDescription,
-    images: ["/og-image.png"],
+    images: ["/og-image-v2.jpg"],
   },
   icons: {
     icon: "/asterisk-color.svg",
