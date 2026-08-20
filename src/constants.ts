@@ -196,7 +196,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     delivered: [
       "A complete responsive website across 21 production routes.",
-      "German, English and Russian content with localized metadata.",
+      "Localized content and metadata across three languages.",
       "Clear Doctolib booking paths and clinic contact information.",
       "Service, team, gallery, contact, FAQ and legal experiences.",
       "GDPR-aware maps and consent management.",

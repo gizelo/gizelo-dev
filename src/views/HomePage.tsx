@@ -66,10 +66,11 @@ const HomePage = () => {
           <div className="relative mx-auto w-full max-w-[560px] self-end lg:self-center">
             <div className="relative border-[10px] border-electric bg-white sm:border-[14px]">
               <Image
-                src="/me1.jpeg"
+                src="/robert-gizelo-portrait-final.jpg"
                 alt="Robert Gizelo"
-                width={640}
-                height={640}
+                width={539}
+                height={539}
+                quality={95}
                 className="block h-auto w-full"
                 sizes="(max-width: 1024px) 100vw, 44vw"
                 preload
@@ -104,9 +105,17 @@ const HomePage = () => {
 
         <section
           id="experience"
-          className="section-space border-t border-white/10 bg-ink text-white"
+          className="section-space relative overflow-hidden border-t border-white/10 bg-ink text-white"
         >
-          <div className="site-container">
+          <Image
+            src="/asterisk-color.svg"
+            alt=""
+            width={120}
+            height={120}
+            aria-hidden="true"
+            className="pointer-events-none absolute right-5 top-5 h-16 w-16 sm:right-10 sm:top-8 sm:h-24 sm:w-24 lg:right-[max(2.5rem,calc((100vw-82rem)/2))]"
+          />
+          <div className="site-container relative">
             <h2 className="text-4xl font-bold tracking-[-0.045em] text-white sm:text-6xl">
               Products I contributed to.
             </h2>

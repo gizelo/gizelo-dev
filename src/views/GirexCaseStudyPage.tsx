@@ -14,7 +14,7 @@ type GirexCaseStudyPageProps = {
 
 type ProductFigureProps = {
   image: ProjectImage;
-  compact?: boolean;
+  sizes: string;
 };
 
 type HeroCollageProps = {
@@ -46,33 +46,10 @@ const HeroCollage = ({ cover, supporting }: HeroCollageProps) => (
   </div>
 );
 
-const ProductFigure = ({ image, compact = false }: ProductFigureProps) => (
-  <figure>
-    <a
-      href={image.src}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`Open full-size image: ${image.alt}`}
-      className="block overflow-hidden border border-white/15 bg-black outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
-    >
-      <ResponsiveImage
-        {...image}
-        className="h-auto w-full"
-        sizes={compact ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 1320px) 100vw, 1320px"}
-      />
-    </a>
-    <figcaption className="mt-4 flex items-start justify-between gap-4 text-sm leading-relaxed text-white/68">
-      <span>{image.caption ?? image.alt}</span>
-      <a
-        href={image.src}
-        target="_blank"
-        rel="noreferrer"
-        className="inline-flex min-h-11 shrink-0 items-center font-semibold text-white underline decoration-white/35 underline-offset-4 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
-      >
-        Open full size
-      </a>
-    </figcaption>
-  </figure>
+const ProductFigure = ({ image, sizes }: ProductFigureProps) => (
+  <div className="overflow-hidden border border-white/15 bg-black">
+    <ResponsiveImage {...image} className="h-auto w-full" sizes={sizes} />
+  </div>
 );
 
 const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
@@ -85,6 +62,24 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
   }
 
   const lastDesktopRowStart = project.owned.length - (project.owned.length % 2 || 2);
+  const webStoryTitles = [
+    "A complete P2P deal flow.",
+    "Offline exchange, modeled around locations.",
+    "A single customer view for trust and funds.",
+    "Tools for day-to-day merchant operations.",
+    "Operational control across the platform.",
+  ];
+  const webStoryDescriptions = [
+    "The beta connects offers, escrow-backed deals, payment details, clear order states and real-time chat in one continuous journey.",
+    ...media.grid.map((image) => image.caption ?? image.alt),
+  ];
+  const webStories = media.lead ? [media.lead, ...media.grid] : media.grid;
+  const mobileStoryTitles = ["Wallets and balances", "P2P marketplace", "Offline exchange map"];
+  const mobileStoryDescriptions = [
+    "The web dashboard and profile become one simpler home for balances, wallets and account status.",
+    "Frequent destinations stay in the tab bar, while Create Offer remains available without dominating the mobile journey.",
+    "Exchange discovery becomes a full-screen map with a draggable results panel designed for one-handed use.",
+  ];
 
   return (
     <div className="min-h-screen bg-white text-ink">
@@ -155,9 +150,6 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             <div className="site-container grid items-start gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
               <div>
                 <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Context.</h2>
-                <p className="mt-8 max-w-sm text-base font-semibold leading-relaxed text-ink/62">
-                  {project.ownershipLabel}
-                </p>
               </div>
               <div className="space-y-5">
                 {project.context.map((paragraph) => (
@@ -177,7 +169,11 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             className="border-t border-white/10 bg-ink py-16 text-white sm:py-20 lg:py-24"
           >
             <div className="site-container">
-              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">What I did.</h2>
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">My role.</h2>
+              <p className="mt-6 max-w-3xl text-xl leading-relaxed text-white/68">
+                I worked across product definition, team coordination and hands-on delivery—from
+                shaping flows and scope to rebuilding the web frontend and creating the mobile app.
+              </p>
               <ul className="mt-10 grid md:grid-cols-2">
                 {project.owned.map((item, index) => (
                   <li
@@ -209,7 +205,9 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24"
           >
             <div className="site-container grid gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
-              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Key decisions.</h2>
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
+                Key product decisions.
+              </h2>
               <div>
                 {project.decisions.map((decision, index) => (
                   <article
@@ -239,36 +237,100 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             </div>
           </section>
 
-          <section className="border-t border-ink/10 bg-ink py-16 text-white sm:py-20 lg:py-24">
-            <div className="site-container">
-              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Product.</h2>
-              {media.lead && (
-                <div className="mt-10">
-                  <ProductFigure image={media.lead} />
-                </div>
-              )}
-              <div className="mt-10 grid gap-x-6 gap-y-10 md:grid-cols-2">
-                {media.grid.map((image) => (
-                  <ProductFigure key={image.src} image={image} compact />
+          <section className="relative overflow-hidden border-t border-white/10 bg-ink py-16 text-white sm:py-20 lg:py-24">
+            <Image
+              src="/asterisk-color.svg"
+              alt=""
+              width={180}
+              height={180}
+              aria-hidden="true"
+              className="pointer-events-none absolute right-5 top-5 h-12 w-12 sm:right-10 sm:top-8 sm:h-28 sm:w-28 lg:right-[max(2.5rem,calc((100vw-82rem)/2))]"
+            />
+            <div className="site-container relative">
+              <div className="max-w-3xl">
+                <h2 className="w-fit text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
+                  Web platform.
+                </h2>
+                <p className="mt-6 text-xl leading-relaxed text-white/68">
+                  The web beta grew from a narrow P2P proof of concept into a connected product for
+                  customers, merchants and platform operations. I replaced most of the alpha
+                  frontend while establishing the architecture, design system and stronger flows
+                  needed for release preparation.
+                </p>
+              </div>
+
+              <div className="mt-12 sm:mt-16">
+                {webStories.map((image, index) => (
+                  <article
+                    key={image.src}
+                    className="grid gap-7 border-t border-white/15 py-10 first:pt-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-16 lg:py-14"
+                  >
+                    <div className={clsx(index % 2 === 0 ? "lg:order-2" : "lg:order-1")}>
+                      <h3 className="max-w-lg text-3xl font-bold tracking-[-0.04em] sm:text-4xl">
+                        {webStoryTitles[index]}
+                      </h3>
+                      <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/66">
+                        {webStoryDescriptions[index]}
+                      </p>
+                    </div>
+                    <div className={clsx(index % 2 === 0 ? "lg:order-1" : "lg:order-2")}>
+                      <ProductFigure image={image} sizes="(max-width: 1024px) 100vw, 58vw" />
+                    </div>
+                  </article>
                 ))}
               </div>
             </div>
           </section>
 
           {media.mobile && media.mobile.length > 0 && (
-            <section className="border-t border-white/12 bg-ink py-16 text-white sm:py-20 lg:py-24">
-              <div className="site-container">
-                <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Mobile app.</h2>
-                <ul className="-mx-5 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-5 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:pb-0">
-                  {media.mobile.map((image) => (
-                    <li
-                      key={image.src}
-                      className="w-[82vw] max-w-[330px] shrink-0 snap-start sm:w-auto sm:max-w-none"
-                    >
-                      <ProductFigure image={image} compact />
-                    </li>
-                  ))}
-                </ul>
+            <section className="relative overflow-hidden border-t border-white/15 bg-ink py-16 text-white sm:py-20 lg:py-24">
+              <Image
+                src="/asterisk-color.svg"
+                alt=""
+                width={180}
+                height={180}
+                aria-hidden="true"
+                className="pointer-events-none absolute right-5 top-5 h-12 w-12 sm:right-10 sm:top-8 sm:h-28 sm:w-28 lg:right-[max(2.5rem,calc((100vw-82rem)/2))]"
+              />
+              <div className="site-container relative">
+                <div className="max-w-3xl">
+                  <h2 className="w-fit text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
+                    Mobile app.
+                  </h2>
+                  <p className="mt-6 text-xl leading-relaxed text-white/68">
+                    After recommending React Native and internal delivery, I defined the mobile
+                    scope, information architecture and interaction patterns, then built a
+                    TestFlight beta covering the principal customer flows.
+                  </p>
+                </div>
+
+                <div className="-mx-5 mt-12 snap-x snap-mandatory overflow-x-auto px-5 pb-4 sm:-mx-10 sm:mt-16 sm:px-10 lg:mx-0 lg:overflow-visible lg:px-0 lg:pb-0">
+                  <div className="grid auto-cols-[minmax(17rem,82vw)] grid-flow-col gap-4 lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto lg:gap-5">
+                    {media.mobile.map((image, index) => (
+                      <article
+                        key={image.src}
+                        className="flex snap-start flex-col border border-white/15 bg-white/[0.025]"
+                      >
+                        <div className="min-h-52 p-6 sm:p-7">
+                          <h3 className="text-2xl font-bold tracking-[-0.035em]">
+                            {mobileStoryTitles[index]}
+                          </h3>
+                          <p className="mt-4 text-base leading-relaxed text-white/66">
+                            {mobileStoryDescriptions[index]}
+                          </p>
+                        </div>
+                        <div className="flex min-h-[32rem] flex-1 items-end justify-center overflow-hidden border-t border-white/15 px-5 pt-6 sm:min-h-[36rem] lg:min-h-[34rem]">
+                          <div className="w-full max-w-[240px]">
+                            <ProductFigure
+                              image={image}
+                              sizes="(max-width: 640px) 64vw, (max-width: 1024px) 15rem, 15rem"
+                            />
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
           )}
@@ -304,49 +366,47 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             </div>
           </section>
 
-          <section className="border-t border-ink/10 bg-electric py-14 text-white sm:py-16">
-            <div className="site-container">
-              <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div>
-                  <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
-                    Let&apos;s build what&apos;s next.
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/78">
-                    I work across product definition, UX and engineering to turn complex ideas into
-                    working digital products.
-                  </p>
-                </div>
+          <section className="relative overflow-hidden border-t border-ink/10 bg-electric pb-14 pt-24 text-white sm:py-16">
+            <Image
+              src="/asterisk-color.svg"
+              alt=""
+              width={180}
+              height={180}
+              aria-hidden="true"
+              className="pointer-events-none absolute right-5 top-5 h-16 w-16 sm:right-10 sm:top-8 sm:h-28 sm:w-28 lg:right-[max(2.5rem,calc((100vw-82rem)/2))]"
+            />
+            <div className="site-container relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+              <div className="relative">
+                <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
+                  Let&apos;s build what&apos;s next.
+                </h2>
+                <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/78">
+                  I work across product definition, UX and engineering to turn complex ideas into
+                  working digital products.
+                </p>
                 <Link
                   href="/#contact"
-                  className="focus-ring inline-flex min-h-14 w-full items-center justify-center gap-3 bg-white px-7 py-4 font-semibold text-electric transition-colors hover:bg-white/90 lg:w-auto"
+                  className="focus-ring mt-7 inline-flex min-h-14 w-full items-center justify-center gap-3 bg-white px-7 py-4 font-semibold text-electric transition-colors hover:bg-white/90 sm:w-auto"
                 >
                   Tell me what you&apos;re building
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </div>
-
-              <div className="mt-12 border-t border-white/25 pt-8 sm:mt-14 sm:pt-10">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/68">
+              <div className="grid w-full grid-cols-2 gap-3 lg:w-auto">
+                <Link
+                  href="/#work"
+                  className="focus-ring inline-flex min-h-12 items-center justify-center border border-white/55 px-5 py-3 font-semibold text-white transition-colors hover:border-white hover:bg-white/10 lg:min-w-40"
+                >
+                  All work
+                </Link>
+                <Link
+                  href={`/work/${nextProject.slug}`}
+                  className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 border border-white/55 px-5 py-3 font-semibold text-white transition-colors hover:border-white hover:bg-white/10 lg:min-w-40"
+                  aria-label={`View next case: ${nextProject.name}`}
+                >
                   Next case
-                </p>
-                <div className="mt-3 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-                  <Link
-                    href={`/work/${nextProject.slug}`}
-                    className="focus-ring group inline-flex min-h-12 items-center gap-3 text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl"
-                  >
-                    {nextProject.name}
-                    <ArrowRight
-                      className="h-6 w-6 transition-transform group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                  <Link
-                    href="/#work"
-                    className="focus-ring inline-flex min-h-11 items-center font-semibold text-white/72 hover:text-white"
-                  >
-                    All work
-                  </Link>
-                </div>
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </section>

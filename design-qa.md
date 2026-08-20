@@ -85,6 +85,336 @@
 
 final result: passed
 
+---
+
+# Homepage Portrait and Branded 404 Design QA
+
+## Comparison target
+
+- Final portrait source: `/var/folders/tj/tzz5qfdn09q18tzd1z93qr3m0000gn/T/codex-clipboard-b99111e4-a88e-49e0-85f5-69a08005346f.jpg`.
+- Final portrait asset: `public/robert-gizelo-portrait-final.jpg`, copied at its original 539 x 539 px dimensions.
+- Final captures:
+  - `/private/tmp/gizelo-home-user-crop-1512.png`
+  - `/private/tmp/gizelo-home-user-crop-375.png`
+  - `/private/tmp/gizelo-404-brand-1512.png`
+- Source/final comparison: `/private/tmp/gizelo-user-crop-source-final-comparison.jpg`.
+
+## Findings and implementation
+
+- The user-supplied square crop is used exactly as provided; no additional crop, retouching, generated content or color alteration was applied.
+- The close portrait keeps the winter setting while giving the face and expression substantially more presence in the homepage hero.
+- The portrait URL was changed when the asset changed so the Next.js image optimizer could not serve its stale cached version.
+- The hero requests image quality 95, explicitly enabled in the Next.js image configuration; the lower-quality default introduced visible softness in this small source image.
+- The 404 now renders a large `4`, the original-color brand asterisk in place of zero and a final `4`, followed by the page heading and existing Back home action.
+- Annotation follow-up removed the secondary paragraph, vertically centered the complete content group and optically shifted the final `4` left so the visible spacing around the asterisk is balanced.
+
+## Verification
+
+- Desktop 1512 x 863 and mobile 375 x 812 captures show balanced portrait framing and a legible 404 composition.
+- The measured centers of the 404 content and available main area match at both inspected viewports.
+- The homepage and 404 have no horizontal overflow, broken images or console warnings/errors.
+- The optimized hero response remains 539 x 539 px and increased from 8.8 KB at quality 75 to 31 KB at quality 95 without changing the source asset.
+- All brand asterisks retain computed `opacity: 1` and `filter: none`.
+- The 404 preserves its `noindex` directive and descriptive document title.
+- Prettier, ESLint, TypeScript, the production build and `git diff --check` pass.
+
+final result: passed
+
+---
+
+# Final Local Release Readiness QA — 2026-08-20
+
+## Build and route verification
+
+- Prettier, ESLint, TypeScript, the Next.js production build and `git diff --check` pass.
+- The production build statically generates `/`, all three `/work/[slug]` routes, `/robots.txt`, `/sitemap.xml` and the custom 404 page.
+- Fresh `next start` production server is running at `http://127.0.0.1:4173`.
+- HTTP checks return 200 for every public route, robots, sitemap, OG image and brand asterisk; an unknown route correctly returns 404.
+- The 404 now has the title `Page not found — Robert Gizelo` and a `noindex` directive.
+
+## Browser and responsive verification
+
+- Homepage, Girex, House of Smile and Chocolatin Labs were checked at 1512 x 863, 768 x 900 and 320 x 812 CSS px.
+- No route has horizontal page overflow, duplicate IDs, browser console errors, missing headings, broken images or incomplete images after scrolling through the page.
+- All original-color brand asterisks have computed `opacity: 1` and `filter: none`.
+- Titles, descriptions, canonicals, Open Graph titles and page language are present; the OG image is 1200 x 630 px.
+- Desktop anchor navigation lands below the sticky header. Mobile navigation opens, closes by button, releases page scroll and closes after navigation.
+- The contact form exposes three required, labelled fields; empty submission focuses the first invalid field without issuing an external request.
+- Mobile menu and form controls meet a 44 px minimum interaction height. All images have `alt` attributes and all buttons have accessible names.
+
+## External and publication boundaries
+
+- Public project destinations for Girex, House of Smile, Chocolatin Labs, Pactos, Teaching Strategies and Zelus Wallet respond at their configured URLs.
+- A real contact-form submission was not sent because it would create an external message through FormSubmit.
+- Vercel Preview, production analytics and production-domain cache behavior remain deployment-time checks.
+- Robert's replacement homepage portrait remains an intentional content follow-up before publication.
+
+final result: passed locally; publication pending portrait approval and deployed-preview verification
+
+---
+
+# Remaining Case Pages Design QA
+
+## Comparison target
+
+- Source visual truth: the previous House of Smile and Chocolatin Labs case pages plus the approved Girex editorial case system.
+- Source captures:
+  - `/private/tmp/house-source-1512.png`
+  - `/private/tmp/house-source-375.png`
+  - `/private/tmp/chocolatin-source-1512.png`
+  - `/private/tmp/chocolatin-source-375.png`
+- Final implementation captures:
+  - `/private/tmp/house-redesign-hero-1512.png`
+  - `/private/tmp/house-redesign-product-1512.png`
+  - `/private/tmp/house-redesign-hero-375.png`
+  - `/private/tmp/house-redesign-product-375.png`
+  - `/private/tmp/chocolatin-redesign-hero-1512.png`
+  - `/private/tmp/chocolatin-redesign-product-1512.png`
+  - `/private/tmp/chocolatin-redesign-hero-375.png`
+  - `/private/tmp/chocolatin-redesign-product-375.png`
+- Viewports: 1440 x 900, 768 x 900, 375 x 812 and 320 x 812 CSS px at device pixel ratio 1.
+- State: statically rendered case pages from the local production build with all inspected images loaded.
+
+## Findings and fixes
+
+- [P1 fixed] Both cases used the older oversized hero, generic narrative sections and a long screenshot dump. They now follow the approved Girex hierarchy: compact evidence-led hero, Context, My role, Key product decisions, a dark product narrative, Outcome and the shared Electric closing band.
+- [P1 fixed] Product screenshots lacked an editorial story. Each page now has three alternating image-and-copy stories that connect interface decisions to the product context.
+- [P2 fixed] The old page structure made the cases feel unrelated. A shared standard-case template now aligns typography, facts, spacing, media treatment, navigation and responsive behavior while preserving case-specific copy and imagery.
+- [P2 fixed] Decorative brand stars now appear in the dark product section and closing CTA at full original Lime color with computed `opacity: 1` and `filter: none`.
+
+## Fidelity surfaces
+
+- House of Smile uses a website narrative focused on first impression, understandable services and trust through the real team.
+- Chocolatin Labs uses a website-and-CMS narrative focused on business positioning, the breeder catalogue and maintainable puppy journeys.
+- The desktop pages are shorter than their sources: House of Smile is approximately 6,117 px instead of 6,821 px; Chocolatin Labs is approximately 5,959 px instead of 6,720 px.
+- Mobile pages are intentionally longer because the former screenshot dump now includes meaningful product context, but remain single-column, readable and free of horizontal overflow.
+- Only real existing project images are used. No invented metric, testimonial or outcome was introduced.
+
+## Interaction, responsive and build verification
+
+- Document width equals viewport width at 1440, 768, 375 and 320 px on both redesigned pages.
+- Images complete with non-zero natural widths after scrolling through each product section.
+- Contact, All work, live-product and next-case links have the expected destinations. House of Smile advances to Chocolatin Labs; Chocolatin Labs advances to Girex; both next-case transitions start at `scrollY=0`.
+- Mobile CTA controls remain full-width or balanced two-column actions with 50–56 px touch heights.
+- TypeScript, ESLint, Prettier and the Next.js production build pass. The build reports the homepage and all three case routes as static/SSG.
+
+## Implementation checklist
+
+- [x] Migrate House of Smile to the Girex case hierarchy.
+- [x] Migrate Chocolatin Labs to the Girex case hierarchy.
+- [x] Add case-specific editorial product stories.
+- [x] Preserve original-color brand stars.
+- [x] Verify desktop, tablet and narrow mobile layouts.
+- [x] Verify image loading, navigation destinations and route scroll reset.
+- [x] Run TypeScript, ESLint, Prettier and production build checks.
+
+final result: passed
+
+---
+
+## Girex portrait-screen gallery follow-up — 2026-08-19
+
+- Source: user browser annotation requesting a more balanced treatment for portrait screenshots whose image height outweighed the accompanying story.
+- Final desktop capture: `/private/tmp/girex-mobile-gallery-cards-1512.png`.
+- Final mobile capture: `/private/tmp/girex-mobile-gallery-cards-375.png`.
+- The three mobile stories now share one aligned editorial row on desktop. Each story leads with its title and explanatory copy, with the portrait screen presented as supporting evidence below rather than as the dominant first element.
+- Below `lg`, the same stories become a native horizontal rail. The next card remains visible at the edge; mandatory x-axis snapping moved the rail from `scrollLeft: 20` to `scrollLeft: 308` during verification.
+- Desktop cards share a 400 px width and common top alignment. At 375 px, cards are 272 px wide, the rail is 375 px wide and 868 px scrollable, and the document has no horizontal page overflow.
+- No P0, P1 or P2 visual issues remain. Formatting, ESLint, production build and TypeScript checks pass.
+
+final result: passed
+
+---
+
+## Brand asterisk color follow-up — 2026-08-19
+
+- Source: user clarification that every brand asterisk must retain the original asset color without transparency, tinting or color effects.
+- Removed `opacity-80` from all three affected Girex section asterisks.
+- A source audit found no opacity, filter, grayscale, saturation or hue modifiers on the remaining uses of `/asterisk-color.svg`.
+- Rendered verification covers nine Girex instances and three homepage instances: every asset reports `opacity: 1`, `filter: none` and `mix-blend-mode: normal`.
+- Formatting, ESLint, production build and TypeScript checks pass.
+
+final result: passed
+
+---
+
+## Girex dark-section asterisks follow-up — 2026-08-19
+
+- Source: user browser annotation requesting matching lime brand asterisks in the top-right corners of the Web platform and Mobile app sections.
+- Final desktop capture: `/private/tmp/girex-dark-section-stars-1512.png`.
+- Final mobile capture: `/private/tmp/girex-dark-section-stars-375.png`.
+- Both sections use the existing brand asset with identical positioning and responsive sizing. The stars are decorative and hidden from assistive technology.
+- At 1512 px and 375 px, neither star overlaps its heading and the document has no horizontal overflow.
+- Formatting, ESLint, production build and TypeScript checks pass.
+
+final result: passed
+
+---
+
+## Girex closing CTA asterisk follow-up — 2026-08-19
+
+- Source: user browser annotation at 1512 x 863 requesting the decorative lime asterisk in the closing Electric CTA be moved from behind the heading to the top-right corner.
+- Change: the existing brand asset now sits at the section's top-right inset, with a smaller responsive footprint so it remains decorative and does not compete with the CTA content.
+- Verification captures:
+  - `/private/tmp/girex-cta-star-top-right-1512.png`
+  - `/private/tmp/girex-cta-star-top-right-375.png`
+- Desktop and mobile checks confirm the asterisk does not overlap the heading, copy or actions and introduces no horizontal overflow.
+
+final result: passed
+
+## Annotation follow-up — closing action order
+
+- Reference: browser annotation on the Girex closing CTA at 1512 x 863 CSS px.
+- Implementation capture: `/private/tmp/girex-cta-swapped-desktop-1512.png`.
+- The secondary actions now render as `All work`, then `Next case` with its right arrow, on desktop and in the mobile two-column grid.
+- Destinations remain `/#work` and `/work/house-of-smile`; no horizontal overflow is present at the annotated viewport.
+
+final result: passed
+
+---
+
+# Girex editorial media presentation QA — 2026-08-19
+
+## Source and implementation
+
+- Selected visual target: `/Users/robertgizelo/.codex/generated_images/01a01a0c-a9dd-78f1-bfa7-2816e4cedf8b/exec-2086b3fb-2bba-462d-8ed8-9cf61f128c81.png`
+- Implementation captures:
+  - `/private/tmp/girex-final-product-1440.png`
+  - `/private/tmp/girex-final-mobile-1440.png`
+  - `/private/tmp/girex-final-ending-complete-1440.png`
+  - `/private/tmp/girex-product-375.png`
+  - `/private/tmp/girex-mobile-app-375.png`
+  - `/private/tmp/girex-ending-375.png`
+- Viewports: 1440 x 900, 375 x 812 and 320 x 812 CSS px at device pixel ratio 1.
+- Comparison state: the selected target and all three final desktop section captures were reviewed together in the same visual comparison input.
+
+## Full-view comparison
+
+- The selected light editorial direction is preserved: a large narrative column sits beside the primary P2P screen, supporting scenes alternate image and explanation, and the mobile experience is presented as a three-screen family.
+- Existing site tokens remain intact: Space Grotesk typography, square borders, White and Ink media surfaces, Electric accents and the existing sticky header.
+- The implementation keeps the verified case-study sections above and below the redesigned media presentation. It does not adopt the generated target's invented marketing claims or remove factual outcome content.
+
+## Focused comparison
+
+- Product: the prior full-width screenshot stack is replaced by a lead scene and alternating editorial rows with large titles, readable captions and explicit full-size actions.
+- Mobile app: the three real native screenshots now sit beside a dedicated narrative block. Desktop shows all three at once; mobile uses a visible scroll-snap rail.
+- Closing CTA: the next-case name treatment is replaced by two equal secondary buttons, `Next case` with a right arrow and `All work`, while the contact action remains primary.
+
+## Findings and fixes
+
+1. The first full-page browser capture repeated sticky-header content during stitching. Focused viewport captures were used for the actual comparison; the rendered DOM did not contain repeated sections.
+2. The generated target contained unsupported product and ownership copy. The implementation uses factual project language while preserving the chosen hierarchy and layout.
+3. No actionable P0, P1 or P2 visual differences remain. The retained Outcome section is an intentional content-preservation difference, not a fidelity defect.
+
+## Responsive, interaction and asset verification
+
+- At 375 and 320 px, document width equals viewport width and no page-level horizontal overflow occurs.
+- At 320 px, the contact action is 280 x 80 px and both secondary actions are 134 x 74 px. At 375 px, the same actions are 335 x 56 px and 161.5 x 50 px.
+- `Next case` opens `/work/house-of-smile`, `All work` opens `/#work`, and the contact action opens `/#contact`.
+- All case-study images completed loading with non-zero natural widths; browser console logs are clean.
+- Prettier, ESLint, TypeScript and the production build pass. All three work routes remain statically generated.
+
+## Implementation checklist
+
+- [x] Editorial Product lead layout.
+- [x] Alternating supporting product stories.
+- [x] Three-screen native mobile presentation.
+- [x] Mobile scroll-snap media rail.
+- [x] Two equal secondary closing actions.
+- [x] Desktop and narrow-width visual checks.
+- [x] Navigation, image-loading and console checks.
+- [x] Formatting, lint, type and production build checks.
+
+final result: passed
+
+## Girex dark platform storytelling follow-up — 2026-08-19
+
+### Source and captures
+
+- Annotation source: the three browser comments requesting clearer Web platform / Mobile app hierarchy, dark media sections and branded lime asterisks.
+- Content source: [Girex case study in Notion](https://app.notion.com/p/3bb12de4c2af8190bae4dd1926d191c7).
+- Desktop captures:
+  - `/private/tmp/girex-web-platform-dark-1512.png`
+  - `/private/tmp/girex-web-story-dark-1512.png`
+  - `/private/tmp/girex-mobile-app-dark-1512.png`
+  - `/private/tmp/girex-cta-star-final-1512.png`
+  - `/private/tmp/home-experience-star-1512.png`
+- Mobile captures:
+  - `/private/tmp/girex-web-platform-dark-375.png`
+  - `/private/tmp/girex-mobile-app-dark-375.png`
+  - `/private/tmp/girex-cta-star-375.png`
+  - `/private/tmp/home-experience-star-375.png`
+- Viewports: 1512 x 863, 375 x 812 and 320 x 812 CSS px.
+
+### Focused comparison
+
+- The generic Product label is replaced by the explicit `Web platform` heading. Its lead P2P flow and four supporting customer, offline, merchant and admin scenes now carry concise factual explanations.
+- `Mobile app` is a separate dark section with three native screens and decisions sourced from the case: internal React Native delivery, simplified information architecture and map-first offline discovery.
+- All `Open full size` actions were removed. Screenshots remain non-interactive presentation media with descriptive alt text.
+- Both platform sections use Ink with White and Lime hierarchy, creating the requested contrast against the white Key decisions and Outcome sections.
+- The homepage Experience section has a full-color brand asterisk in its top-right corner. The closing Electric CTA uses a larger lime asterisk behind the heading as the final brand signature.
+
+### Verification
+
+- No P0, P1 or P2 visual issue remains in the same-state annotation comparisons.
+- At 320, 375 and 1512 px, document width does not exceed viewport width. The mobile media rail intentionally scrolls from 375 px client width to 935 px content width without causing page overflow.
+- After progressive loading through the complete case page, every image reports a non-zero natural width. Browser console logs are clean.
+- Secondary CTA order remains `All work`, then `Next case`; no route or interaction was changed.
+- Prettier, ESLint, TypeScript and the static production build pass.
+
+final result: passed
+
+## Girex narrative alignment follow-up — 2026-08-19
+
+### Audit source and comparison evidence
+
+- Current-flow audit captures before the change: `/private/tmp/girex-audit-01.png` through `/private/tmp/girex-audit-07.png` at 1512 x 863 CSS px, device pixel ratio 1.
+- Revised desktop captures:
+  - `/private/tmp/girex-revised-01.png` — My role.
+  - `/private/tmp/girex-revised-02.png` — Key product decisions.
+  - `/private/tmp/girex-revised-03.png` — Web platform introduction and first story.
+  - `/private/tmp/girex-revised-04.png` — Mobile app introduction and first story.
+- Revised mobile captures:
+  - `/private/tmp/girex-revised-mobile-1.png` — Web platform at 375 x 812.
+  - `/private/tmp/girex-revised-mobile-2.png` — Mobile app at 375 x 812.
+- The annotated screenshots and revised captures were reviewed together in the same comparison input.
+
+### Earlier findings and fixes
+
+- [P2] Web platform mixed its section introduction with the first screenshot, creating a large empty column and an unclear start to the product tour. Fixed by separating the section heading and description from five alternating screenshot stories.
+- [P2] Mobile app used a three-column gallery and a standalone `Why build in-house?` callout, so it did not match the web storytelling pattern and repeated the third product decision. Fixed by removing the callout and using the same introduction-plus-alternating-story structure as Web platform.
+- [P2] Small uppercase eyebrow labels and numbered gallery captions introduced a second heading system not used elsewhere on the case page. Removed `Customer · Merchant · Admin`, `React Native · TestFlight` and the small story numbers.
+- [P2] Role framing repeated between the hero metadata, Context ownership label and What I did heading. The ownership label was removed from Context; `What I did` became `My role` with one concise framing paragraph.
+- [P3] `Key decisions` was less specific than adjacent section headings. Renamed to `Key product decisions` without changing the three sourced decisions.
+
+### Final narrative order
+
+1. Hero — project promise, role, scope, stage and timeline.
+2. Context — founder direction, initial proof-of-concept goal and delivery constraints.
+3. My role — product definition, coordination and hands-on web/mobile delivery.
+4. Key product decisions — P2P scope, location-based offline model and internal mobile strategy.
+5. Web platform — five product stories covering the P2P flow, offline discovery, customer account, merchant operations and admin operations.
+6. Mobile app — three matching stories covering the unified home, P2P marketplace and map-first offline discovery.
+7. Outcome — delivered scope, current beta state and learning.
+
+### Required fidelity surfaces
+
+- Typography: the page uses one H1 and a consistent H2/H3 hierarchy; the separate eyebrow system is gone. Space Grotesk sizes, weights and line height remain within the established case design.
+- Layout rhythm: both platform sections use identical introduction and alternating-story rules. Desktop alternates image and copy; mobile stacks copy before its image with consistent section dividers.
+- Colors and tokens: Ink, White and Lime remain the only platform-section tokens, preserving contrast with the surrounding white sections.
+- Image quality: every supplied web and native screenshot remains present at its native aspect ratio with descriptive alt text and non-zero natural dimensions.
+- Copy and content: all descriptions remain grounded in the Girex Notion case; no launch, adoption or commercial-validation claim was introduced.
+
+### Final verification
+
+- At 1512, 375 and 320 px there is no page-level horizontal overflow.
+- Progressive full-page loading reports zero broken images at 320 and 375 px.
+- `Why build in-house?`, both uppercase eyebrow labels and `Open full size` are absent from the rendered page.
+- Browser console logs are clean. Prettier, ESLint, TypeScript and the static production build pass.
+- No actionable P0, P1 or P2 finding remains. Screenshot evidence covers hierarchy, layout, typography, color, imagery and copy; keyboard behavior was unchanged by this content-only restructuring.
+
+final result: passed
+
 # Positioning and CTA hierarchy QA — 2026-08-19
 
 ## Scope and evidence
