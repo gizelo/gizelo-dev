@@ -9,6 +9,14 @@ const SiteFooter = () => (
           Home
         </Link>
         <a
+          href="https://github.com/gizelo"
+          target="_blank"
+          rel="noreferrer"
+          className="focus-ring hover:text-ink"
+        >
+          GitHub
+        </a>
+        <a
           href="https://www.linkedin.com/in/gizelo/"
           target="_blank"
           rel="noreferrer"
