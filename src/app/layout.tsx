@@ -20,7 +20,7 @@ const siteDescription =
   "Robert Gizelo is a Product Builder working across product definition, UX and engineering to turn complex ideas into working digital products.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gizelo.dev"),
+  metadataBase: new URL("https://www.gizelo.dev"),
   title: {
     default: "Robert Gizelo — Product Builder",
     template: "%s — Robert Gizelo",

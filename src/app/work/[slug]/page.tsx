@@ -56,12 +56,12 @@ export default async function Page({ params }: PageProps) {
     "@type": "CreativeWork",
     name: project.name,
     description: project.summary,
-    url: `https://gizelo.dev/work/${project.slug}`,
+    url: `https://www.gizelo.dev/work/${project.slug}`,
     genre: project.category,
     creator: {
       "@type": "Person",
       name: "Robert Gizelo",
-      url: "https://gizelo.dev",
+      url: "https://www.gizelo.dev",
     },
   };
 

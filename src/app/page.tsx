@@ -12,7 +12,7 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Robert Gizelo",
-  url: "https://gizelo.dev",
+  url: "https://www.gizelo.dev",
   jobTitle: "Product Builder",
   sameAs: ["https://www.linkedin.com/in/gizelo/", "https://t.me/gizelo"],
   knowsAbout: [
