@@ -165,7 +165,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Independent Product Builder",
     scope: "Strategy · UX · Design · Copy · Engineering",
     stage: "Live",
-    timeline: "Launched Jul 2026",
+    timeline: "Built in one month · Launched Jul 2026",
     website: "https://www.houseofsmile.de/",
     ownershipLabel: "Self-initiated and delivered end-to-end",
     context: [
@@ -233,7 +233,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Product Engineer",
     scope: "Architecture · CMS · Frontend · Mobile UX",
     stage: "Live",
-    timeline: "Client project",
+    timeline: "Apr — May 2025",
     website: "https://www.chocolatinlabs.com/",
     ownershipLabel: "Built collaboratively with a designer",
     context: [
