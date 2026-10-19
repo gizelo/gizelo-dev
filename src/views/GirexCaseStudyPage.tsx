@@ -27,7 +27,7 @@ const HeroCollage = ({ cover, supporting }: HeroCollageProps) => (
     <div className="overflow-hidden border border-ink/15 bg-ink">
       <ResponsiveImage
         {...cover}
-        className="aspect-[1.44/1] h-auto w-full object-cover"
+        className="aspect-[1.44/1] h-auto w-full object-contain"
         sizes="(max-width: 1024px) 100vw, 68vw"
         eager
       />
@@ -37,7 +37,7 @@ const HeroCollage = ({ cover, supporting }: HeroCollageProps) => (
         <div key={image.src} className="overflow-hidden border border-ink/15 bg-ink">
           <ResponsiveImage
             {...image}
-            className="aspect-[1.44/1] h-auto w-full object-cover"
+            className="aspect-[1.44/1] h-auto w-full object-contain"
             sizes="(max-width: 1024px) 50vw, 32vw"
           />
         </div>
@@ -63,23 +63,11 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
 
   const lastDesktopRowStart = project.owned.length - (project.owned.length % 2 || 2);
   const webStoryTitles = [
-    "A complete P2P deal flow.",
-    "Offline exchange, modeled around locations.",
-    "A single customer view for trust and funds.",
-    "Tools for day-to-day merchant operations.",
-    "Operational control across the platform.",
-  ];
-  const webStoryDescriptions = [
-    "An earlier product iteration connected offers, payment details, order states and real-time chat in a complete P2P journey. This capability is outside the current card-first release scope.",
-    ...media.grid.map((image) => image.caption ?? image.alt),
+    "A wallet with actions in context.",
+    "Understand the card top-up before confirming.",
+    "Swap without leaving the wallet journey.",
   ];
   const webStories = media.lead ? [media.lead, ...media.grid] : media.grid;
-  const mobileStoryTitles = ["Wallets and balances", "P2P marketplace", "Offline exchange map"];
-  const mobileStoryDescriptions = [
-    "The web dashboard and profile become one simpler home for balances, wallets and account status.",
-    "Frequent destinations stay in the tab bar, while Create Offer remains available without dominating the mobile journey.",
-    "Exchange discovery becomes a full-screen map with a draggable results panel designed for one-handed use.",
-  ];
 
   return (
     <div className="min-h-screen bg-white text-ink">
@@ -141,7 +129,8 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
 
           <div className="site-container pb-16 sm:pb-20">
             <p className="mb-4 text-sm leading-relaxed text-ink/60">
-              Selected screens from earlier product iterations. The current beta focuses on cards.
+              Current web interface · Demo data · Captured 19 October 2026. Balances and
+              transactions are illustrative.
             </p>
             <HeroCollage
               cover={project.cover}
@@ -175,7 +164,8 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">My role.</h2>
               <p className="mt-6 max-w-3xl text-xl leading-relaxed text-white/68">
                 I shape product requirements, user journeys, priorities and UX, coordinating design
-                and engineering from the founder&apos;s initial concept through delivery and early release.
+                and engineering from the founder&apos;s initial concept through delivery and early
+                release.
               </p>
               <ul className="mt-10 grid md:grid-cols-2">
                 {project.owned.map((item, index) => (
@@ -255,10 +245,10 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                   Web platform.
                 </h2>
                 <p className="mt-6 text-xl leading-relaxed text-white/68">
-                  The screens below show earlier product iterations across P2P, offline exchange and
-                  platform operations. My work covered requirements, business rules, navigation and
-                  implementation reviews. The current production beta prioritizes the card journey,
-                  with secondary capabilities deferred.
+                  The current card journey connects wallets, funding and card use. My work covered
+                  requirements, business rules, navigation and implementation reviews. These screens
+                  use synthetic demo data to illustrate the interface, with secondary capabilities
+                  outside the current release scope.
                 </p>
               </div>
 
@@ -273,7 +263,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                         {webStoryTitles[index]}
                       </h3>
                       <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/66">
-                        {webStoryDescriptions[index]}
+                        {image.caption ?? image.alt}
                       </p>
                     </div>
                     <div className={clsx(index % 2 === 0 ? "lg:order-1" : "lg:order-2")}>
@@ -298,32 +288,31 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
               <div className="site-container relative">
                 <div className="max-w-3xl">
                   <h2 className="w-fit text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
-                    Mobile app.
+                    Responsive web.
                   </h2>
                   <p className="mt-6 text-xl leading-relaxed text-white/68">
-                    I recommended React Native and in-house delivery, shaped the mobile scope and
-                    user journeys, and helped the team reach the initial TestFlight version in two
-                    months. These screens show earlier iterations. The updated card-first iOS
-                    experience is also being refined in TestFlight before a public release.
+                    The card balance and management actions remain accessible on a narrow web
+                    screen. This capture shows the responsive web interface with demo data. The
+                    separate native iOS app is being refined in TestFlight before a public release.
                   </p>
                 </div>
 
                 <div className="-mx-5 mt-12 snap-x snap-mandatory overflow-x-auto px-5 pb-4 sm:-mx-10 sm:mt-16 sm:px-10 lg:mx-0 lg:overflow-visible lg:px-0 lg:pb-0">
-                  <div className="grid auto-cols-[minmax(17rem,82vw)] grid-flow-col gap-4 lg:grid-flow-row lg:grid-cols-3 lg:auto-cols-auto lg:gap-5">
-                    {media.mobile.map((image, index) => (
+                  <div className="grid max-w-3xl gap-5">
+                    {media.mobile.map((image) => (
                       <article
                         key={image.src}
-                        className="flex snap-start flex-col border border-white/15 bg-white/[0.025]"
+                        className="grid gap-6 border border-white/15 bg-white/[0.025] p-6 sm:grid-cols-2 sm:p-7"
                       >
-                        <div className="min-h-52 p-6 sm:p-7">
+                        <div>
                           <h3 className="text-2xl font-bold tracking-[-0.035em]">
-                            {mobileStoryTitles[index]}
+                            Card management
                           </h3>
                           <p className="mt-4 text-base leading-relaxed text-white/66">
-                            {mobileStoryDescriptions[index]}
+                            {image.caption}
                           </p>
                         </div>
-                        <div className="flex min-h-[32rem] flex-1 items-end justify-center overflow-hidden border-t border-white/15 px-5 pt-6 sm:min-h-[36rem] lg:min-h-[34rem]">
+                        <div className="flex justify-center">
                           <div className="w-full max-w-[240px]">
                             <ProductFigure
                               image={image}

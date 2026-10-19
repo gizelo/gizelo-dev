@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { CaseStudy } from "@/types";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
   project: CaseStudy;
@@ -16,6 +17,10 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
       )
     : (project.gallery ?? []).filter((image) => !image.portrait);
   const previewImages = [project.cover, ...supportingImages].slice(0, 3);
+  const imageClassName = cn(
+    "h-full w-full object-top transition-transform duration-500 group-hover/preview:scale-[1.015]",
+    project.slug === "girex" ? "object-contain" : "object-cover",
+  );
 
   const preview = (
     <Link
@@ -28,7 +33,7 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
       <div className="aspect-[16/9] overflow-hidden">
         <ResponsiveImage
           {...previewImages[0]}
-          className="h-full w-full object-cover object-top transition-transform duration-500 group-hover/preview:scale-[1.015]"
+          className={imageClassName}
           sizes={featured ? "(max-width: 1024px) 100vw, 64vw" : "(max-width: 1024px) 100vw, 50vw"}
           eager={featured}
         />
@@ -38,12 +43,17 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
           <div key={image.src} className="aspect-[16/9] overflow-hidden">
             <ResponsiveImage
               {...image}
-              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover/preview:scale-[1.015]"
+              className={imageClassName}
               sizes={featured ? "(max-width: 1024px) 50vw, 32vw" : "(max-width: 1024px) 50vw, 25vw"}
             />
           </div>
         ))}
       </div>
+      {project.slug === "girex" && (
+        <span className={cn("px-2 pb-1 text-xs", featured ? "text-white/65" : "text-ink/60")}>
+          Web interface · Demo data
+        </span>
+      )}
     </Link>
   );
 

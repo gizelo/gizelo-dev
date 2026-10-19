@@ -8,6 +8,11 @@ type ResponsiveImageProps = ProjectImage & {
 };
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
+  "/work/girex/current/dashboard.webp": { width: 1100, height: 590 },
+  "/work/girex/current/wallet-history.webp": { width: 1178, height: 618 },
+  "/work/girex/current/card-top-up.webp": { width: 900, height: 602 },
+  "/work/girex/current/contextual-swap.webp": { width: 800, height: 578 },
+  "/work/girex/current/card-responsive-web.webp": { width: 350, height: 716 },
   "/me1.jpeg": { width: 640, height: 640 },
   "/work/contributions/pactos.webp": { width: 1280, height: 720 },
   "/work/contributions/smartteach.webp": { width: 1280, height: 720 },

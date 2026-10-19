@@ -100,59 +100,36 @@ export const caseStudies: CaseStudy[] = [
     reflection:
       "The most useful shift was moving from a broad set of capabilities to one clear user journey. The next step is to learn from early usage, establish useful product measures and expand the experience in priority order.",
     cover: {
-      src: "/work/girex/p2p-market.webp",
-      srcSmall: "/work/girex/p2p-market-960.webp",
-      alt: "Girex P2P marketplace showing exchange offers and payment methods",
+      src: "/work/girex/current/dashboard.webp",
+      alt: "Girex web dashboard with wallets, card balance and frequent actions using demo data",
     },
     media: {
       theme: "dark",
       lead: {
-        src: "/work/girex/deal-chat.webp",
-        srcSmall: "/work/girex/deal-chat-960.webp",
-        alt: "Girex P2P deal flow with payment details and real-time chat",
-        caption: "A complete P2P deal flow with clear states and counterparty communication.",
+        src: "/work/girex/current/wallet-history.webp",
+        alt: "Girex USDT wallet with deposit, withdrawal, swap and transaction history using demo data",
+        caption:
+          "A wallet brings its balance, deposit and withdrawal actions, contextual swap and searchable history together. Demo data; transactions are synthetic.",
       },
       grid: [
         {
-          src: "/work/girex/offline-map.webp",
-          srcSmall: "/work/girex/offline-map-960.webp",
-          alt: "Girex offline exchange discovery map with exchange-point rates",
-          caption: "Exchange points became the core entity for offline discovery and operations.",
-        },
-        {
-          src: "/work/girex/profile.webp",
-          srcSmall: "/work/girex/profile-960.webp",
-          alt: "Girex customer profile with balances, wallets and verification status",
-          caption: "Balances, wallets, verification and reputation meet in one customer view.",
-        },
-        {
-          src: "/work/girex/merchant-dashboard.webp",
-          srcSmall: "/work/girex/merchant-dashboard-960.webp",
-          alt: "Girex merchant operations dashboard",
-          caption: "Merchant tools support exchange points, orders, wallets and operating data.",
-        },
-        {
-          src: "/work/girex/admin-overview.webp",
-          srcSmall: "/work/girex/admin-overview-960.webp",
-          alt: "Girex administration overview for platform operations",
+          src: "/work/girex/current/card-top-up.webp",
+          alt: "Girex card top-up review with illustrative amount, fees and estimated card credit",
           caption:
-            "Operational tooling covers users, merchants, KYC, appeals and platform activity.",
+            "The top-up flow separates the wallet amount, fees and estimated card credit before confirmation. Demo data; the displayed amounts and terms are illustrative.",
+        },
+        {
+          src: "/work/girex/current/contextual-swap.webp",
+          alt: "Girex contextual USDT to USDC swap with illustrative rate, fee and expected receipt",
+          caption:
+            "Swap opens from the wallet context and shows the rate, fee and expected receipt before review. Demo data; this is an interface example, not a product result.",
         },
       ],
       mobile: [
         {
-          src: "/work/girex/native-dashboard.webp",
-          alt: "Girex native mobile dashboard with wallets and bottom navigation",
-          portrait: true,
-        },
-        {
-          src: "/work/girex/native-market.webp",
-          alt: "Girex native mobile P2P marketplace with bottom navigation",
-          portrait: true,
-        },
-        {
-          src: "/work/girex/native-offline.webp",
-          alt: "Girex native mobile exchange-point map with bottom navigation",
+          src: "/work/girex/current/card-responsive-web.webp",
+          alt: "Girex responsive web card screen with balance and management actions using demo data",
+          caption: "Responsive web at 390 px. Demo data. This screen is not the native iOS app.",
           portrait: true,
         },
       ],
