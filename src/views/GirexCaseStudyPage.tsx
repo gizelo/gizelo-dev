@@ -175,7 +175,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">My role.</h2>
               <p className="mt-6 max-w-3xl text-xl leading-relaxed text-white/68">
                 I shape product requirements, user journeys, priorities and UX, coordinating design
-                and engineering from the founder's initial concept through delivery and early release.
+                and engineering from the founder&apos;s initial concept through delivery and early release.
               </p>
               <ul className="mt-10 grid md:grid-cols-2">
                 {project.owned.map((item, index) => (
