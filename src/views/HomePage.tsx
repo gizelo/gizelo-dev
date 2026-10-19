@@ -17,12 +17,12 @@ const workModes = [
   {
     icon: Boxes,
     title: "Build",
-    body: "Web and mobile UX, architecture and implementation.",
+    body: "UX decisions, technical feasibility and team alignment.",
   },
   {
     icon: Rocket,
     title: "Ship",
-    body: "Coordination, release preparation and iteration.",
+    body: "Coordinated delivery, early releases and iteration.",
   },
 ];
 
@@ -33,18 +33,18 @@ const HomePage = () => {
       <main id="main-content">
         <section className="site-container grid items-center gap-12 py-14 sm:gap-20 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-14">
           <div className="relative z-10">
-            <p className="eyebrow">Robert Gizelo · Product Builder</p>
+            <p className="eyebrow">Robert Gizelo · Technical Product Manager</p>
             <h1 className="mt-6 max-w-4xl text-[clamp(3.8rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
               Turning ideas into working products.
             </h1>
             <div className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-medium text-ink/70 sm:gap-x-3 sm:text-lg">
-              <span>6+ years</span>
+              <span>Product definition</span>
               <span aria-hidden="true">·</span>
-              <span>SaaS</span>
+              <span>UX</span>
               <span aria-hidden="true">·</span>
-              <span>Fintech</span>
+              <span>Prioritization</span>
               <span aria-hidden="true">·</span>
-              <span>Crypto</span>
+              <span>Delivery</span>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <SectionLink
@@ -171,9 +171,10 @@ const HomePage = () => {
             </h2>
             <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-start">
               <p className="max-w-3xl text-xl leading-relaxed text-ink/70">
-                I work with founders and product teams to turn complex ideas into working products.
-                Depending on what the product needs, I move between definition, UX, engineering,
-                coordination and release preparation.
+                I’m a Technical Product Manager working with founders, designers and engineers to
+                turn business ideas into clear requirements, focused user journeys and working
+                products. My software engineering background helps connect product decisions with
+                technical constraints, from initial definition through delivery and early release.
               </p>
               <ul>
                 {workModes.map(({ icon: Icon, title, body }) => (

@@ -70,7 +70,7 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
     "Operational control across the platform.",
   ];
   const webStoryDescriptions = [
-    "The beta connects offers, escrow-backed deals, payment details, clear order states and real-time chat in one continuous journey.",
+    "An earlier product iteration connected offers, payment details, order states and real-time chat in a complete P2P journey. This capability is outside the current card-first release scope.",
     ...media.grid.map((image) => image.caption ?? image.alt),
   ];
   const webStories = media.lead ? [media.lead, ...media.grid] : media.grid;
@@ -140,6 +140,9 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
           </header>
 
           <div className="site-container pb-16 sm:pb-20">
+            <p className="mb-4 text-sm leading-relaxed text-ink/60">
+              Selected screens from earlier product iterations. The current beta focuses on cards.
+            </p>
             <HeroCollage
               cover={project.cover}
               supporting={[media.lead ?? media.grid[0], media.grid[0]]}
@@ -171,8 +174,8 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
             <div className="site-container">
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">My role.</h2>
               <p className="mt-6 max-w-3xl text-xl leading-relaxed text-white/68">
-                I worked across product definition, team coordination and hands-on delivery—from
-                shaping flows and scope to rebuilding the web frontend and creating the mobile app.
+                I shape product requirements, user journeys, priorities and UX, coordinating design
+                and engineering from the founder's initial concept through delivery and early release.
               </p>
               <ul className="mt-10 grid md:grid-cols-2">
                 {project.owned.map((item, index) => (
@@ -252,10 +255,10 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                   Web platform.
                 </h2>
                 <p className="mt-6 text-xl leading-relaxed text-white/68">
-                  The web beta grew from a narrow P2P proof of concept into a connected product for
-                  customers, merchants and platform operations. I replaced most of the alpha
-                  frontend while establishing the architecture, design system and stronger flows
-                  needed for release preparation.
+                  The screens below show earlier product iterations across P2P, offline exchange and
+                  platform operations. My work covered requirements, business rules, navigation and
+                  implementation reviews. The current production beta prioritizes the card journey,
+                  with secondary capabilities deferred.
                 </p>
               </div>
 
@@ -298,9 +301,10 @@ const GirexCaseStudyPage = ({ project }: GirexCaseStudyPageProps) => {
                     Mobile app.
                   </h2>
                   <p className="mt-6 text-xl leading-relaxed text-white/68">
-                    After recommending React Native and internal delivery, I defined the mobile
-                    scope, information architecture and interaction patterns, then built a
-                    TestFlight beta covering the principal customer flows.
+                    I recommended React Native and in-house delivery, shaped the mobile scope and
+                    user journeys, and helped the team reach the initial TestFlight version in two
+                    months. These screens show earlier iterations. The updated card-first iOS
+                    experience is also being refined in TestFlight before a public release.
                   </p>
                 </div>
 
