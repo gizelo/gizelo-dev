@@ -17,12 +17,12 @@ const spaceGrotesk = Space_Grotesk({
 
 const isVercelDeployment = process.env.VERCEL === "1";
 const siteDescription =
-  "Robert Gizelo is a Technical Product Manager shaping requirements, UX, priorities and cross-functional delivery for web and mobile products, backed by software engineering experience.";
+  "Robert Gizelo is a Product Builder who designs and develops web and mobile applications, independently and with teams, from business idea to release.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gizelo.dev"),
   title: {
-    default: "Robert Gizelo — Technical Product Manager",
+    default: "Robert Gizelo — Product Builder",
     template: "%s — Robert Gizelo",
   },
   description: siteDescription,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Robert Gizelo",
-    title: "Robert Gizelo — Technical Product Manager",
+    title: "Robert Gizelo — Product Builder",
     description: siteDescription,
     url: "/",
     images: [
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
         url: "/og-image-v2.jpg",
         width: 1200,
         height: 630,
-        alt: "Robert Gizelo — Technical Product Manager",
+        alt: "Robert Gizelo — Product Builder",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Robert Gizelo — Technical Product Manager",
+    title: "Robert Gizelo — Product Builder",
     description: siteDescription,
     images: ["/og-image-v2.jpg"],
   },

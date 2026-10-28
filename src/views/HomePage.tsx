@@ -17,7 +17,7 @@ const workModes = [
   {
     icon: Boxes,
     title: "Build",
-    body: "UX decisions, technical feasibility and team alignment.",
+    body: "Full-stack web and mobile development.",
   },
   {
     icon: Rocket,
@@ -33,16 +33,16 @@ const HomePage = () => {
       <main id="main-content">
         <section className="site-container grid items-center gap-12 py-14 sm:gap-20 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-14">
           <div className="relative z-10">
-            <p className="eyebrow">Robert Gizelo · Technical Product Manager</p>
+            <p className="eyebrow">Robert Gizelo · Product Builder</p>
             <h1 className="mt-6 max-w-4xl text-[clamp(3.8rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
               Turning ideas into working products.
             </h1>
             <div className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-medium text-ink/70 sm:gap-x-3 sm:text-lg">
-              <span>Product definition</span>
+              <span>Full-stack development</span>
+              <span aria-hidden="true">·</span>
+              <span>Web &amp; mobile</span>
               <span aria-hidden="true">·</span>
               <span>UX</span>
-              <span aria-hidden="true">·</span>
-              <span>Prioritization</span>
               <span aria-hidden="true">·</span>
               <span>Delivery</span>
             </div>
@@ -171,10 +171,10 @@ const HomePage = () => {
             </h2>
             <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-start">
               <p className="max-w-3xl text-xl leading-relaxed text-ink/70">
-                I’m a Technical Product Manager working with founders, designers and engineers to
-                turn business ideas into clear requirements, focused user journeys and working
-                products. My software engineering background helps connect product decisions with
-                technical constraints, from initial definition through delivery and early release.
+                I design and develop web and mobile applications, independently and as part of a
+                team, turning business ideas into working products. I combine 6+ years of software
+                engineering experience with technical product management, covering requirements, UX,
+                prioritization, implementation and release.
               </p>
               <ul>
                 {workModes.map(({ icon: Icon, title, body }) => (
