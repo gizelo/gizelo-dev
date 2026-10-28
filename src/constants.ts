@@ -10,6 +10,7 @@ export const navLinks = [
 export const contributions: Contribution[] = [
   {
     name: "Pactos",
+    role: "Full-Stack Developer",
     description: "Full-stack product engineering for a German contingent workforce platform.",
     website: "https://www.pactos.ai/en",
     image: {
@@ -19,6 +20,7 @@ export const contributions: Contribution[] = [
   },
   {
     name: "SmartTeach",
+    role: "Front-End Developer",
     description: "Accessible design-system and product UI work for an early-learning platform.",
     website: "https://teachingstrategies.com/platform/",
     image: {
@@ -28,6 +30,7 @@ export const contributions: Contribution[] = [
   },
   {
     name: "Zelus Wallet",
+    role: "Front-End Developer",
     description: "Web and mobile product engineering across wallet and NFT experiences.",
     website: "https://www.zelus.io/solutions/zelus-wallet",
     image: {
@@ -37,6 +40,7 @@ export const contributions: Contribution[] = [
   },
   {
     name: "Web3 Invest Dashboard",
+    role: "Front-End Developer",
     description: "Frontend delivery for an investment product under NDA.",
     nda: true,
     image: {
@@ -53,7 +57,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Everyday stablecoin payments",
     summary:
       "Turning a founder's business concept into clear product requirements, focused user journeys and coordinated web and mobile delivery, through a limited production beta.",
-    role: "Technical Product Manager",
+    role: "Full-Stack & Mobile Developer / Product Manager",
     scope: "Product definition · UX · Delivery",
     stage: "Limited production beta",
     timeline: "Jun 2025 - Present",
@@ -141,7 +145,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Dental clinic website",
     summary:
       "A self-initiated redesign that turned an outdated clinic website into a clear, credible and booking-focused digital presence for a German dental practice.",
-    role: "Independent Product Builder",
+    role: "Full-Stack Developer",
     scope: "Strategy · UX · Design · Copy · Engineering",
     stage: "Live",
     timeline: "Built in one month · Launched Jul 2026",
@@ -209,7 +213,7 @@ export const caseStudies: CaseStudy[] = [
     category: "Breeder website & CMS",
     summary:
       "A multilingual product website and content system that gives a Labrador breeder full control over dogs, litters, puppies, articles and incoming enquiries.",
-    role: "Product Engineer",
+    role: "Full-Stack Developer",
     scope: "Architecture · CMS · Frontend · Mobile UX",
     stage: "Live",
     timeline: "Apr — May 2025",

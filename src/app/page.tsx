@@ -14,6 +14,11 @@ const personSchema = {
   name: "Robert Gizelo",
   url: "https://www.gizelo.dev",
   jobTitle: "Product Builder",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Frankfurt",
+    addressCountry: "Germany",
+  },
   sameAs: ["https://www.linkedin.com/in/gizelo/", "https://t.me/gizelo"],
   knowsAbout: [
     "Product management",

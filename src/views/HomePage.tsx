@@ -143,7 +143,8 @@ const HomePage = () => {
                         </span>
                       )}
                     </div>
-                    <p className="mt-4 flex-1 text-sm leading-relaxed text-ink/70">
+                    <p className="mt-4 text-sm font-medium text-ink">{contribution.role}</p>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/70">
                       {contribution.description}
                     </p>
                     {contribution.website && (
@@ -169,6 +170,7 @@ const HomePage = () => {
             <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
               How I work.
             </h2>
+            <p className="mt-4 text-sm font-medium text-ink/70">Frankfurt, Germany</p>
             <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-start">
               <p className="max-w-3xl text-xl leading-relaxed text-ink/70">
                 I design and develop web and mobile applications, independently and as part of a
