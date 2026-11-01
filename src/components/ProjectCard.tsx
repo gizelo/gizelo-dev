@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { CaseStudy } from "@/types";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import GirexMobileShowcase from "@/components/GirexMobileShowcase";
 import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
@@ -22,40 +23,46 @@ const ProjectCard = ({ project, featured = false }: ProjectCardProps) => {
     project.slug === "girex" ? "object-contain" : "object-cover",
   );
 
-  const preview = (
-    <Link
-      href={href}
-      className={`focus-ring group/preview grid overflow-hidden ${
-        featured ? "gap-2 bg-black p-2" : "gap-1.5 border-b border-ink/10 bg-white p-1.5"
-      }`}
-      aria-label={`View ${project.name} case study`}
-    >
-      <div className="aspect-[16/9] overflow-hidden">
-        <ResponsiveImage
-          {...previewImages[0]}
-          className={imageClassName}
-          sizes={featured ? "(max-width: 1024px) 100vw, 64vw" : "(max-width: 1024px) 100vw, 50vw"}
-          eager={featured}
-        />
-      </div>
-      <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
-        {previewImages.slice(1).map((image) => (
-          <div key={image.src} className="aspect-[16/9] overflow-hidden">
-            <ResponsiveImage
-              {...image}
-              className={imageClassName}
-              sizes={featured ? "(max-width: 1024px) 50vw, 32vw" : "(max-width: 1024px) 50vw, 25vw"}
-            />
-          </div>
-        ))}
-      </div>
-      {project.slug === "girex" && (
-        <span className={cn("px-2 pb-1 text-xs", featured ? "text-white/65" : "text-ink/60")}>
-          Web interface · Demo data
-        </span>
-      )}
-    </Link>
-  );
+  const preview =
+    project.slug === "girex" && project.media?.mobile ? (
+      <Link
+        href={href}
+        className="focus-ring flex items-center bg-white"
+        aria-label={`View ${project.name} case study`}
+      >
+        <GirexMobileShowcase images={project.media.mobile.slice(0, 3)} compact />
+      </Link>
+    ) : (
+      <Link
+        href={href}
+        className={`focus-ring group/preview grid overflow-hidden ${
+          featured ? "gap-2 bg-black p-2" : "gap-1.5 border-b border-ink/10 bg-white p-1.5"
+        }`}
+        aria-label={`View ${project.name} case study`}
+      >
+        <div className="aspect-[16/9] overflow-hidden">
+          <ResponsiveImage
+            {...previewImages[0]}
+            className={imageClassName}
+            sizes={featured ? "(max-width: 1024px) 100vw, 64vw" : "(max-width: 1024px) 100vw, 50vw"}
+            eager={featured}
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+          {previewImages.slice(1).map((image) => (
+            <div key={image.src} className="aspect-[16/9] overflow-hidden">
+              <ResponsiveImage
+                {...image}
+                className={imageClassName}
+                sizes={
+                  featured ? "(max-width: 1024px) 50vw, 32vw" : "(max-width: 1024px) 50vw, 25vw"
+                }
+              />
+            </div>
+          ))}
+        </div>
+      </Link>
+    );
 
   if (featured) {
     return (

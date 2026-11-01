@@ -1,9 +1,9 @@
 import { CaseStudy, Contribution } from "@/types";
 
 export const navLinks = [
+  { name: "Services", href: "/#services" },
   { name: "Work", href: "/#work" },
-  { name: "Experience", href: "/#experience" },
-  { name: "About", href: "/#about" },
+  { name: "Process", href: "/#about" },
   { name: "Contact", href: "/#contact" },
 ];
 
@@ -56,10 +56,10 @@ export const caseStudies: CaseStudy[] = [
     name: "Girex",
     category: "Everyday stablecoin payments",
     summary:
-      "Turning a founder's business concept into clear product requirements, focused user journeys and coordinated web and mobile delivery, through a limited production beta.",
-    role: "Full-Stack & Mobile Developer / Product Manager",
+      "A stablecoin product needed a simpler way to manage wallets and cards. I helped build the web experience and iOS app within a small team.",
+    role: "Full-Stack & Mobile Developer",
     scope: "Product definition · UX · Delivery",
-    stage: "Limited production beta",
+    stage: "Web beta · iOS TestFlight",
     timeline: "Jun 2025 - Present",
     website: "https://girex.io/",
     ownershipLabel: "Product definition, UX, prioritization and cross-functional delivery",
@@ -68,6 +68,8 @@ export const caseStudies: CaseStudy[] = [
       "The product evolved through wallet, P2P, offline-exchange and mobile iterations. The current release focuses on a simpler everyday card journey for people who receive and use stablecoins. The founder handles business relationships and direct early-user contact; feedback informs our priorities and fixes.",
     ],
     owned: [
+      "Implemented wallet and transaction workflows, API integrations, validation, permissions and operation states across the UI and backend.",
+      "Built the React Native/Expo iOS app against existing backend APIs and delivered it to TestFlight.",
       "Translated the founder’s business concept into product requirements, user journeys, business rules and acceptance criteria, structuring development into manageable delivery phases.",
       "Shaped product UX, navigation and feature priorities, challenging proposals and aligning the founder, designer and engineers around a coherent user experience.",
       "Coordinated design, frontend and backend delivery through backlog prioritization, implementation reviews and regular founder demos.",
@@ -100,40 +102,56 @@ export const caseStudies: CaseStudy[] = [
       "A limited production web beta with working account creation, cards and payments.",
     ],
     outcome:
-      "The web beta is running in production with early users who have created accounts and cards and can make payments. The founder is collecting feedback and issues while we refine the experience. The updated iOS version is in TestFlight. The recent two-week release effort is one milestone within my ongoing product role.",
+      "The web beta is running in production with early users who have created accounts and cards and can make payments. The founder is collecting feedback and issues while we refine the experience. The updated iOS version is in TestFlight. The recent two-week release effort is one milestone in my ongoing work with the team.",
     reflection:
       "The most useful shift was moving from a broad set of capabilities to one clear user journey. The next step is to learn from early usage, establish useful product measures and expand the experience in priority order.",
     cover: {
-      src: "/work/girex/current/dashboard.webp",
-      alt: "Girex web dashboard with wallets, card balance and frequent actions using demo data",
+      src: "/work/girex/native/cover.png",
+      alt: "Girex iOS app with card management, home and swap screens in iPhone mockups",
     },
     media: {
       theme: "dark",
       lead: {
-        src: "/work/girex/current/wallet-history.webp",
-        alt: "Girex USDT wallet with deposit, withdrawal, swap and transaction history using demo data",
-        caption:
-          "A wallet brings its balance, deposit and withdrawal actions, contextual swap and searchable history together. Demo data; transactions are synthetic.",
+        src: "/work/girex/current/dashboard.webp",
+        alt: "Girex web dashboard with wallets, card balance and frequent actions",
+        caption: "Wallets and cards",
       },
       grid: [
         {
-          src: "/work/girex/current/card-top-up.webp",
-          alt: "Girex card top-up review with illustrative amount, fees and estimated card credit",
-          caption:
-            "The top-up flow separates the wallet amount, fees and estimated card credit before confirmation. Demo data; the displayed amounts and terms are illustrative.",
-        },
-        {
-          src: "/work/girex/current/contextual-swap.webp",
-          alt: "Girex contextual USDT to USDC swap with illustrative rate, fee and expected receipt",
-          caption:
-            "Swap opens from the wallet context and shows the rate, fee and expected receipt before review. Demo data; this is an interface example, not a product result.",
+          src: "/work/girex/current/wallet-history.webp",
+          alt: "Girex web wallet with deposit, withdrawal, swap and transaction history",
+          caption: "Wallet activity",
         },
       ],
       mobile: [
         {
-          src: "/work/girex/current/card-responsive-web.webp",
-          alt: "Girex responsive web card screen with balance and management actions using demo data",
-          caption: "Responsive web at 390 px. Demo data. This screen is not the native iOS app.",
+          src: "/work/girex/native/02-card-plus-usd.png",
+          alt: "Girex iOS Plus USD card with top-up and card management",
+          caption: "Card management",
+          portrait: true,
+        },
+        {
+          src: "/work/girex/native/01-home.png",
+          alt: "Girex iOS home with balance, cards and wallets",
+          caption: "Home",
+          portrait: true,
+        },
+        {
+          src: "/work/girex/native/09-swap-quote.png",
+          alt: "Girex iOS swap with source and destination amounts, rate and fee",
+          caption: "Swap",
+          portrait: true,
+        },
+        {
+          src: "/work/girex/native/08-usdt-wallet.png",
+          alt: "Girex iOS USDT wallet with balance and transaction history",
+          caption: "Wallet overview",
+          portrait: true,
+        },
+        {
+          src: "/work/girex/native/06-card-topup-review.png",
+          alt: "Girex iOS card top-up review with amount, rate and fees",
+          caption: "Top-up review",
           portrait: true,
         },
       ],
@@ -144,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
     name: "House of Smile",
     category: "Dental clinic website",
     summary:
-      "A self-initiated redesign that turned an outdated clinic website into a clear, credible and booking-focused digital presence for a German dental practice.",
+      "An outdated clinic website made it hard for patients to find information and book. I proposed and built a multilingual replacement, now live on the practice’s domain.",
     role: "Full-Stack Developer",
     scope: "Strategy · UX · Design · Copy · Engineering",
     stage: "Live",
@@ -212,7 +230,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Chocolatin Labs",
     category: "Breeder website & CMS",
     summary:
-      "A multilingual product website and content system that gives a Labrador breeder full control over dogs, litters, puppies, articles and incoming enquiries.",
+      "A Labrador breeder needed a website they could manage independently. Working with a designer, I built a multilingual catalogue, content tools and enquiry forms.",
     role: "Full-Stack Developer",
     scope: "Architecture · CMS · Frontend · Mobile UX",
     stage: "Live",

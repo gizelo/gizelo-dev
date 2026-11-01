@@ -1,3 +1,162 @@
+# Business positioning — browser feedback revision
+
+Local preview: http://127.0.0.1:8083/ . Not published.
+
+## Changes
+
+- Identity line: Robert Gizelo — Web / Mobile Development. Shortened hero description and Contact me throughout homepage, navigation and case CTAs.
+- Services: Tell me what you need. / I’ll help you figure out the next step. Three existing Lucide icons use electric blue on lime backgrounds.
+- Work: Work I’m proud of. Contributions: Proud to have been part of.
+- Removed the location from visible copy and Person structured data.
+- Replaced the résumé-style About text with a four-step ordered process: conversation, scope/time/cost plan, working versions for feedback, launch and handover. Main navigation now labels this Process; the existing #about anchor is retained.
+- Contact: Share what you’ve got. Let’s make it work. Removed the long supporting description and shortened the message placeholder.
+- Social preview and descriptions match the revised identity. Original photos and Girex assets remain unchanged.
+
+## Checks
+
+- Production build, TypeScript, ESLint and whitespace checks passed.
+- In-app browser screenshots reviewed at 1456 × 853 and 390 × 844; homepage also checked at 320 × 740. No horizontal page or hero-heading overflow in checked widths.
+- Services, Process and Contact me anchors work. Mobile Process navigation closes its dialog and restores page scrolling.
+- Three service icons and four ordered steps render. Contact fields retain required validation and email type. Submission handler, endpoint and payload are unchanged; no real message was sent.
+- Homepage and all three case metadata/CTA text checked in generated HTML. Homepage HTML and schema contain no location.
+- Browser console returned no errors during the checked flow.
+- Evidence: output/business-positioning-20261101/revision-2/ (hero, services, process, contact, corresponding mobile screenshots and metadata.json).
+
+Local visual and source verification only; no full accessibility audit, physical-device acceptance or email-delivery test.
+
+---
+
+# Business and freelance positioning preview QA
+
+Result: passed for the checked local scope. This revision is not published.
+
+## Current preview
+
+http://127.0.0.1:8083/
+
+- Hero addresses business websites, online stores and apps. Discuss a project is the primary action; View my work is secondary.
+- Three services describe launching an MVP, building a website or store, and improving an existing app through customer tasks and deliverables.
+- Case summaries lead with the business need. Case sections use The task, What I built and The result; team/designer credits and release states remain.
+- Engineering experience and stack remain in About. The contribution section follows About; Services replaces Experience in navigation.
+- Contact copy invites an initial business brief. FormSubmit endpoint, payload, validation and success/error behavior are unchanged.
+- Title, description and social preview match the business-facing message. The social card reuses the existing portrait.
+
+## Verification
+
+- Production build, TypeScript, ESLint and whitespace checks passed.
+- In-app browser: homepage and all three case studies checked at desktop (1456 × 853) and mobile (390 × 844). Homepage additionally checked at 320 × 740. No horizontal overflow in checked views; screenshots reviewed.
+- Services and project CTA anchors, case links, next-case navigation and mobile navigation passed. Mobile menu closes and restores scrolling after selection.
+- Empty submission was blocked and focused Name. Invalid email submission was blocked and focused Email; form remained idle. Fields cleared afterward. No real message sent.
+- Browser console returned no error records during checked flows.
+- Generated homepage and three case descriptions/social images agree; metadata.json records the results.
+- All five supplied native Girex PNGs still match the original files byte for byte. Native composition and compact secondary web presentation remain unchanged.
+
+## Evidence and limits
+
+Screenshots and metadata are under output/business-positioning-20261101/. desktop-hero.jpg is the final first-screen capture; desktop-services.jpg and mobile-services.jpg show the service copy. The public social card is public/og-image-business.png.
+
+Local verification only. No publication, real email-delivery test, physical-device acceptance or full screen-reader audit was performed. Existing audit history is retained below this report in design-qa.md.
+
+---
+
+## Earlier local preview reports
+
+# Developer positioning preview QA
+
+Result: passed for the checked local scope. Publication awaits approval of this combined preview.
+
+## Preview and changes
+
+- Local production preview: http://127.0.0.1:8083/
+- Full-Stack Developer identity, approved homepage copy, three services and project-focused contact copy.
+- Case-study roles and implementation descriptions updated; Girex native-mobile presentation included.
+- Homepage metadata, Person structured data and social cover updated consistently.
+- Existing design, team credits and contact submission contract preserved.
+
+## Checks
+
+- Production build, TypeScript, ESLint, changed-file formatting and whitespace checks passed.
+- In-app browser checked the homepage and all three case studies at desktop and 390 px widths; homepage also checked at 320 px. No horizontal overflow in checked views.
+- Work/contact anchors, case navigation and mobile-menu open/close behavior passed.
+- Empty form submission focused the required name field. Invalid email submission focused the email field and remained blocked by browser validation. Fields were cleared afterward.
+- Contact implementation diff contains copy and placeholder changes only; endpoint and payload are unchanged.
+- Browser console returned no error records during the checked flow.
+- Generated HTML metadata checked for homepage and all cases: descriptions and social images agree; image files exist; homepage role and Frankfurt address match the approved copy. Details: metadata.json.
+- Mobile screenshot review found no visible clipping or layout defects in the checked viewports.
+
+## Evidence
+
+Screenshots are in output/developer-positioning-20261031/:
+
+- desktop-hero.jpg, services.jpg, contact.jpg
+- girex-full.jpg, house-of-smile.jpg, chocolatin-labs.jpg
+- mobile-hero.jpg, mobile-services.jpg, mobile-girex.jpg
+- mobile-house-of-smile.jpg, mobile-chocolatin-labs.jpg, mobile-320.jpg
+- mobile-review.jpg combines the mobile case headers and narrow homepage for review.
+
+## Limits
+
+- Local verification only; this revision has not been published.
+- No valid form submission or email-delivery test was performed; no actual message was sent.
+- No physical-device acceptance or full screen-reader audit was performed.
+
+---
+
+# Girex mobile presentation QA
+
+final result: passed
+
+## Scope and evidence
+
+- Source visual: `output/girex-mobile-case-20261028/reference.png`, the second selected direction with Robert's requested removal of data/date labels.
+- Source dimensions: 1015 × 1549 raster pixels, representing the 1440 px desktop design. Normalized proportionally to 720 px for comparison; no stretching.
+- Implementation: `http://127.0.0.1:8082/work/girex`, desktop viewport 1440 × 900 CSS px, device pixel ratio 1.
+- Final browser capture: `output/girex-mobile-case-20261028/desktop-final.jpg`, 1440 × 6149 pixels. The first 2541 px cover the corresponding media presentation; the original case narrative continues below.
+- Full-view comparison: `output/girex-mobile-case-20261028/comparison-final.png`, source left and implementation right at equal width.
+- Focused image comparison: `output/girex-mobile-case-20261028/comparison-phone.png`, source Home mockup beside the rendered original asset. This checks screen identity, transparency and legibility; supplied handset geometry takes precedence over generated geometry.
+- Mobile evidence: `output/girex-mobile-case-20261028/mobile-top.jpg` and `mobile-phones.jpg`, 390 × 844 viewport. Desktop-only spacing changes after these captures do not change the mobile layout.
+- Homepage card: `output/girex-mobile-case-20261028/home-card.jpg`.
+- Social cover: `public/work/girex/native/cover.png`, 1200 × 630; rendered deterministically from the three supplied PNGs.
+
+## Comparison history
+
+1. P2: introduction spacing delayed the phone presentation relative to the selected design. Reduced header padding, grid margin and summary/link spacing. Verified in the final combined comparison.
+2. P2: native detail phones were too small and the heading sat too low. Increased the phone limit from 300 to 360 px, aligned content at the top, adjusted desktop section padding and raised the desktop heading size. Final comparison confirms readable phones and aligned hierarchy.
+3. No remaining actionable P0/P1/P2 findings in the final comparison.
+
+## Fidelity surfaces
+
+- Typography: existing Space Grotesk display and Inter body fonts retained. Heading hierarchy, readable mobile role wrapping and native section typography checked.
+- Spacing: centered larger Home with Card and Swap at the sides; two native detail phones precede a compact web supplement. No horizontal overflow at 1440 or 390 px.
+- Colors: existing white, ink, electric blue and lime tokens retained; no replacement brand system.
+- Images: five supplied native PNGs copied byte for byte, with matching dimensions and SHA-256 hashes. All seven Girex media images loaded in the final desktop view. No mobile-web screenshot is used as a native phone.
+- Content: data disclaimers and capture dates removed as requested. Useful screen labels remain. Existing team narrative, project dates and outcomes preserved. Stage distinguishes web beta and iOS TestFlight. No App Store release claim added.
+
+## Intentional differences
+
+- Original PNG geometry and screen pixels replace the generated approximations in the visual reference.
+- Detail phones and web screenshots are shown completely rather than cropped by the reference's bottom edges. This makes the case taller.
+- The site's existing max-width container is retained. Short screen descriptions replace generated marketing filler.
+- Existing context, role, decisions and outcomes continue after the media presentation.
+
+## Verification
+
+- Build, TypeScript, ESLint, changed-file formatting and whitespace checks passed.
+- In-app browser: homepage card opens the case; Back to selected work returns to the homepage; mobile navigation opens and closes.
+- Browser console: no error records returned during the checked flow.
+- Generated homepage/case HTML uses the native cover for social metadata and contains no old mobile-web media, synthetic/demo-data labels or capture notices.
+- This is local verification. No production deployment, physical-device acceptance or full accessibility audit was performed.
+
+## Follow-up polish
+
+- P3: phone scale and perspective differ slightly from the generated reference because the supplied original mockups are preserved.
+- No required implementation fixes remain. Publication awaits Robert's approval of the local result.
+
+---
+
+<details>
+<summary>Historical homepage QA before this revision</summary>
+
 # Homepage Design QA
 
 ## Comparison target
@@ -804,3 +963,5 @@ final result: passed
 - [x] TypeScript, ESLint, Prettier and production build.
 
 final result: passed
+
+</details>

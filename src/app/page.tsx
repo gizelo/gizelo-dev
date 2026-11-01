@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HomePage from "@/views/HomePage";
 
 export const metadata: Metadata = {
-  title: "Robert Gizelo — Product Builder",
+  title: "Robert Gizelo — Websites & Apps for Business",
   description:
-    "Robert Gizelo is a Product Builder who designs and develops web and mobile applications, independently and with teams, from business idea to release.",
+    "Websites, online stores and mobile apps built around your business. Robert Gizelo helps you launch an idea or improve what you already have.",
   alternates: { canonical: "/" },
 };
 
@@ -13,20 +13,17 @@ const personSchema = {
   "@type": "Person",
   name: "Robert Gizelo",
   url: "https://www.gizelo.dev",
-  jobTitle: "Product Builder",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Frankfurt",
-    addressCountry: "Germany",
-  },
+  jobTitle: "Full-Stack Developer",
   sameAs: ["https://www.linkedin.com/in/gizelo/", "https://t.me/gizelo"],
   knowsAbout: [
-    "Product management",
-    "Product design",
-    "Software engineering",
-    "SaaS",
-    "Fintech",
-    "Crypto products",
+    "Full-stack development",
+    "Web development",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "React Native",
+    "Content management systems",
   ],
 };
 

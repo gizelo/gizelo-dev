@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, Boxes, Rocket, ScanSearch } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Rocket, Store, Wrench } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "@/components/ContactForm";
@@ -8,21 +8,40 @@ import ResponsiveImage from "@/components/ResponsiveImage";
 import SectionLink from "@/components/SectionLink";
 import { caseStudies, contributions } from "@/constants";
 
-const workModes = [
+const projectSteps = [
   {
-    icon: ScanSearch,
-    title: "Define",
-    body: "Scope, requirements, flows and trade-offs.",
+    title: "Start with a conversation",
+    body: "Bring an idea, a link or a problem. I ask questions to understand what your business needs and who it needs to work for.",
   },
   {
-    icon: Boxes,
-    title: "Build",
-    body: "Full-stack web and mobile development.",
+    title: "Get a clear plan",
+    body: "I outline what to build, what can wait and the time and cost involved, so you can decide before the work starts.",
   },
+  {
+    title: "See it take shape",
+    body: "I share working versions as I build. You can try things out and give feedback before the final details are settled.",
+  },
+  {
+    title: "Go live and take over",
+    body: "I check the key journeys, handle the launch and walk you through what you need to manage it. Then I help you plan any next steps.",
+  },
+];
+
+const services = [
   {
     icon: Rocket,
-    title: "Ship",
-    body: "Coordinated delivery, early releases and iteration.",
+    title: "Launch an MVP",
+    body: "Give your idea a first version people can try. I help you choose what matters for launch and build it without piling on extras.",
+  },
+  {
+    icon: Store,
+    title: "Build a website or online store",
+    body: "Give customers a clear way to explore your business, browse products and get in touch, with content you can update yourself.",
+  },
+  {
+    icon: Wrench,
+    title: "Improve an existing app",
+    body: "Add a feature, connect another service or fix a workflow that gets in the way. I work with your current setup and team.",
   },
 ];
 
@@ -33,32 +52,27 @@ const HomePage = () => {
       <main id="main-content">
         <section className="site-container grid items-center gap-12 py-14 sm:gap-20 lg:min-h-[86vh] lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-14">
           <div className="relative z-10">
-            <p className="eyebrow">Robert Gizelo · Product Builder</p>
-            <h1 className="mt-6 max-w-4xl text-[clamp(3.8rem,8vw,8rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
-              Turning ideas into working products.
+            <p className="eyebrow">Robert Gizelo — Web / Mobile Development</p>
+            <h1 className="mt-6 max-w-4xl text-[clamp(3.5rem,7.2vw,7rem)] font-bold leading-[0.9] tracking-[-0.065em] text-ink">
+              Websites and apps for your business.
             </h1>
-            <div className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-medium text-ink/70 sm:gap-x-3 sm:text-lg">
-              <span>Full-stack development</span>
-              <span aria-hidden="true">·</span>
-              <span>Web &amp; mobile</span>
-              <span aria-hidden="true">·</span>
-              <span>UX</span>
-              <span aria-hidden="true">·</span>
-              <span>Delivery</span>
-            </div>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
+              Websites, online stores and mobile apps — built around what your business needs.
+            </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <SectionLink
-                href="/#work"
+                href="/#contact"
                 className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark"
               >
-                My work
-                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+                Contact me
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </SectionLink>
               <SectionLink
-                href="/#contact"
-                className="focus-ring inline-flex min-h-12 items-center justify-center border border-ink/25 px-6 py-3 font-semibold text-ink transition-colors hover:border-ink"
+                href="/#work"
+                className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 border border-ink/25 px-6 py-3 font-semibold text-ink transition-colors hover:border-ink"
               >
-                Reach me
+                View my work
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </SectionLink>
             </div>
           </div>
@@ -88,10 +102,32 @@ const HomePage = () => {
           </div>
         </section>
 
+        <section id="services" className="border-t border-ink/10 bg-white py-16 sm:py-20">
+          <div className="site-container">
+            <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-5xl">
+              Tell me what you need.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink/70">
+              I’ll help you figure out the next step.
+            </p>
+            <ul className="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
+              {services.map(({ icon: Icon, title, body }) => (
+                <li key={title} className="border-t border-ink/20 pt-6">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center bg-lime">
+                    <Icon className="h-8 w-8 text-electric" strokeWidth={2} aria-hidden="true" />
+                  </div>
+                  <h3 className="text-xl font-semibold tracking-[-0.025em] text-ink">{title}</h3>
+                  <p className="mt-4 leading-relaxed text-ink/70">{body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section id="work" className="section-space border-t border-ink/10 bg-white">
           <div className="site-container">
             <h2 className="mb-12 text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
-              Selected work.
+              Work I’m proud of.
             </h2>
 
             <ProjectCard project={caseStudies[0]} featured />
@@ -100,6 +136,30 @@ const HomePage = () => {
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="about" className="section-space border-t border-ink/10 bg-white">
+          <div className="site-container">
+            <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
+              Four steps to get it live.
+            </h2>
+            <ol className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+              {projectSteps.map(({ title, body }, index) => (
+                <li key={title} className="border-t border-ink/20 pt-6">
+                  <span
+                    className="text-sm font-semibold tracking-[0.12em] text-electric"
+                    aria-hidden="true"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-5 text-xl font-semibold tracking-[-0.025em] text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-4 leading-relaxed text-ink/70">{body}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -117,7 +177,7 @@ const HomePage = () => {
           />
           <div className="site-container relative">
             <h2 className="text-4xl font-bold tracking-[-0.045em] text-white sm:text-6xl">
-              Products I contributed to.
+              Proud to have been part of.
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {contributions.map((contribution) => (
@@ -161,37 +221,6 @@ const HomePage = () => {
                   </div>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="section-space border-t border-ink/10 bg-white">
-          <div className="site-container">
-            <h2 className="text-4xl font-bold tracking-[-0.045em] text-ink sm:text-6xl">
-              How I work.
-            </h2>
-            <p className="mt-4 text-sm font-medium text-ink/70">Frankfurt, Germany</p>
-            <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:items-start">
-              <p className="max-w-3xl text-xl leading-relaxed text-ink/70">
-                I design and develop web and mobile applications, independently and as part of a
-                team, turning business ideas into working products. I combine 6+ years of software
-                engineering experience with technical product management, covering requirements, UX,
-                prioritization, implementation and release.
-              </p>
-              <ul>
-                {workModes.map(({ icon: Icon, title, body }) => (
-                  <li
-                    key={title}
-                    className="grid grid-cols-[2.25rem_1fr] items-start gap-3 border-b border-ink/20 py-6 first:pt-0 last:border-b-0 last:pb-0 sm:gap-4"
-                  >
-                    <Icon className="h-7 w-7 text-electric" strokeWidth={2.25} aria-hidden="true" />
-                    <div>
-                      <h3 className="text-lg font-semibold text-ink">{title}</h3>
-                      <p className="mt-2 leading-relaxed text-ink/70">{body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </section>

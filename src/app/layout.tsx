@@ -17,12 +17,12 @@ const spaceGrotesk = Space_Grotesk({
 
 const isVercelDeployment = process.env.VERCEL === "1";
 const siteDescription =
-  "Robert Gizelo is a Product Builder who designs and develops web and mobile applications, independently and with teams, from business idea to release.";
+  "Websites, online stores and mobile apps built around your business. Robert Gizelo helps you launch an idea or improve what you already have.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gizelo.dev"),
   title: {
-    default: "Robert Gizelo — Product Builder",
+    default: "Robert Gizelo — Websites & Apps for Business",
     template: "%s — Robert Gizelo",
   },
   description: siteDescription,
@@ -33,23 +33,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Robert Gizelo",
-    title: "Robert Gizelo — Product Builder",
+    title: "Robert Gizelo — Websites & Apps for Business",
     description: siteDescription,
     url: "/",
     images: [
       {
-        url: "/og-image-v2.jpg",
+        url: "/og-image-business.png",
         width: 1200,
         height: 630,
-        alt: "Robert Gizelo — Product Builder",
+        alt: "Robert Gizelo — Websites & Apps for Business",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Robert Gizelo — Product Builder",
+    title: "Robert Gizelo — Websites & Apps for Business",
     description: siteDescription,
-    images: ["/og-image-v2.jpg"],
+    images: ["/og-image-business.png"],
   },
   icons: {
     icon: "/asterisk-color.svg",

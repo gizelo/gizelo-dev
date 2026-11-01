@@ -25,7 +25,7 @@ type CasePresentation = {
 const presentations: Record<StandardCaseSlug, CasePresentation> = {
   "house-of-smile": {
     roleIntro:
-      "I took the project from opportunity and proposal through product definition, design, content, engineering and launch—keeping the clinic's business goals and patient journey connected throughout.",
+      "I proposed the redesign, defined the site structure and content, and built the responsive website through launch.",
     productTitle: "The website.",
     productIntro:
       "The finished experience turns a previously outdated presence into a clear patient journey: understand the practice, evaluate its services and move to booking without unnecessary friction.",
@@ -42,7 +42,7 @@ const presentations: Record<StandardCaseSlug, CasePresentation> = {
   },
   "chocolatin-labs": {
     roleIntro:
-      "Working from the designer's visual direction, I owned the technical product: content architecture, responsive and mobile behavior, CMS workflows, forms, infrastructure and production delivery.",
+      "Working from the designer’s visual direction, I built the website and the tools for the client to manage dogs, litters, translations and enquiries. The system uses Next.js, Payload CMS and MongoDB.",
     productTitle: "Website & CMS.",
     productIntro:
       "The public website and its content system were designed as one product. Visitors get a polished breeder experience while the client controls every dog, litter, puppy, translation and article behind it.",
@@ -170,7 +170,7 @@ const StandardCaseStudyPage = ({ project }: StandardCaseStudyPageProps) => {
 
           <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
             <div className="site-container grid items-start gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
-              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Context.</h2>
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">The task.</h2>
               <div className="space-y-5">
                 {project.context.map((paragraph) => (
                   <p
@@ -186,7 +186,7 @@ const StandardCaseStudyPage = ({ project }: StandardCaseStudyPageProps) => {
 
           <section className="border-t border-white/10 bg-ink py-16 text-white sm:py-20 lg:py-24">
             <div className="site-container">
-              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">My role.</h2>
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">What I built.</h2>
               <p className="mt-6 max-w-3xl text-xl leading-relaxed text-white/68">
                 {presentation.roleIntro}
               </p>
@@ -219,7 +219,7 @@ const StandardCaseStudyPage = ({ project }: StandardCaseStudyPageProps) => {
           <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
             <div className="site-container grid gap-10 lg:grid-cols-[0.36fr_0.64fr] lg:gap-16">
               <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
-                Key product decisions.
+                How the solution took shape.
               </h2>
               <div>
                 {project.decisions.map((decision, index) => (
@@ -294,7 +294,7 @@ const StandardCaseStudyPage = ({ project }: StandardCaseStudyPageProps) => {
 
           <section className="border-t border-ink/10 bg-white py-16 sm:py-20 lg:py-24">
             <div className="site-container">
-              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">Outcome.</h2>
+              <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">The result.</h2>
               <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
                 <div>
                   <h3 className="text-2xl font-bold tracking-[-0.03em]">Delivered</h3>
@@ -329,17 +329,16 @@ const StandardCaseStudyPage = ({ project }: StandardCaseStudyPageProps) => {
             <div className="site-container relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
               <div>
                 <h2 className="text-4xl font-bold tracking-[-0.045em] sm:text-5xl">
-                  Let&apos;s build what&apos;s next.
+                  Have a project in mind?
                 </h2>
                 <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/78">
-                  I work across product definition, UX and engineering to turn complex ideas into
-                  working digital products.
+                  Tell me what you need to build or improve.
                 </p>
                 <Link
                   href="/#contact"
                   className="focus-ring mt-7 inline-flex min-h-14 w-full items-center justify-center gap-3 bg-white px-7 py-4 font-semibold text-electric transition-colors hover:bg-white/90 sm:w-auto"
                 >
-                  Tell me what you&apos;re building
+                  Contact me
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </div>

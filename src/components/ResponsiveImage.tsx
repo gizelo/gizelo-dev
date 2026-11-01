@@ -8,6 +8,11 @@ type ResponsiveImageProps = ProjectImage & {
 };
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
+  "/work/girex/native/01-home.png": { width: 1662, height: 3212 },
+  "/work/girex/native/02-card-plus-usd.png": { width: 1734, height: 3260 },
+  "/work/girex/native/09-swap-quote.png": { width: 1710, height: 3392 },
+  "/work/girex/native/08-usdt-wallet.png": { width: 1741, height: 3270 },
+  "/work/girex/native/06-card-topup-review.png": { width: 1712, height: 3394 },
   "/work/girex/current/dashboard.webp": { width: 1100, height: 590 },
   "/work/girex/current/wallet-history.webp": { width: 1178, height: 618 },
   "/work/girex/current/card-top-up.webp": { width: 900, height: 602 },

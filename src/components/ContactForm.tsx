@@ -51,11 +51,8 @@ const ContactForm = () => {
             aria-hidden="true"
           />
           <h2 className="mt-5 max-w-lg text-4xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl">
-            How can I help?
+            Share what you’ve got. Let’s make it work.
           </h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-white/70">
-            Share what you&apos;re building and let&apos;s move it forward.
-          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="https://www.linkedin.com/in/gizelo/"
@@ -126,6 +123,7 @@ const ContactForm = () => {
               name="message"
               rows={6}
               required
+              placeholder="An idea, a link, a problem to solve — tell me what you have in mind."
               className="focus-ring resize-y border border-white/35 bg-white px-4 py-3 text-base font-normal text-ink outline-none transition-colors hover:border-white focus-visible:ring-offset-ink"
             />
           </label>
