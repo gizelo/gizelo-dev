@@ -58,7 +58,7 @@ const ContactForm = () => {
               href="https://www.linkedin.com/in/gizelo/"
               target="_blank"
               rel="noreferrer"
-              className="focus-ring inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white focus-visible:ring-offset-ink"
+              className="focus-ring-inverse inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white"
             >
               <Image
                 src="/brand/linkedin.svg"
@@ -71,10 +71,18 @@ const ContactForm = () => {
               LinkedIn
             </a>
             <a
+              href="https://github.com/gizelo"
+              target="_blank"
+              rel="noreferrer"
+              className="focus-ring-inverse inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white"
+            >
+              GitHub
+            </a>
+            <a
               href="https://t.me/gizelo"
               target="_blank"
               rel="noreferrer"
-              className="focus-ring inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white focus-visible:ring-offset-ink"
+              className="focus-ring-inverse inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white"
             >
               <Image
                 src="/brand/telegram.svg"
@@ -95,6 +103,7 @@ const ContactForm = () => {
           aria-label="Send Robert a message"
           aria-busy={isSubmitting}
         >
+          <p className="text-sm text-white/70">All fields are required.</p>
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-semibold text-white">
               Name
@@ -103,7 +112,7 @@ const ContactForm = () => {
                 name="name"
                 required
                 autoComplete="name"
-                className="focus-ring min-h-12 border border-white/35 bg-white px-4 text-base font-normal text-ink outline-none transition-colors hover:border-white focus-visible:ring-offset-ink"
+                className="focus-ring-inverse min-h-12 border border-white/35 bg-white px-4 text-base font-normal text-ink transition-colors hover:border-white"
               />
             </label>
             <label className="grid gap-2 text-sm font-semibold text-white">
@@ -113,7 +122,7 @@ const ContactForm = () => {
                 name="email"
                 required
                 autoComplete="email"
-                className="focus-ring min-h-12 border border-white/35 bg-white px-4 text-base font-normal text-ink outline-none transition-colors hover:border-white focus-visible:ring-offset-ink"
+                className="focus-ring-inverse min-h-12 border border-white/35 bg-white px-4 text-base font-normal text-ink transition-colors hover:border-white"
               />
             </label>
           </div>
@@ -121,10 +130,10 @@ const ContactForm = () => {
             Message
             <textarea
               name="message"
-              rows={6}
+              rows={5}
               required
-              placeholder="An idea, a link, a problem to solve — tell me what you have in mind."
-              className="focus-ring resize-y border border-white/35 bg-white px-4 py-3 text-base font-normal text-ink outline-none transition-colors hover:border-white focus-visible:ring-offset-ink"
+              placeholder="A role, an idea, a link or a problem. Tell me what you have in mind."
+              className="focus-ring-inverse resize-y border border-white/35 bg-white px-4 py-3 text-base font-normal text-ink placeholder:text-ink/60 transition-colors hover:border-white"
             />
           </label>
           <input type="hidden" name="_template" value="box" />
@@ -132,7 +141,7 @@ const ContactForm = () => {
             type="submit"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
-            className="focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark disabled:cursor-wait disabled:opacity-60 sm:w-fit"
+            className="focus-ring-inverse inline-flex min-h-12 w-full items-center justify-center gap-2 border border-transparent bg-electric px-6 py-3 font-semibold text-white transition-colors hover:bg-electric-dark disabled:cursor-wait disabled:opacity-60 sm:w-fit"
           >
             {isSubmitting ? "Sending…" : "Send message"}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

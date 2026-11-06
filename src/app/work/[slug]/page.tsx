@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const canonical = `/work/${project.slug}`;
 
   return {
-    title: project.name,
+    title: `${project.name}: ${project.kind}`,
     description: project.summary,
     alternates: { canonical },
     openGraph: {
@@ -57,7 +57,7 @@ export default async function Page({ params }: PageProps) {
     name: project.name,
     description: project.summary,
     url: `https://www.gizelo.dev/work/${project.slug}`,
-    genre: project.category,
+    genre: project.kind,
     creator: {
       "@type": "Person",
       name: "Robert Gizelo",

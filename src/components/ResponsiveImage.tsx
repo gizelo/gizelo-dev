@@ -8,6 +8,12 @@ type ResponsiveImageProps = ProjectImage & {
 };
 
 const imageDimensions: Record<string, { width: number; height: number }> = {
+  "/work/girex/native/cover.png": { width: 1200, height: 630 },
+  "/work/gimecs/program-execute.jpg": { width: 1280, height: 836 },
+  "/work/gimecs/program-edit.jpg": { width: 1280, height: 836 },
+  "/work/gimecs/wps-monitoring.jpg": { width: 1280, height: 768 },
+  "/work/gimecs/wps-specification.jpg": { width: 1280, height: 769 },
+  "/work/web3-invest/dashboard.jpg": { width: 1280, height: 726 },
   "/work/girex/native/01-home.png": { width: 1662, height: 3212 },
   "/work/girex/native/02-card-plus-usd.png": { width: 1734, height: 3260 },
   "/work/girex/native/09-swap-quote.png": { width: 1710, height: 3392 },

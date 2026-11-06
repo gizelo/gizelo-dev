@@ -1,61 +1,70 @@
-# Repository Guidelines
+# Agent guide — gizelo.dev
 
-## Project Overview
+Robert Gizelo's personal website: a full-stack developer who builds products end to end and shows the products he has built. It speaks in one voice to three audiences: recruiters and engineering leads (linked from the CV and LinkedIn), founders and startups, and small businesses (linked from cold emails). It is open to new roles, projects and collaborations, and it is not a sales page.
 
-Gizelo is a React 18 + TypeScript + Vite single-page marketing website for a web development studio. Deployed via Vercel with `@vercel/analytics` integrated.
+## Stack
 
-## Project Structure & Module Organization
+- Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 3, Vercel Analytics.
+- All public pages are statically prerendered (`generateStaticParams`, `dynamicParams = false`). Client-side JavaScript is limited to navigation, analytics and the contact form.
+- Deployed on Vercel; production is released only from `main`.
 
-```
-src/
-  components/       # Page sections (Hero, Services, Cases, Contact, etc.)
-    animations/     # Reusable animation components
-    ui/             # Generic UI primitives
-  hooks/            # Custom React hooks (useMousePosition, use-mobile)
-  lib/utils.ts      # Shared utilities (cn helper using clsx + tailwind-merge)
-  pages/            # Route-level components (Index, NotFound)
-  constants.ts      # Site-wide constants
-  types.ts          # Shared TypeScript types
-public/
-  cases/            # Case study images grouped by project slug
-  icons/            # Tech stack SVG icons
-```
-
-Import alias `@/*` maps to `./src/*`. Use it for all non-relative imports.
-
-## Build, Test, and Development Commands
+## Commands
 
 ```bash
-pnpm dev            # Dev server at http://localhost:8080
-pnpm build          # Production build (outputs to dist/)
-pnpm build:dev      # Dev-mode build
-pnpm preview        # Preview production build locally
-pnpm lint           # Run ESLint
-pnpm lint:fix       # Run ESLint with auto-fix
-pnpm format         # Format all files with Prettier
-pnpm format:check   # Check formatting without writing
+pnpm install
+pnpm dev            # http://localhost:3000
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm build          # next build --webpack
 ```
 
-No test suite is configured.
+There is no automated test suite. Before handing over a change run `format:check`, `lint`, `typecheck`, `build`, and check the affected pages in a browser at desktop (1440), tablet (768) and mobile (375) widths.
 
-## Coding Style & Naming Conventions
+## Structure
 
-**Prettier** (`.prettierrc.json`): double quotes, semicolons, trailing commas everywhere, 100-char print width, 2-space indent.
+```
+src/app/              routes: / , /work/[slug], robots.ts, sitemap.ts, not-found
+src/views/            page-level views (HomePage, case study pages)
+src/components/       shared components (SiteHeader, SiteFooter, ProductCard, RoleLabel, ContactForm, …)
+src/constants.ts      site content: navigation, skills, products, case studies
+src/types.ts          shared types
+src/lib/utils.ts      cn() helper (clsx + tailwind-merge)
+public/               images, OG images, brand assets
+```
 
-**ESLint** (`eslint.config.js`): TypeScript ESLint + `eslint-config-prettier` (disables conflicting rules). `react-refresh/only-export-components` is warned on. `@typescript-eslint/no-unused-vars` is disabled.
+Import alias `@/*` → `./src/*`. Most copy lives in `src/constants.ts`; change content there rather than in components.
 
-**TypeScript**: strict mode is **off** for app code (`tsconfig.app.json`). Strict mode is on only in `tsconfig.node.json` (Vite config). `noImplicitAny` is off.
+## Design system
 
-**Tailwind**: custom brand tokens — `accent` (`#B3F753`), `darkGray` (`#0c0c0c`). Font family is Space Grotesk. Use `cn()` from `@/lib/utils` to compose class names.
+- Colors (Tailwind tokens): `ink` #141613, white, `electric` #123CFF, `electric-dark` #0A2ED4, `lime` #B3F753. Lime only for the brand star and rare accents, never for body text. No beige.
+- Fonts: Inter (`font-sans`), Space Grotesk (`font-display`).
+- Blue for actions, links and focus. Separators only between list items, never as outer borders.
+- Photos keep their original aspect ratio (shown inside a light image well). Girex is the only dark product card.
+- Product cards: the first three products are large (Girex flagship, then two primaries), the rest are compact. Every card shows a role label (Solo build, Lead developer, Team project) and a one-line "My part".
+- The Girex brand palette is separate; do not mix it into this site.
 
-## Commit Guidelines
+## Content rules
 
-All commits follow the conventional format `type: description` (lowercase description):
+- Personal, confident first-person voice ("I"), not an agency "we". No sales promises.
+- Cards are named by product, not by company; the client company goes in the small line.
+- State Robert's role honestly on every product: what he did alone, as lead, or as part of a team.
+- No invented metrics, clients, launches or results. Facts come from `~/Documents/Career/profile.md`. Credit collaborators (e.g. the Chocolatin Labs designer).
+- No location or geography on the site.
 
-- `feat:` — new feature or visible change
-- `fix:` — bug fix or correction
-- `refactor:` — code restructure without behavior change
-- `style:` — layout/styling-only tweaks
-- `chore:` — config, tooling, assets, cleanup
+## Behaviour that must not regress
 
-No PR template is configured. No pre-commit hooks are enforced.
+- Contact form: required Name/Email/Message, existing FormSubmit endpoint, loading/success/error states, `aria-busy`. Never send a real message during QA.
+- Navigation: desktop menu from `lg` (1024px), hamburger below; mobile menu with focus trap, Escape, focus return, inert background.
+- New routes open at the top; same-page anchors may scroll smoothly; Back/Forward restoration preserved.
+- Metadata, canonical URLs (www), OG/Twitter images, robots and sitemap stay consistent with the routes.
+
+## Conventions
+
+- Prettier: double quotes, semicolons, trailing commas, 100-char width, 2-space indent.
+- Commits: `type: description` with lowercase description (`feat`, `fix`, `refactor`, `style`, `chore`).
+- Code, comments and commits in English.
+
+## Cleanup candidates
+
+`dist/` (old Vite build output) and empty `src/pages`, `src/hooks`, `src/components/ui`, `src/components/animations` are leftovers from the Vite version.

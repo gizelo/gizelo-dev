@@ -1,52 +1,48 @@
-export type ProjectSlug = "girex" | "house-of-smile" | "chocolatin-labs";
+export type ProjectSlug = "girex" | "gimecs" | "house-of-smile" | "chocolatin-labs";
+
+export type ProductRole = "solo" | "lead" | "team";
 
 export type ProjectImage = {
   src: string;
-  srcSmall?: string;
   alt: string;
   caption?: string;
-  portrait?: boolean;
 };
 
-export type ProjectMedia = {
-  theme: "dark" | "light";
-  lead?: ProjectImage;
-  grid: ProjectImage[];
-  mobile?: ProjectImage[];
-};
-
-export type ProjectDecision = {
-  title: string;
-  body: string;
+export type Product = {
+  id: string;
+  name: string;
+  kind: string;
+  platforms?: string;
+  client?: string;
+  summary: string;
+  detail?: string;
+  role?: ProductRole;
+  myPart: string;
+  image?: ProjectImage;
+  phones?: ProjectImage[];
+  caseSlug?: ProjectSlug;
+  website?: string;
 };
 
 export type CaseStudy = {
   slug: ProjectSlug;
   name: string;
-  category: string;
-  summary: string;
-  role: string;
-  scope: string;
-  stage: string;
+  kind: string;
+  client?: string;
+  role: ProductRole;
+  roleTitle: string;
   timeline: string;
+  stack: string;
+  status: string;
   website?: string;
-  ownershipLabel: string;
-  context: string[];
-  owned: string[];
-  decisions: ProjectDecision[];
-  delivered: string[];
+  summary: string;
+  detail?: string;
+  problem: string;
+  myPart: string;
   outcome: string;
-  reflection?: string;
   cover: ProjectImage;
-  gallery?: ProjectImage[];
-  media?: ProjectMedia;
-};
-
-export type Contribution = {
-  name: string;
-  role: string;
-  description: string;
-  image: ProjectImage;
-  website?: string;
-  nda?: boolean;
+  phones?: ProjectImage[];
+  screens: ProjectImage[];
+  built: string[];
+  scale?: { value: string; label: string }[];
 };

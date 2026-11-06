@@ -10,18 +10,18 @@ type GirexMobileShowcaseProps = {
 const GirexMobileShowcase = ({ images, compact = false }: GirexMobileShowcaseProps) => (
   <div
     className={cn(
-      "mx-auto grid w-full grid-cols-[1fr_1.08fr_1fr] items-end gap-1 bg-white",
-      compact ? "max-w-3xl px-4 py-8 sm:gap-3 sm:px-7" : "max-w-[1200px] gap-2 sm:gap-6",
+      "mx-auto grid w-full grid-cols-[1fr_1.08fr_1fr] items-end",
+      compact ? "max-w-2xl gap-2 px-6 sm:gap-4 sm:px-10" : "max-w-[1200px] gap-2 sm:gap-6",
     )}
   >
     {images.map((image, index) => (
-      <div key={image.src} className={cn(index !== 1 && "px-1 pt-6 sm:px-2 sm:pt-10")}>
+      <div key={image.src} className={cn(index !== 1 && "pb-6 sm:pb-10")}>
         <ResponsiveImage
           {...image}
           className="h-auto w-full object-contain"
           sizes={
             compact
-              ? "(max-width: 1024px) 30vw, 22vw"
+              ? "(max-width: 1024px) 30vw, 18vw"
               : "(max-width: 640px) 31vw, (max-width: 1280px) 30vw, 390px"
           }
           eager

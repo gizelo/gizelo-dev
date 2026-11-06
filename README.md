@@ -1,12 +1,12 @@
 # gizelo.dev
 
-Robert Gizelo's personal product-builder portfolio. The site presents selected case studies and
-product experience across SaaS, fintech and crypto.
+Robert Gizelo's personal website: a full-stack developer showing the products he has built, for
+recruiters, founders and small businesses. Agent and contributor guide: [AGENTS.md](./AGENTS.md).
 
 ## Stack
 
-- Next.js App Router
-- React and TypeScript
+- Next.js 16 App Router
+- React 19 and TypeScript
 - Tailwind CSS
 - Vercel Analytics
 
@@ -35,6 +35,7 @@ pnpm build
 
 - `/`
 - `/work/girex`
+- `/work/gimecs`
 - `/work/house-of-smile`
 - `/work/chocolatin-labs`
 

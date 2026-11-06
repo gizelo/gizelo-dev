@@ -79,7 +79,7 @@ const SiteHeader = () => {
             href="/#contact"
             className="focus-ring inline-flex min-h-11 items-center bg-electric px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-electric-dark"
           >
-            Contact me
+            Get in touch
           </SectionLink>
         </nav>
 

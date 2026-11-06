@@ -17,12 +17,12 @@ const spaceGrotesk = Space_Grotesk({
 
 const isVercelDeployment = process.env.VERCEL === "1";
 const siteDescription =
-  "Websites, online stores and mobile apps built around your business. Robert Gizelo helps you launch an idea or improve what you already have.";
+  "I build web, mobile and desktop apps end to end with React, Next.js, TypeScript and Node.js. See the products I’ve built, solo, as lead developer and in teams.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gizelo.dev"),
   title: {
-    default: "Robert Gizelo — Websites & Apps for Business",
+    default: "Robert Gizelo — Full-Stack Developer",
     template: "%s — Robert Gizelo",
   },
   description: siteDescription,
@@ -33,23 +33,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Robert Gizelo",
-    title: "Robert Gizelo — Websites & Apps for Business",
+    title: "Robert Gizelo — Full-Stack Developer",
     description: siteDescription,
     url: "/",
     images: [
       {
-        url: "/og-image-business.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Robert Gizelo — Websites & Apps for Business",
+        alt: "Robert Gizelo — Full-Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Robert Gizelo — Websites & Apps for Business",
+    title: "Robert Gizelo — Full-Stack Developer",
     description: siteDescription,
-    images: ["/og-image-business.png"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: "/asterisk-color.svg",
