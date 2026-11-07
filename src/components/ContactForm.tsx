@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { site } from "@/lib/site";
+import { contactForm, site } from "@/lib/site";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -16,19 +16,20 @@ const ContactForm = () => {
     setStatus("submitting");
 
     const form = event.currentTarget;
-    const payload = Object.fromEntries(new FormData(form).entries());
+    const payload = new FormData(form);
+    payload.append("access_key", contactForm.accessKey);
+    payload.append("subject", "New message from gizelo.dev");
+    payload.append("from_name", "gizelo.dev");
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/98d2f895f6f6c89691d966be40efe297", {
+      const response = await fetch(contactForm.endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
+        headers: { Accept: "application/json" },
+        body: payload,
       });
+      const result = (await response.json()) as { success?: boolean };
 
-      if (!response.ok) {
+      if (!response.ok || !result.success) {
         throw new Error("Form submission failed");
       }
 
@@ -137,7 +138,14 @@ const ContactForm = () => {
               className="focus-ring-inverse resize-y border border-white/35 bg-white px-4 py-3 text-base font-normal text-ink placeholder:text-ink/60 transition-colors hover:border-white"
             />
           </label>
-          <input type="hidden" name="_template" value="box" />
+          <input
+            type="checkbox"
+            name="botcheck"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
           <button
             type="submit"
             disabled={isSubmitting}

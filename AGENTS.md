@@ -58,7 +58,7 @@ Import alias `@/*` → `./src/*`. Most copy lives in `src/constants.ts`; change 
 
 ## Behaviour that must not regress
 
-- Contact form: required Name/Email/Message, existing FormSubmit endpoint, loading/success/error states, `aria-busy`. Never send a real message during QA.
+- Contact form: required Name/Email/Message, Web3Forms endpoint (key in `src/lib/site.ts`), loading/success/error states, `aria-busy`. Never send a real message during QA.
 - Navigation: desktop menu from `lg` (1024px), hamburger below; mobile menu with focus trap, Escape, focus return, inert background.
 - New routes open at the top; same-page anchors may scroll smoothly; Back/Forward restoration preserved.
 - Metadata, canonical URLs (www), OG/Twitter images, JSON-LD, robots and sitemap stay consistent with the routes; site-wide values come from `src/lib/site.ts`.
