@@ -22,6 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const canonical = `/work/${project.slug}`;
+  const ogImage = `/work/${project.slug}/og.png`;
+  const ogAlt = `${project.name} case study by Robert Gizelo`;
 
   return {
     title: `${project.name}: ${project.kind}`,
@@ -32,13 +34,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${project.name} — Robert Gizelo`,
       description: project.summary,
       url: canonical,
-      images: [{ url: project.cover.src, alt: project.cover.alt }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: ogAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.name} — Robert Gizelo`,
       description: project.summary,
-      images: [project.cover.src],
+      images: [{ url: ogImage, alt: ogAlt }],
     },
   };
 }

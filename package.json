@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "og:images": "node scripts/og-images.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",

@@ -31,6 +31,7 @@ src/constants.ts      site content: navigation, skills, products, case studies
 src/types.ts          shared types
 src/lib/utils.ts      cn() helper (clsx + tailwind-merge)
 public/               images, OG images, brand assets
+scripts/og-images.mjs regenerates the OG images (pnpm og:images); its copy mirrors constants.ts
 ```
 
 Import alias `@/*` → `./src/*`. Most copy lives in `src/constants.ts`; change content there rather than in components.
@@ -64,7 +65,3 @@ Import alias `@/*` → `./src/*`. Most copy lives in `src/constants.ts`; change 
 - Prettier: double quotes, semicolons, trailing commas, 100-char width, 2-space indent.
 - Commits: `type: description` with lowercase description (`feat`, `fix`, `refactor`, `style`, `chore`).
 - Code, comments and commits in English.
-
-## Cleanup candidates
-
-`dist/` (old Vite build output) and empty `src/pages`, `src/hooks`, `src/components/ui`, `src/components/animations` are leftovers from the Vite version.
