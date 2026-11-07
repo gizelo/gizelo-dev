@@ -1,9 +1,11 @@
+import type { StaticImageData } from "next/image";
+
 export type ProjectSlug = "girex" | "gimecs" | "house-of-smile" | "chocolatin-labs";
 
 export type ProductRole = "solo" | "lead" | "team";
 
 export type ProjectImage = {
-  src: string;
+  src: StaticImageData;
   alt: string;
   caption?: string;
 };
@@ -24,7 +26,11 @@ export type Product = {
   website?: string;
 };
 
-export type CaseStudy = {
+type CaseStudyHero =
+  | { cover: ProjectImage; phones?: never }
+  | { phones: ProjectImage[]; cover?: never };
+
+export type CaseStudy = CaseStudyHero & {
   slug: ProjectSlug;
   name: string;
   kind: string;
@@ -40,8 +46,6 @@ export type CaseStudy = {
   problem: string;
   myPart: string;
   outcome: string;
-  cover: ProjectImage;
-  phones?: ProjectImage[];
   screens: ProjectImage[];
   built: string[];
   scale?: { value: string; label: string }[];

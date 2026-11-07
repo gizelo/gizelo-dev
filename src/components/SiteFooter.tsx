@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 const SiteFooter = () => (
   <footer className="border-t border-ink/10 bg-white py-8">
@@ -9,25 +10,25 @@ const SiteFooter = () => (
           Home
         </Link>
         <a
-          href="https://github.com/gizelo"
+          href={site.social.github}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="focus-ring hover:text-ink"
         >
           GitHub
         </a>
         <a
-          href="https://www.linkedin.com/in/gizelo/"
+          href={site.social.linkedin}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="focus-ring hover:text-ink"
         >
           LinkedIn
         </a>
         <a
-          href="https://t.me/gizelo"
+          href={site.social.telegram}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="focus-ring hover:text-ink"
         >
           Telegram

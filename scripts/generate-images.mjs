@@ -1,4 +1,4 @@
-// Regenerates the social preview images: node scripts/og-images.mjs (macOS, needs `sips`).
+// Regenerates the social preview images and app icons: pnpm images (macOS, needs `sips`).
 // Copy is duplicated from src/constants.ts on purpose; keep both in sync when it changes.
 import { createElement as h } from "react";
 import { ImageResponse } from "next/og.js";
@@ -13,9 +13,8 @@ const electric = "#123CFF";
 const tmp = mkdtempSync(join(tmpdir(), "og-"));
 
 // Satori cannot decode WebP, so every source goes through sips as PNG first.
-const load = (src) => {
-  const file = join("public", src);
-  const png = extname(file) === ".png" ? file : join(tmp, `${src.replaceAll("/", "_")}.png`);
+const load = (file) => {
+  const png = extname(file) === ".png" ? file : join(tmp, `${file.replaceAll("/", "_")}.png`);
   if (png !== file)
     execFileSync("sips", ["-s", "format", "png", file, "--out", png], { stdio: "ignore" });
   const info = execFileSync("sips", ["-g", "pixelWidth", "-g", "pixelHeight", png]).toString();
@@ -28,9 +27,11 @@ const fit = (image, maxWidth, maxHeight) => {
   return { width: Math.round(image.width * scale), height: Math.round(image.height * scale) };
 };
 
+const toBuffer = async (tree, width, height) =>
+  Buffer.from(await new ImageResponse(tree, { width, height }).arrayBuffer());
+
 const render = async (tree, out) => {
-  const image = new ImageResponse(tree, { width: 1200, height: 630 });
-  writeFileSync(out, Buffer.from(await image.arrayBuffer()));
+  writeFileSync(out, await toBuffer(tree, 1200, 630));
   console.log(out);
 };
 
@@ -145,8 +146,8 @@ await caseImage({
   kind: "Stablecoin cards and payments · Web and iOS",
   role: "lead",
   visual: [
-    shot(load("/work/girex/native/02-card-plus-usd.png"), phone, { shadow: false }),
-    shot(load("/work/girex/native/01-home.png"), phone, { shadow: false }),
+    shot(load("src/assets/work/girex/native/02-card-plus-usd.png"), phone, { shadow: false }),
+    shot(load("src/assets/work/girex/native/01-home.png"), phone, { shadow: false }),
   ],
 });
 await caseImage({
@@ -154,24 +155,24 @@ await caseImage({
   name: "Welding Program Designer & WPS",
   kind: "Desktop and web app",
   role: "solo",
-  visual: [shot(load("/work/gimecs/program-execute.jpg"), well)],
+  visual: [shot(load("src/assets/work/gimecs/program-execute.jpg"), well)],
 });
 await caseImage({
   slug: "house-of-smile",
   name: "House of Smile",
   kind: "Dental clinic website",
   role: "solo",
-  visual: [shot(load("/work/house-of-smile/home.webp"), well)],
+  visual: [shot(load("src/assets/work/house-of-smile/home.webp"), well)],
 });
 await caseImage({
   slug: "chocolatin-labs",
   name: "Chocolatin Labs",
   kind: "Breeder website with CMS",
   role: "solo",
-  visual: [shot(load("/work/chocolatin-labs/home.webp"), well)],
+  visual: [shot(load("src/assets/work/chocolatin-labs/home.webp"), well)],
 });
 
-const portrait = load("/robert-gizelo-portrait-final.jpg");
+const portrait = load("public/robert-gizelo-portrait-final.jpg");
 await render(
   h(
     "div",
@@ -220,3 +221,49 @@ await render(
   ),
   "public/og-image.png",
 );
+
+const asterisk = `data:image/svg+xml;base64,${readFileSync("src/app/icon.svg").toString("base64")}`;
+const icon = (size, { background, inset }) =>
+  toBuffer(
+    h(
+      "div",
+      {
+        style: {
+          display: "flex",
+          width: size,
+          height: size,
+          alignItems: "center",
+          justifyContent: "center",
+          background,
+        },
+      },
+      h("img", { src: asterisk, width: size - inset * 2, height: size - inset * 2 }),
+    ),
+    size,
+    size,
+  );
+
+writeFileSync("src/app/apple-icon.png", await icon(180, { background: ink, inset: 34 }));
+console.log("src/app/apple-icon.png");
+
+// ICO files may embed PNG data directly; every browser that still asks for favicon.ico reads it.
+const sizes = [16, 32, 48];
+const pngs = await Promise.all(
+  sizes.map((size) => icon(size, { background: "transparent", inset: 0 })),
+);
+const header = Buffer.alloc(6 + sizes.length * 16);
+header.writeUInt16LE(1, 2);
+header.writeUInt16LE(sizes.length, 4);
+let offset = header.length;
+sizes.forEach((size, index) => {
+  const entry = 6 + index * 16;
+  header.writeUInt8(size, entry);
+  header.writeUInt8(size, entry + 1);
+  header.writeUInt16LE(1, entry + 4);
+  header.writeUInt16LE(32, entry + 6);
+  header.writeUInt32LE(pngs[index].length, entry + 8);
+  header.writeUInt32LE(offset, entry + 12);
+  offset += pngs[index].length;
+});
+writeFileSync("src/app/favicon.ico", Buffer.concat([header, ...pngs]));
+console.log("src/app/favicon.ico");

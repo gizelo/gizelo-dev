@@ -5,9 +5,14 @@ import { ProjectImage } from "@/types";
 type GirexMobileShowcaseProps = {
   images: ProjectImage[];
   compact?: boolean;
+  priority?: boolean;
 };
 
-const GirexMobileShowcase = ({ images, compact = false }: GirexMobileShowcaseProps) => (
+const GirexMobileShowcase = ({
+  images,
+  compact = false,
+  priority = false,
+}: GirexMobileShowcaseProps) => (
   <div
     className={cn(
       "mx-auto grid w-full grid-cols-[1fr_1.08fr_1fr] items-end",
@@ -15,7 +20,7 @@ const GirexMobileShowcase = ({ images, compact = false }: GirexMobileShowcasePro
     )}
   >
     {images.map((image, index) => (
-      <div key={image.src} className={cn(index !== 1 && "pb-6 sm:pb-10")}>
+      <div key={image.src.src} className={cn(index !== 1 && "pb-6 sm:pb-10")}>
         <ResponsiveImage
           {...image}
           className="h-auto w-full object-contain"
@@ -24,7 +29,7 @@ const GirexMobileShowcase = ({ images, compact = false }: GirexMobileShowcasePro
               ? "(max-width: 1024px) 30vw, 18vw"
               : "(max-width: 640px) 31vw, (max-width: 1280px) 30vw, 390px"
           }
-          eager
+          priority={priority}
         />
       </div>
     ))}

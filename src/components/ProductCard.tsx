@@ -121,7 +121,6 @@ const ProductCard = ({ product, variant }: ProductCardProps) => {
         <ProductVisual
           product={product}
           sizes="(max-width: 1024px) 100vw, 58vw"
-          eager
           className="aspect-[16/10] lg:col-span-7 lg:aspect-auto lg:min-h-[520px]"
         />
         <div className="flex flex-col p-6 sm:p-8 lg:col-span-5 lg:order-first lg:p-12">

@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { site } from "@/lib/site";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -55,9 +56,9 @@ const ContactForm = () => {
           </h2>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://www.linkedin.com/in/gizelo/"
+              href={site.social.linkedin}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="focus-ring-inverse inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white"
             >
               <Image
@@ -71,17 +72,17 @@ const ContactForm = () => {
               LinkedIn
             </a>
             <a
-              href="https://github.com/gizelo"
+              href={site.social.github}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="focus-ring-inverse inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white"
             >
               GitHub
             </a>
             <a
-              href="https://t.me/gizelo"
+              href={site.social.telegram}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="focus-ring-inverse inline-flex min-h-11 items-center gap-2 border border-white/25 px-4 py-3 text-sm font-semibold text-white hover:border-white"
             >
               <Image

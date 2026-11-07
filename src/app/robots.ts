@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://www.gizelo.dev/sitemap.xml",
-    host: "https://www.gizelo.dev",
+    sitemap: absoluteUrl("/sitemap.xml"),
   };
 }

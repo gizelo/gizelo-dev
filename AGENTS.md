@@ -24,14 +24,17 @@ There is no automated test suite. Before handing over a change run `format:check
 ## Structure
 
 ```
-src/app/              routes: / , /work/[slug], robots.ts, sitemap.ts, not-found
-src/views/            page-level views (HomePage, case study pages)
-src/components/       shared components (SiteHeader, SiteFooter, ProductCard, RoleLabel, ContactForm, …)
-src/constants.ts      site content: navigation, skills, products, case studies
-src/types.ts          shared types
-src/lib/utils.ts      cn() helper (clsx + tailwind-merge)
-public/               images, OG images, brand assets
-scripts/og-images.mjs regenerates the OG images (pnpm og:images); its copy mirrors constants.ts
+src/app/                    routes: / , /work/[slug], robots.ts, sitemap.ts, not-found; icon.svg, apple-icon.png, favicon.ico
+src/views/                  page-level views (HomePage, case study pages)
+src/components/             shared components (SiteHeader, SiteFooter, ProductCard, RoleLabel, ContactForm, JsonLd, …)
+src/constants.ts            site content: navigation, skills, services, process, products, case studies
+src/assets/work/            product screenshots, imported statically (dimensions and hashed URLs come from the build)
+src/lib/site.ts             site URL, name, description, social links and URL helpers
+src/lib/structured-data.ts  JSON-LD for the home page and case studies
+src/types.ts                shared types
+src/lib/utils.ts            cn() helper (clsx + tailwind-merge)
+public/                     files that need stable URLs: OG images, portrait, logo and brand icons
+scripts/generate-images.mjs regenerates OG images and app icons (pnpm images); its copy mirrors constants.ts
 ```
 
 Import alias `@/*` → `./src/*`. Most copy lives in `src/constants.ts`; change content there rather than in components.
@@ -58,7 +61,9 @@ Import alias `@/*` → `./src/*`. Most copy lives in `src/constants.ts`; change 
 - Contact form: required Name/Email/Message, existing FormSubmit endpoint, loading/success/error states, `aria-busy`. Never send a real message during QA.
 - Navigation: desktop menu from `lg` (1024px), hamburger below; mobile menu with focus trap, Escape, focus return, inert background.
 - New routes open at the top; same-page anchors may scroll smoothly; Back/Forward restoration preserved.
-- Metadata, canonical URLs (www), OG/Twitter images, robots and sitemap stay consistent with the routes.
+- Metadata, canonical URLs (www), OG/Twitter images, JSON-LD, robots and sitemap stay consistent with the routes; site-wide values come from `src/lib/site.ts`.
+- Only the page's LCP image gets `priority`; everything below the first screen loads lazily.
+- Lighthouse stays at 100 for accessibility, best practices and SEO on every page.
 
 ## Conventions
 

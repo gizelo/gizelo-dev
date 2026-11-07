@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { site } from "@/lib/site";
 import "@/index.css";
 
 const inter = Inter({
@@ -16,45 +17,31 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const isVercelDeployment = process.env.VERCEL === "1";
-const siteDescription =
-  "I build web, mobile and desktop apps end to end with React, Next.js, TypeScript and Node.js. See the products I’ve built, solo, as lead developer and in teams.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.gizelo.dev"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Robert Gizelo — Full-Stack Developer",
-    template: "%s — Robert Gizelo",
+    default: site.title,
+    template: `%s — ${site.name}`,
   },
-  description: siteDescription,
-  alternates: {
-    canonical: "/",
-  },
+  description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Robert Gizelo",
-    title: "Robert Gizelo — Full-Stack Developer",
-    description: siteDescription,
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
     url: "/",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Robert Gizelo — Full-Stack Developer",
-      },
-    ],
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.title }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Robert Gizelo — Full-Stack Developer",
-    description: siteDescription,
-    images: ["/og-image.png"],
-  },
-  icons: {
-    icon: "/asterisk-color.svg",
-    shortcut: "/asterisk-color.svg",
-    apple: "/asterisk-color.svg",
+    title: site.title,
+    description: site.description,
+    images: [{ url: site.ogImage, alt: site.title }],
   },
 };
 

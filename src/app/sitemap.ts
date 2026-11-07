@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/constants";
+import { absoluteUrl, caseStudyOgImage, caseStudyPath, site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", ...caseStudies.map(({ slug }) => `/work/${slug}`)];
-
-  return routes.map((route) => ({
-    url: `https://www.gizelo.dev${route}`,
-    changeFrequency: "monthly",
-    priority: route ? 0.8 : 1,
-  }));
+  return [
+    { url: absoluteUrl(), images: [absoluteUrl(site.ogImage)] },
+    ...caseStudies.map(({ slug }) => ({
+      url: absoluteUrl(caseStudyPath(slug)),
+      images: [absoluteUrl(caseStudyOgImage(slug))],
+    })),
+  ];
 }

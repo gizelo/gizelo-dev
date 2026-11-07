@@ -10,8 +10,6 @@ lerna-debug.log*
 node_modules
 .next
 tsconfig.tsbuildinfo
-dist
-dist-ssr
 *.local
 
 # Editor directories and files
@@ -26,3 +24,6 @@ dist-ssr
 *.sw?
 .qodo
 .vercel
+
+# Local QA and design output
+/output/

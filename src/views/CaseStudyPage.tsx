@@ -8,6 +8,7 @@ import ProjectCta from "@/components/ProjectCta";
 import RoleLabel from "@/components/RoleLabel";
 import { caseStudies } from "@/constants";
 import { CaseStudy } from "@/types";
+import { cn } from "@/lib/utils";
 
 type CaseStudyPageProps = {
   project: CaseStudy;
@@ -76,12 +77,18 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
                 {facts.map(([label, value], index) => (
                   <div key={label} className="contents">
                     <dt
-                      className={`py-3 text-sm text-ink/60 ${index > 0 ? "border-t border-ink/15" : ""}`}
+                      className={cn(
+                        "py-3 text-sm text-ink/60",
+                        index > 0 && "border-t border-ink/15",
+                      )}
                     >
                       {label}
                     </dt>
                     <dd
-                      className={`m-0 py-3 text-[15px] font-medium ${index > 0 ? "border-t border-ink/15" : ""}`}
+                      className={cn(
+                        "m-0 py-3 text-[15px] font-medium",
+                        index > 0 && "border-t border-ink/15",
+                      )}
                     >
                       {value}
                     </dd>
@@ -92,16 +99,16 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
 
             <figure className="mt-10 bg-ink/[0.04] lg:mt-14">
               {project.phones ? (
-                <GirexMobileShowcase images={project.phones} />
+                <GirexMobileShowcase images={project.phones} priority />
               ) : (
                 <ResponsiveImage
                   {...project.cover}
                   className="h-auto w-full"
                   sizes="(max-width: 1320px) 100vw, 1240px"
-                  eager
+                  priority
                 />
               )}
-              {project.cover.caption && !project.phones && (
+              {project.cover?.caption && (
                 <figcaption className="bg-white pt-3 text-sm text-ink/60">
                   {project.cover.caption}
                 </figcaption>
@@ -137,7 +144,7 @@ const CaseStudyPage = ({ project }: CaseStudyPageProps) => {
                   const wide = index === 0 && project.screens.length % 2 === 1;
 
                   return (
-                    <figure key={screen.src} className={wide ? "md:col-span-2" : undefined}>
+                    <figure key={screen.src.src} className={wide ? "md:col-span-2" : undefined}>
                       <ResponsiveImage
                         {...screen}
                         className="h-auto w-full"

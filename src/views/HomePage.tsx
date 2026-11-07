@@ -1,62 +1,13 @@
 import Image from "next/image";
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  Code,
-  MonitorSmartphone,
-  ScanText,
-  Wrench,
-} from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ContactForm from "@/components/ContactForm";
 import ProductCard from "@/components/ProductCard";
 import ProjectCta from "@/components/ProjectCta";
 import SectionLink from "@/components/SectionLink";
-import { featuredProductCount, products, skills } from "@/constants";
-
-const whatIDo = [
-  {
-    icon: Code,
-    title: "Web apps and MVPs",
-    body: "From the first version to release, with the backend and database behind it.",
-  },
-  {
-    icon: MonitorSmartphone,
-    title: "Mobile and desktop apps",
-    body: "iOS apps in React Native and Expo. Offline desktop apps in Electron that talk to real hardware.",
-  },
-  {
-    icon: ScanText,
-    title: "AI integrations",
-    body: "I use an LLM to read PDFs and CVs and fill in the form, so people only check and save.",
-  },
-  {
-    icon: Wrench,
-    title: "Improving existing apps",
-    body: "New features, fixes and cleanup in an existing codebase, alongside your team or as extra hands for a studio.",
-  },
-];
-
-const howIWork = [
-  {
-    title: "Understand the problem",
-    body: "Whether it’s a ticket or an idea, I start by asking who it’s for and what has to work.",
-  },
-  {
-    title: "Agree on a plan",
-    body: "What to build first, what can wait and how long it takes. Written down, so everyone can check it.",
-  },
-  {
-    title: "Build in small steps",
-    body: "Working versions early and often, so feedback comes in while changes are still cheap.",
-  },
-  {
-    title: "Release and hand over",
-    body: "I take it to production and make sure the team or the owner can run it without me.",
-  },
-];
+import { featuredProductCount, howIWork, products, skills, whatIDo } from "@/constants";
+import { site } from "@/lib/site";
 
 const sectionTitle = "text-4xl font-bold leading-none tracking-[-0.045em] md:text-5xl lg:text-6xl";
 
@@ -172,7 +123,7 @@ const HomePage = () => {
               ))}
             </ul>
             <a
-              href="https://github.com/gizelo"
+              href={site.social.github}
               target="_blank"
               rel="noopener noreferrer"
               className="focus-ring mt-8 inline-flex min-h-11 items-center gap-2 font-semibold text-electric hover:text-electric-dark sm:mt-12"

@@ -1,4 +1,25 @@
+import { Code, MonitorSmartphone, ScanText, Wrench } from "lucide-react";
 import { CaseStudy, Product } from "@/types";
+import girexNativeCardPlusUsd from "@/assets/work/girex/native/02-card-plus-usd.png";
+import girexNativeHome from "@/assets/work/girex/native/01-home.png";
+import girexNativeSwapQuote from "@/assets/work/girex/native/09-swap-quote.png";
+import gimecsProgramExecute from "@/assets/work/gimecs/program-execute.jpg";
+import contributionsPactos from "@/assets/work/contributions/pactos.webp";
+import houseOfSmileHome from "@/assets/work/house-of-smile/home.webp";
+import chocolatinLabsHome from "@/assets/work/chocolatin-labs/home.webp";
+import contributionsSmartteach from "@/assets/work/contributions/smartteach.webp";
+import contributionsZelusWallet from "@/assets/work/contributions/zelus-wallet.webp";
+import web3InvestDashboard from "@/assets/work/web3-invest/dashboard.jpg";
+import girexCurrentDashboard from "@/assets/work/girex/current/dashboard.webp";
+import girexCurrentWalletHistory from "@/assets/work/girex/current/wallet-history.webp";
+import girexCurrentCardTopUp from "@/assets/work/girex/current/card-top-up.webp";
+import gimecsProgramEdit from "@/assets/work/gimecs/program-edit.jpg";
+import gimecsWpsMonitoring from "@/assets/work/gimecs/wps-monitoring.jpg";
+import gimecsWpsSpecification from "@/assets/work/gimecs/wps-specification.jpg";
+import houseOfSmileServices from "@/assets/work/house-of-smile/services.webp";
+import houseOfSmileAbout from "@/assets/work/house-of-smile/about.webp";
+import chocolatinLabsDogs from "@/assets/work/chocolatin-labs/dogs.webp";
+import chocolatinLabsPuppies from "@/assets/work/chocolatin-labs/puppies.webp";
 
 export const navLinks = [
   { name: "Work", href: "/#work" },
@@ -9,14 +30,56 @@ export const navLinks = [
 
 const girexPhones = [
   {
-    src: "/work/girex/native/02-card-plus-usd.png",
+    src: girexNativeCardPlusUsd,
     alt: "Girex iOS card screen with top-up and card actions",
   },
-  { src: "/work/girex/native/01-home.png", alt: "Girex iOS home with balance, cards and wallets" },
-  { src: "/work/girex/native/09-swap-quote.png", alt: "Girex iOS swap with rate and fee" },
+  { src: girexNativeHome, alt: "Girex iOS home with balance, cards and wallets" },
+  { src: girexNativeSwapQuote, alt: "Girex iOS swap with rate and fee" },
 ];
 
 export const skills = ["React", "Next.js", "TypeScript", "Node.js", "React Native"];
+
+export const whatIDo = [
+  {
+    icon: Code,
+    title: "Web apps and MVPs",
+    body: "From the first version to release, with the backend and database behind it.",
+  },
+  {
+    icon: MonitorSmartphone,
+    title: "Mobile and desktop apps",
+    body: "iOS apps in React Native and Expo. Offline desktop apps in Electron that talk to real hardware.",
+  },
+  {
+    icon: ScanText,
+    title: "AI integrations",
+    body: "I use an LLM to read PDFs and CVs and fill in the form, so people only check and save.",
+  },
+  {
+    icon: Wrench,
+    title: "Improving existing apps",
+    body: "New features, fixes and cleanup in an existing codebase, alongside your team or as extra hands for a studio.",
+  },
+];
+
+export const howIWork = [
+  {
+    title: "Understand the problem",
+    body: "Whether it’s a ticket or an idea, I start by asking who it’s for and what has to work.",
+  },
+  {
+    title: "Agree on a plan",
+    body: "What to build first, what can wait and how long it takes. Written down, so everyone can check it.",
+  },
+  {
+    title: "Build in small steps",
+    body: "Working versions early and often, so feedback comes in while changes are still cheap.",
+  },
+  {
+    title: "Release and hand over",
+    body: "I take it to production and make sure the team or the owner can run it without me.",
+  },
+];
 
 export const products: Product[] = [
   {
@@ -46,7 +109,7 @@ export const products: Product[] = [
     myPart:
       "Built both alone, from scratch: from learning the domain to a working app and client demos.",
     image: {
-      src: "/work/gimecs/program-execute.jpg",
+      src: gimecsProgramExecute,
       alt: "Welding Program Designer running a program with live machine gauges and a task list",
     },
     caseSlug: "gimecs",
@@ -63,7 +126,7 @@ export const products: Product[] = [
     myPart:
       "In a team of about ten, built AI autofill of candidate profiles from CVs end to end (UI, backend and prompt) and worked on timesheets and approvals.",
     image: {
-      src: "/work/contributions/pactos.webp",
+      src: contributionsPactos,
       alt: "Pactos contingent workforce platform homepage",
     },
     website: "https://www.pactos.ai/en",
@@ -77,7 +140,7 @@ export const products: Product[] = [
     role: "solo",
     myPart: "Noticed the outdated site, offered a redesign and did all of it in a month.",
     image: {
-      src: "/work/house-of-smile/home.webp",
+      src: houseOfSmileHome,
       alt: "House of Smile dental clinic homepage with team portrait and booking button",
     },
     caseSlug: "house-of-smile",
@@ -93,7 +156,7 @@ export const products: Product[] = [
     role: "solo",
     myPart: "Built the site, the CMS and the enquiry forms, working from a designer’s layouts.",
     image: {
-      src: "/work/chocolatin-labs/home.webp",
+      src: chocolatinLabsHome,
       alt: "Chocolatin Labs homepage with the breeder and a Labrador puppy",
     },
     caseSlug: "chocolatin-labs",
@@ -110,7 +173,7 @@ export const products: Product[] = [
     myPart:
       "Front end for the launch: teacher modules, complex forms and tables, design-system components, accessibility and translations.",
     image: {
-      src: "/work/contributions/smartteach.webp",
+      src: contributionsSmartteach,
       alt: "SmartTeach early-learning platform homepage",
     },
     website: "https://teachingstrategies.com/platform/",
@@ -126,7 +189,7 @@ export const products: Product[] = [
     myPart:
       "Front end on the web and in React Native: onboarding, portfolio and the NFT marketplace.",
     image: {
-      src: "/work/contributions/zelus-wallet.webp",
+      src: contributionsZelusWallet,
       alt: "Zelus Wallet product homepage",
     },
     website: "https://www.zelus.io/solutions/zelus-wallet",
@@ -142,7 +205,7 @@ export const products: Product[] = [
     myPart:
       "Built the whole front end from scratch, paired with one backend developer, plus a designer and a project manager.",
     image: {
-      src: "/work/web3-invest/dashboard.jpg",
+      src: web3InvestDashboard,
       alt: "Web3 Invest Dashboard with contracts, reports and investment cards",
     },
   },
@@ -168,24 +231,20 @@ export const caseStudies: CaseStudy[] = [
       "I estimated scope and timeline, found the developers and the designer and split the work into stages. I was the main developer on the web app, backend and iOS app, and reviewed the front-end developer’s code.",
     outcome:
       "The web beta is in production: early users create accounts and cards and pay with them. The iOS app is in TestFlight.",
-    cover: {
-      src: "/work/girex/native/cover.png",
-      alt: "Girex iOS app with card, home and swap screens in iPhone mockups",
-    },
     phones: girexPhones,
     screens: [
       {
-        src: "/work/girex/current/dashboard.webp",
+        src: girexCurrentDashboard,
         alt: "Girex web dashboard with wallets, card balance and frequent actions",
         caption: "Web: wallets and cards on one screen.",
       },
       {
-        src: "/work/girex/current/wallet-history.webp",
+        src: girexCurrentWalletHistory,
         alt: "Girex web wallet with deposit, withdrawal, swap and transaction history",
         caption: "Web: wallet activity.",
       },
       {
-        src: "/work/girex/current/card-top-up.webp",
+        src: girexCurrentCardTopUp,
         alt: "Girex card top-up with amount, rate and fee",
         caption: "Web: topping up a card.",
       },
@@ -219,23 +278,23 @@ export const caseStudies: CaseStudy[] = [
     outcome:
       "Gimecs sold and installed the app at a few of its customers, who now use it in their work.",
     cover: {
-      src: "/work/gimecs/program-execute.jpg",
+      src: gimecsProgramExecute,
       alt: "Welding Program Designer running a welding program with live machine gauges and the task list",
       caption: "Desktop app: running a welding program with live machine values.",
     },
     screens: [
       {
-        src: "/work/gimecs/program-edit.jpg",
+        src: gimecsProgramEdit,
         alt: "Program editor with start and finish positions for each pass",
         caption: "Desktop app: editing program positions and passes.",
       },
       {
-        src: "/work/gimecs/wps-monitoring.jpg",
+        src: gimecsWpsMonitoring,
         alt: "Web app monitoring a welding machine with current, voltage, wire feed and travel speed gauges",
         caption: "Web app: live monitoring of a welding machine.",
       },
       {
-        src: "/work/gimecs/wps-specification.jpg",
+        src: gimecsWpsSpecification,
         alt: "Web app editing a welding procedure specification",
         caption: "Web app: editing a welding procedure specification.",
       },
@@ -273,17 +332,17 @@ export const caseStudies: CaseStudy[] = [
     outcome:
       "Live on the clinic’s own domain since July 2026, with Doctolib booking visible across the site.",
     cover: {
-      src: "/work/house-of-smile/home.webp",
+      src: houseOfSmileHome,
       alt: "House of Smile dental clinic homepage with team portrait and booking button",
     },
     screens: [
       {
-        src: "/work/house-of-smile/services.webp",
+        src: houseOfSmileServices,
         alt: "House of Smile services page presenting dental treatment categories",
         caption: "Services explained for patients.",
       },
       {
-        src: "/work/house-of-smile/about.webp",
+        src: houseOfSmileAbout,
         alt: "House of Smile about page presenting the clinic team and practice",
         caption: "The team and the practice.",
       },
@@ -314,17 +373,17 @@ export const caseStudies: CaseStudy[] = [
     outcome:
       "Live. The breeder manages all content, the only running cost is the domain, and enquiries have already come in through the site.",
     cover: {
-      src: "/work/chocolatin-labs/home.webp",
+      src: chocolatinLabsHome,
       alt: "Chocolatin Labs homepage with the breeder and a Labrador puppy",
     },
     screens: [
       {
-        src: "/work/chocolatin-labs/dogs.webp",
+        src: chocolatinLabsDogs,
         alt: "Chocolatin Labs dog catalogue with filters and availability states",
         caption: "A catalogue managed in the CMS.",
       },
       {
-        src: "/work/chocolatin-labs/puppies.webp",
+        src: chocolatinLabsPuppies,
         alt: "Chocolatin Labs puppy and litter pages",
         caption: "Litters and puppies that stay current.",
       },
