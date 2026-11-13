@@ -199,7 +199,7 @@ const HomePage = () => {
             <h2 className={sectionTitle}>About me.</h2>
             <div className="max-w-2xl text-xl leading-relaxed tracking-[-0.01em] sm:text-2xl">
               <p>
-                I’ve been building software for over six years. What I enjoy most is owning a
+                I’ve been building software for over five years. What I enjoy most is owning a
                 product end to end: understanding the problem, choosing the stack and getting it
                 released.
               </p>
