@@ -264,7 +264,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Gimecs GmbH",
     role: "solo",
     roleTitle: "Full-Stack Developer (Freelance)",
-    timeline: "Sep–Dec 2025",
+    timeline: "Apr 2025–Jan 2026",
     stack: "Electron, React, TypeScript, MUI, Node.js, Express, MongoDB, node-opcua, Anthropic API",
     status: "In use at Gimecs customers",
     summary:
